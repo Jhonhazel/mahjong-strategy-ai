@@ -1,0 +1,72 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+___________ test_hand_calculated_metrics_and_zero_support_convention ___________
+
+    def test_hand_calculated_metrics_and_zero_support_convention():
+>       from training.metrics import classification_metrics
+E       ModuleNotFoundError: No module named 'training.metrics'
+
+tests/test_phase2_metrics.py:16: ModuleNotFoundError
+_______ test_top3_uses_only_available_legal_classes_and_ties_are_stable ________
+
+    def test_top3_uses_only_available_legal_classes_and_ties_are_stable():
+>       from training.metrics import classification_metrics, rank_legal_classes
+E       ModuleNotFoundError: No module named 'training.metrics'
+
+tests/test_phase2_metrics.py:36: ModuleNotFoundError
+______________ test_invalid_metric_inputs_fail_explicitly[empty] _______________
+
+tamper = 'empty'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "nan", "unnormalized"])
+    def test_invalid_metric_inputs_fail_explicitly(tamper):
+>       from training.metrics import classification_metrics
+E       ModuleNotFoundError: No module named 'training.metrics'
+
+tests/test_phase2_metrics.py:52: ModuleNotFoundError
+__________ test_invalid_metric_inputs_fail_explicitly[illegal_target] __________
+
+tamper = 'illegal_target'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "nan", "unnormalized"])
+    def test_invalid_metric_inputs_fail_explicitly(tamper):
+>       from training.metrics import classification_metrics
+E       ModuleNotFoundError: No module named 'training.metrics'
+
+tests/test_phase2_metrics.py:52: ModuleNotFoundError
+_______________ test_invalid_metric_inputs_fail_explicitly[nan] ________________
+
+tamper = 'nan'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "nan", "unnormalized"])
+    def test_invalid_metric_inputs_fail_explicitly(tamper):
+>       from training.metrics import classification_metrics
+E       ModuleNotFoundError: No module named 'training.metrics'
+
+tests/test_phase2_metrics.py:52: ModuleNotFoundError
+___________ test_invalid_metric_inputs_fail_explicitly[unnormalized] ___________
+
+tamper = 'unnormalized'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "nan", "unnormalized"])
+    def test_invalid_metric_inputs_fail_explicitly(tamper):
+>       from training.metrics import classification_metrics
+E       ModuleNotFoundError: No module named 'training.metrics'
+
+tests/test_phase2_metrics.py:52: ModuleNotFoundError
+_______ test_baselines_fit_training_only_and_are_legal_and_reproducible ________
+
+    def test_baselines_fit_training_only_and_are_legal_and_reproducible():
+>       from training.baselines import class_prior_log_probabilities, random_legal_log_probabilities
+E       ModuleNotFoundError: No module named 'training.baselines'
+
+tests/test_phase2_metrics.py:63: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_metrics.py::test_hand_calculated_metrics_and_zero_support_convention
+FAILED tests/test_phase2_metrics.py::test_top3_uses_only_available_legal_classes_and_ties_are_stable
+FAILED tests/test_phase2_metrics.py::test_invalid_metric_inputs_fail_explicitly[empty]
+FAILED tests/test_phase2_metrics.py::test_invalid_metric_inputs_fail_explicitly[illegal_target]
+FAILED tests/test_phase2_metrics.py::test_invalid_metric_inputs_fail_explicitly[nan]
+FAILED tests/test_phase2_metrics.py::test_invalid_metric_inputs_fail_explicitly[unnormalized]
+FAILED tests/test_phase2_metrics.py::test_baselines_fit_training_only_and_are_legal_and_reproducible
+7 failed in 0.11s

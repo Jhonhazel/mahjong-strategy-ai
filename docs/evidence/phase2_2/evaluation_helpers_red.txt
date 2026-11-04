@@ -1,0 +1,33 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+____ test_single_model_saved_record_recalculation_has_hand_computed_metrics ____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-82/test_single_model_saved_record0')
+
+    def test_single_model_saved_record_recalculation_has_hand_computed_metrics(tmp_path):
+        from training.expanded_evaluation import recalculate_saved_predictions
+        path=tmp_path/'single.jsonl.gz'
+        records=[]
+        for target,probabilities in [(0,[.8,.2]),(1,[.6,.4])]:
+            records.append({'target_class':target,'legal_classes':[0,1],'predicted_class':0,'top3':[0,1],'target_log_probability':math.log(probabilities[target]),'class_scores':probabilities+[0.]*32})
+        with gzip.open(path,'wt') as stream:
+            for row in records:stream.write(json.dumps(row)+'\n')
+>       result=recalculate_saved_predictions(path,single_model_name='candidate_v3')['candidate_v3']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: recalculate_saved_predictions() got an unexpected keyword argument 'single_model_name'
+
+tests/test_phase2_2_evaluation.py:16: TypeError
+_______ test_generic_paired_bootstrap_preserves_actual_comparison_names ________
+
+    def test_generic_paired_bootstrap_preserves_actual_comparison_names():
+        from training.expanded_evaluation import match_bootstrap
+        counts={'a':{'n':10,'correct':{'reference_E0':3,'candidate_v3':7}},'b':{'n':2,'correct':{'reference_E0':1,'candidate_v3':1}}}
+>       result=match_bootstrap(counts,100,2026,reference_model='reference_E0',candidate_model='candidate_v3')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: match_bootstrap() got an unexpected keyword argument 'reference_model'
+
+tests/test_phase2_2_evaluation.py:26: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_evaluation.py::test_single_model_saved_record_recalculation_has_hand_computed_metrics
+FAILED tests/test_phase2_2_evaluation.py::test_generic_paired_bootstrap_preserves_actual_comparison_names
+2 failed in 1.22s

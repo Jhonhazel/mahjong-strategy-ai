@@ -1,0 +1,6 @@
+{
+  "status": "PAUSED",
+  "actual_full_training_samples": 1400549,
+  "actual_epoch_seconds": 12.271419124910608,
+  "note": "Operational pause after first real epoch; same protocol/optimizer/RNG state resumes E0 without changing hyperparameters"
+}

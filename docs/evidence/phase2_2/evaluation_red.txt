@@ -1,0 +1,147 @@
+..FFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+__ test_candidate_freeze_and_matched_development_comparison_are_reproducible ___
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x1186c7f20>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-84/test_candidate_freeze_and_matc0/v3.pt'))
+
+    def test_candidate_freeze_and_matched_development_comparison_are_reproducible(completed_matrix):
+>       from training.optimization_evaluation import prepare_candidate,compare_models
+E       ModuleNotFoundError: No module named 'training.optimization_evaluation'
+
+tests/test_phase2_2_evaluation.py:48: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.99, "disk_free": 6073741312}
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.028}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.032}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.049}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.048}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.028}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.054}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.051}
+_ test_optimization_evaluation_rejects_saved_evidence_tampering[candidate_v3_predictions.jsonl.gz] _
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x118655790>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-84/test_optimization_evaluation_r0/v3.pt'))
+artifact = 'candidate_v3_predictions.jsonl.gz'
+
+    @pytest.mark.parametrize('artifact',['candidate_v3_predictions.jsonl.gz','reference_E0_analysis.json','confidence_intervals.json'])
+    def test_optimization_evaluation_rejects_saved_evidence_tampering(completed_matrix,artifact):
+>       from training.optimization_evaluation import prepare_candidate,compare_models
+E       ModuleNotFoundError: No module named 'training.optimization_evaluation'
+
+tests/test_phase2_2_evaluation.py:64: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.033}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.049}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.048}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.029}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.056}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.027}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.051}
+_ test_optimization_evaluation_rejects_saved_evidence_tampering[reference_E0_analysis.json] _
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x1187f8290>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-84/test_optimization_evaluation_r1/v3.pt'))
+artifact = 'reference_E0_analysis.json'
+
+    @pytest.mark.parametrize('artifact',['candidate_v3_predictions.jsonl.gz','reference_E0_analysis.json','confidence_intervals.json'])
+    def test_optimization_evaluation_rejects_saved_evidence_tampering(completed_matrix,artifact):
+>       from training.optimization_evaluation import prepare_candidate,compare_models
+E       ModuleNotFoundError: No module named 'training.optimization_evaluation'
+
+tests/test_phase2_2_evaluation.py:64: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.068}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.05}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.049}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.029}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.055}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.048}
+_ test_optimization_evaluation_rejects_saved_evidence_tampering[confidence_intervals.json] _
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x1188a1af0>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-84/test_optimization_evaluation_r2/v3.pt'))
+artifact = 'confidence_intervals.json'
+
+    @pytest.mark.parametrize('artifact',['candidate_v3_predictions.jsonl.gz','reference_E0_analysis.json','confidence_intervals.json'])
+    def test_optimization_evaluation_rejects_saved_evidence_tampering(completed_matrix,artifact):
+>       from training.optimization_evaluation import prepare_candidate,compare_models
+E       ModuleNotFoundError: No module named 'training.optimization_evaluation'
+
+tests/test_phase2_2_evaluation.py:64: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.033}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.049}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.067}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.029}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.054}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.048}
+__________________ test_changed_candidate_cannot_be_refrozen ___________________
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x118809520>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-84/test_changed_candidate_cannot_0/v3.pt'))
+
+    def test_changed_candidate_cannot_be_refrozen(completed_matrix):
+>       from training.optimization_evaluation import prepare_candidate
+E       ModuleNotFoundError: No module named 'training.optimization_evaluation'
+
+tests/test_phase2_2_evaluation.py:74: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.031}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.048}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.048}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.028}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.054}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.025}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.048}
+_____ test_saved_v2_is_not_accepted_as_unseen_reference_on_new_development _____
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x118512390>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-84/test_saved_v2_is_not_accepted_0/v3.pt'))
+
+    def test_saved_v2_is_not_accepted_as_unseen_reference_on_new_development(completed_matrix):
+        from app.model_checkpoint import load_checkpoint
+        from training.optimization_data import development_splits
+>       from training.optimization_evaluation import assert_model_evaluation_allowed
+E       ModuleNotFoundError: No module named 'training.optimization_evaluation'
+
+tests/test_phase2_2_evaluation.py:83: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.027}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.034}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.057}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.057}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.029}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.061}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.027}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.051}
+______________ test_prediction_write_failure_cannot_publish_pass _______________
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x117bfb950>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-84/test_prediction_write_failure_0/v3.pt'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1188bae10>
+
+    def test_prediction_write_failure_cannot_publish_pass(completed_matrix,monkeypatch):
+>       import training.optimization_evaluation as module
+E       ModuleNotFoundError: No module named 'training.optimization_evaluation'
+
+tests/test_phase2_2_evaluation.py:90: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.025}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.032}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.052}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.055}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.028}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.056}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.032}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.048}
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_evaluation.py::test_candidate_freeze_and_matched_development_comparison_are_reproducible
+FAILED tests/test_phase2_2_evaluation.py::test_optimization_evaluation_rejects_saved_evidence_tampering[candidate_v3_predictions.jsonl.gz]
+FAILED tests/test_phase2_2_evaluation.py::test_optimization_evaluation_rejects_saved_evidence_tampering[reference_E0_analysis.json]
+FAILED tests/test_phase2_2_evaluation.py::test_optimization_evaluation_rejects_saved_evidence_tampering[confidence_intervals.json]
+FAILED tests/test_phase2_2_evaluation.py::test_changed_candidate_cannot_be_refrozen
+FAILED tests/test_phase2_2_evaluation.py::test_saved_v2_is_not_accepted_as_unseen_reference_on_new_development
+FAILED tests/test_phase2_2_evaluation.py::test_prediction_write_failure_cannot_publish_pass
+7 failed, 2 passed in 10.62s

@@ -1,0 +1,196 @@
+EEEEEEEEEEEE                                                             [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_predictions_are_legal_normalized_readonly_and_model_is_cached _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_predictions_are_legal_nor0')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+_ ERROR at setup of test_service_rejects_incompatible_encoded_state[obs_shape] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati0')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+_ ERROR at setup of test_service_rejects_incompatible_encoded_state[obs_dtype] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati1')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+_ ERROR at setup of test_service_rejects_incompatible_encoded_state[mask_shape] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati2')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+_ ERROR at setup of test_service_rejects_incompatible_encoded_state[mask_dtype] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati3')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+_ ERROR at setup of test_service_rejects_incompatible_encoded_state[mask_disagreement] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati4')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+__ ERROR at setup of test_service_rejects_incompatible_encoded_state[encoder] __
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati5')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+___ ERROR at setup of test_service_rejects_incompatible_encoded_state[seat] ____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati6')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+___ ERROR at setup of test_service_rejects_incompatible_encoded_state[turn] ____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati7')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+_ ERROR at setup of test_service_rejects_incompatible_encoded_state[obs_values] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_rejects_incompati8')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+______ ERROR at setup of test_service_handles_no_legal_discard_explicitly ______
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_service_handles_no_legal_0')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+_ ERROR at setup of test_inference_and_normal_gameplay_complete_round_with_post_meld_turns _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_inference_and_normal_game0')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    @pytest.fixture
+    def prediction_service(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint
+>       from app.services.ai_prediction_service import AIDiscardPredictionService
+E       ModuleNotFoundError: No module named 'app.services.ai_prediction_service'
+
+tests/test_phase2_inference.py:15: ModuleNotFoundError
+=========================== short test summary info ============================
+ERROR tests/test_phase2_inference.py::test_predictions_are_legal_normalized_readonly_and_model_is_cached
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[obs_shape]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[obs_dtype]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[mask_shape]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[mask_dtype]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[mask_disagreement]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[encoder]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[seat]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[turn]
+ERROR tests/test_phase2_inference.py::test_service_rejects_incompatible_encoded_state[obs_values]
+ERROR tests/test_phase2_inference.py::test_service_handles_no_legal_discard_explicitly
+ERROR tests/test_phase2_inference.py::test_inference_and_normal_gameplay_complete_round_with_post_meld_turns
+12 errors in 2.26s

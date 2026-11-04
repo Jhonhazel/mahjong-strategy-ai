@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "tests": {
+    "total": 279,
+    "seconds": 73.65,
+    "focused_total": 61,
+    "focused_seconds": 47.23,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "by_phase": {
+      "Phase1": 90,
+      "Phase2": 69,
+      "Phase2.1": 59,
+      "Phase2.2": 61
+    },
+    "junit_sha256": "6aa2aca589563f0b0dfd4bf9c2af259fd0303a6d6cd470b4104ee37fb91c775d"
+  },
+  "preserved_files": 1624,
+  "decision": "PROMOTE_V3",
+  "model_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720"
+}

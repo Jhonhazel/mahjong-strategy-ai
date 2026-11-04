@@ -1,0 +1,154 @@
+..FFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_reverification_rejects_missing_or_changed_saved_evidence[missing_freeze] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-40/test_reverification_rejects_mi0')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+tamper = 'missing_freeze'
+
+    @pytest.mark.parametrize("tamper", ["missing_freeze", "missing_predictions", "empty_predictions", "changed_freeze"])
+    def test_reverification_rejects_missing_or_changed_saved_evidence(tmp_path, checkpoint_fixture, tamper):
+        from training.evaluate_mlp import evaluate_checkpoint
+        checkpoint, root, reports = save_unit_checkpoint(tmp_path, checkpoint_fixture)
+        evaluate_checkpoint(checkpoint, root, reports)
+        if tamper == "missing_freeze":
+            (reports / "model_freeze.json").unlink()
+        elif tamper == "missing_predictions":
+            (reports / "test_predictions.json").unlink()
+        elif tamper == "empty_predictions":
+            (reports / "test_predictions.json").write_text('{"predictions":[]}')
+        else:
+            freeze = json.loads((reports / "model_freeze.json").read_text())
+            freeze["training_config"]["seed"] += 1
+            (reports / "model_freeze.json").write_text(json.dumps(freeze))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_evaluation.py:70: Failed
+_ test_reverification_rejects_missing_or_changed_saved_evidence[missing_predictions] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-40/test_reverification_rejects_mi1')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+tamper = 'missing_predictions'
+
+    @pytest.mark.parametrize("tamper", ["missing_freeze", "missing_predictions", "empty_predictions", "changed_freeze"])
+    def test_reverification_rejects_missing_or_changed_saved_evidence(tmp_path, checkpoint_fixture, tamper):
+        from training.evaluate_mlp import evaluate_checkpoint
+        checkpoint, root, reports = save_unit_checkpoint(tmp_path, checkpoint_fixture)
+        evaluate_checkpoint(checkpoint, root, reports)
+        if tamper == "missing_freeze":
+            (reports / "model_freeze.json").unlink()
+        elif tamper == "missing_predictions":
+            (reports / "test_predictions.json").unlink()
+        elif tamper == "empty_predictions":
+            (reports / "test_predictions.json").write_text('{"predictions":[]}')
+        else:
+            freeze = json.loads((reports / "model_freeze.json").read_text())
+            freeze["training_config"]["seed"] += 1
+            (reports / "model_freeze.json").write_text(json.dumps(freeze))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_evaluation.py:70: Failed
+_ test_reverification_rejects_missing_or_changed_saved_evidence[empty_predictions] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-40/test_reverification_rejects_mi2')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+tamper = 'empty_predictions'
+
+    @pytest.mark.parametrize("tamper", ["missing_freeze", "missing_predictions", "empty_predictions", "changed_freeze"])
+    def test_reverification_rejects_missing_or_changed_saved_evidence(tmp_path, checkpoint_fixture, tamper):
+        from training.evaluate_mlp import evaluate_checkpoint
+        checkpoint, root, reports = save_unit_checkpoint(tmp_path, checkpoint_fixture)
+        evaluate_checkpoint(checkpoint, root, reports)
+        if tamper == "missing_freeze":
+            (reports / "model_freeze.json").unlink()
+        elif tamper == "missing_predictions":
+            (reports / "test_predictions.json").unlink()
+        elif tamper == "empty_predictions":
+            (reports / "test_predictions.json").write_text('{"predictions":[]}')
+        else:
+            freeze = json.loads((reports / "model_freeze.json").read_text())
+            freeze["training_config"]["seed"] += 1
+            (reports / "model_freeze.json").write_text(json.dumps(freeze))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_evaluation.py:70: Failed
+_ test_reverification_rejects_missing_or_changed_saved_evidence[changed_freeze] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-40/test_reverification_rejects_mi3')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+tamper = 'changed_freeze'
+
+    @pytest.mark.parametrize("tamper", ["missing_freeze", "missing_predictions", "empty_predictions", "changed_freeze"])
+    def test_reverification_rejects_missing_or_changed_saved_evidence(tmp_path, checkpoint_fixture, tamper):
+        from training.evaluate_mlp import evaluate_checkpoint
+        checkpoint, root, reports = save_unit_checkpoint(tmp_path, checkpoint_fixture)
+        evaluate_checkpoint(checkpoint, root, reports)
+        if tamper == "missing_freeze":
+            (reports / "model_freeze.json").unlink()
+        elif tamper == "missing_predictions":
+            (reports / "test_predictions.json").unlink()
+        elif tamper == "empty_predictions":
+            (reports / "test_predictions.json").write_text('{"predictions":[]}')
+        else:
+            freeze = json.loads((reports / "model_freeze.json").read_text())
+            freeze["training_config"]["seed"] += 1
+            (reports / "model_freeze.json").write_text(json.dumps(freeze))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_evaluation.py:70: Failed
+_ test_metadata_write_failure_cannot_publish_pass_and_same_frozen_model_can_resume _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-40/test_metadata_write_failure_ca0')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x116b2d1f0>
+
+    def test_metadata_write_failure_cannot_publish_pass_and_same_frozen_model_can_resume(tmp_path, checkpoint_fixture, monkeypatch):
+        from training import evaluate_mlp as module
+        checkpoint, root, reports = save_unit_checkpoint(tmp_path, checkpoint_fixture)
+        metadata_path = checkpoint.with_suffix(".metadata.json")
+        real_writer = module.write_json_report
+        def fail_metadata(path, value):
+            if Path(path) == metadata_path:
+                raise OSError("unit metadata publication failure")
+            return real_writer(path, value)
+        with monkeypatch.context() as patch:
+            patch.setattr(module, "write_json_report", fail_metadata)
+            with pytest.raises(OSError, match="publication failure"):
+                module.evaluate_checkpoint(checkpoint, root, reports)
+>       assert json.loads((reports / "evaluation_metrics.json").read_text())["status"] == "FAIL"
+E       AssertionError: assert 'PASS' == 'FAIL'
+E         
+E         - FAIL
+E         + PASS
+
+tests/test_phase2_evaluation.py:87: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_evaluation.py::test_reverification_rejects_missing_or_changed_saved_evidence[missing_freeze]
+FAILED tests/test_phase2_evaluation.py::test_reverification_rejects_missing_or_changed_saved_evidence[missing_predictions]
+FAILED tests/test_phase2_evaluation.py::test_reverification_rejects_missing_or_changed_saved_evidence[empty_predictions]
+FAILED tests/test_phase2_evaluation.py::test_reverification_rejects_missing_or_changed_saved_evidence[changed_freeze]
+FAILED tests/test_phase2_evaluation.py::test_metadata_write_failure_cannot_publish_pass_and_same_frozen_model_can_resume
+5 failed, 2 passed in 2.43s

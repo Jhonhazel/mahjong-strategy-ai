@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "device": "mps",
+  "epochs_executed": 18,
+  "best_epoch": 8,
+  "stop_reason": "validation_patience",
+  "elapsed_seconds": 3.230458667036146
+}

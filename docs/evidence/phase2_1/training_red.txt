@@ -1,0 +1,120 @@
+FFFFFFFFFFF                                                              [100%]
+=================================== FAILURES ===================================
+_______ test_sharded_loader_only_exposes_train_validation_before_freeze ________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/expanded-training0/expanded')
+
+    def test_sharded_loader_only_exposes_train_validation_before_freeze(expanded_root):
+>       from training.expanded_training import ShardCorpus
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:35: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.96, "disk_free": 7735013376}
+_______ test_batches_are_bounded_float32_legal_and_reproducibly_shuffled _______
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/expanded-training0/expanded')
+
+    def test_batches_are_bounded_float32_legal_and_reproducibly_shuffled(expanded_root):
+>       from training.expanded_training import ShardCorpus
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:46: ModuleNotFoundError
+___ test_nested_learning_curve_subsets_are_match_complete_and_training_only ____
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/expanded-training0/expanded')
+
+    def test_nested_learning_curve_subsets_are_match_complete_and_training_only(expanded_root):
+>       from training.expanded_training import ShardCorpus, nested_match_subset
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:63: ModuleNotFoundError
+_______ test_streaming_metrics_equal_existing_independent_batch_metrics ________
+
+    def test_streaming_metrics_equal_existing_independent_batch_metrics():
+>       from training.expanded_training import MetricAccumulator
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:74: ModuleNotFoundError
+_ test_streaming_metrics_reject_invalid_probabilities_or_targets[illegal_target] _
+
+kind = 'illegal_target'
+
+    @pytest.mark.parametrize("kind",["illegal_target","unnormalized","nonfinite"])
+    def test_streaming_metrics_reject_invalid_probabilities_or_targets(kind):
+>       from training.expanded_training import MetricAccumulator
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:94: ModuleNotFoundError
+_ test_streaming_metrics_reject_invalid_probabilities_or_targets[unnormalized] _
+
+kind = 'unnormalized'
+
+    @pytest.mark.parametrize("kind",["illegal_target","unnormalized","nonfinite"])
+    def test_streaming_metrics_reject_invalid_probabilities_or_targets(kind):
+>       from training.expanded_training import MetricAccumulator
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:94: ModuleNotFoundError
+__ test_streaming_metrics_reject_invalid_probabilities_or_targets[nonfinite] ___
+
+kind = 'nonfinite'
+
+    @pytest.mark.parametrize("kind",["illegal_target","unnormalized","nonfinite"])
+    def test_streaming_metrics_reject_invalid_probabilities_or_targets(kind):
+>       from training.expanded_training import MetricAccumulator
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:94: ModuleNotFoundError
+_ test_real_streamed_training_updates_weights_selects_validation_and_reloads_cpu _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/test_real_streamed_training_up0')
+
+    def test_real_streamed_training_updates_weights_selects_validation_and_reloads_cpu(expanded_root,tmp_path):
+>       from training.expanded_training import ShardCorpus, train_sharded, evaluate_stream
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:105: ModuleNotFoundError
+_______ test_epoch_checkpoint_resume_matches_uninterrupted_cpu_training ________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/test_epoch_checkpoint_resume_m0')
+
+    def test_epoch_checkpoint_resume_matches_uninterrupted_cpu_training(expanded_root,tmp_path):
+>       from training.expanded_training import ShardCorpus,train_sharded
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:125: ModuleNotFoundError
+_________ test_training_rejects_heldout_split_before_accessing_targets _________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/test_training_rejects_heldout_0')
+
+    def test_training_rejects_heldout_split_before_accessing_targets(tmp_path):
+>       from training.expanded_training import train_sharded
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:140: ModuleNotFoundError
+________ test_loader_rejects_corrupt_expanded_contract_before_training _________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/test_loader_rejects_corrupt_ex0')
+
+    def test_loader_rejects_corrupt_expanded_contract_before_training(expanded_root,tmp_path):
+>       from training.expanded_training import ShardCorpus
+E       ModuleNotFoundError: No module named 'training.expanded_training'
+
+tests/test_phase2_1_training.py:150: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_training.py::test_sharded_loader_only_exposes_train_validation_before_freeze
+FAILED tests/test_phase2_1_training.py::test_batches_are_bounded_float32_legal_and_reproducibly_shuffled
+FAILED tests/test_phase2_1_training.py::test_nested_learning_curve_subsets_are_match_complete_and_training_only
+FAILED tests/test_phase2_1_training.py::test_streaming_metrics_equal_existing_independent_batch_metrics
+FAILED tests/test_phase2_1_training.py::test_streaming_metrics_reject_invalid_probabilities_or_targets[illegal_target]
+FAILED tests/test_phase2_1_training.py::test_streaming_metrics_reject_invalid_probabilities_or_targets[unnormalized]
+FAILED tests/test_phase2_1_training.py::test_streaming_metrics_reject_invalid_probabilities_or_targets[nonfinite]
+FAILED tests/test_phase2_1_training.py::test_real_streamed_training_updates_weights_selects_validation_and_reloads_cpu
+FAILED tests/test_phase2_1_training.py::test_epoch_checkpoint_resume_matches_uninterrupted_cpu_training
+FAILED tests/test_phase2_1_training.py::test_training_rejects_heldout_split_before_accessing_targets
+FAILED tests/test_phase2_1_training.py::test_loader_rejects_corrupt_expanded_contract_before_training
+11 failed in 2.08s

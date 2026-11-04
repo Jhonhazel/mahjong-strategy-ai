@@ -1,0 +1,9 @@
+{
+  "samples": 2048,
+  "seconds": 0.02540412498638034,
+  "samples_per_second": 80616.8290030841,
+  "maximum_float32_batch_bytes": 176448,
+  "maximum_shard_rows": 7657,
+  "max_rss_bytes": 407552000,
+  "storage_policy": "One compressed shard on CPU; float32 conversion/transfer only for each batch; num_workers=0"
+}

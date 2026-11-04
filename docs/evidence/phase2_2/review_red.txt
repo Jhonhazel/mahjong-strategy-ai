@@ -1,0 +1,275 @@
+FFFFFFFFFF                                                               [100%]
+=================================== FAILURES ===================================
+____ test_diagnostics_cannot_rewrite_protocol_bound_lineage[protocol.json] _____
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/test_diagnostics_cannot_rewrit0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10dfe9010>
+marker = 'protocol.json'
+
+    @pytest.mark.parametrize('marker',['protocol.json','model_freeze.json'])
+    def test_diagnostics_cannot_rewrite_protocol_bound_lineage(expanded_root,tmp_path,monkeypatch,marker):
+        import training.optimization_analysis as module
+        output=tmp_path/'diagnostics';output.mkdir()
+        (output/marker).write_text('{}')
+        lineage=output/'evaluation_lineage.json';lineage.write_text('{"trajectory_group_keys":{"a":"a"}}')
+        before={p.name:p.read_bytes() for p in output.iterdir()}
+        monkeypatch.setattr(module,'load_checkpoint',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('injected later failure')))
+        with pytest.raises(ValueError,match='protocol|frozen|bound'):
+>           module.run_error_analysis(expanded_root,output)
+
+tests/test_phase2_2_data_analysis.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_analysis.py:127: in run_error_analysis
+    model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_phase2_2_data_analysis.py:119: in <lambda>
+    monkeypatch.setattr(module,'load_checkpoint',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('injected later failure')))
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x10e040130>
+
+>   monkeypatch.setattr(module,'load_checkpoint',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('injected later failure')))
+E   RuntimeError: injected later failure
+
+tests/test_phase2_2_data_analysis.py:119: RuntimeError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 1.46, "disk_free": 4548976640}
+__ test_diagnostics_cannot_rewrite_protocol_bound_lineage[model_freeze.json] ___
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/test_diagnostics_cannot_rewrit1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10e0e4aa0>
+marker = 'model_freeze.json'
+
+    @pytest.mark.parametrize('marker',['protocol.json','model_freeze.json'])
+    def test_diagnostics_cannot_rewrite_protocol_bound_lineage(expanded_root,tmp_path,monkeypatch,marker):
+        import training.optimization_analysis as module
+        output=tmp_path/'diagnostics';output.mkdir()
+        (output/marker).write_text('{}')
+        lineage=output/'evaluation_lineage.json';lineage.write_text('{"trajectory_group_keys":{"a":"a"}}')
+        before={p.name:p.read_bytes() for p in output.iterdir()}
+        monkeypatch.setattr(module,'load_checkpoint',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('injected later failure')))
+        with pytest.raises(ValueError,match='protocol|frozen|bound'):
+>           module.run_error_analysis(expanded_root,output)
+
+tests/test_phase2_2_data_analysis.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_analysis.py:127: in run_error_analysis
+    model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_phase2_2_data_analysis.py:119: in <lambda>
+    monkeypatch.setattr(module,'load_checkpoint',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('injected later failure')))
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x10e0e4040>
+
+>   monkeypatch.setattr(module,'load_checkpoint',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('injected later failure')))
+E   RuntimeError: injected later failure
+
+tests/test_phase2_2_data_analysis.py:119: RuntimeError
+_ test_diagnostics_rejects_protected_output_before_read_or_write[artifacts/phase2] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/test_diagnostics_rejects_prote0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10e0e6600>
+protected = 'artifacts/phase2'
+
+    @pytest.mark.parametrize('protected',['artifacts/phase2','artifacts/phase2_1/nested','datasets/old'])
+    def test_diagnostics_rejects_protected_output_before_read_or_write(tmp_path,monkeypatch,protected):
+        import training.optimization_analysis as module
+        monkeypatch.chdir(tmp_path);output=tmp_path/protected;output.mkdir(parents=True)
+        sentinel=output/'keep.json';sentinel.write_text('{"preserved":true}')
+        monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+        with pytest.raises(ValueError,match='protected'):
+>           module.run_error_analysis(tmp_path/'unused',output)
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/jhonhazel/mahjong-strategy-ai/training/optimization_analysis.py:123: in run_error_analysis
+    corpus=DevelopmentCorpus(dataset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:130: in <lambda>
+    monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x10e0e7f70>
+
+>   monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+E   RuntimeError: must reject before dataset read
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:130: RuntimeError
+_ test_diagnostics_rejects_protected_output_before_read_or_write[artifacts/phase2_1/nested] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/test_diagnostics_rejects_prote1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10e0f5b20>
+protected = 'artifacts/phase2_1/nested'
+
+    @pytest.mark.parametrize('protected',['artifacts/phase2','artifacts/phase2_1/nested','datasets/old'])
+    def test_diagnostics_rejects_protected_output_before_read_or_write(tmp_path,monkeypatch,protected):
+        import training.optimization_analysis as module
+        monkeypatch.chdir(tmp_path);output=tmp_path/protected;output.mkdir(parents=True)
+        sentinel=output/'keep.json';sentinel.write_text('{"preserved":true}')
+        monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+        with pytest.raises(ValueError,match='protected'):
+>           module.run_error_analysis(tmp_path/'unused',output)
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/jhonhazel/mahjong-strategy-ai/training/optimization_analysis.py:123: in run_error_analysis
+    corpus=DevelopmentCorpus(dataset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:130: in <lambda>
+    monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x10e0f4220>
+
+>   monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+E   RuntimeError: must reject before dataset read
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:130: RuntimeError
+_ test_diagnostics_rejects_protected_output_before_read_or_write[datasets/old] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/test_diagnostics_rejects_prote2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10e0f5c40>
+protected = 'datasets/old'
+
+    @pytest.mark.parametrize('protected',['artifacts/phase2','artifacts/phase2_1/nested','datasets/old'])
+    def test_diagnostics_rejects_protected_output_before_read_or_write(tmp_path,monkeypatch,protected):
+        import training.optimization_analysis as module
+        monkeypatch.chdir(tmp_path);output=tmp_path/protected;output.mkdir(parents=True)
+        sentinel=output/'keep.json';sentinel.write_text('{"preserved":true}')
+        monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+        with pytest.raises(ValueError,match='protected'):
+>           module.run_error_analysis(tmp_path/'unused',output)
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/jhonhazel/mahjong-strategy-ai/training/optimization_analysis.py:123: in run_error_analysis
+    corpus=DevelopmentCorpus(dataset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:130: in <lambda>
+    monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <tuple_iterator object at 0x10e0f7910>
+
+>   monkeypatch.setattr(module,'DevelopmentCorpus',lambda *a,**k:(_ for _ in ()).throw(RuntimeError('must reject before dataset read')))
+E   RuntimeError: must reject before dataset read
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase2_2_data_analysis.py:130: RuntimeError
+__________ test_failed_comparison_verification_replaces_previous_pass __________
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x117501bb0>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/test_failed_comparison_verific0/v3.pt'))
+
+    def test_failed_comparison_verification_replaces_previous_pass(completed_matrix):
+        from training.optimization_evaluation import prepare_candidate,compare_models
+        from training.optimization_data import development_splits
+        corpus,output,checkpoint=completed_matrix;frozen=prepare_candidate(corpus,output,checkpoint)
+        models={'reference_E0':Path(frozen['reference_checkpoint']),'candidate_v3':checkpoint};split=development_splits(corpus,0)[1]
+        compare_models(corpus,split,models,output/'development','internal_group_development',bootstrap_samples=20)
+        status=output/'development/reverification.json';status.write_text('{"status":"PASS"}')
+        leaf=output/'development/candidate_v3_predictions.jsonl.gz';leaf.write_bytes(leaf.read_bytes()+b'tampered')
+        with pytest.raises(ValueError,match='evidence changed'):
+            compare_models(corpus,split,models,output/'development','internal_group_development',bootstrap_samples=20,verify_existing=True)
+>       assert json.loads(status.read_text())['status']=='FAIL'
+E       AssertionError: assert 'PASS' == 'FAIL'
+E         
+E         - FAIL
+E         + PASS
+
+tests/test_phase2_2_evaluation.py:146: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 1.2, "disk_free": 4548485120}
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.043}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.045}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.063}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.067}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.035}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.092}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.033}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.063}
+___ test_frozen_final_verification_rejects_development_leaf_changes[corrupt] ___
+
+frozen_finalization = (<module 'training.optimization_finalize' from '/Users/jhonhazel/mahjong-strategy-ai/training/optimization_finalize.py.../T/pytest-of-jhonhazel/pytest-92/test_frozen_final_verification0/final/development/candidate_v3_predictions.jsonl.gz'))
+change = 'corrupt'
+
+    @pytest.mark.parametrize('change',['corrupt','delete'])
+    def test_frozen_final_verification_rejects_development_leaf_changes(frozen_finalization,change):
+        module,output,checkpoint,leaf=frozen_finalization
+        if change=='delete':leaf.unlink()
+        else:leaf.write_bytes(b'corrupted development evidence')
+>       with pytest.raises(ValueError,match='evidence changed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:183: Failed
+___ test_frozen_final_verification_rejects_development_leaf_changes[delete] ____
+
+frozen_finalization = (<module 'training.optimization_finalize' from '/Users/jhonhazel/mahjong-strategy-ai/training/optimization_finalize.py.../T/pytest-of-jhonhazel/pytest-92/test_frozen_final_verification1/final/development/candidate_v3_predictions.jsonl.gz'))
+change = 'delete'
+
+    @pytest.mark.parametrize('change',['corrupt','delete'])
+    def test_frozen_final_verification_rejects_development_leaf_changes(frozen_finalization,change):
+        module,output,checkpoint,leaf=frozen_finalization
+        if change=='delete':leaf.unlink()
+        else:leaf.write_bytes(b'corrupted development evidence')
+>       with pytest.raises(ValueError,match='evidence changed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:183: Failed
+____________ test_failed_final_verification_replaces_previous_pass _____________
+
+frozen_finalization = (<module 'training.optimization_finalize' from '/Users/jhonhazel/mahjong-strategy-ai/training/optimization_finalize.py.../T/pytest-of-jhonhazel/pytest-92/test_failed_final_verification0/final/development/candidate_v3_predictions.jsonl.gz'))
+
+    def test_failed_final_verification_replaces_previous_pass(frozen_finalization):
+        module,output,checkpoint,leaf=frozen_finalization
+        status=output/'reverification.json';status.write_text('{"status":"PASS"}')
+        checkpoint.with_suffix('.metadata.json').write_text('{"changed":true}')
+        with pytest.raises(ValueError,match='metadata changed'):
+            module.finish_optimization('unused',output,checkpoint,'unused.xml',verify_existing=True)
+>       assert json.loads(status.read_text())['status']=='FAIL'
+E       AssertionError: assert 'PASS' == 'FAIL'
+E         
+E         - FAIL
+E         + PASS
+
+tests/test_phase2_2_evaluation.py:193: AssertionError
+_____ test_regression_gate_rejects_real_missing_family_and_duplicate_cases _____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-92/test_regression_gate_rejects_r0')
+
+    def test_regression_gate_rejects_real_missing_family_and_duplicate_cases(tmp_path):
+        import xml.etree.ElementTree as ET
+        from training.optimization_finalize import regression_evidence
+        source=ET.parse(Path('docs/evidence/phase2_2/pre_review_full.xml')).getroot()
+        omitted=0
+        for suite in source.iter('testsuite'):
+            for case in list(suite):
+                if case.tag=='testcase' and case.attrib['classname']=='tests.test_phase2_1_evaluation':suite.remove(case);omitted+=1
+            suite.set('tests',str(len(suite.findall('testcase'))))
+        assert omitted==11
+        path=tmp_path/'incomplete.xml';ET.ElementTree(source).write(path)
+>       with pytest.raises(ValueError,match='incomplete|missing|inventory'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:207: Failed
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_data_analysis.py::test_diagnostics_cannot_rewrite_protocol_bound_lineage[protocol.json]
+FAILED tests/test_phase2_2_data_analysis.py::test_diagnostics_cannot_rewrite_protocol_bound_lineage[model_freeze.json]
+FAILED tests/test_phase2_2_data_analysis.py::test_diagnostics_rejects_protected_output_before_read_or_write[artifacts/phase2]
+FAILED tests/test_phase2_2_data_analysis.py::test_diagnostics_rejects_protected_output_before_read_or_write[artifacts/phase2_1/nested]
+FAILED tests/test_phase2_2_data_analysis.py::test_diagnostics_rejects_protected_output_before_read_or_write[datasets/old]
+FAILED tests/test_phase2_2_evaluation.py::test_failed_comparison_verification_replaces_previous_pass
+FAILED tests/test_phase2_2_evaluation.py::test_frozen_final_verification_rejects_development_leaf_changes[corrupt]
+FAILED tests/test_phase2_2_evaluation.py::test_frozen_final_verification_rejects_development_leaf_changes[delete]
+FAILED tests/test_phase2_2_evaluation.py::test_failed_final_verification_replaces_previous_pass
+FAILED tests/test_phase2_2_evaluation.py::test_regression_gate_rejects_real_missing_family_and_duplicate_cases
+10 failed, 20 deselected in 8.01s

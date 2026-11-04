@@ -1,0 +1,9 @@
+{
+  "samples": 200,
+  "warmup": 20,
+  "median_ms": 0.06316695362329483,
+  "p95_ms": 0.06558811292052269,
+  "maximum_ms": 0.06791693158447742,
+  "device": "cpu",
+  "includes": "Cached service preprocessing/masking/ranking; excludes model load and game creation"
+}

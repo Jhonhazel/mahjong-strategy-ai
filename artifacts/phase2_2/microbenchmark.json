@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "synthetic_throughput_only": true,
+  "rows": [
+    {
+      "device": "cpu",
+      "widths": [
+        64
+      ],
+      "batch_size": 128,
+      "measured_steps": 60,
+      "seconds": 0.034354584058746696,
+      "samples_per_second": 223550.9528180321
+    },
+    {
+      "device": "cpu",
+      "widths": [
+        64
+      ],
+      "batch_size": 256,
+      "measured_steps": 60,
+      "seconds": 0.045578000135719776,
+      "samples_per_second": 337004.69424419233
+    },
+    {
+      "device": "cpu",
+      "widths": [
+        128
+      ],
+      "batch_size": 128,
+      "measured_steps": 60,
+      "seconds": 0.04421600000932813,
+      "samples_per_second": 173692.78085715062
+    },
+    {
+      "device": "cpu",
+      "widths": [
+        128
+      ],
+      "batch_size": 256,
+      "measured_steps": 60,
+      "seconds": 0.0600941248703748,
+      "samples_per_second": 255599.0295745562
+    },
+    {
+      "device": "cpu",
+      "widths": [
+        256,
+        128
+      ],
+      "batch_size": 128,
+      "measured_steps": 60,
+      "seconds": 0.08066683309152722,
+      "samples_per_second": 95206.41514816902
+    },
+    {
+      "device": "cpu",
+      "widths": [
+        256,
+        128
+      ],
+      "batch_size": 256,
+      "measured_steps": 60,
+      "seconds": 0.10638374998234212,
+      "samples_per_second": 144382.95324755422
+    },
+    {
+      "device": "mps",
+      "widths": [
+        64
+      ],
+      "batch_size": 128,
+      "measured_steps": 60,
+      "seconds": 0.2459583750460297,
+      "samples_per_second": 31224.795653178033
+    },
+    {
+      "device": "mps",
+      "widths": [
+        64
+      ],
+      "batch_size": 256,
+      "measured_steps": 60,
+      "seconds": 0.24980824999511242,
+      "samples_per_second": 61487.16065342327
+    },
+    {
+      "device": "mps",
+      "widths": [
+        128
+      ],
+      "batch_size": 128,
+      "measured_steps": 60,
+      "seconds": 0.24443800002336502,
+      "samples_per_second": 31419.01013453675
+    },
+    {
+      "device": "mps",
+      "widths": [
+        128
+      ],
+      "batch_size": 256,
+      "measured_steps": 60,
+      "seconds": 0.2664721659384668,
+      "samples_per_second": 57642.042822389565
+    },
+    {
+      "device": "mps",
+      "widths": [
+        256,
+        128
+      ],
+      "batch_size": 128,
+      "measured_steps": 60,
+      "seconds": 0.3259079160634428,
+      "samples_per_second": 23564.938503994403
+    },
+    {
+      "device": "mps",
+      "widths": [
+        256,
+        128
+      ],
+      "batch_size": 256,
+      "measured_steps": 60,
+      "seconds": 0.3474212922155857,
+      "samples_per_second": 44211.452620090546
+    }
+  ],
+  "disk_free_bytes": 6157836288
+}

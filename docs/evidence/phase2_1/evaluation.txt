@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "samples": 194388,
+  "matches": 3816,
+  "models": {
+    "selected_v2": {
+      "nll": 1.2948686998950452,
+      "top1": 0.5717379673642405,
+      "top3": 0.8062843385394161,
+      "macro_f1_34": 0.5446192304024019,
+      "macro_f1_supported": 0.5446192304024019,
+      "legal_rate": 1.0
+    },
+    "original_phase2": {
+      "nll": 2.0414699425168297,
+      "top1": 0.3103535197645945,
+      "top3": 0.5819186369528984,
+      "macro_f1_34": 0.2165285398895416,
+      "macro_f1_supported": 0.2165285398895416,
+      "legal_rate": 1.0
+    },
+    "full_original": {
+      "nll": 1.2948686998950452,
+      "top1": 0.5717379673642405,
+      "top3": 0.8062843385394161,
+      "macro_f1_34": 0.5446192304024019,
+      "macro_f1_supported": 0.5446192304024019,
+      "legal_rate": 1.0
+    },
+    "class_prior": {
+      "nll": 2.1491892254099905,
+      "top1": 0.29108278288783257,
+      "top3": 0.5508930592423401,
+      "macro_f1_34": 0.16666177811055938,
+      "macro_f1_supported": 0.16666177811055938,
+      "legal_rate": 1.0
+    },
+    "uniform_random_legal": {
+      "nll": 2.2354590382847976,
+      "top1": 0.11342778360804165,
+      "top3": 0.3391258719674054,
+      "macro_f1_34": 0.11329645097395667,
+      "macro_f1_supported": 0.11329645097395667,
+      "legal_rate": 1.0
+    }
+  },
+  "confidence_intervals": {
+    "method": "Percentile paired bootstrap of complete matches; decision-weighted accuracy within each resampled cohort",
+    "matches": 3816,
+    "samples": 194388,
+    "resamples": 2000,
+    "seed": 2026,
+    "models": {
+      "class_prior": {
+        "top1": 0.29108278288783257,
+        "interval_95": [
+          0.2875175962134026,
+          0.29470664881927267
+        ]
+      },
+      "full_original": {
+        "top1": 0.5717379673642405,
+        "interval_95": [
+          0.5680743978657105,
+          0.575253401522477
+        ]
+      },
+      "original_phase2": {
+        "top1": 0.3103535197645945,
+        "interval_95": [
+          0.3070337158761581,
+          0.3135006207168858
+        ]
+      },
+      "selected_v2": {
+        "top1": 0.5717379673642405,
+        "interval_95": [
+          0.5680743978657105,
+          0.575253401522477
+        ]
+      },
+      "uniform_random_legal": {
+        "top1": 0.11342778360804165,
+        "interval_95": [
+          0.11184436527208418,
+          0.11498926614102367
+        ]
+      }
+    },
+    "paired_delta_selected_vs_phase2": {
+      "point": 0.2613844475996461,
+      "interval_95": [
+        0.2577966167140721,
+        0.26504729327212445
+      ]
+    },
+    "limitation": "Known-player match-disjoint cohort; intervals do not establish unseen-player generalization or Mahjong winning strength"
+  }
+}

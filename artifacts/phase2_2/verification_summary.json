@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "phase": "2.2",
+  "verified_at_utc": "2026-11-04T12:57:34.264749+00:00",
+  "new_blind_test_available": false,
+  "promotion_decision": "PROMOTE_V3",
+  "recommended_checkpoint": "artifacts/models/mahjong_discard_mlp_v3.pt",
+  "tests": {
+    "total": 279,
+    "seconds": 73.65,
+    "focused_total": 61,
+    "focused_seconds": 47.23,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "by_phase": {
+      "Phase1": 90,
+      "Phase2": 69,
+      "Phase2.1": 59,
+      "Phase2.2": 61
+    },
+    "junit_sha256": "6aa2aca589563f0b0dfd4bf9c2af259fd0303a6d6cd470b4104ee37fb91c775d"
+  },
+  "preservation": {
+    "status": "PASS",
+    "files": 1624,
+    "manifest_sha256": "5eecc1f54b9b35e3f20da00c4333162a128418a51f66e610748dd11551223141",
+    "mismatches": []
+  },
+  "checkpoints": {
+    "v1": {
+      "status": "PASS",
+      "path": "artifacts/models/mahjong_discard_mlp.pt",
+      "bytes": 361733,
+      "sha256": "e962b71b5bc031c2cfa307e9096fb763cb70e65240523a38e73254aa2563e855",
+      "metadata_sha256": "8782d0d8b06d36b86104471fc0b294677972669ad0ab3f86947dff0a39e8037b",
+      "weight_content_sha256": "8c2c02b56f7ae5a428d98558f05e7880a245ab95dd3bbcbc6b2f9447b9ef4357",
+      "parameters": 89826,
+      "architecture": {
+        "name": "MahjongDiscardMLP",
+        "architecture_version": "discard_mlp_v1",
+        "input_dim": 1368,
+        "hidden_dim": 64,
+        "output_dim": 34,
+        "activation": "ReLU",
+        "dropout": 0.2
+      }
+    },
+    "v2": {
+      "status": "PASS",
+      "path": "artifacts/models/mahjong_discard_mlp_v2.pt",
+      "bytes": 361733,
+      "sha256": "3a0356a66a81ba775291fdf38072d1c033299fa44e30328c7864addd95edcc8a",
+      "metadata_sha256": "f58d4e1cf2bcb56b4eed5bef0176b0b345c065d02e50229632258205f9532144",
+      "weight_content_sha256": "cf9467b644e7c80761df73554301bf4588ec7e7c78499fa1a6d7be4f4827068f",
+      "parameters": 89826,
+      "architecture": {
+        "name": "MahjongDiscardMLP",
+        "architecture_version": "discard_mlp_v1",
+        "input_dim": 1368,
+        "hidden_dim": 64,
+        "output_dim": 34,
+        "activation": "ReLU",
+        "dropout": 0.2
+      }
+    },
+    "v3": {
+      "status": "PASS",
+      "path": "artifacts/models/mahjong_discard_mlp_v3.pt",
+      "bytes": 1553925,
+      "sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+      "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+      "weight_content_sha256": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+      "parameters": 387746,
+      "architecture": {
+        "name": "MahjongDiscardMLP",
+        "architecture_version": "discard_mlp_flexible_v1",
+        "input_dim": 1368,
+        "hidden_dims": [
+          256,
+          128
+        ],
+        "output_dim": 34,
+        "activation": "ReLU",
+        "dropout": 0.2
+      }
+    }
+  },
+  "experiment_artifacts_verified": 8,
+  "final_evaluation_sha256": "97c62b3653ccc7bb6984790ae5df168c9dfd76448186af92e0f205b48be8a624",
+  "reverification_sha256": "ba2c941dc22e117eeb3208958010430342e2222566dc48d3b650c53177b52779",
+  "static_checks": {
+    "compileall": {
+      "status": "PASS",
+      "exit_code": 0,
+      "output": ""
+    },
+    "git_diff_check": {
+      "status": "PASS",
+      "exit_code": 0,
+      "output": ""
+    }
+  },
+  "source_sha256": {
+    "app/mlp.py": "47c4227952a7cf89c22563706d9676512870e41a2d3588cdd5449661940bd470",
+    "app/model_checkpoint.py": "2f08fe7f2e8572cf2ba07f75b685f546f34b070bc75e11c2b5fd776fc106bf14",
+    "training/expanded_training.py": "f20d73c578a38e1b2ea98034399d52f79749eacfee8641be3a972c26eb466a11",
+    "training/expanded_evaluation.py": "56f4804418067e0d114bfcc9564561629008cb48e5a3e6b635399fac307ab608",
+    "training/optimization_data.py": "19f957f322c7a3d84c671ebc6fca8e69098a1993d8292092dd88613d9c6d5f2d",
+    "training/optimization_analysis.py": "b32bde1ca545c3117a1d8f632d47406105afeeb328043d8ea7496a4fa3a49ce2",
+    "training/optimization_runner.py": "d2f5078b359dfd74d37fba05cf65a1703135a10c199f3582afba365bb841b4cf",
+    "training/optimization_evaluation.py": "632f1ad2d34e57813aae8e0bd1ebad6fdd04c0476e71c7e49e97afd99a13644a",
+    "training/optimization_finalize.py": "52e4d80a902273c2d21441ca7516839804cbe2a86cc8ade647737f845dfb760c",
+    ".gitignore": "856d2f2007fc8a87ba4c0b2526692eb78bb3357b9e7c370d5031510d89f239b8",
+    "README.md": "b0c7890c30cd1448b0946bf3cd54c70a67de1c58b66b810905464c065d809742",
+    "tests/test_phase2_2_data_analysis.py": "35b766f1db7c4276134f14f7ed56f31e67475384c8d9b99bda5345d943b2d899",
+    "tests/test_phase2_2_evaluation.py": "65caf1717285c6cf233dd791cbd74c0e6eba283549a0cbdfc1a035249c3fff4a",
+    "tests/test_phase2_2_models.py": "bc0e7d8c613573bdfbebec5cc4246f48b41ced7e4de67078b0b417a2e130bfee",
+    "tests/test_phase2_2_registry.py": "d6776316533448e6d8a5694576cd78bd91f531b015a8b4a7b7edab247f191518"
+  },
+  "git": {
+    "branch": "main",
+    "head": "49ad7a26f350126c9c3ac16daa510635b261210a",
+    "staged_paths": [],
+    "status_evidence": "docs/evidence/phase2_2/git_status_final.txt",
+    "publishing_performed": false
+  },
+  "limitations": [
+    "No new external blind test",
+    "Two development folds out of five plus one same-fold seed repetition",
+    "Known UID/repeated-state dependence",
+    "macOS CPU training/inference; other deployment platforms not tested"
+  ]
+}

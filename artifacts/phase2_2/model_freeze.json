@@ -1,0 +1,21 @@
+{
+  "status": "FROZEN",
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "dataset_contract_sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc",
+  "selection_evidence_sha256": {
+    "candidate_freeze.json": "8f362152ef1bde8afcb7033c43906cc71e997d54633183b52069c90f77d15bb2",
+    "model_selection.json": "0251c667216a9d5ab524022e16650760152531e8894c4c52da708d2744a0bd00",
+    "protocol.json": "86dee0edf45c99f58c6ade1d0870ae219b477ccad12baccbe370fac913bfd5d1",
+    "experiment_registry.json": "fd44ecc4a6834774f68e7de66959855e41b20ee52ca35de24786d55a9ec15e4a",
+    "experiment_comparison.json": "9eafea7ac6ccb7bcc29eb566bc351b87321b21ddcab806490e3922ab71847a85",
+    "trajectory_groups.json": "3112a5dcffffa6f65d468c807e8655beda58d7feef97954bacaab8973e002a4e",
+    "evaluation_lineage.json": "487030e84c74c64b98b2d874609a91453f708b381b61547a6bba34d7779a4f4b",
+    "development/metrics.json": "ba3b37721524e26dc2d9195b22570cb2defaef219dfda657c0bcbd6ab501a371",
+    "regression_evidence.json": "c85508b53dceffc5f3448802a75fab6c833c50c735c2ce29321df682390e5785",
+    "live_demo.json": "b10a7fbb0308e8792cf120092248ae6025691f13d91ac24e71237620b3072cb8",
+    "latency.json": "691682acc5e30bdc27991c51a6ec55b6df27520f748ed5b951bbe0460f095f3c"
+  },
+  "historical_test_used_for_selection": false,
+  "new_blind_test_available": false,
+  "selection_decision": "PROMOTE_V3"
+}

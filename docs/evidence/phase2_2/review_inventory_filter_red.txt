@@ -1,0 +1,27 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_regression_gate_rejects_real_missing_family_and_duplicate_cases _____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-96/test_regression_gate_rejects_r0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10d4c5ee0>
+
+    def test_regression_gate_rejects_real_missing_family_and_duplicate_cases(tmp_path,monkeypatch):
+        import xml.etree.ElementTree as ET
+        from training.optimization_finalize import regression_evidence,collect_regression_cases
+        # A caller's test selection must not narrow the expected complete inventory.
+        monkeypatch.setenv('PYTEST_ADDOPTS','-k "not test_phase2_1_evaluation"')
+        expected=collect_regression_cases()
+        def xml(cases):
+            root=ET.Element('testsuites');suite=ET.SubElement(root,'testsuite',tests=str(len(cases)),failures='0',errors='0',skipped='0')
+            for classname,name in cases:ET.SubElement(suite,'testcase',classname=classname,name=name)
+            return ET.ElementTree(root)
+        remaining=[c for c in sorted(expected) if c[0]!='tests.test_phase2_1_evaluation']
+>       assert len(expected)-len(remaining)==11
+E       AssertionError: assert (264 - 264) == 11
+E        +  where 264 = len({('tests.test_cli', 'test_automated_cli_completes_real_service_round[entry0]'), ('tests.test_cli', 'test_automated_cli...h_failure'), ('tests.test_dataset_audit', 'test_strict_corpus_metadata_is_validated_without_discarding_identity'), ...})
+E        +  and   264 = len([('tests.test_cli', 'test_automated_cli_completes_real_service_round[entry0]'), ('tests.test_cli', 'test_automated_cli...h_failure'), ('tests.test_dataset_audit', 'test_strict_corpus_metadata_is_validated_without_discarding_identity'), ...])
+
+tests/test_phase2_2_evaluation.py:209: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_evaluation.py::test_regression_gate_rejects_real_missing_family_and_duplicate_cases
+1 failed, 18 deselected in 2.49s

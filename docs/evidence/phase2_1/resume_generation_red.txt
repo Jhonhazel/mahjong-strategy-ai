@@ -1,0 +1,32 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_interrupted_resume_pointer_retains_previous_complete_checkpoint _____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-66/test_interrupted_resume_pointe0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10b586f60>
+
+    def test_interrupted_resume_pointer_retains_previous_complete_checkpoint(tmp_path,monkeypatch):
+        import training.expanded_training as module
+        path=tmp_path/"training_resume.pt"
+        module.save_training_state(path,{"history":[{"epoch":1}],"model":{"weight":torch.tensor([1.])}})
+        original=path.with_suffix(".sha256.json").read_bytes()
+        real=module.write_json_report
+        def fail(pointer,value):raise OSError("interrupted resume pointer")
+        monkeypatch.setattr(module,"write_json_report",fail)
+        with pytest.raises(OSError,match="interrupted"):
+            module.save_training_state(path,{"history":[{"epoch":1},{"epoch":2}],"model":{"weight":torch.tensor([2.])}})
+        monkeypatch.setattr(module,"write_json_report",real)
+        assert path.with_suffix(".sha256.json").read_bytes()==original
+        pointer=json.loads(original)
+        committed=path.parent/pointer.get("generation",path.name)
+>       assert hashlib.sha256(committed.read_bytes()).hexdigest()==pointer["sha256"], "Last committed generation must remain recoverable"
+E       AssertionError: Last committed generation must remain recoverable
+E       assert '06972c6d0d2b...73da05f266c11' == '2c4216add7b4...40efe1984f453'
+E         
+E         - 2c4216add7b492b832de6cae1037fb7c55d0f5fe225878b609240efe1984f453
+E         + 06972c6d0d2bf4b486c03d09b6b792a2bf38d7c8fe8fffd41b573da05f266c11
+
+tests/test_phase2_1_training.py:212: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_training.py::test_interrupted_resume_pointer_retains_previous_complete_checkpoint
+1 failed, 18 deselected in 0.98s

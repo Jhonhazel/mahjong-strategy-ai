@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "report_sections": 18,
+  "curve_epochs": 345,
+  "curve_runs": 8,
+  "missing_link_targets": [],
+  "source_hashes_unchanged_after_tests": true,
+  "frozen_junit_unchanged": true
+}

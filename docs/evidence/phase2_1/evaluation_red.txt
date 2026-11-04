@@ -1,0 +1,131 @@
+FFFFFFFFFF                                                               [100%]
+=================================== FAILURES ===================================
+___ test_frozen_common_cohort_evaluation_and_independent_saved_recalculation ___
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_frozen_common_cohort_eval0')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+
+    def test_frozen_common_cohort_evaluation_and_independent_saved_recalculation(tmp_path,frozen_fixture):
+>       from training.expanded_evaluation import evaluate_expanded,recalculate_saved_predictions
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:44: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 150, "total": 150, "samples": 6556, "seconds": 7.74, "disk_free": 9093439488}
+{"epoch": 1, "train_loss": 2.026847924504961, "train_top1_online": 0.17857142857142858, "validation_loss": 2.2586020326780525, "validation_top1": 0.1445993031358885, "validation_top3": 0.3902439024390244, "validation_macro_f1_34": 0.08975836772570238, "validation_macro_f1_supported": 0.08975836772570238, "run": "curve_50", "elapsed_seconds": 0.026}
+{"epoch": 1, "train_loss": 2.1068805347947768, "train_top1_online": 0.2673972602739726, "validation_loss": 2.04764819924009, "validation_top1": 0.28222996515679444, "validation_top3": 0.5522648083623694, "validation_macro_f1_34": 0.1700216375068751, "validation_macro_f1_supported": 0.1700216375068751, "run": "full_original", "elapsed_seconds": 0.133}
+{"epoch": 1, "train_loss": 2.106871851655446, "train_top1_online": 0.26757990867579906, "validation_loss": 2.047494514790146, "validation_top1": 0.28397212543554007, "validation_top3": 0.5522648083623694, "validation_macro_f1_34": 0.1720038794044355, "validation_macro_f1_supported": 0.1720038794044355, "run": "full_regularized", "elapsed_seconds": 0.14}
+_ test_reverification_rejects_missing_or_modified_artifacts[model_freeze.json] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_reverification_rejects_mi0')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+artifact = 'model_freeze.json'
+
+    @pytest.mark.parametrize("artifact",["model_freeze.json","test_predictions.jsonl.gz","per_class_metrics.csv","protocol.json"])
+    def test_reverification_rejects_missing_or_modified_artifacts(tmp_path,frozen_fixture,artifact):
+>       from training.expanded_evaluation import evaluate_expanded
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:63: ModuleNotFoundError
+_ test_reverification_rejects_missing_or_modified_artifacts[test_predictions.jsonl.gz] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_reverification_rejects_mi1')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+artifact = 'test_predictions.jsonl.gz'
+
+    @pytest.mark.parametrize("artifact",["model_freeze.json","test_predictions.jsonl.gz","per_class_metrics.csv","protocol.json"])
+    def test_reverification_rejects_missing_or_modified_artifacts(tmp_path,frozen_fixture,artifact):
+>       from training.expanded_evaluation import evaluate_expanded
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:63: ModuleNotFoundError
+_ test_reverification_rejects_missing_or_modified_artifacts[per_class_metrics.csv] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_reverification_rejects_mi2')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+artifact = 'per_class_metrics.csv'
+
+    @pytest.mark.parametrize("artifact",["model_freeze.json","test_predictions.jsonl.gz","per_class_metrics.csv","protocol.json"])
+    def test_reverification_rejects_missing_or_modified_artifacts(tmp_path,frozen_fixture,artifact):
+>       from training.expanded_evaluation import evaluate_expanded
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:63: ModuleNotFoundError
+___ test_reverification_rejects_missing_or_modified_artifacts[protocol.json] ___
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_reverification_rejects_mi3')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+artifact = 'protocol.json'
+
+    @pytest.mark.parametrize("artifact",["model_freeze.json","test_predictions.jsonl.gz","per_class_metrics.csv","protocol.json"])
+    def test_reverification_rejects_missing_or_modified_artifacts(tmp_path,frozen_fixture,artifact):
+>       from training.expanded_evaluation import evaluate_expanded
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:63: ModuleNotFoundError
+_ test_metadata_publication_failure_cannot_leave_pass_and_same_frozen_model_can_resume _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_metadata_publication_fail0')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10c5f4d40>
+
+    def test_metadata_publication_failure_cannot_leave_pass_and_same_frozen_model_can_resume(tmp_path,frozen_fixture,monkeypatch):
+>       import training.expanded_evaluation as module
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:73: ModuleNotFoundError
+_________ test_frozen_identity_cannot_be_changed_before_test[weights] __________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_frozen_identity_cannot_be0')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+change = 'weights'
+
+    @pytest.mark.parametrize("change",["weights","protocol","missing_freeze"])
+    def test_frozen_identity_cannot_be_changed_before_test(tmp_path,frozen_fixture,change):
+>       from training.expanded_evaluation import evaluate_expanded
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:88: ModuleNotFoundError
+_________ test_frozen_identity_cannot_be_changed_before_test[protocol] _________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_frozen_identity_cannot_be1')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+change = 'protocol'
+
+    @pytest.mark.parametrize("change",["weights","protocol","missing_freeze"])
+    def test_frozen_identity_cannot_be_changed_before_test(tmp_path,frozen_fixture,change):
+>       from training.expanded_evaluation import evaluate_expanded
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:88: ModuleNotFoundError
+______ test_frozen_identity_cannot_be_changed_before_test[missing_freeze] ______
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/test_frozen_identity_cannot_be2')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-58/fresh-evaluation0/v2.pt'))
+change = 'missing_freeze'
+
+    @pytest.mark.parametrize("change",["weights","protocol","missing_freeze"])
+    def test_frozen_identity_cannot_be_changed_before_test(tmp_path,frozen_fixture,change):
+>       from training.expanded_evaluation import evaluate_expanded
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:88: ModuleNotFoundError
+_______ test_paired_match_bootstrap_identical_models_has_zero_difference _______
+
+    def test_paired_match_bootstrap_identical_models_has_zero_difference():
+>       from training.expanded_evaluation import match_bootstrap
+E       ModuleNotFoundError: No module named 'training.expanded_evaluation'
+
+tests/test_phase2_1_evaluation.py:100: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_evaluation.py::test_frozen_common_cohort_evaluation_and_independent_saved_recalculation
+FAILED tests/test_phase2_1_evaluation.py::test_reverification_rejects_missing_or_modified_artifacts[model_freeze.json]
+FAILED tests/test_phase2_1_evaluation.py::test_reverification_rejects_missing_or_modified_artifacts[test_predictions.jsonl.gz]
+FAILED tests/test_phase2_1_evaluation.py::test_reverification_rejects_missing_or_modified_artifacts[per_class_metrics.csv]
+FAILED tests/test_phase2_1_evaluation.py::test_reverification_rejects_missing_or_modified_artifacts[protocol.json]
+FAILED tests/test_phase2_1_evaluation.py::test_metadata_publication_failure_cannot_leave_pass_and_same_frozen_model_can_resume
+FAILED tests/test_phase2_1_evaluation.py::test_frozen_identity_cannot_be_changed_before_test[weights]
+FAILED tests/test_phase2_1_evaluation.py::test_frozen_identity_cannot_be_changed_before_test[protocol]
+FAILED tests/test_phase2_1_evaluation.py::test_frozen_identity_cannot_be_changed_before_test[missing_freeze]
+FAILED tests/test_phase2_1_evaluation.py::test_paired_match_bootstrap_identical_models_has_zero_difference
+10 failed in 12.03s

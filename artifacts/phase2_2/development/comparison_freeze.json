@@ -1,0 +1,17 @@
+{
+  "dataset_contract_sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc",
+  "split_identity": "48d9fb142763e963785d8aa0f5302f5f1b3d5caa0f231f5771a66dc4564b1e50",
+  "models": {
+    "reference_E0": {
+      "checkpoint_sha256": "a2564fa2c0c85ff6ba7c83afbb16a49886f0c320d3dabf8b8c89182d3758c03a",
+      "metadata_content_sha256": "b92d3216a6ed99c7cf417eed12eaeb3de8138ce52a23ea0d671811a17896d39b"
+    },
+    "candidate_v3": {
+      "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+      "metadata_content_sha256": "822df9ac375113e89982ad64e465e6e4317740b16c2755fdfd6cff837ef9bb1e"
+    }
+  },
+  "kind": "internal_group_development",
+  "bootstrap_samples": 2000,
+  "group_keys_sha256": "60a2566958ceb34e38214a5471108a1f1c020b43bbc59e010fabd7ed40b0b074"
+}

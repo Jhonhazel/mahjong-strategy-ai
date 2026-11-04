@@ -1,0 +1,31 @@
+{
+  "decision": "PROMOTE_V3",
+  "reason": "Prespecified paired development NLL/classification/UID/latency/safety criteria satisfied",
+  "mean_nll_improvement": 0.1759663067450453,
+  "paired_nll_improvements": [
+    0.16692144033689993,
+    0.16803919655139277,
+    0.19293828334684315
+  ],
+  "mean_reference": {
+    "nll": 1.2665838244076022,
+    "top1": 0.5847224569818175,
+    "top3": 0.8106833934188534,
+    "macro_f1_34": 0.5569501835046448
+  },
+  "mean_candidate": {
+    "nll": 1.090617517662557,
+    "top1": 0.6416871856309213,
+    "top3": 0.8656544856098828,
+    "macro_f1_34": 0.620051140073255
+  },
+  "uid_safety": true,
+  "latency_p95_ms": 0.06558811292052269,
+  "test_used_for_selection": false,
+  "evaluation_kind": "internal_group_development; two folds and one same-fold seed repetition, no new blind test",
+  "candidate_checkpoint": "artifacts/models/mahjong_discard_mlp_v3.pt",
+  "candidate_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "recommended_checkpoint": "artifacts/models/mahjong_discard_mlp_v3.pt",
+  "development_metrics_sha256": "ba3b37721524e26dc2d9195b22570cb2defaef219dfda657c0bcbd6ab501a371",
+  "regression_evidence_sha256": "c85508b53dceffc5f3448802a75fab6c833c50c735c2ce29321df682390e5785"
+}

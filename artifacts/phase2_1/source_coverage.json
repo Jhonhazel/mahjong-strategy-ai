@@ -1,0 +1,139 @@
+{
+  "source_bins": [
+    {
+      "ordinal_start": 0,
+      "ordinal_end": 4441,
+      "attempted": 4442,
+      "verified": 4382,
+      "samples": 216310,
+      "status_counts": {
+        "verified_exact": 4382,
+        "excluded_abnormal_terminal": 56,
+        "invalid_label": 4
+      }
+    },
+    {
+      "ordinal_start": 4442,
+      "ordinal_end": 8883,
+      "attempted": 4442,
+      "verified": 4440,
+      "samples": 214057,
+      "status_counts": {
+        "verified_exact": 4440,
+        "excluded_abnormal_terminal": 2
+      }
+    },
+    {
+      "ordinal_start": 8884,
+      "ordinal_end": 13325,
+      "attempted": 4442,
+      "verified": 3308,
+      "samples": 167088,
+      "status_counts": {
+        "excluded_abnormal_terminal": 1133,
+        "verified_exact": 3308,
+        "invalid_label": 1
+      }
+    },
+    {
+      "ordinal_start": 13326,
+      "ordinal_end": 17767,
+      "attempted": 4442,
+      "verified": 3355,
+      "samples": 178844,
+      "status_counts": {
+        "verified_exact": 3355,
+        "excluded_abnormal_terminal": 1079,
+        "invalid_label": 8
+      }
+    },
+    {
+      "ordinal_start": 17768,
+      "ordinal_end": 22209,
+      "attempted": 4442,
+      "verified": 3055,
+      "samples": 161378,
+      "status_counts": {
+        "excluded_abnormal_terminal": 1382,
+        "verified_exact": 3055,
+        "invalid_label": 5
+      }
+    },
+    {
+      "ordinal_start": 22210,
+      "ordinal_end": 26651,
+      "attempted": 4442,
+      "verified": 3647,
+      "samples": 191577,
+      "status_counts": {
+        "verified_exact": 3647,
+        "excluded_abnormal_terminal": 792,
+        "invalid_label": 3
+      }
+    },
+    {
+      "ordinal_start": 26652,
+      "ordinal_end": 31093,
+      "attempted": 4442,
+      "verified": 3816,
+      "samples": 197864,
+      "status_counts": {
+        "verified_exact": 3816,
+        "excluded_abnormal_terminal": 623,
+        "invalid_label": 3
+      }
+    },
+    {
+      "ordinal_start": 31094,
+      "ordinal_end": 35535,
+      "attempted": 4442,
+      "verified": 4098,
+      "samples": 209914,
+      "status_counts": {
+        "verified_exact": 4098,
+        "excluded_abnormal_terminal": 288,
+        "replay_error": 55,
+        "invalid_label": 1
+      }
+    },
+    {
+      "ordinal_start": 35536,
+      "ordinal_end": 39977,
+      "attempted": 4442,
+      "verified": 4048,
+      "samples": 202410,
+      "status_counts": {
+        "verified_exact": 4048,
+        "excluded_abnormal_terminal": 391,
+        "invalid_label": 3
+      }
+    },
+    {
+      "ordinal_start": 39978,
+      "ordinal_end": 44419,
+      "attempted": 4442,
+      "verified": 4101,
+      "samples": 206680,
+      "status_counts": {
+        "verified_exact": 4101,
+        "excluded_abnormal_terminal": 338,
+        "invalid_label": 3
+      }
+    }
+  ],
+  "recorded_action_rejections": {
+    "IllegalActionError: Illegal Chi for seat 2 in CLAIM_DISCARD": 8,
+    "IllegalActionError: Illegal Hu for seat 0 in CLAIM_DISCARD": 4,
+    "IllegalActionError: Illegal Hu for seat 1 in CLAIM_DISCARD": 1,
+    "IllegalActionError: Illegal Chi for seat 3 in CLAIM_DISCARD": 5,
+    "IllegalActionError: Illegal Chi for seat 0 in CLAIM_DISCARD": 5,
+    "IllegalActionError: Illegal Peng for seat 1 in CLAIM_DISCARD": 3,
+    "IllegalActionError: Illegal Chi for seat 1 in CLAIM_DISCARD": 3,
+    "IllegalActionError: Illegal Hu for seat 3 in CLAIM_DISCARD": 1,
+    "IllegalActionError: Illegal Peng for seat 2 in CLAIM_DISCARD": 1
+  },
+  "replay_errors": {
+    "KeyError: 'players'": 55
+  },
+  "source_order_is_calendar_time": false
+}

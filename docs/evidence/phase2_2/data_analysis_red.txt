@@ -1,0 +1,64 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+_________ test_group_development_lineage_excludes_all_historical_tests _________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-70/expanded-training0/expanded')
+
+    def test_group_development_lineage_excludes_all_historical_tests(expanded_root):
+>       from training.optimization_data import DevelopmentCorpus,development_splits,evaluation_lineage,development_bucket
+E       ModuleNotFoundError: No module named 'training.optimization_data'
+
+tests/test_phase2_2_data_analysis.py:12: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.92, "disk_free": 5371748352}
+___ test_remapped_batches_cover_both_old_development_roles_without_test_rows ___
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-70/expanded-training0/expanded')
+
+    def test_remapped_batches_cover_both_old_development_roles_without_test_rows(expanded_root):
+>       from training.optimization_data import DevelopmentCorpus,development_splits
+E       ModuleNotFoundError: No module named 'training.optimization_data'
+
+tests/test_phase2_2_data_analysis.py:28: ModuleNotFoundError
+________________ test_saved_v2_in_sample_reference_is_rejected _________________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-70/expanded-training0/expanded')
+
+    def test_saved_v2_in_sample_reference_is_rejected(expanded_root):
+>       from training.optimization_data import DevelopmentCorpus,assert_fair_saved_v2
+E       ModuleNotFoundError: No module named 'training.optimization_data'
+
+tests/test_phase2_2_data_analysis.py:43: ModuleNotFoundError
+____________ test_failed_new_audit_does_not_overwrite_old_contract _____________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-70/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-70/test_failed_new_audit_does_not0')
+
+    def test_failed_new_audit_does_not_overwrite_old_contract(expanded_root,tmp_path):
+        import shutil
+>       from training.optimization_data import DevelopmentCorpus
+E       ModuleNotFoundError: No module named 'training.optimization_data'
+
+tests/test_phase2_2_data_analysis.py:53: ModuleNotFoundError
+__ test_score_diagnostics_calibration_ranks_and_nontrivial_strata_are_correct __
+
+    def test_score_diagnostics_calibration_ranks_and_nontrivial_strata_are_correct():
+>       from training.optimization_analysis import ScoreDiagnostics
+E       ModuleNotFoundError: No module named 'training.optimization_analysis'
+
+tests/test_phase2_2_data_analysis.py:63: ModuleNotFoundError
+__ test_duplicate_audit_retains_rows_and_distinguishes_input_label_conflicts ___
+
+    def test_duplicate_audit_retains_rows_and_distinguishes_input_label_conflicts():
+>       from training.optimization_analysis import SignatureAudit
+E       ModuleNotFoundError: No module named 'training.optimization_analysis'
+
+tests/test_phase2_2_data_analysis.py:82: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_data_analysis.py::test_group_development_lineage_excludes_all_historical_tests
+FAILED tests/test_phase2_2_data_analysis.py::test_remapped_batches_cover_both_old_development_roles_without_test_rows
+FAILED tests/test_phase2_2_data_analysis.py::test_saved_v2_in_sample_reference_is_rejected
+FAILED tests/test_phase2_2_data_analysis.py::test_failed_new_audit_does_not_overwrite_old_contract
+FAILED tests/test_phase2_2_data_analysis.py::test_score_diagnostics_calibration_ranks_and_nontrivial_strata_are_correct
+FAILED tests/test_phase2_2_data_analysis.py::test_duplicate_audit_retains_rows_and_distinguishes_input_label_conflicts
+6 failed in 2.04s

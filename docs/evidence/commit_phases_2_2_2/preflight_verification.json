@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "client_date": "2026-11-05",
+  "checkpoint": "artifacts/models/mahjong_discard_mlp_v3.pt",
+  "sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+  "weight_content_sha256": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "parameters": 387746,
+  "documented_baseline": {
+    "total": 279,
+    "seconds": 73.65,
+    "focused_total": 61,
+    "focused_seconds": 47.23,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "by_phase": {
+      "Phase1": 90,
+      "Phase2": 69,
+      "Phase2.1": 59,
+      "Phase2.2": 61
+    },
+    "junit_sha256": "6aa2aca589563f0b0dfd4bf9c2af259fd0303a6d6cd470b4104ee37fb91c775d"
+  },
+  "protected_old_files": 1624,
+  "all_frozen_artifact_files_snapshotted": 178,
+  "model_decision": "PROMOTE_V3"
+}

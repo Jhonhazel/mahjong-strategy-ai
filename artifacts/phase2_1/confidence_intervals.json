@@ -1,0 +1,52 @@
+{
+  "method": "Percentile paired bootstrap of complete matches; decision-weighted accuracy within each resampled cohort",
+  "matches": 3816,
+  "samples": 194388,
+  "resamples": 2000,
+  "seed": 2026,
+  "models": {
+    "class_prior": {
+      "top1": 0.29108278288783257,
+      "interval_95": [
+        0.2875175962134026,
+        0.29470664881927267
+      ]
+    },
+    "full_original": {
+      "top1": 0.5717379673642405,
+      "interval_95": [
+        0.5680743978657105,
+        0.575253401522477
+      ]
+    },
+    "original_phase2": {
+      "top1": 0.3103535197645945,
+      "interval_95": [
+        0.3070337158761581,
+        0.3135006207168858
+      ]
+    },
+    "selected_v2": {
+      "top1": 0.5717379673642405,
+      "interval_95": [
+        0.5680743978657105,
+        0.575253401522477
+      ]
+    },
+    "uniform_random_legal": {
+      "top1": 0.11342778360804165,
+      "interval_95": [
+        0.11184436527208418,
+        0.11498926614102367
+      ]
+    }
+  },
+  "paired_delta_selected_vs_phase2": {
+    "point": 0.2613844475996461,
+    "interval_95": [
+      0.2577966167140721,
+      0.26504729327212445
+    ]
+  },
+  "limitation": "Known-player match-disjoint cohort; intervals do not establish unseen-player generalization or Mahjong winning strength"
+}

@@ -1,0 +1,37 @@
+{
+  "status": "FROZEN",
+  "checkpoint_sha256": "e962b71b5bc031c2cfa307e9096fb763cb70e65240523a38e73254aa2563e855",
+  "architecture": {
+    "name": "MahjongDiscardMLP",
+    "architecture_version": "discard_mlp_v1",
+    "input_dim": 1368,
+    "hidden_dim": 64,
+    "output_dim": 34,
+    "activation": "ReLU",
+    "dropout": 0.2
+  },
+  "preprocessing": {
+    "order": "C",
+    "model_dtype": "float32",
+    "normalization": "none",
+    "features": "obs_only"
+  },
+  "training_config": {
+    "seed": 2026,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "max_epochs": 80,
+    "patience": 10,
+    "device": "auto",
+    "cpu_threads": 1
+  },
+  "best_epoch": 8,
+  "dataset_sha256": "45303f98bd1d1bca4ac1dbc9228de398456644030bce8b6cb74945be21d86f4d",
+  "manifest_sha256": "c496364986aba84efba65b19ae8c96e206bc7453d077ba7b0fc503e728687eb7",
+  "phase1_run_id": "84c2606383794fa8bc072d5edac7b252",
+  "validation_reload_nll": 1.9891612099160052,
+  "validation_nll_difference": 2.200194937351796e-08,
+  "test_used_for_selection": false,
+  "frozen_at_utc": "2026-11-04T06:04:09.083571+00:00"
+}

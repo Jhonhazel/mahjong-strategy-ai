@@ -1,0 +1,34 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_non_game_archive_metadata_is_reported_and_does_not_shift_game_ordinals __
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-48/test_non_game_archive_metadata0')
+source_games = [('finalist_games/693e6992416c555f2909fc48.json', b'{"match_id":"693e6992416c555f2909fc48","our_players":{"692e88f12ab...bc\xa0","value":1}],"fanCnt":12,"player":1,"score":[-8,36,-20,-8],"tileCnt":[9,10,9,10]}},"time":7,"verdict":"OK"}]}')]
+
+    def test_non_game_archive_metadata_is_reported_and_does_not_shift_game_ordinals(tmp_path, source_games):
+        from training.expanded_dataset import expand
+        archive, spec = make_archive(tmp_path, [source_games[0], ("finalist_games/_sid.txt", b"archive metadata"), *source_games[1:]])
+        config = config_for(tmp_path, archive)
+>       result = expand(config, spec=spec)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_1_expansion.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/expanded_dataset.py:259: in expand
+    entries, expanded_bytes = inspect_archive(archive_path, spec)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+training/expanded_dataset.py:92: in inspect_archive
+    require(member.name.endswith(".json") and member.name.startswith("finalist_games/"), "Unexpected source archive structure")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False, message = 'Unexpected source archive structure'
+
+    def require(condition, message):
+        if not condition:
+>           raise CorruptedDatasetError(message)
+E           app.domain.exceptions.CorruptedDatasetError: Unexpected source archive structure
+
+training/expanded_dataset.py:40: CorruptedDatasetError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_expansion.py::test_non_game_archive_metadata_is_reported_and_does_not_shift_game_ordinals
+1 failed, 18 deselected in 0.17s

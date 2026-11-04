@@ -1,0 +1,5 @@
+# Preserve checksum-bound artifacts and captured evidence byte-for-byte.
+artifacts/** -text
+artifacts/**/*.csv whitespace=cr-at-eol
+docs/evidence/** -text whitespace=-blank-at-eol,-blank-at-eof
+docs/ml_artifact_bundle_manifest.json -text

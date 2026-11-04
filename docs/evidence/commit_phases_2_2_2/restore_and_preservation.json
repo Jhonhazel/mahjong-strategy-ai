@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "documented_restore_checks": [
+    {
+      "mode": "existing-identical",
+      "exit_code": 0,
+      "output": "Verified v3 restore and CPU load; existing identical artifacts retained"
+    },
+    {
+      "mode": "empty-temporary-restore",
+      "exit_code": 0,
+      "output": "Verified v3 restore and CPU load; existing identical artifacts retained"
+    }
+  ],
+  "existing_frozen_artifacts_verified": 178,
+  "changed_frozen_artifacts": []
+}

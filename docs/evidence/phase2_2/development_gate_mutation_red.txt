@@ -1,0 +1,199 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+__ test_development_metadata_rejected_before_weights_deserialization[overlap] __
+
+optimization_checkpoint = (<training.optimization_data.DevelopmentCorpus object at 0x10c61d790>, <training.optimization_runner.ExperimentRegistr...=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1))
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-80/test_development_metadata_reje0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bd21e50>
+tamper = 'overlap'
+
+    @pytest.mark.parametrize('tamper',['overlap','historical','protocol','blind_claim','missing_phase','missing_development'])
+    def test_development_metadata_rejected_before_weights_deserialization(optimization_checkpoint,tmp_path,monkeypatch,tamper):
+        import json,torch
+        from app.model_checkpoint import load_checkpoint,CheckpointValidationError
+        corpus,registry,row,config=optimization_checkpoint
+        path=Path(row['checkpoint']);metadata=json.loads(path.with_suffix('.metadata.json').read_text())
+        if tamper=='overlap':metadata['development']['training_match_ids'][0]=metadata['development']['validation_match_ids'][0]
+        elif tamper=='historical':metadata['development']['historical_test_match_ids'].append('f'*24)
+        elif tamper=='protocol':metadata['development']['protocol_sha256']='bad'
+        elif tamper=='blind_claim':metadata['development']['new_blind_test_available']=True
+        elif tamper=='missing_phase':metadata.pop('optimization_phase')
+        else:metadata.pop('development')
+        destination=tmp_path/'bad.json';destination.write_text(json.dumps(metadata))
+        called=[]
+        def forbidden(*args,**kwargs):
+            called.append(True)
+            raise AssertionError('Must validate development metadata first')
+        monkeypatch.setattr(torch,'load',forbidden)
+        with pytest.raises(CheckpointValidationError):load_checkpoint(path,destination,corpus.contract)
+>       assert not called,'Invalid development metadata reached weights deserialization'
+E       AssertionError: Invalid development metadata reached weights deserialization
+E       assert not [True]
+
+tests/test_phase2_2_registry.py:111: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.93, "disk_free": 4832391168}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.041}
+_ test_development_metadata_rejected_before_weights_deserialization[historical] _
+
+optimization_checkpoint = (<training.optimization_data.DevelopmentCorpus object at 0x10c61d790>, <training.optimization_runner.ExperimentRegistr...=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1))
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-80/test_development_metadata_reje1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x116722bd0>
+tamper = 'historical'
+
+    @pytest.mark.parametrize('tamper',['overlap','historical','protocol','blind_claim','missing_phase','missing_development'])
+    def test_development_metadata_rejected_before_weights_deserialization(optimization_checkpoint,tmp_path,monkeypatch,tamper):
+        import json,torch
+        from app.model_checkpoint import load_checkpoint,CheckpointValidationError
+        corpus,registry,row,config=optimization_checkpoint
+        path=Path(row['checkpoint']);metadata=json.loads(path.with_suffix('.metadata.json').read_text())
+        if tamper=='overlap':metadata['development']['training_match_ids'][0]=metadata['development']['validation_match_ids'][0]
+        elif tamper=='historical':metadata['development']['historical_test_match_ids'].append('f'*24)
+        elif tamper=='protocol':metadata['development']['protocol_sha256']='bad'
+        elif tamper=='blind_claim':metadata['development']['new_blind_test_available']=True
+        elif tamper=='missing_phase':metadata.pop('optimization_phase')
+        else:metadata.pop('development')
+        destination=tmp_path/'bad.json';destination.write_text(json.dumps(metadata))
+        called=[]
+        def forbidden(*args,**kwargs):
+            called.append(True)
+            raise AssertionError('Must validate development metadata first')
+        monkeypatch.setattr(torch,'load',forbidden)
+        with pytest.raises(CheckpointValidationError):load_checkpoint(path,destination,corpus.contract)
+>       assert not called,'Invalid development metadata reached weights deserialization'
+E       AssertionError: Invalid development metadata reached weights deserialization
+E       assert not [True]
+
+tests/test_phase2_2_registry.py:111: AssertionError
+_ test_development_metadata_rejected_before_weights_deserialization[protocol] __
+
+optimization_checkpoint = (<training.optimization_data.DevelopmentCorpus object at 0x10c61d790>, <training.optimization_runner.ExperimentRegistr...=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1))
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-80/test_development_metadata_reje2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x116755940>
+tamper = 'protocol'
+
+    @pytest.mark.parametrize('tamper',['overlap','historical','protocol','blind_claim','missing_phase','missing_development'])
+    def test_development_metadata_rejected_before_weights_deserialization(optimization_checkpoint,tmp_path,monkeypatch,tamper):
+        import json,torch
+        from app.model_checkpoint import load_checkpoint,CheckpointValidationError
+        corpus,registry,row,config=optimization_checkpoint
+        path=Path(row['checkpoint']);metadata=json.loads(path.with_suffix('.metadata.json').read_text())
+        if tamper=='overlap':metadata['development']['training_match_ids'][0]=metadata['development']['validation_match_ids'][0]
+        elif tamper=='historical':metadata['development']['historical_test_match_ids'].append('f'*24)
+        elif tamper=='protocol':metadata['development']['protocol_sha256']='bad'
+        elif tamper=='blind_claim':metadata['development']['new_blind_test_available']=True
+        elif tamper=='missing_phase':metadata.pop('optimization_phase')
+        else:metadata.pop('development')
+        destination=tmp_path/'bad.json';destination.write_text(json.dumps(metadata))
+        called=[]
+        def forbidden(*args,**kwargs):
+            called.append(True)
+            raise AssertionError('Must validate development metadata first')
+        monkeypatch.setattr(torch,'load',forbidden)
+        with pytest.raises(CheckpointValidationError):load_checkpoint(path,destination,corpus.contract)
+>       assert not called,'Invalid development metadata reached weights deserialization'
+E       AssertionError: Invalid development metadata reached weights deserialization
+E       assert not [True]
+
+tests/test_phase2_2_registry.py:111: AssertionError
+_ test_development_metadata_rejected_before_weights_deserialization[blind_claim] _
+
+optimization_checkpoint = (<training.optimization_data.DevelopmentCorpus object at 0x10c61d790>, <training.optimization_runner.ExperimentRegistr...=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1))
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-80/test_development_metadata_reje3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1167576e0>
+tamper = 'blind_claim'
+
+    @pytest.mark.parametrize('tamper',['overlap','historical','protocol','blind_claim','missing_phase','missing_development'])
+    def test_development_metadata_rejected_before_weights_deserialization(optimization_checkpoint,tmp_path,monkeypatch,tamper):
+        import json,torch
+        from app.model_checkpoint import load_checkpoint,CheckpointValidationError
+        corpus,registry,row,config=optimization_checkpoint
+        path=Path(row['checkpoint']);metadata=json.loads(path.with_suffix('.metadata.json').read_text())
+        if tamper=='overlap':metadata['development']['training_match_ids'][0]=metadata['development']['validation_match_ids'][0]
+        elif tamper=='historical':metadata['development']['historical_test_match_ids'].append('f'*24)
+        elif tamper=='protocol':metadata['development']['protocol_sha256']='bad'
+        elif tamper=='blind_claim':metadata['development']['new_blind_test_available']=True
+        elif tamper=='missing_phase':metadata.pop('optimization_phase')
+        else:metadata.pop('development')
+        destination=tmp_path/'bad.json';destination.write_text(json.dumps(metadata))
+        called=[]
+        def forbidden(*args,**kwargs):
+            called.append(True)
+            raise AssertionError('Must validate development metadata first')
+        monkeypatch.setattr(torch,'load',forbidden)
+        with pytest.raises(CheckpointValidationError):load_checkpoint(path,destination,corpus.contract)
+>       assert not called,'Invalid development metadata reached weights deserialization'
+E       AssertionError: Invalid development metadata reached weights deserialization
+E       assert not [True]
+
+tests/test_phase2_2_registry.py:111: AssertionError
+_ test_development_metadata_rejected_before_weights_deserialization[missing_phase] _
+
+optimization_checkpoint = (<training.optimization_data.DevelopmentCorpus object at 0x10c61d790>, <training.optimization_runner.ExperimentRegistr...=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1))
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-80/test_development_metadata_reje4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x116771040>
+tamper = 'missing_phase'
+
+    @pytest.mark.parametrize('tamper',['overlap','historical','protocol','blind_claim','missing_phase','missing_development'])
+    def test_development_metadata_rejected_before_weights_deserialization(optimization_checkpoint,tmp_path,monkeypatch,tamper):
+        import json,torch
+        from app.model_checkpoint import load_checkpoint,CheckpointValidationError
+        corpus,registry,row,config=optimization_checkpoint
+        path=Path(row['checkpoint']);metadata=json.loads(path.with_suffix('.metadata.json').read_text())
+        if tamper=='overlap':metadata['development']['training_match_ids'][0]=metadata['development']['validation_match_ids'][0]
+        elif tamper=='historical':metadata['development']['historical_test_match_ids'].append('f'*24)
+        elif tamper=='protocol':metadata['development']['protocol_sha256']='bad'
+        elif tamper=='blind_claim':metadata['development']['new_blind_test_available']=True
+        elif tamper=='missing_phase':metadata.pop('optimization_phase')
+        else:metadata.pop('development')
+        destination=tmp_path/'bad.json';destination.write_text(json.dumps(metadata))
+        called=[]
+        def forbidden(*args,**kwargs):
+            called.append(True)
+            raise AssertionError('Must validate development metadata first')
+        monkeypatch.setattr(torch,'load',forbidden)
+        with pytest.raises(CheckpointValidationError):load_checkpoint(path,destination,corpus.contract)
+>       assert not called,'Invalid development metadata reached weights deserialization'
+E       AssertionError: Invalid development metadata reached weights deserialization
+E       assert not [True]
+
+tests/test_phase2_2_registry.py:111: AssertionError
+_ test_development_metadata_rejected_before_weights_deserialization[missing_development] _
+
+optimization_checkpoint = (<training.optimization_data.DevelopmentCorpus object at 0x10c61d790>, <training.optimization_runner.ExperimentRegistr...=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1))
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-80/test_development_metadata_reje5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x116772b70>
+tamper = 'missing_development'
+
+    @pytest.mark.parametrize('tamper',['overlap','historical','protocol','blind_claim','missing_phase','missing_development'])
+    def test_development_metadata_rejected_before_weights_deserialization(optimization_checkpoint,tmp_path,monkeypatch,tamper):
+        import json,torch
+        from app.model_checkpoint import load_checkpoint,CheckpointValidationError
+        corpus,registry,row,config=optimization_checkpoint
+        path=Path(row['checkpoint']);metadata=json.loads(path.with_suffix('.metadata.json').read_text())
+        if tamper=='overlap':metadata['development']['training_match_ids'][0]=metadata['development']['validation_match_ids'][0]
+        elif tamper=='historical':metadata['development']['historical_test_match_ids'].append('f'*24)
+        elif tamper=='protocol':metadata['development']['protocol_sha256']='bad'
+        elif tamper=='blind_claim':metadata['development']['new_blind_test_available']=True
+        elif tamper=='missing_phase':metadata.pop('optimization_phase')
+        else:metadata.pop('development')
+        destination=tmp_path/'bad.json';destination.write_text(json.dumps(metadata))
+        called=[]
+        def forbidden(*args,**kwargs):
+            called.append(True)
+            raise AssertionError('Must validate development metadata first')
+        monkeypatch.setattr(torch,'load',forbidden)
+        with pytest.raises(CheckpointValidationError):load_checkpoint(path,destination,corpus.contract)
+>       assert not called,'Invalid development metadata reached weights deserialization'
+E       AssertionError: Invalid development metadata reached weights deserialization
+E       assert not [True]
+
+tests/test_phase2_2_registry.py:111: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_registry.py::test_development_metadata_rejected_before_weights_deserialization[overlap]
+FAILED tests/test_phase2_2_registry.py::test_development_metadata_rejected_before_weights_deserialization[historical]
+FAILED tests/test_phase2_2_registry.py::test_development_metadata_rejected_before_weights_deserialization[protocol]
+FAILED tests/test_phase2_2_registry.py::test_development_metadata_rejected_before_weights_deserialization[blind_claim]
+FAILED tests/test_phase2_2_registry.py::test_development_metadata_rejected_before_weights_deserialization[missing_phase]
+FAILED tests/test_phase2_2_registry.py::test_development_metadata_rejected_before_weights_deserialization[missing_development]
+6 failed, 6 deselected in 1.98s

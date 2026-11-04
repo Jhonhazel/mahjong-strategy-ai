@@ -1,0 +1,81 @@
+{
+  "verdict": "PHASE 2.1 PASS",
+  "readiness": "READY FOR PHASE 3",
+  "date": "2026-11-04",
+  "source_games": 44420,
+  "attempted_games": 44420,
+  "verified_matches": 38250,
+  "excluded_games": 6170,
+  "accepted_samples": 1946122,
+  "distinct_players": 581,
+  "dataset_run_id": "ea198c8c8d504396964c9b9f0e939870",
+  "splits": {
+    "train": {
+      "samples": 1555412,
+      "matches": 30589
+    },
+    "validation": {
+      "samples": 196054,
+      "matches": 3840
+    },
+    "test": {
+      "samples": 194388,
+      "matches": 3816
+    },
+    "historical_test": {
+      "samples": 268,
+      "matches": 5
+    }
+  },
+  "new_checkpoint_sha256": "3a0356a66a81ba775291fdf38072d1c033299fa44e30328c7864addd95edcc8a",
+  "selected_epoch": 14,
+  "epochs_executed": 24,
+  "training_device": "cpu",
+  "training_seconds": 660.7278936668299,
+  "test_samples": 194388,
+  "test_matches": 3816,
+  "new_metrics": {
+    "top1": 0.5717379673642405,
+    "top3": 0.8062843385394161,
+    "nll": 1.2948686998950452,
+    "macro_f1_34": 0.5446192304024019,
+    "macro_f1_supported": 0.5446192304024019,
+    "legal_rate": 1.0
+  },
+  "old_model_same_fresh_test_top1": 0.3103535197645945,
+  "top1_improvement_percentage_points": 26.138444759964607,
+  "paired_delta_interval_percentage_points": [
+    25.77966167140721,
+    26.504729327212445
+  ],
+  "stretch_top1_80_reached": false,
+  "stretch_top1_85_reached": false,
+  "tests": {
+    "tests": 218,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "phase1_tests": 90,
+  "phase2_tests": 69,
+  "phase2_1_tests": 59,
+  "original_preserved_files": 74,
+  "review": {
+    "critical": 0,
+    "important_fixed": 3,
+    "regressions_added": 8,
+    "deferred_minor": 0
+  },
+  "reverification": "PASS",
+  "live_demo": {
+    "status": "FINISHED",
+    "predictions": 8,
+    "all_legal_and_unchanged": true
+  },
+  "windows": "NOT RUN",
+  "git": {
+    "branch": "main",
+    "head": "49ad7a2",
+    "publishing_operations": false
+  }
+}

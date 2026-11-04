@@ -1,0 +1,27 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_frozen_checkpoint_evaluation_is_complete_and_independently_recalculated _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-35/test_frozen_checkpoint_evaluat0')
+checkpoint_fixture = (MahjongDiscardMLP(
+  (network): Sequential(
+    (0): Linear(in_features=1368, out_features=64, bias=True)
+    (1): Re...d legal referee action replay with terminal score/fan validation', 'dataset_id': 'Dannibal/ijcai-mahjong-round2', ...})
+
+    def test_frozen_checkpoint_evaluation_is_complete_and_independently_recalculated(tmp_path, checkpoint_fixture):
+        from app.model_checkpoint import save_checkpoint, checkpoint_sha256
+>       from training.evaluate_mlp import evaluate_checkpoint, recalculate_metrics
+E       ModuleNotFoundError: No module named 'training.evaluate_mlp'
+
+tests/test_phase2_evaluation.py:11: ModuleNotFoundError
+__________ test_independent_metrics_have_hand_checked_expected_values __________
+
+    def test_independent_metrics_have_hand_checked_expected_values():
+>       from training.evaluate_mlp import recalculate_metrics
+E       ModuleNotFoundError: No module named 'training.evaluate_mlp'
+
+tests/test_phase2_evaluation.py:38: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_evaluation.py::test_frozen_checkpoint_evaluation_is_complete_and_independently_recalculated
+FAILED tests/test_phase2_evaluation.py::test_independent_metrics_have_hand_checked_expected_values
+2 failed in 1.24s

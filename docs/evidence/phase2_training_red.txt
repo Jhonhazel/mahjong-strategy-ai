@@ -1,0 +1,44 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+___ test_early_stopping_selects_minimum_validation_and_stops_after_patience ____
+
+    def test_early_stopping_selects_minimum_validation_and_stops_after_patience():
+>       from training.train_mlp import EarlyStopping
+E       ModuleNotFoundError: No module named 'training.train_mlp'
+
+tests/test_phase2_training.py:18: ModuleNotFoundError
+____ test_real_training_updates_weights_and_restores_independent_best_state ____
+
+    def test_real_training_updates_weights_and_restores_independent_best_state():
+>       from training.train_mlp import TrainConfig, train_model, predict_log_probabilities
+E       ModuleNotFoundError: No module named 'training.train_mlp'
+
+tests/test_phase2_training.py:29: ModuleNotFoundError
+________________ test_cpu_training_is_repeatable_with_same_seed ________________
+
+    def test_cpu_training_is_repeatable_with_same_seed():
+>       from training.train_mlp import TrainConfig, train_model
+E       ModuleNotFoundError: No module named 'training.train_mlp'
+
+tests/test_phase2_training.py:50: ModuleNotFoundError
+__________ test_training_rejects_test_split_before_reading_its_labels __________
+
+    def test_training_rejects_test_split_before_reading_its_labels():
+>       from training.train_mlp import TrainConfig, train_model
+E       ModuleNotFoundError: No module named 'training.train_mlp'
+
+tests/test_phase2_training.py:59: ModuleNotFoundError
+________________ test_training_rejects_overlapping_match_groups ________________
+
+    def test_training_rejects_overlapping_match_groups():
+>       from training.train_mlp import TrainConfig, train_model
+E       ModuleNotFoundError: No module named 'training.train_mlp'
+
+tests/test_phase2_training.py:70: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_training.py::test_early_stopping_selects_minimum_validation_and_stops_after_patience
+FAILED tests/test_phase2_training.py::test_real_training_updates_weights_and_restores_independent_best_state
+FAILED tests/test_phase2_training.py::test_cpu_training_is_repeatable_with_same_seed
+FAILED tests/test_phase2_training.py::test_training_rejects_test_split_before_reading_its_labels
+FAILED tests/test_phase2_training.py::test_training_rejects_overlapping_match_groups
+5 failed in 0.98s

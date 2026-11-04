@@ -1,0 +1,33 @@
+Turn 4 / SELF_TURN | visible hand: W5 T1 T2 T2 T3 B2 B4 B5 B6 B7 B7 B9 J1 J2
+Recommended: J1, action 33
+Top legal scores: J1=0.782136, J2=0.130155, W5=0.020683
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 20 / POST_MELD_DISCARD | visible hand: W5 T1 B2 B4 B5 B6 B7 B7 B9 J1 J2
+Recommended: T1, action 11
+Top legal scores: T1=0.509384, J1=0.328517, J2=0.080141
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 36 / SELF_TURN | visible hand: W5 T1 T2 B2 B4 B5 B6 B7 B7 B9 J2
+Recommended: J2, action 34
+Top legal scores: J2=0.862832, T1=0.048042, B2=0.026267
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 52 / SELF_TURN | visible hand: W5 T1 B2 B4 B5 B6 B7 B7 B9 F3 J2
+Recommended: F3, action 31
+Top legal scores: F3=0.391587, T1=0.308450, J2=0.169888
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 68 / SELF_TURN | visible hand: W5 W9 T1 B2 B4 B5 B6 B7 B7 B9 J2
+Recommended: J2, action 34
+Top legal scores: J2=0.747656, T1=0.143914, W9=0.075137
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 84 / SELF_TURN | visible hand: W5 T1 T8 B2 B4 B5 B6 B7 B7 B9 J2
+Recommended: T1, action 11
+Top legal scores: T1=0.450327, J2=0.446929, T8=0.068218
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 100 / POST_MELD_DISCARD | visible hand: W5 T1 T8 B2 B5 B7 B7 B9
+Recommended: T1, action 11
+Top legal scores: T1=0.702869, T8=0.248291, B2=0.011795
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 116 / POST_MELD_DISCARD | visible hand: W5 T8 B2 B7 B9
+Recommended: T8, action 18
+Top legal scores: T8=0.863922, B2=0.101412, W5=0.020353
+State unchanged; scores describe discard behavior, not winning chances.
+Game FINISHED; predictions=8; turn=132

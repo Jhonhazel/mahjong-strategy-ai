@@ -1,0 +1,23 @@
+# Phase 2.2 controlled MLP optimization
+
+Authority: user master prompt attachment `11bad8e5-5bf5-4482-9d2f-bb380e9405d7/Pasted text.txt`. Execute inline using TDD, one independent final review, no Git operations/publishing or Phase3/4. Preserve all older artifacts.
+
+1. **Preflight/preservation:** hash old datasets/shards/models/evidence; rerun218 tests; read-only full integrity gate; verify old CPU loads and hardware/disk. Expected: hashes verified, no corpus re-extraction.
+2. **Lineage/development data (TDD):** new `training/optimization_data.py`; narrowly extend existing ShardSplit to read old train+validation roles under a new match subset. Reconstruct old Phase2/2.1 train/validation/test IDs and known learning-curve cohorts. OptionB: exclude every historical test, use permitted development pool only. Five deterministic SHA group buckets; use folds0 and1 (explicitly two of five, not full5-fold CV). Both source roles are development; all match IDs remain disjoint per run. Saved v2 cannot be a fair reference on its own prior training records; retrain E0.
+3. **Development error analysis (TDD):** new `training/optimization_analysis.py`, current v2 only on original Phase2.1 validation. Rank/confusion, legal-choice strata/nontrivial, UID/phase, calibration ECE/Brier, confidence/margins; exact/observable/coarse signatures and source/trajectory repetition on development only. Report repeated states without filtering legitimate records. Complete before larger-model training.
+4. **Model/trainer/checkpoint extensions (TDD):** support original64, wider128, deeper256→128 within MLP; original default spec/state_dict/legacy loaders unchanged. Reuse train_sharded with optional architecture, finite-gradient checks, complete epoch resume identity. Generic architecture metadata/count/hash/load plus development lineage checks. Benchmark CPU/MPS and one real epoch; freeze bounded registry before serious comparisons.
+5. **Experiments:** E0/E1/E2 common settings on dev fold0 seed2026. E3 changes only one regularization setting of the better E1/E2 by development evidence (increase weight decay when gap>=3pp, otherwise reduce dropout). Lowest fold0 validation NLL shortlists one candidate. Evaluate E0+shortlist on fold1 seed2026 and fold0 seed2027: eight runs total, four primary configurations. Primary checkpoint seed2026/fold0 is fixed; do not cherry-pick seed. Max epochs/batch/device frozen after actual benchmark before serious runs. No optional E4/E5 unless an independently documented budget/protocol extension precedes results; default NOT RUN.
+6. **Selection/evaluation (TDD):** use development NLL and nondegrading classification/latency checks across the three paired runs for PROMOTE_V3/RETAIN_V2/INCONCLUSIVE. Freeze before retrospective historical test; explicitly no new blind data. Save independent v3 metadata/weights, per-class/confusion/scores/subgroups/cluster bootstrap, saved prediction recalculation and artifact integrity checks. Preserve v2 metadata and default service path.
+7. **Live/review/final:** existing prediction service; real seed42 and another seed, legal-only scores, state/weights immutable, full round. One fresh reviewer; Important/Critical fix pass RED→GREEN, full regression, old/new loads, preservation, syntax/whitespace and18-section Indonesian report/inventory.
+
+## Interfaces and preflight review
+
+- Dataset remains `expanded_strict_v2`, 1368 inputs /34 outputs /act−2, no new feature inputs, encoder unchanged. New folds are a separate role map, never rewrite old shards/contracts.
+- ShardSplit optional source_roles=('train','validation') permits remapping only these roles; legacy defaults unchanged. Split identity binds source roles and match counts.
+- Flexible architecture factory validates a small bounded ReLU/dropout family. Default64/0.2 retains `discard_mlp_v1`; nondefault uses a distinct version. Metadata determines exact model before CPU weights_only load.
+- Trainer receives train/validation only; optional model spec participates in resume identity. Comparison and promotion use retrained E0, never old v2 in-sample scores.
+- Final new-model checkpoint is saved even when promotion is rejected; v2 remains independently usable. Historical test never contributes to selection.
+
+## Review focus
+
+Immutable old contracts even on failed new audits; historical split reconstruction and forbidden-role filtering; unfair old-checkpoint comparisons; label/near-duplicate interpretation; unchanged default MLP/state_dict; malformed/oversized architecture metadata before load; finite gradients/resume identity; complete registry and seed/fold pairing; promotion freeze independent of retrospective metrics; evidence tampering/fail-closed publication; game-state/weight safety.

@@ -1,0 +1,185 @@
+Waiting for the already-running, fixed eight-run matrix.
+Training completion detected; validating, freezing, evaluating and verifying.
+Turn 4 / SELF_TURN | visible hand: W5 T1 T2 T2 T3 B2 B4 B5 B6 B7 B7 B9 J1 J2
+Recommended: J1, action 33
+Top legal scores: J1=0.820400, J2=0.069208, T1=0.027153
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 20 / POST_MELD_DISCARD | visible hand: W5 T1 B2 B4 B5 B6 B7 B7 B9 J1 J2
+Recommended: T1, action 11
+Top legal scores: T1=0.689957, J1=0.191049, W5=0.040395
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 36 / SELF_TURN | visible hand: W5 T1 T2 B2 B4 B5 B6 B7 B7 B9 J2
+Recommended: J2, action 34
+Top legal scores: J2=0.677563, T1=0.126033, W5=0.078284
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 52 / SELF_TURN | visible hand: W5 T1 B2 B4 B5 B6 B7 B7 B9 F3 J2
+Recommended: F3, action 31
+Top legal scores: F3=0.447880, T1=0.359039, J2=0.075591
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 68 / SELF_TURN | visible hand: W5 W9 T1 B2 B4 B5 B6 B7 B7 B9 J2
+Recommended: W9, action 10
+Top legal scores: W9=0.449261, T1=0.271406, J2=0.243828
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 84 / SELF_TURN | visible hand: W5 T1 T8 B2 B4 B5 B6 B7 B7 B9 J2
+Recommended: T1, action 11
+Top legal scores: T1=0.513597, J2=0.327009, T8=0.076405
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 100 / POST_MELD_DISCARD | visible hand: W5 T1 T8 B2 B5 B7 B7 B9
+Recommended: T1, action 11
+Top legal scores: T1=0.796326, T8=0.090324, B9=0.038262
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 116 / POST_MELD_DISCARD | visible hand: W5 T8 B2 B7 B9
+Recommended: B2, action 21
+Top legal scores: B2=0.404908, T8=0.237784, W5=0.207575
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 4 / SELF_TURN | visible hand: W1 W4 W7 W8 W8 T1 T3 T3 T6 B4 B4 B5 B8 F4
+Recommended: F4, action 32
+Top legal scores: F4=0.851843, W8=0.035483, B4=0.033730
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 20 / SELF_TURN | visible hand: W1 W4 W7 W7 W8 T1 T3 T3 T6 B4 B4 B5 B8 F4
+Recommended: F4, action 32
+Top legal scores: F4=0.481796, T1=0.081932, W8=0.064939
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 36 / SELF_TURN | visible hand: W1 W4 W7 W7 T1 T3 T3 T6 B4 B4 B5 B8 F1 F4
+Recommended: F4, action 32
+Top legal scores: F4=0.398993, F1=0.331317, T6=0.042381
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 52 / POST_MELD_DISCARD | visible hand: W1 W4 W7 W7 T1 T3 T3 T6 B4 B8 F4
+Recommended: F4, action 32
+Top legal scores: F4=0.875832, W1=0.045714, B8=0.021129
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 68 / SELF_TURN | visible hand: W1 W4 W7 W7 T1 T3 T6 T7 B4 B8 F4
+Recommended: F4, action 32
+Top legal scores: F4=0.796037, W1=0.086816, B8=0.032630
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 84 / SELF_TURN | visible hand: W1 W2 W4 W7 W7 T1 T3 T6 T7 B8 F4
+Recommended: F4, action 32
+Top legal scores: F4=0.940296, B8=0.046531, T1=0.002804
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 100 / SELF_TURN | visible hand: W1 W2 W4 W7 W7 T1 T3 T6 T7 B8 F2
+Recommended: F2, action 30
+Top legal scores: F2=0.905026, B8=0.051086, T1=0.009795
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 116 / SELF_TURN | visible hand: W2 W4 W7 W7 T1 T3 T6 T7 B8 F2 J2
+Recommended: F2, action 30
+Top legal scores: F2=0.656111, B8=0.156422, J2=0.109439
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 132 / SELF_TURN | visible hand: W2 W4 W7 W7 T1 T2 T3 T6 T7 B8 F2
+Recommended: F2, action 30
+Top legal scores: F2=0.951319, B8=0.030752, W2=0.004056
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 148 / POST_MELD_DISCARD | visible hand: W2 W4 W7 W7 T1 T6 T7 B8
+Recommended: T1, action 11
+Top legal scores: T1=0.860420, B8=0.082138, W2=0.019057
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 164 / SELF_TURN | visible hand: W2 W4 W7 W7 T6 T7 B8 J2
+Recommended: J2, action 34
+Top legal scores: J2=0.855338, B8=0.120514, W2=0.010571
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 180 / SELF_TURN | visible hand: W2 W4 W7 W7 T6 T7 B8 B8
+Recommended: W2, action 3
+Top legal scores: W2=0.631305, W7=0.108675, T6=0.100830
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 196 / SELF_TURN | visible hand: W2 W4 W7 W7 T6 T7 B8 B9
+Recommended: W2, action 3
+Top legal scores: W2=0.619566, B8=0.092304, B9=0.081344
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 212 / SELF_TURN | visible hand: W2 W4 W7 W7 T6 T7 B8 J3
+Recommended: J3, action 35
+Top legal scores: J3=0.910532, B8=0.077990, W2=0.007030
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 228 / SELF_TURN | visible hand: W2 W4 W7 W7 T6 T7 B8 F3
+Recommended: F3, action 31
+Top legal scores: F3=0.700221, B8=0.288755, W2=0.004426
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 244 / POST_MELD_DISCARD | visible hand: W2 W4 T6 T7 F3
+Recommended: F3, action 31
+Top legal scores: F3=0.951177, T6=0.019731, W2=0.019183
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 260 / SELF_TURN | visible hand: W4 T6 T7 T9 F3
+Recommended: F3, action 31
+Top legal scores: F3=0.897266, T9=0.080764, T6=0.011095
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 276 / SELF_TURN | visible hand: W4 T6 T7 T9 F3
+Recommended: F3, action 31
+Top legal scores: F3=0.655153, T9=0.300069, T6=0.025242
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 292 / SELF_TURN | visible hand: W4 T6 T7 B3 F3
+Recommended: B3, action 22
+Top legal scores: B3=0.766880, F3=0.166703, W4=0.047881
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 308 / SELF_TURN | visible hand: W4 W8 T6 T7 F3
+Recommended: F3, action 31
+Top legal scores: F3=0.778990, W8=0.122137, W4=0.073160
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 324 / SELF_TURN | visible hand: W8 T6 T7 B4 F3
+Recommended: B4, action 23
+Top legal scores: B4=0.556488, F3=0.345729, W8=0.078999
+State unchanged; scores describe discard behavior, not winning chances.
+Turn 340 / POST_MELD_DISCARD | visible hand: B4 F3
+Recommended: B4, action 23
+Top legal scores: B4=0.936187, F3=0.063813
+State unchanged; scores describe discard behavior, not winning chances.
+{
+  "status": "PASS",
+  "decision": "PROMOTE_V3",
+  "new_blind_test_available": false,
+  "retrospective": {
+    "reference_E0": {
+      "nll": 1.258421143340491,
+      "top1": 0.587587711175587,
+      "top3": 0.814571887153528,
+      "macro_f1_34": 0.5616015155753723,
+      "macro_f1_supported": 0.5616015155753723,
+      "legal_rate": 1.0
+    },
+    "candidate_v3": {
+      "nll": 1.0864529749772713,
+      "top1": 0.6434656460275325,
+      "top3": 0.8654546576949195,
+      "macro_f1_34": 0.6219443806911921,
+      "macro_f1_supported": 0.6219443806911921,
+      "legal_rate": 1.0
+    },
+    "saved_v2": {
+      "nll": 1.2948686998950452,
+      "top1": 0.5717379673642405,
+      "top3": 0.8062843385394161,
+      "macro_f1_34": 0.5446192304024019,
+      "macro_f1_supported": 0.5446192304024019,
+      "legal_rate": 1.0
+    }
+  }
+}
+{
+  "status": "PASS",
+  "decision": "PROMOTE_V3",
+  "new_blind_test_available": false,
+  "retrospective": {
+    "reference_E0": {
+      "nll": 1.258421143340491,
+      "top1": 0.587587711175587,
+      "top3": 0.814571887153528,
+      "macro_f1_34": 0.5616015155753723,
+      "macro_f1_supported": 0.5616015155753723,
+      "legal_rate": 1.0
+    },
+    "candidate_v3": {
+      "nll": 1.0864529749772713,
+      "top1": 0.6434656460275325,
+      "top3": 0.8654546576949195,
+      "macro_f1_34": 0.6219443806911921,
+      "macro_f1_supported": 0.6219443806911921,
+      "legal_rate": 1.0
+    },
+    "saved_v2": {
+      "nll": 1.2948686998950452,
+      "top1": 0.5717379673642405,
+      "top3": 0.8062843385394161,
+      "macro_f1_34": 0.5446192304024019,
+      "macro_f1_supported": 0.5446192304024019,
+      "legal_rate": 1.0
+    }
+  }
+}
+Finalization and actual-inference reverification completed.

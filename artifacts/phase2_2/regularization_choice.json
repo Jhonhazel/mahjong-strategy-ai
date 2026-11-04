@@ -1,0 +1,28 @@
+{
+  "status": "FROZEN_BEFORE_E3",
+  "source": "E2_f0_s2026",
+  "architecture": {
+    "name": "MahjongDiscardMLP",
+    "architecture_version": "discard_mlp_flexible_v1",
+    "input_dim": 1368,
+    "hidden_dims": [
+      256,
+      128
+    ],
+    "output_dim": 34,
+    "activation": "ReLU",
+    "dropout": 0.2
+  },
+  "config": {
+    "seed": 2026,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "batch_size": 256,
+    "max_epochs": 60,
+    "patience": 8,
+    "device": "cpu",
+    "cpu_threads": 1
+  },
+  "reason": "Observed eval train/validation Top1 gap>=3pp; increase weight decay only",
+  "test_used": false
+}

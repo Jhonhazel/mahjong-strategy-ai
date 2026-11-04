@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_identical_trajectory_groups_stay_in_one_fold_without_deleting_rows ____
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-74/expanded-training0/expanded')
+
+    def test_identical_trajectory_groups_stay_in_one_fold_without_deleting_rows(expanded_root):
+        from training.optimization_data import DevelopmentCorpus,development_splits,development_bucket,permitted_matches
+        corpus=DevelopmentCorpus(expanded_root);ids=sorted(permitted_matches(corpus))
+        first=ids[0];second=next(m for m in ids if development_bucket(m)!=development_bucket(first))
+        representative=min(first,second);groups={first:representative,second:representative}
+>       grouped=DevelopmentCorpus(expanded_root,group_keys=groups)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: DevelopmentCorpus.__init__() got an unexpected keyword argument 'group_keys'
+
+tests/test_phase2_2_data_analysis.py:103: TypeError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.92, "disk_free": 6553116672}
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_data_analysis.py::test_identical_trajectory_groups_stay_in_one_fold_without_deleting_rows
+1 failed, 6 deselected in 2.18s

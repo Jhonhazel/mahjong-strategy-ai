@@ -1,0 +1,28 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_frozen_reference_cannot_change_after_candidate_export __________
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x10fc84980>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-86/test_frozen_reference_cannot_c0/v3.pt'))
+
+    def test_frozen_reference_cannot_change_after_candidate_export(completed_matrix):
+        from training.optimization_evaluation import prepare_candidate
+        corpus,output,checkpoint=completed_matrix;frozen=prepare_candidate(corpus,output,checkpoint)
+        reference=Path(frozen['reference_checkpoint']);reference.write_bytes(reference.read_bytes()+b'changed')
+>       with pytest.raises(ValueError,match='reference'):prepare_candidate(corpus,output,checkpoint)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:84: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 1.07, "disk_free": 4455890944}
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.027}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.032}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.07}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.05}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.028}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.054}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.025}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.048}
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_evaluation.py::test_frozen_reference_cannot_change_after_candidate_export
+1 failed, 9 deselected in 4.00s

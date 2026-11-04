@@ -1,0 +1,32 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_frozen_identity_cannot_be_changed_before_test[metadata] _________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-61/test_frozen_identity_cannot_be0')
+frozen_fixture = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-61/fresh-evaluation0/e...Path('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-61/fresh-evaluation0/v2.pt'))
+change = 'metadata'
+
+    @pytest.mark.parametrize("change",["weights","protocol","missing_freeze","metadata"])
+    def test_frozen_identity_cannot_be_changed_before_test(tmp_path,frozen_fixture,change):
+        from training.expanded_evaluation import evaluate_expanded
+        dataset,output,checkpoint=case(tmp_path,frozen_fixture)
+        if change=="weights":checkpoint.write_bytes(checkpoint.read_bytes()+b"tampered")
+        elif change=="protocol":(output/"protocol.json").write_text('{}')
+        elif change=="missing_freeze":(output/"selection_freeze.json").unlink()
+        else:
+            path=checkpoint.with_suffix(".metadata.json")
+            metadata=json.loads(path.read_text());metadata["training"]["config"]["weight_decay"]=.123
+            path.write_text(json.dumps(metadata))
+>       with pytest.raises((ValueError,OSError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (<class 'ValueError'>, <class 'OSError'>)
+
+tests/test_phase2_1_evaluation.py:97: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 150, "total": 150, "samples": 6556, "seconds": 7.27, "disk_free": 8793944064}
+{"epoch": 1, "train_loss": 2.026847924504961, "train_top1_online": 0.17857142857142858, "validation_loss": 2.2586020326780525, "validation_top1": 0.1445993031358885, "validation_top3": 0.3902439024390244, "validation_macro_f1_34": 0.08975836772570238, "validation_macro_f1_supported": 0.08975836772570238, "run": "curve_50", "elapsed_seconds": 0.034}
+{"epoch": 1, "train_loss": 2.1068805347947768, "train_top1_online": 0.2673972602739726, "validation_loss": 2.04764819924009, "validation_top1": 0.28222996515679444, "validation_top3": 0.5522648083623694, "validation_macro_f1_34": 0.1700216375068751, "validation_macro_f1_supported": 0.1700216375068751, "run": "full_original", "elapsed_seconds": 0.162}
+{"epoch": 1, "train_loss": 2.106871851655446, "train_top1_online": 0.26757990867579906, "validation_loss": 2.047494514790146, "validation_top1": 0.28397212543554007, "validation_top3": 0.5522648083623694, "validation_macro_f1_34": 0.1720038794044355, "validation_macro_f1_supported": 0.1720038794044355, "run": "full_regularized", "elapsed_seconds": 0.16}
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_evaluation.py::test_frozen_identity_cannot_be_changed_before_test[metadata]
+1 failed, 10 deselected in 13.29s

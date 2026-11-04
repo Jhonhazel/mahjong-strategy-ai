@@ -1,0 +1,65 @@
+{
+  "verdict": "PHASE 2 PASS",
+  "readiness": "READY FOR PHASE 3",
+  "date": "2026-11-04",
+  "dataset": {
+    "samples": 1879,
+    "matches": 84,
+    "phase1_run_id": "84c2606383794fa8bc072d5edac7b252",
+    "hashes": {
+      "samples": "45303f98bd1d1bca4ac1dbc9228de398456644030bce8b6cb74945be21d86f4d",
+      "manifest": "c496364986aba84efba65b19ae8c96e206bc7453d077ba7b0fc503e728687eb7"
+    }
+  },
+  "model": {
+    "architecture": {
+      "name": "MahjongDiscardMLP",
+      "architecture_version": "discard_mlp_v1",
+      "input_dim": 1368,
+      "hidden_dim": 64,
+      "output_dim": 34,
+      "activation": "ReLU",
+      "dropout": 0.2
+    },
+    "parameters": 89826,
+    "device": "mps",
+    "epochs": 18,
+    "best_epoch": 8,
+    "elapsed_seconds": 3.230458667036146,
+    "checkpoint_sha256": "e962b71b5bc031c2cfa307e9096fb763cb70e65240523a38e73254aa2563e855"
+  },
+  "test_metrics": {
+    "nll": 1.6634954132285773,
+    "top1": 0.4117647058823529,
+    "top3": 0.7254901960784313,
+    "macro_f1_34": 0.29963612896138847,
+    "macro_f1_supported": 0.3087160116571881,
+    "legal_rate": 1.0
+  },
+  "test_samples": 102,
+  "test_matches": 5,
+  "tests": {
+    "tests": 159,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "phase1_tests": 90,
+  "phase2_tests": 69,
+  "live_demo": {
+    "status": "FINISHED",
+    "predictions": 8,
+    "all_legal_unchanged": true
+  },
+  "windows": "NOT RUN",
+  "git": {
+    "branch": "main",
+    "head": "49ad7a2",
+    "publishing_operations": false
+  },
+  "review": {
+    "critical": 0,
+    "important_fixed": 2,
+    "deferred_minor": 0
+  }
+}

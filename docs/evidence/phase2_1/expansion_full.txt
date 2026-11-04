@@ -1,0 +1,87 @@
+{"attempted": 15128, "total": 44420, "samples": 667646, "seconds": 255.63, "disk_free": 9479565312}
+{"attempted": 16408, "total": 44420, "samples": 720822, "seconds": 275.86, "disk_free": 9264799744}
+{"attempted": 17688, "total": 44420, "samples": 773401, "seconds": 295.94, "disk_free": 9249832960}
+{"attempted": 18968, "total": 44420, "samples": 827996, "seconds": 316.54, "disk_free": 9237164032}
+{"attempted": 20248, "total": 44420, "samples": 871366, "seconds": 333.72, "disk_free": 9230966784}
+{"attempted": 21528, "total": 44420, "samples": 914058, "seconds": 350.17, "disk_free": 9207328768}
+{"attempted": 22808, "total": 44420, "samples": 956896, "seconds": 366.69, "disk_free": 9203175424}
+{"attempted": 24088, "total": 44420, "samples": 1010184, "seconds": 387.27, "disk_free": 9177923584}
+{"attempted": 25368, "total": 44420, "samples": 1070428, "seconds": 410.37, "disk_free": 9138565120}
+{"attempted": 26648, "total": 44420, "samples": 1129123, "seconds": 432.7, "disk_free": 9124311040}
+{"attempted": 27928, "total": 44420, "samples": 1185290, "seconds": 456.83, "disk_free": 9106210816}
+{"attempted": 29208, "total": 44420, "samples": 1242559, "seconds": 485.96, "disk_free": 9082195968}
+{"attempted": 30488, "total": 44420, "samples": 1299418, "seconds": 511.46, "disk_free": 9062793216}
+{"attempted": 31768, "total": 44420, "samples": 1359260, "seconds": 536.8, "disk_free": 9048227840}
+{"attempted": 33048, "total": 44420, "samples": 1420053, "seconds": 564.74, "disk_free": 9013833728}
+{"attempted": 34328, "total": 44420, "samples": 1484067, "seconds": 598.29, "disk_free": 8997023744}
+{"attempted": 35608, "total": 44420, "samples": 1540663, "seconds": 622.79, "disk_free": 9156722688}
+{"attempted": 36888, "total": 44420, "samples": 1598501, "seconds": 657.89, "disk_free": 9028329472}
+{"attempted": 38168, "total": 44420, "samples": 1657361, "seconds": 685.26, "disk_free": 8838701056}
+{"attempted": 39448, "total": 44420, "samples": 1714470, "seconds": 712.1, "disk_free": 8817618944}
+{"attempted": 40728, "total": 44420, "samples": 1773451, "seconds": 737.77, "disk_free": 8802840576}
+{"attempted": 42008, "total": 44420, "samples": 1833322, "seconds": 764.97, "disk_free": 8781733888}
+{"attempted": 43288, "total": 44420, "samples": 1893738, "seconds": 795.7, "disk_free": 8981250048}
+{"attempted": 44420, "total": 44420, "samples": 1946122, "seconds": 819.9, "disk_free": 8966676480}
+{
+  "status": "READY",
+  "dataset_version": "expanded_strict_v2",
+  "run_id": "ea198c8c8d504396964c9b9f0e939870",
+  "source_games": 44420,
+  "attempted_games": 44420,
+  "remaining_games": 0,
+  "parsed_games": 44420,
+  "verified_matches": 38250,
+  "excluded_games": 6170,
+  "status_counts": {
+    "verified_exact": 38250,
+    "excluded_abnormal_terminal": 6084,
+    "invalid_label": 31,
+    "replay_error": 55
+  },
+  "parity": {
+    "unmatched_decisions": 0,
+    "compared": 1946122,
+    "obs_mismatches": 0,
+    "mask_mismatches": 0,
+    "act_mismatches": 0,
+    "exact": 1946122
+  },
+  "replay_errors": 55,
+  "replay_mismatches": 0,
+  "invalid_label_attempts": 31,
+  "duplicate_ingestions": 0,
+  "accepted_samples": 1946122,
+  "source_coverage": 1.0,
+  "valid_match_fraction": 0.8610986042323278,
+  "match_endings": {
+    "HU": 36281,
+    "WA": 580,
+    "RE": 3667,
+    "HUANG": 2000,
+    "WH": 416,
+    "TLE": 1080,
+    "NJ": 341,
+    "unavailable": 55
+  },
+  "processing_seconds": 819.9180688711349,
+  "games_per_second": 54.17614477158377,
+  "disk_bytes": 213349956,
+  "max_rss_bytes": 194871296,
+  "source_archive_sha256": "68fe9a5613e523d65356ac5f3e3bc997be8a3ad08bc24035ae22aad17c1daa42",
+  "source_position_range": [
+    0,
+    44419
+  ],
+  "complete": true,
+  "non_game_members": [
+    {
+      "source_file": "finalist_games/_sid.txt",
+      "size": 84
+    }
+  ],
+  "validation": {
+    "status": "PASS",
+    "provenance_coverage": 1.0,
+    "illegal_labels": 0
+  }
+}

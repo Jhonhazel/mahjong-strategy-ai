@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_real_saved_model_demo_finishes_round_without_prediction_mutation _____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_real_saved_model_demo_fin0')
+
+    def test_real_saved_model_demo_finishes_round_without_prediction_mutation(tmp_path):
+        root = Path(__file__).resolve().parents[1]
+        import pytest
+        if not (root / "artifacts/models/mahjong_discard_mlp.pt").is_file():
+            pytest.skip("Train the local Phase 2 checkpoint before the real model demonstration")
+        output = tmp_path / "demo.json"
+        run = subprocess.run([sys.executable, "-m", "scripts.demo_ai_prediction", "--smoke", "--seed", "42", "--human-seat", "1", "--output", str(output)], cwd=root, capture_output=True, text=True, timeout=60)
+>       assert run.returncode == 0, run.stderr
+E       AssertionError: /Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python: No module named scripts.demo_ai_prediction
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python', '-m', 'scripts.demo_ai_prediction', '-...tdout='', stderr='/Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python: No module named scripts.demo_ai_prediction\n').returncode
+
+tests/test_phase2_demo.py:14: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_demo.py::test_real_saved_model_demo_finishes_round_without_prediction_mutation
+1 failed in 0.04s

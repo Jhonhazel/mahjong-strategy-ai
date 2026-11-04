@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "python": "3.12.10",
+  "torch": "2.15.0",
+  "numpy": "2.5.4",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "cpu_count": 8,
+  "memory_bytes": 17179869184,
+  "mps_available": true,
+  "cpu_probe": [
+    {
+      "device": "cpu",
+      "status": "PASS",
+      "masked_loss": 1.2462042570114136
+    }
+  ],
+  "mps_probe": [
+    {
+      "device": "mps",
+      "status": "PASS",
+      "masked_loss": 1.2111620903015137
+    }
+  ],
+  "disk_free_bytes": 5405896704,
+  "new_external_holdout": "NOT AVAILABLE in supplied/local pinned corpus",
+  "baseline_tests": 218,
+  "baseline_seconds": 38.81
+}

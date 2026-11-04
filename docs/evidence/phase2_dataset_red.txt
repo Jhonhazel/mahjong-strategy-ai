@@ -1,0 +1,193 @@
+FFFFFFFFFFFFFFFFF                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_real_approved_snapshot_and_match_disjoint_preprocessing _________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-29/test_real_approved_snapshot_an0')
+
+    def test_real_approved_snapshot_and_match_disjoint_preprocessing(tmp_path):
+>       from training.phase2_dataset import validate_dataset, prepare_split
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:21: ModuleNotFoundError
+___________ test_tampered_snapshot_fails_and_writes_report[npz_hash] ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-29/test_tampered_snapshot_fails_a0')
+tamper = 'npz_hash'
+
+    @pytest.mark.parametrize("tamper", ["npz_hash", "manifest_hash", "run_id", "strategy", "source_hash", "audit_status"])
+    def test_tampered_snapshot_fails_and_writes_report(tmp_path, tamper):
+>       from training.phase2_dataset import validate_dataset
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:45: ModuleNotFoundError
+________ test_tampered_snapshot_fails_and_writes_report[manifest_hash] _________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-29/test_tampered_snapshot_fails_a1')
+tamper = 'manifest_hash'
+
+    @pytest.mark.parametrize("tamper", ["npz_hash", "manifest_hash", "run_id", "strategy", "source_hash", "audit_status"])
+    def test_tampered_snapshot_fails_and_writes_report(tmp_path, tamper):
+>       from training.phase2_dataset import validate_dataset
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:45: ModuleNotFoundError
+____________ test_tampered_snapshot_fails_and_writes_report[run_id] ____________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-29/test_tampered_snapshot_fails_a2')
+tamper = 'run_id'
+
+    @pytest.mark.parametrize("tamper", ["npz_hash", "manifest_hash", "run_id", "strategy", "source_hash", "audit_status"])
+    def test_tampered_snapshot_fails_and_writes_report(tmp_path, tamper):
+>       from training.phase2_dataset import validate_dataset
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:45: ModuleNotFoundError
+___________ test_tampered_snapshot_fails_and_writes_report[strategy] ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-29/test_tampered_snapshot_fails_a3')
+tamper = 'strategy'
+
+    @pytest.mark.parametrize("tamper", ["npz_hash", "manifest_hash", "run_id", "strategy", "source_hash", "audit_status"])
+    def test_tampered_snapshot_fails_and_writes_report(tmp_path, tamper):
+>       from training.phase2_dataset import validate_dataset
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:45: ModuleNotFoundError
+_________ test_tampered_snapshot_fails_and_writes_report[source_hash] __________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-29/test_tampered_snapshot_fails_a4')
+tamper = 'source_hash'
+
+    @pytest.mark.parametrize("tamper", ["npz_hash", "manifest_hash", "run_id", "strategy", "source_hash", "audit_status"])
+    def test_tampered_snapshot_fails_and_writes_report(tmp_path, tamper):
+>       from training.phase2_dataset import validate_dataset
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:45: ModuleNotFoundError
+_________ test_tampered_snapshot_fails_and_writes_report[audit_status] _________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-29/test_tampered_snapshot_fails_a5')
+tamper = 'audit_status'
+
+    @pytest.mark.parametrize("tamper", ["npz_hash", "manifest_hash", "run_id", "strategy", "source_hash", "audit_status"])
+    def test_tampered_snapshot_fails_and_writes_report(tmp_path, tamper):
+>       from training.phase2_dataset import validate_dataset
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:45: ModuleNotFoundError
+____ test_manifest_alignment_rejects_wrong_real_row_identity[duplicate_row] ____
+
+tamper = 'duplicate_row'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+_____ test_manifest_alignment_rejects_wrong_real_row_identity[missing_row] _____
+
+tamper = 'missing_row'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+________ test_manifest_alignment_rejects_wrong_real_row_identity[match] ________
+
+tamper = 'match'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+________ test_manifest_alignment_rejects_wrong_real_row_identity[seat] _________
+
+tamper = 'seat'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+_______ test_manifest_alignment_rejects_wrong_real_row_identity[action] ________
+
+tamper = 'action'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+________ test_manifest_alignment_rejects_wrong_real_row_identity[score] ________
+
+tamper = 'score'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+_________ test_manifest_alignment_rejects_wrong_real_row_identity[uid] _________
+
+tamper = 'uid'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+_______ test_manifest_alignment_rejects_wrong_real_row_identity[source] ________
+
+tamper = 'source'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+_ test_manifest_alignment_rejects_wrong_real_row_identity[duplicate_identity] __
+
+tamper = 'duplicate_identity'
+
+    @pytest.mark.parametrize("tamper", ["duplicate_row", "missing_row", "match", "seat", "action", "score", "uid", "source", "duplicate_identity"])
+    def test_manifest_alignment_rejects_wrong_real_row_identity(tamper):
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:80: ModuleNotFoundError
+_______ test_alignment_accepts_explicit_row_order_and_rejects_empty_mask _______
+
+    def test_alignment_accepts_explicit_row_order_and_rejects_empty_mask():
+>       from training.phase2_dataset import validate_alignment
+E       ModuleNotFoundError: No module named 'training.phase2_dataset'
+
+tests/test_phase2_dataset.py:98: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_dataset.py::test_real_approved_snapshot_and_match_disjoint_preprocessing
+FAILED tests/test_phase2_dataset.py::test_tampered_snapshot_fails_and_writes_report[npz_hash]
+FAILED tests/test_phase2_dataset.py::test_tampered_snapshot_fails_and_writes_report[manifest_hash]
+FAILED tests/test_phase2_dataset.py::test_tampered_snapshot_fails_and_writes_report[run_id]
+FAILED tests/test_phase2_dataset.py::test_tampered_snapshot_fails_and_writes_report[strategy]
+FAILED tests/test_phase2_dataset.py::test_tampered_snapshot_fails_and_writes_report[source_hash]
+FAILED tests/test_phase2_dataset.py::test_tampered_snapshot_fails_and_writes_report[audit_status]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[duplicate_row]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[missing_row]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[match]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[seat]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[action]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[score]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[uid]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[source]
+FAILED tests/test_phase2_dataset.py::test_manifest_alignment_rejects_wrong_real_row_identity[duplicate_identity]
+FAILED tests/test_phase2_dataset.py::test_alignment_accepts_explicit_row_order_and_rejects_empty_mask
+17 failed in 0.13s

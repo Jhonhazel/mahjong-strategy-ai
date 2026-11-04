@@ -1,0 +1,19 @@
+{
+  "status": "FROZEN",
+  "frozen_at_utc": "2026-11-04T12:51:56.484519+00:00",
+  "selected_experiment": "E3_f0_s2026",
+  "checkpoint": "artifacts/models/mahjong_discard_mlp_v3.pt",
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_content_sha256": "822df9ac375113e89982ad64e465e6e4317740b16c2755fdfd6cff837ef9bb1e",
+  "source_checkpoint": "artifacts/phase2_2/experiments/E3_f0_s2026/model.pt",
+  "reference_checkpoint": "artifacts/phase2_2/experiments/E0_f0_s2026/model.pt",
+  "reference_sha256": "a2564fa2c0c85ff6ba7c83afbb16a49886f0c320d3dabf8b8c89182d3758c03a",
+  "reference_metadata_sha256": "f66688006a9fc7d7846b4e211670c5494ca60e985aea390e57e3ec2960d817e0",
+  "dataset_contract_sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc",
+  "registry_sha256": "fd44ecc4a6834774f68e7de66959855e41b20ee52ca35de24786d55a9ec15e4a",
+  "protocol_sha256": "86dee0edf45c99f58c6ade1d0870ae219b477ccad12baccbe370fac913bfd5d1",
+  "comparison_sha256": "9eafea7ac6ccb7bcc29eb566bc351b87321b21ddcab806490e3922ab71847a85",
+  "evaluation_kind": "internal_group_development",
+  "new_blind_test_available": false,
+  "historical_test_used_for_selection": false
+}

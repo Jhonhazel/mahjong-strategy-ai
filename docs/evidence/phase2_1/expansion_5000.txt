@@ -1,0 +1,59 @@
+{"attempted": 1240, "total": 44420, "samples": 58346, "seconds": 26.67, "disk_free": 7724875776}
+{"attempted": 2520, "total": 44420, "samples": 121640, "seconds": 48.73, "disk_free": 7717900288}
+{"attempted": 3800, "total": 44420, "samples": 183643, "seconds": 70.08, "disk_free": 7710707712}
+{"attempted": 5000, "total": 44420, "samples": 243681, "seconds": 91.6, "disk_free": 7703420928}
+{
+  "status": "PAUSED",
+  "dataset_version": "expanded_strict_v2",
+  "run_id": "ea198c8c8d504396964c9b9f0e939870",
+  "source_games": 44420,
+  "attempted_games": 5000,
+  "remaining_games": 39420,
+  "parsed_games": 5000,
+  "verified_matches": 4940,
+  "excluded_games": 60,
+  "status_counts": {
+    "verified_exact": 4940,
+    "excluded_abnormal_terminal": 56,
+    "invalid_label": 4
+  },
+  "parity": {
+    "unmatched_decisions": 0,
+    "compared": 243681,
+    "obs_mismatches": 0,
+    "mask_mismatches": 0,
+    "act_mismatches": 0,
+    "exact": 243681
+  },
+  "replay_errors": 0,
+  "replay_mismatches": 0,
+  "invalid_label_attempts": 4,
+  "duplicate_ingestions": 0,
+  "accepted_samples": 243681,
+  "source_coverage": 0.11256190904997748,
+  "valid_match_fraction": 0.988,
+  "match_endings": {
+    "HU": 4776,
+    "WA": 9,
+    "RE": 31,
+    "HUANG": 168,
+    "WH": 2,
+    "TLE": 14
+  },
+  "processing_seconds": 91.61996208596975,
+  "games_per_second": 54.57325986784791,
+  "disk_bytes": 30073901,
+  "max_rss_bytes": 169705472,
+  "source_archive_sha256": "68fe9a5613e523d65356ac5f3e3bc997be8a3ad08bc24035ae22aad17c1daa42",
+  "source_position_range": [
+    0,
+    4999
+  ],
+  "complete": false,
+  "non_game_members": [
+    {
+      "source_file": "finalist_games/_sid.txt",
+      "size": 84
+    }
+  ]
+}

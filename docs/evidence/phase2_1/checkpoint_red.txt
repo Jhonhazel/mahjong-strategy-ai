@@ -1,0 +1,48 @@
+F....F                                                                   [100%]
+=================================== FAILURES ===================================
+_ test_v2_checkpoint_binds_expanded_run_contract_shards_and_preserves_parent_identity _
+
+v2checkpoint = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-53/v2-checkpoint0/mode...32be68be0f6e3', 'class_to_action': [2, 3, 4, 5, 6, 7, ...], 'created_at_utc': '2026-11-04T08:57:30.411498+00:00', ...})
+
+    def test_v2_checkpoint_binds_expanded_run_contract_shards_and_preserves_parent_identity(v2checkpoint):
+        from app.model_checkpoint import load_checkpoint
+        path,corpus,metadata=v2checkpoint
+>       _,loaded=load_checkpoint(path,expected_contract=corpus.contract)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_1_checkpoint.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+app/model_checkpoint.py:115: in load_checkpoint
+    validate_metadata(metadata, expected_contract)
+app/model_checkpoint.py:65: in validate_metadata
+    check(all(dataset[a] == expected_contract[b] for a, b in pairs.items()), "Checkpoint dataset identity differs from expected contract")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False
+message = 'Checkpoint dataset identity differs from expected contract'
+
+    def check(condition, message):
+        if not condition:
+>           raise CheckpointValidationError(message)
+E           app.model_checkpoint.CheckpointValidationError: Checkpoint dataset identity differs from expected contract
+
+app/model_checkpoint.py:46: CheckpointValidationError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.99, "disk_free": 7696224256}
+{"epoch": 1, "train_loss": 2.201582988103231, "train_top1_online": 0.19444444444444445, "validation_loss": 2.1741629432229437, "validation_top1": 0.16470588235294117, "validation_top3": 0.4, "validation_macro_f1_34": 0.13178912590677294, "validation_macro_f1_supported": 0.15451138899414762, "run": "train", "elapsed_seconds": 0.015}
+_ test_new_model_live_round_uses_existing_service_both_phases_without_mutation _
+
+v2checkpoint = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-53/v2-checkpoint0/mode...32be68be0f6e3', 'class_to_action': [2, 3, 4, 5, 6, 7, ...], 'created_at_utc': '2026-11-04T08:57:30.411498+00:00', ...})
+
+    def test_new_model_live_round_uses_existing_service_both_phases_without_mutation(v2checkpoint):
+        from scripts.demo_ai_prediction import run_demo
+        path,corpus,_=v2checkpoint
+>       result=run_demo(path,42,1,True,contract_path=corpus.root/"data_contract.json")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: run_demo() got an unexpected keyword argument 'contract_path'
+
+tests/test_phase2_1_checkpoint.py:51: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_checkpoint.py::test_v2_checkpoint_binds_expanded_run_contract_shards_and_preserves_parent_identity
+FAILED tests/test_phase2_1_checkpoint.py::test_new_model_live_round_uses_existing_service_both_phases_without_mutation
+2 failed, 4 passed in 2.96s

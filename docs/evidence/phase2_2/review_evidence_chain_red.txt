@@ -1,0 +1,103 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+________ test_frozen_final_verification_rejects_changed_junit_evidence _________
+
+frozen_finalization = (<module 'training.optimization_finalize' from '/Users/jhonhazel/mahjong-strategy-ai/training/optimization_finalize.py.../T/pytest-of-jhonhazel/pytest-99/test_frozen_final_verification0/final/development/candidate_v3_predictions.jsonl.gz'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10ceb5d00>
+
+    def test_frozen_final_verification_rejects_changed_junit_evidence(frozen_finalization,monkeypatch):
+        module,output,checkpoint,leaf=frozen_finalization
+        # Isolate orchestration from repeated tensor inference, which has its own tests.
+        retro={'samples':1,'matches':1,'models':{'candidate_v3':{key:1. for key in module.METRICS}}}
+        monkeypatch.setattr(module,'_comparison',lambda *a,**k:retro)
+        (output/'suite.xml').write_text('<testsuites changed="true"/>')
+>       with pytest.raises(ValueError,match='regression.*changed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:234: Failed
+__ test_frozen_unselected_experiment_artifact_tampering_is_rejected[model.pt] __
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x10a2f2600>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-99/test_frozen_unselected_experim0/v3.pt'))
+leaf = 'model.pt'
+
+    @pytest.mark.parametrize('leaf',['model.pt','model.metadata.json','history.json'])
+    def test_frozen_unselected_experiment_artifact_tampering_is_rejected(completed_matrix,leaf):
+        from training.optimization_evaluation import prepare_candidate
+        corpus,output,checkpoint=completed_matrix;frozen=prepare_candidate(corpus,output,checkpoint)
+        rows=json.loads((output/'experiment_registry.json').read_text())['entries']
+        row=next(r for r in rows if r['id']!=frozen['selected_experiment'] and r['checkpoint']!=frozen['reference_checkpoint'])
+        path=Path(row['checkpoint']).parent/leaf;path.write_bytes(path.read_bytes()+b'tampered')
+>       with pytest.raises(ValueError,match='experiment artifact changed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:245: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 1.13, "disk_free": 5409792000}
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.031}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.045}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.06}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.061}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.031}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.067}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.036}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.076}
+_ test_frozen_unselected_experiment_artifact_tampering_is_rejected[model.metadata.json] _
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x10f52cc50>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-99/test_frozen_unselected_experim1/v3.pt'))
+leaf = 'model.metadata.json'
+
+    @pytest.mark.parametrize('leaf',['model.pt','model.metadata.json','history.json'])
+    def test_frozen_unselected_experiment_artifact_tampering_is_rejected(completed_matrix,leaf):
+        from training.optimization_evaluation import prepare_candidate
+        corpus,output,checkpoint=completed_matrix;frozen=prepare_candidate(corpus,output,checkpoint)
+        rows=json.loads((output/'experiment_registry.json').read_text())['entries']
+        row=next(r for r in rows if r['id']!=frozen['selected_experiment'] and r['checkpoint']!=frozen['reference_checkpoint'])
+        path=Path(row['checkpoint']).parent/leaf;path.write_bytes(path.read_bytes()+b'tampered')
+>       with pytest.raises(ValueError,match='experiment artifact changed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:245: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.035}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.037}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.057}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.061}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.038}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.095}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.033}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.059}
+_ test_frozen_unselected_experiment_artifact_tampering_is_rejected[history.json] _
+
+completed_matrix = (<training.optimization_data.DevelopmentCorpus object at 0x1191a4ce0>, PosixPath('/private/var/folders/vj/nsnvf6_123jc.../var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-99/test_frozen_unselected_experim2/v3.pt'))
+leaf = 'history.json'
+
+    @pytest.mark.parametrize('leaf',['model.pt','model.metadata.json','history.json'])
+    def test_frozen_unselected_experiment_artifact_tampering_is_rejected(completed_matrix,leaf):
+        from training.optimization_evaluation import prepare_candidate
+        corpus,output,checkpoint=completed_matrix;frozen=prepare_candidate(corpus,output,checkpoint)
+        rows=json.loads((output/'experiment_registry.json').read_text())['entries']
+        row=next(r for r in rows if r['id']!=frozen['selected_experiment'] and r['checkpoint']!=frozen['reference_checkpoint'])
+        path=Path(row['checkpoint']).parent/leaf;path.write_bytes(path.read_bytes()+b'tampered')
+>       with pytest.raises(ValueError,match='experiment artifact changed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_evaluation.py:245: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"epoch": 1, "train_loss": 2.2215187716242157, "train_top1_online": 0.17474633596392333, "validation_loss": 2.22549691954031, "validation_top1": 0.17827298050139276, "validation_top3": 0.5041782729805014, "validation_macro_f1_34": 0.11919032766993069, "validation_macro_f1_supported": 0.11919032766993069, "run": "E0_f0_s2026", "elapsed_seconds": 0.034}
+{"epoch": 1, "train_loss": 2.206672349669619, "train_top1_online": 0.19052987598647125, "validation_loss": 2.1722031345274453, "validation_top1": 0.298050139275766, "validation_top3": 0.5682451253481894, "validation_macro_f1_34": 0.16585758611956017, "validation_macro_f1_supported": 0.16585758611956017, "run": "E1_f0_s2026", "elapsed_seconds": 0.039}
+{"epoch": 1, "train_loss": 2.196523368022622, "train_top1_online": 0.1882750845546787, "validation_loss": 2.164325136411157, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E2_f0_s2026", "elapsed_seconds": 0.061}
+{"epoch": 1, "train_loss": 2.196523752932887, "train_top1_online": 0.1882750845546787, "validation_loss": 2.1643251099294276, "validation_top1": 0.25069637883008355, "validation_top3": 0.5069637883008357, "validation_macro_f1_34": 0.1372979777502641, "validation_macro_f1_supported": 0.1372979777502641, "run": "E3_f0_s2026", "elapsed_seconds": 0.062}
+{"epoch": 1, "train_loss": 2.2171333219045573, "train_top1_online": 0.18674136321195145, "validation_loss": 2.230245600087302, "validation_top1": 0.19428571428571428, "validation_top3": 0.46285714285714286, "validation_macro_f1_34": 0.10619153738794178, "validation_macro_f1_supported": 0.10940946276333396, "run": "E0_f1_s2026", "elapsed_seconds": 0.032}
+{"epoch": 1, "train_loss": 2.179840131411477, "train_top1_online": 0.226890756302521, "validation_loss": 2.2442197157655444, "validation_top1": 0.24571428571428572, "validation_top3": 0.44, "validation_macro_f1_34": 0.1473208287096428, "validation_macro_f1_supported": 0.15178509624629866, "run": "E3_f1_s2026", "elapsed_seconds": 0.065}
+{"epoch": 1, "train_loss": 2.2207238795120254, "train_top1_online": 0.1668545659526494, "validation_loss": 2.2277595198254065, "validation_top1": 0.181058495821727, "validation_top3": 0.467966573816156, "validation_macro_f1_34": 0.10208407389039778, "validation_macro_f1_supported": 0.10208407389039778, "run": "E0_f0_s2027", "elapsed_seconds": 0.039}
+{"epoch": 1, "train_loss": 2.2099388691322646, "train_top1_online": 0.18038331454340473, "validation_loss": 2.1834226180916043, "validation_top1": 0.20334261838440112, "validation_top3": 0.5376044568245125, "validation_macro_f1_34": 0.1308918722348782, "validation_macro_f1_supported": 0.1308918722348782, "run": "E3_f0_s2027", "elapsed_seconds": 0.06}
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_evaluation.py::test_frozen_final_verification_rejects_changed_junit_evidence
+FAILED tests/test_phase2_2_evaluation.py::test_frozen_unselected_experiment_artifact_tampering_is_rejected[model.pt]
+FAILED tests/test_phase2_2_evaluation.py::test_frozen_unselected_experiment_artifact_tampering_is_rejected[model.metadata.json]
+FAILED tests/test_phase2_2_evaluation.py::test_frozen_unselected_experiment_artifact_tampering_is_rejected[history.json]
+4 failed, 19 deselected in 7.78s

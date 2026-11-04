@@ -1,0 +1,271 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+___ test_missing_initial_inventory_is_rebuilt_from_pinned_archive_on_resume ____
+
+root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0/expanded')
+archive = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0/source.tar.gz')
+require_complete = True, require_ready = False
+
+    def validate_expansion(root, archive=None, require_complete=True, require_ready=True):
+        root = Path(root)
+        try:
+>           return _validate_expansion(root, archive, require_complete, require_ready)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+training/expanded_dataset.py:326: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/expanded_dataset.py:341: in _validate_expansion
+    inventory = json.loads((root / "source_inventory.json").read_text())["entries"]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0/expanded/source_inventory.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0/expanded/source_inventory.json'
+
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1013: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0')
+source_games = [('finalist_games/693e6992416c555f2909fc48.json', b'{"match_id":"693e6992416c555f2909fc48","our_players":{"692e88f12ab...bc\xa0","value":1}],"fanCnt":12,"player":1,"score":[-8,36,-20,-8],"tileCnt":[9,10,9,10]}},"time":7,"verdict":"OK"}]}')]
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10b629a00>
+
+    def test_missing_initial_inventory_is_rebuilt_from_pinned_archive_on_resume(tmp_path,source_games,monkeypatch):
+        import training.expanded_dataset as module
+        archive,spec=make_archive(tmp_path,source_games)
+        config=config_for(tmp_path,archive)
+        real=module.write_json_report
+        def fail(path,value):
+            if Path(path).name=="source_inventory.json":raise OSError("interrupted initial inventory")
+            return real(path,value)
+        monkeypatch.setattr(module,"write_json_report",fail)
+        with pytest.raises(OSError,match="interrupted"):module.expand(config,spec=spec)
+        assert (config.output/"progress.json").is_file()
+        monkeypatch.setattr(module,"write_json_report",real)
+>       result=module.expand(config,spec=spec)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_1_expansion.py:266: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/expanded_dataset.py:308: in expand
+    audit = validate_expansion(root, archive=archive_path, require_ready=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0/expanded')
+archive = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0/source.tar.gz')
+require_complete = True, require_ready = False
+
+    def validate_expansion(root, archive=None, require_complete=True, require_ready=True):
+        root = Path(root)
+        try:
+            return _validate_expansion(root, archive, require_complete, require_ready)
+        except Exception as exc:
+            write_json_report(root / "data_contract.json", {"status": "BLOCKED", "reason": f"Validation failed: {exc}"})
+            if isinstance(exc, CorruptedDatasetError):
+                raise
+>           raise CorruptedDatasetError(f"Expanded data validation failed: {exc}") from exc
+E           app.domain.exceptions.CorruptedDatasetError: Expanded data validation failed: [Errno 2] No such file or directory: '/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_missing_initial_inventory0/expanded/source_inventory.json'
+
+training/expanded_dataset.py:331: CorruptedDatasetError
+----------------------------- Captured stdout call -----------------------------
+{"attempted": 3, "total": 3, "samples": 115, "seconds": 0.12, "disk_free": 8297189376}
+_ test_published_contract_must_match_all_audited_fields_before_loading[duplicate_shard] _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_published_contract_must_m0')
+change = 'duplicate_shard'
+
+    @pytest.mark.parametrize("change",["duplicate_shard","omitted_shard","substituted_shard","roles","split_counts","encoder_source"])
+    def test_published_contract_must_match_all_audited_fields_before_loading(expanded_root,tmp_path,change):
+        from training.expanded_training import ShardCorpus
+        from app.domain.exceptions import CorruptedDatasetError
+        import shutil
+        root=tmp_path/"expanded";shutil.copytree(expanded_root,root)
+        path=root/"data_contract.json";value=json.loads(path.read_text())
+        if change=="duplicate_shard":value["shards"].append(value["shards"][0])
+        elif change=="omitted_shard":value["shards"].pop()
+        elif change=="substituted_shard":value["shards"][0]["path"]="shards/99999999"
+        elif change=="roles":value["original_roles"][next(iter(value["original_roles"]))]="test"
+        elif change=="split_counts":value["splits"]["train"]["samples"]+=1
+        else:value["implementation_sha256"]["app/engine/feature_encoder.py"]="0"*64
+        path.write_text(json.dumps(value))
+>       with pytest.raises(CorruptedDatasetError):ShardCorpus(root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.domain.exceptions.CorruptedDatasetError'>
+
+tests/test_phase2_1_training.py:195: Failed
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 1.22, "disk_free": 8293777408}
+_ test_published_contract_must_match_all_audited_fields_before_loading[omitted_shard] _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_published_contract_must_m1')
+change = 'omitted_shard'
+
+    @pytest.mark.parametrize("change",["duplicate_shard","omitted_shard","substituted_shard","roles","split_counts","encoder_source"])
+    def test_published_contract_must_match_all_audited_fields_before_loading(expanded_root,tmp_path,change):
+        from training.expanded_training import ShardCorpus
+        from app.domain.exceptions import CorruptedDatasetError
+        import shutil
+        root=tmp_path/"expanded";shutil.copytree(expanded_root,root)
+        path=root/"data_contract.json";value=json.loads(path.read_text())
+        if change=="duplicate_shard":value["shards"].append(value["shards"][0])
+        elif change=="omitted_shard":value["shards"].pop()
+        elif change=="substituted_shard":value["shards"][0]["path"]="shards/99999999"
+        elif change=="roles":value["original_roles"][next(iter(value["original_roles"]))]="test"
+        elif change=="split_counts":value["splits"]["train"]["samples"]+=1
+        else:value["implementation_sha256"]["app/engine/feature_encoder.py"]="0"*64
+        path.write_text(json.dumps(value))
+>       with pytest.raises(CorruptedDatasetError):ShardCorpus(root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.domain.exceptions.CorruptedDatasetError'>
+
+tests/test_phase2_1_training.py:195: Failed
+_ test_published_contract_must_match_all_audited_fields_before_loading[substituted_shard] _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_published_contract_must_m2')
+change = 'substituted_shard'
+
+    @pytest.mark.parametrize("change",["duplicate_shard","omitted_shard","substituted_shard","roles","split_counts","encoder_source"])
+    def test_published_contract_must_match_all_audited_fields_before_loading(expanded_root,tmp_path,change):
+        from training.expanded_training import ShardCorpus
+        from app.domain.exceptions import CorruptedDatasetError
+        import shutil
+        root=tmp_path/"expanded";shutil.copytree(expanded_root,root)
+        path=root/"data_contract.json";value=json.loads(path.read_text())
+        if change=="duplicate_shard":value["shards"].append(value["shards"][0])
+        elif change=="omitted_shard":value["shards"].pop()
+        elif change=="substituted_shard":value["shards"][0]["path"]="shards/99999999"
+        elif change=="roles":value["original_roles"][next(iter(value["original_roles"]))]="test"
+        elif change=="split_counts":value["splits"]["train"]["samples"]+=1
+        else:value["implementation_sha256"]["app/engine/feature_encoder.py"]="0"*64
+        path.write_text(json.dumps(value))
+>       with pytest.raises(CorruptedDatasetError):ShardCorpus(root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.domain.exceptions.CorruptedDatasetError'>
+
+tests/test_phase2_1_training.py:195: Failed
+_ test_published_contract_must_match_all_audited_fields_before_loading[roles] __
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_published_contract_must_m3')
+change = 'roles'
+
+    @pytest.mark.parametrize("change",["duplicate_shard","omitted_shard","substituted_shard","roles","split_counts","encoder_source"])
+    def test_published_contract_must_match_all_audited_fields_before_loading(expanded_root,tmp_path,change):
+        from training.expanded_training import ShardCorpus
+        from app.domain.exceptions import CorruptedDatasetError
+        import shutil
+        root=tmp_path/"expanded";shutil.copytree(expanded_root,root)
+        path=root/"data_contract.json";value=json.loads(path.read_text())
+        if change=="duplicate_shard":value["shards"].append(value["shards"][0])
+        elif change=="omitted_shard":value["shards"].pop()
+        elif change=="substituted_shard":value["shards"][0]["path"]="shards/99999999"
+        elif change=="roles":value["original_roles"][next(iter(value["original_roles"]))]="test"
+        elif change=="split_counts":value["splits"]["train"]["samples"]+=1
+        else:value["implementation_sha256"]["app/engine/feature_encoder.py"]="0"*64
+        path.write_text(json.dumps(value))
+>       with pytest.raises(CorruptedDatasetError):ShardCorpus(root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.domain.exceptions.CorruptedDatasetError'>
+
+tests/test_phase2_1_training.py:195: Failed
+_ test_published_contract_must_match_all_audited_fields_before_loading[split_counts] _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_published_contract_must_m4')
+change = 'split_counts'
+
+    @pytest.mark.parametrize("change",["duplicate_shard","omitted_shard","substituted_shard","roles","split_counts","encoder_source"])
+    def test_published_contract_must_match_all_audited_fields_before_loading(expanded_root,tmp_path,change):
+        from training.expanded_training import ShardCorpus
+        from app.domain.exceptions import CorruptedDatasetError
+        import shutil
+        root=tmp_path/"expanded";shutil.copytree(expanded_root,root)
+        path=root/"data_contract.json";value=json.loads(path.read_text())
+        if change=="duplicate_shard":value["shards"].append(value["shards"][0])
+        elif change=="omitted_shard":value["shards"].pop()
+        elif change=="substituted_shard":value["shards"][0]["path"]="shards/99999999"
+        elif change=="roles":value["original_roles"][next(iter(value["original_roles"]))]="test"
+        elif change=="split_counts":value["splits"]["train"]["samples"]+=1
+        else:value["implementation_sha256"]["app/engine/feature_encoder.py"]="0"*64
+        path.write_text(json.dumps(value))
+>       with pytest.raises(CorruptedDatasetError):ShardCorpus(root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.domain.exceptions.CorruptedDatasetError'>
+
+tests/test_phase2_1_training.py:195: Failed
+_ test_published_contract_must_match_all_audited_fields_before_loading[encoder_source] _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_published_contract_must_m5')
+change = 'encoder_source'
+
+    @pytest.mark.parametrize("change",["duplicate_shard","omitted_shard","substituted_shard","roles","split_counts","encoder_source"])
+    def test_published_contract_must_match_all_audited_fields_before_loading(expanded_root,tmp_path,change):
+        from training.expanded_training import ShardCorpus
+        from app.domain.exceptions import CorruptedDatasetError
+        import shutil
+        root=tmp_path/"expanded";shutil.copytree(expanded_root,root)
+        path=root/"data_contract.json";value=json.loads(path.read_text())
+        if change=="duplicate_shard":value["shards"].append(value["shards"][0])
+        elif change=="omitted_shard":value["shards"].pop()
+        elif change=="substituted_shard":value["shards"][0]["path"]="shards/99999999"
+        elif change=="roles":value["original_roles"][next(iter(value["original_roles"]))]="test"
+        elif change=="split_counts":value["splits"]["train"]["samples"]+=1
+        else:value["implementation_sha256"]["app/engine/feature_encoder.py"]="0"*64
+        path.write_text(json.dumps(value))
+>       with pytest.raises(CorruptedDatasetError):ShardCorpus(root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.domain.exceptions.CorruptedDatasetError'>
+
+tests/test_phase2_1_training.py:195: Failed
+_____ test_interrupted_resume_pointer_retains_previous_complete_checkpoint _____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-65/test_interrupted_resume_pointe0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10beb91f0>
+
+    def test_interrupted_resume_pointer_retains_previous_complete_checkpoint(tmp_path,monkeypatch):
+        import training.expanded_training as module
+        path=tmp_path/"training_resume.pt"
+        module.save_training_state(path,{"history":[{"epoch":1}],"model":{"weight":torch.tensor([1.])}})
+        original=path.with_suffix(".sha256.json").read_bytes()
+        real=module.write_json_report
+        def fail(pointer,value):raise OSError("interrupted resume pointer")
+        monkeypatch.setattr(module,"write_json_report",fail)
+        with pytest.raises(OSError,match="interrupted"):
+            module.save_training_state(path,{"history":[{"epoch":1},{"epoch":2}],"model":{"weight":torch.tensor([2.])}})
+        monkeypatch.setattr(module,"write_json_report",real)
+        assert path.with_suffix(".sha256.json").read_bytes()==original
+>       loaded=module.load_training_state(path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'training.expanded_training' has no attribute 'load_training_state'. Did you mean: 'save_training_state'?
+
+tests/test_phase2_1_training.py:210: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_expansion.py::test_missing_initial_inventory_is_rebuilt_from_pinned_archive_on_resume
+FAILED tests/test_phase2_1_training.py::test_published_contract_must_match_all_audited_fields_before_loading[duplicate_shard]
+FAILED tests/test_phase2_1_training.py::test_published_contract_must_match_all_audited_fields_before_loading[omitted_shard]
+FAILED tests/test_phase2_1_training.py::test_published_contract_must_match_all_audited_fields_before_loading[substituted_shard]
+FAILED tests/test_phase2_1_training.py::test_published_contract_must_match_all_audited_fields_before_loading[roles]
+FAILED tests/test_phase2_1_training.py::test_published_contract_must_match_all_audited_fields_before_loading[split_counts]
+FAILED tests/test_phase2_1_training.py::test_published_contract_must_match_all_audited_fields_before_loading[encoder_source]
+FAILED tests/test_phase2_1_training.py::test_interrupted_resume_pointer_retains_previous_complete_checkpoint
+8 failed, 34 deselected in 3.44s

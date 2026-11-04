@@ -1,0 +1,64 @@
+{"attempted": 6280, "total": 44420, "samples": 305523, "seconds": 116.35, "disk_free": 7685226496}
+{"attempted": 7560, "total": 44420, "samples": 363246, "seconds": 136.9, "disk_free": 9614221312}
+{"attempted": 8840, "total": 44420, "samples": 428120, "seconds": 161.38, "disk_free": 9608269824}
+{"attempted": 10120, "total": 44420, "samples": 478100, "seconds": 179.59, "disk_free": 9602510848}
+{"attempted": 11400, "total": 44420, "samples": 525453, "seconds": 196.76, "disk_free": 9597640704}
+{"attempted": 12680, "total": 44420, "samples": 572370, "seconds": 215.19, "disk_free": 9591533568}
+{"attempted": 13960, "total": 44420, "samples": 619482, "seconds": 233.19, "disk_free": 9585553408}
+{"attempted": 15000, "total": 44420, "samples": 662806, "seconds": 249.29, "disk_free": 9580441600}
+{
+  "status": "PAUSED",
+  "dataset_version": "expanded_strict_v2",
+  "run_id": "ea198c8c8d504396964c9b9f0e939870",
+  "source_games": 44420,
+  "attempted_games": 15000,
+  "remaining_games": 29420,
+  "parsed_games": 15000,
+  "verified_matches": 13365,
+  "excluded_games": 1635,
+  "status_counts": {
+    "verified_exact": 13365,
+    "excluded_abnormal_terminal": 1628,
+    "invalid_label": 7
+  },
+  "parity": {
+    "unmatched_decisions": 0,
+    "compared": 662806,
+    "obs_mismatches": 0,
+    "mask_mismatches": 0,
+    "act_mismatches": 0,
+    "exact": 662806
+  },
+  "replay_errors": 0,
+  "replay_mismatches": 0,
+  "invalid_label_attempts": 7,
+  "duplicate_ingestions": 0,
+  "accepted_samples": 662806,
+  "source_coverage": 0.33768572714993245,
+  "valid_match_fraction": 0.891,
+  "match_endings": {
+    "HU": 12846,
+    "WA": 84,
+    "RE": 163,
+    "HUANG": 526,
+    "WH": 155,
+    "TLE": 890,
+    "NJ": 336
+  },
+  "processing_seconds": 249.35771637689322,
+  "games_per_second": 60.15454511673567,
+  "disk_bytes": 75295184,
+  "max_rss_bytes": 188219392,
+  "source_archive_sha256": "68fe9a5613e523d65356ac5f3e3bc997be8a3ad08bc24035ae22aad17c1daa42",
+  "source_position_range": [
+    0,
+    14999
+  ],
+  "complete": false,
+  "non_game_members": [
+    {
+      "source_file": "finalist_games/_sid.txt",
+      "size": 84
+    }
+  ]
+}

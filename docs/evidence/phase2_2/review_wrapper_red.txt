@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_rejected_duplicate_final_attempt_preserves_frozen_result _________
+
+frozen_finalization = (<module 'training.optimization_finalize' from '/Users/jhonhazel/mahjong-strategy-ai/training/optimization_finalize.py.../T/pytest-of-jhonhazel/pytest-93/test_rejected_duplicate_final_0/final/development/candidate_v3_predictions.jsonl.gz'))
+
+    def test_rejected_duplicate_final_attempt_preserves_frozen_result(frozen_finalization):
+        module,output,checkpoint,leaf=frozen_finalization
+        before=(output/'final_evaluation.json').read_bytes()
+        with pytest.raises(ValueError,match='verify-existing'):
+            module.finish_optimization('unused',output,checkpoint,'unused.xml')
+>       assert (output/'final_evaluation.json').read_bytes()==before
+E       assert b'{\n  "statu...ol/data"\n}\n' == b'{\n  "statu...caaff8a"\n}\n'
+E         
+E         At index 15 diff: b'F' != b'P'
+E         Use -v to get more diff
+
+tests/test_phase2_2_evaluation.py:221: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_evaluation.py::test_rejected_duplicate_final_attempt_preserves_frozen_result
+1 failed, 18 deselected in 1.08s

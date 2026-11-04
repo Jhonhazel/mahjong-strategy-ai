@@ -1,0 +1,18 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_experiments_freeze_protocol_select_validation_only_and_never_open_test __
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-55/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-55/test_experiments_freeze_protoc0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10dff5670>
+
+    def test_experiments_freeze_protocol_select_validation_only_and_never_open_test(expanded_root,tmp_path,monkeypatch):
+>       from training.expanded_training import ShardCorpus,run_experiments
+E       ImportError: cannot import name 'run_experiments' from 'training.expanded_training' (/Users/jhonhazel/mahjong-strategy-ai/training/expanded_training.py)
+
+tests/test_phase2_1_training.py:162: ImportError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 1.14, "disk_free": 9591123968}
+=========================== short test summary info ============================
+FAILED tests/test_phase2_1_training.py::test_experiments_freeze_protocol_select_validation_only_and_never_open_test
+1 failed, 11 deselected in 2.51s

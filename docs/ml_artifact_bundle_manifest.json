@@ -1,0 +1,22 @@
+{
+  "format_version": 1,
+  "client_date": "2026-11-05",
+  "purpose": "Portable promoted v3 inference only; full evaluation/retraining needs the separately preserved corpus and audit artifacts",
+  "files": {
+    "mahjong_discard_mlp_v3.pt": {
+      "restore_path": "artifacts/models/mahjong_discard_mlp_v3.pt",
+      "bytes": 1553925,
+      "sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720"
+    },
+    "mahjong_discard_mlp_v3.metadata.json": {
+      "restore_path": "artifacts/models/mahjong_discard_mlp_v3.metadata.json",
+      "bytes": 1514897,
+      "sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e"
+    },
+    "data_contract.json": {
+      "restore_path": "datasets/expanded_strict_v2/data_contract.json",
+      "bytes": 188448,
+      "sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+    }
+  }
+}

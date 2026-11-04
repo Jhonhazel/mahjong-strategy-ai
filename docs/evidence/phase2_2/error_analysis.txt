@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "match_count": 3840,
+  "player_count": 336,
+  "expected_calibration_error": 0.01838992431556747,
+  "mean_top1_confidence": 0.5707875052455683,
+  "brier_score": 0.5531627434191677,
+  "seconds": 91.36452137492597
+}

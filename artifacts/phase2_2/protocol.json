@@ -1,0 +1,62 @@
+{
+  "version": "phase2.2-mlp-protocol-v1",
+  "dataset_contract_sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc",
+  "lineage_content_sha256": "840c24986a96cdc9ac08e5d56a35fd74c66bb04bbcbb072ceb0a1d4671711bc2",
+  "common_config": {
+    "seed": 2026,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "max_epochs": 60,
+    "patience": 8,
+    "device": "cpu",
+    "cpu_threads": 1
+  },
+  "primary_seed": 2026,
+  "robustness_seed": 2027,
+  "primary_fold": 0,
+  "robustness_fold": 1,
+  "primary_architectures": {
+    "E0": {
+      "name": "MahjongDiscardMLP",
+      "architecture_version": "discard_mlp_v1",
+      "input_dim": 1368,
+      "hidden_dim": 64,
+      "output_dim": 34,
+      "activation": "ReLU",
+      "dropout": 0.2
+    },
+    "E1": {
+      "name": "MahjongDiscardMLP",
+      "architecture_version": "discard_mlp_flexible_v1",
+      "input_dim": 1368,
+      "hidden_dims": [
+        128
+      ],
+      "output_dim": 34,
+      "activation": "ReLU",
+      "dropout": 0.2
+    },
+    "E2": {
+      "name": "MahjongDiscardMLP",
+      "architecture_version": "discard_mlp_flexible_v1",
+      "input_dim": 1368,
+      "hidden_dims": [
+        256,
+        128
+      ],
+      "output_dim": 34,
+      "activation": "ReLU",
+      "dropout": 0.2
+    }
+  },
+  "E3_rule": "Choose lower validation NLL of E1/E2; change only weight_decay to0.001 when selected eval train-minus-val Top1>=0.03, otherwise only dropout to0.1",
+  "trial_budget": 8,
+  "optional_E4_E5": "NOT RUN; bounded four primary configurations",
+  "selection_metric": "validation_nll",
+  "shortlist_rule": "Minimum fold0 primary-seed validation NLL among E1/E2/E3; no historical test",
+  "seed_policy": "Publish primary-seed fold0 candidate; robustness seed is never used to cherry-pick checkpoint",
+  "promotion_rule": "Three paired development runs: mean reference-minus-candidate NLL>=0.01, every paired NLL improvement>0, mean Top1/Top3/MacroF1 degradation<=0.002, all legal; no supported UID>=1000 loses>0.05 Top1; service p95<=50ms; compatibility/game/regression safety PASS",
+  "test_kind": "retrospective_known_test_only_after_freeze",
+  "new_blind_test_available": false
+}

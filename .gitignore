@@ -11,3 +11,21 @@ datasets/*
 *.part
 .env
 .env.*
+artifacts/models/*.pt
+artifacts/models/*.pth
+artifacts/models/*.tmp
+artifacts/phase2/*.npz
+artifacts/phase2/*.tmp
+artifacts/phase2_1/**/*.pt
+artifacts/phase2_1/**/*.npz
+artifacts/phase2_1/**/*.tmp
+artifacts/phase2_1/**/test_predictions.jsonl.gz
+artifacts/**/*.pt
+artifacts/**/test_predictions.jsonl.gz
+artifacts/phase2_2/**/*.jsonl.gz
+
+# Local optimizer state, bulky per-player diagnostics and transfer archives.
+artifacts/**/training_resume*.json
+artifacts/phase2_1/subgroup_metrics.json
+artifacts/phase2_2/**/*_analysis.json
+artifacts/transfer/

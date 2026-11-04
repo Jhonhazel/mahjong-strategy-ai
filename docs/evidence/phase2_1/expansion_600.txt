@@ -1,0 +1,56 @@
+{"attempted": 600, "total": 44420, "samples": 27299, "seconds": 12.67, "disk_free": 7737171968}
+{
+  "status": "PAUSED",
+  "dataset_version": "expanded_strict_v2",
+  "run_id": "ea198c8c8d504396964c9b9f0e939870",
+  "source_games": 44420,
+  "attempted_games": 600,
+  "remaining_games": 43820,
+  "parsed_games": 600,
+  "verified_matches": 554,
+  "excluded_games": 46,
+  "status_counts": {
+    "verified_exact": 554,
+    "excluded_abnormal_terminal": 45,
+    "invalid_label": 1
+  },
+  "parity": {
+    "unmatched_decisions": 0,
+    "compared": 27299,
+    "obs_mismatches": 0,
+    "mask_mismatches": 0,
+    "act_mismatches": 0,
+    "exact": 27299
+  },
+  "replay_errors": 0,
+  "replay_mismatches": 0,
+  "invalid_label_attempts": 1,
+  "duplicate_ingestions": 0,
+  "accepted_samples": 27299,
+  "source_coverage": 0.0135074290859973,
+  "valid_match_fraction": 0.9233333333333333,
+  "match_endings": {
+    "HU": 533,
+    "WA": 8,
+    "RE": 28,
+    "HUANG": 22,
+    "WH": 2,
+    "TLE": 7
+  },
+  "processing_seconds": 12.686144001083449,
+  "games_per_second": 47.29569520484377,
+  "disk_bytes": 7440946,
+  "max_rss_bytes": 176668672,
+  "source_archive_sha256": "68fe9a5613e523d65356ac5f3e3bc997be8a3ad08bc24035ae22aad17c1daa42",
+  "source_position_range": [
+    0,
+    599
+  ],
+  "complete": false,
+  "non_game_members": [
+    {
+      "source_file": "finalist_games/_sid.txt",
+      "size": 84
+    }
+  ]
+}

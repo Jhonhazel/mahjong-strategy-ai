@@ -1,0 +1,94 @@
+FFFFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+_______ test_original_mlp_dimensions_parameters_and_real_optimizer_step ________
+
+    def test_original_mlp_dimensions_parameters_and_real_optimizer_step():
+>       from app.mlp import MahjongDiscardMLP, masked_cross_entropy
+E       ImportError: cannot import name 'MahjongDiscardMLP' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:9: ImportError
+___________ test_illegal_logits_do_not_compete_or_receive_gradients ____________
+
+    def test_illegal_logits_do_not_compete_or_receive_gradients():
+>       from app.mlp import masked_cross_entropy, masked_log_probabilities
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:31: ImportError
+________________ test_masked_loss_rejects_invalid_states[empty] ________________
+
+tamper = 'empty'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "float_mask", "nan", "bad_shape", "bad_target"])
+    def test_masked_loss_rejects_invalid_states(tamper):
+>       from app.mlp import masked_cross_entropy
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:52: ImportError
+___________ test_masked_loss_rejects_invalid_states[illegal_target] ____________
+
+tamper = 'illegal_target'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "float_mask", "nan", "bad_shape", "bad_target"])
+    def test_masked_loss_rejects_invalid_states(tamper):
+>       from app.mlp import masked_cross_entropy
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:52: ImportError
+_____________ test_masked_loss_rejects_invalid_states[float_mask] ______________
+
+tamper = 'float_mask'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "float_mask", "nan", "bad_shape", "bad_target"])
+    def test_masked_loss_rejects_invalid_states(tamper):
+>       from app.mlp import masked_cross_entropy
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:52: ImportError
+_________________ test_masked_loss_rejects_invalid_states[nan] _________________
+
+tamper = 'nan'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "float_mask", "nan", "bad_shape", "bad_target"])
+    def test_masked_loss_rejects_invalid_states(tamper):
+>       from app.mlp import masked_cross_entropy
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:52: ImportError
+______________ test_masked_loss_rejects_invalid_states[bad_shape] ______________
+
+tamper = 'bad_shape'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "float_mask", "nan", "bad_shape", "bad_target"])
+    def test_masked_loss_rejects_invalid_states(tamper):
+>       from app.mlp import masked_cross_entropy
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:52: ImportError
+_____________ test_masked_loss_rejects_invalid_states[bad_target] ______________
+
+tamper = 'bad_target'
+
+    @pytest.mark.parametrize("tamper", ["empty", "illegal_target", "float_mask", "nan", "bad_shape", "bad_target"])
+    def test_masked_loss_rejects_invalid_states(tamper):
+>       from app.mlp import masked_cross_entropy
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:52: ImportError
+_________________ test_single_legal_class_has_finite_zero_loss _________________
+
+    def test_single_legal_class_has_finite_zero_loss():
+>       from app.mlp import masked_cross_entropy
+E       ImportError: cannot import name 'masked_cross_entropy' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_model.py:69: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_model.py::test_original_mlp_dimensions_parameters_and_real_optimizer_step
+FAILED tests/test_phase2_model.py::test_illegal_logits_do_not_compete_or_receive_gradients
+FAILED tests/test_phase2_model.py::test_masked_loss_rejects_invalid_states[empty]
+FAILED tests/test_phase2_model.py::test_masked_loss_rejects_invalid_states[illegal_target]
+FAILED tests/test_phase2_model.py::test_masked_loss_rejects_invalid_states[float_mask]
+FAILED tests/test_phase2_model.py::test_masked_loss_rejects_invalid_states[nan]
+FAILED tests/test_phase2_model.py::test_masked_loss_rejects_invalid_states[bad_shape]
+FAILED tests/test_phase2_model.py::test_masked_loss_rejects_invalid_states[bad_target]
+FAILED tests/test_phase2_model.py::test_single_legal_class_has_finite_zero_loss
+9 failed in 0.92s

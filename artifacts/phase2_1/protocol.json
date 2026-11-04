@@ -1,0 +1,29 @@
+{
+  "version": "phase2.1-experiments-v1",
+  "dataset_contract_sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc",
+  "config": {
+    "seed": 2026,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "max_epochs": 80,
+    "patience": 10,
+    "device": "cpu",
+    "cpu_threads": 1
+  },
+  "budgets": [
+    1000,
+    10000,
+    100000
+  ],
+  "subset_algorithm": "sha256('phase2.1-learning-curve-v1:' + match_id), nested complete-match prefixes",
+  "selection": "minimum validation NLL among full-data candidates only",
+  "secondary_metrics": [
+    "top1",
+    "top3",
+    "macro_f1_34"
+  ],
+  "regularization_rule": "If full-data selected eval train Top-1 minus validation Top-1 >=0.03, run exactly one additional experiment with weight_decay=0.001 and all other settings fixed",
+  "capacity_change": "Not prespecified; keep original architecture to avoid conflating capacity and data effects",
+  "test_status": "LOCKED; experiment API cannot open test or historical_test"
+}

@@ -1,0 +1,2 @@
+Observable trajectory duplicate groups 190 grouped matches 412
+Development fold counts {'0': {'training_matches': 27515, 'validation_matches': 6914, 'validation_samples': 350917}, '1': {'training_matches': 27717, 'validation_matches': 6712, 'validation_samples': 342502}, '2': {'training_matches': 27487, 'validation_matches': 6942, 'validation_samples': 352556}, '3': {'training_matches': 27484, 'validation_matches': 6945, 'validation_samples': 352439}, '4': {'training_matches': 27513, 'validation_matches': 6916, 'validation_samples': 353052}}

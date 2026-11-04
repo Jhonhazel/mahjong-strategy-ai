@@ -1,0 +1,136 @@
+EEEEEEEEEEE                                                              [100%]
+==================================== ERRORS ====================================
+___ ERROR at setup of test_cpu_state_dict_roundtrip_and_independent_metadata ___
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[input] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[output] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[encoder] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[tiles] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[actions] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[dataset] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[preprocessing] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[corrupt] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+_ ERROR at setup of test_checkpoint_rejects_incompatible_or_corrupt_artifacts[missing] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+______ ERROR at setup of test_metadata_is_rejected_before_deserialization ______
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x1089e1f10>, _basetemp=None, _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope="module")
+    def checkpoint_fixture(tmp_path_factory):
+        """Temporary unit artifact; not used as the final trained checkpoint."""
+>       from app.model_checkpoint import build_metadata
+E       ModuleNotFoundError: No module named 'app.model_checkpoint'
+
+tests/test_phase2_checkpoint.py:14: ModuleNotFoundError
+=========================== short test summary info ============================
+ERROR tests/test_phase2_checkpoint.py::test_cpu_state_dict_roundtrip_and_independent_metadata
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[input]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[output]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[encoder]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[tiles]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[actions]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[dataset]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[preprocessing]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[corrupt]
+ERROR tests/test_phase2_checkpoint.py::test_checkpoint_rejects_incompatible_or_corrupt_artifacts[missing]
+ERROR tests/test_phase2_checkpoint.py::test_metadata_is_rejected_before_deserialization
+11 errors in 0.92s

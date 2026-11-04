@@ -1,0 +1,41 @@
+{
+  "cpu_count": 8,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "torch": "2.15.0",
+  "mps_available": true,
+  "benchmarks": [
+    {
+      "device": "cpu",
+      "batch": 32,
+      "steps": 100,
+      "seconds": 0.029848625184968114,
+      "samples_per_second": 107207.61777703359,
+      "loss": 0.01293675322085619
+    },
+    {
+      "device": "cpu",
+      "batch": 256,
+      "steps": 100,
+      "seconds": 0.06397970812395215,
+      "samples_per_second": 400126.86444901273,
+      "loss": 0.030894052237272263
+    },
+    {
+      "device": "mps",
+      "batch": 32,
+      "steps": 100,
+      "seconds": 0.2994962080847472,
+      "samples_per_second": 10684.60939944358,
+      "loss": 0.012280354276299477
+    },
+    {
+      "device": "mps",
+      "batch": 256,
+      "steps": 100,
+      "seconds": 0.2828694579657167,
+      "samples_per_second": 90501.11024394396,
+      "loss": 0.03425914794206619
+    }
+  ],
+  "memory_bytes": 17179869184
+}

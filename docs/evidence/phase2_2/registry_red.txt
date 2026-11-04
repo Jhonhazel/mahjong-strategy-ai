@@ -1,0 +1,60 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+__ test_registry_is_deterministic_rejects_duplicate_ids_and_changed_protocol ___
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-76/test_registry_is_deterministic0')
+
+    def test_registry_is_deterministic_rejects_duplicate_ids_and_changed_protocol(tmp_path):
+>       from training.optimization_runner import ExperimentRegistry,protocol_config
+E       ModuleNotFoundError: No module named 'training.optimization_runner'
+
+tests/test_phase2_2_registry.py:12: ModuleNotFoundError
+_____ test_regularization_changes_one_axis_from_development_evidence_only ______
+
+    def test_regularization_changes_one_axis_from_development_evidence_only():
+        from app.mlp import architecture_spec
+>       from training.optimization_runner import regularization_candidate
+E       ModuleNotFoundError: No module named 'training.optimization_runner'
+
+tests/test_phase2_2_registry.py:28: ModuleNotFoundError
+__ test_promotion_uses_paired_development_runs_and_safety_not_historical_test __
+
+    def test_promotion_uses_paired_development_runs_and_safety_not_historical_test():
+>       from training.optimization_runner import promotion_decision
+E       ModuleNotFoundError: No module named 'training.optimization_runner'
+
+tests/test_phase2_2_registry.py:40: ModuleNotFoundError
+__ test_real_registry_case_matches_declared_fold_architecture_and_checkpoint ___
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-76/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-76/test_real_registry_case_matche0')
+
+    def test_real_registry_case_matches_declared_fold_architecture_and_checkpoint(expanded_root,tmp_path):
+        from app.mlp import architecture_spec
+        from app.model_checkpoint import load_checkpoint
+        from training.optimization_data import DevelopmentCorpus,development_splits,evaluation_lineage
+>       from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+E       ModuleNotFoundError: No module named 'training.optimization_runner'
+
+tests/test_phase2_2_registry.py:54: ModuleNotFoundError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.95, "disk_free": 6026690560}
+_________ test_case_rejects_historical_or_unknown_fold_before_training _________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-76/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-76/test_case_rejects_historical_o0')
+
+    def test_case_rejects_historical_or_unknown_fold_before_training(expanded_root,tmp_path):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+>       from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+E       ModuleNotFoundError: No module named 'training.optimization_runner'
+
+tests/test_phase2_2_registry.py:72: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_registry.py::test_registry_is_deterministic_rejects_duplicate_ids_and_changed_protocol
+FAILED tests/test_phase2_2_registry.py::test_regularization_changes_one_axis_from_development_evidence_only
+FAILED tests/test_phase2_2_registry.py::test_promotion_uses_paired_development_runs_and_safety_not_historical_test
+FAILED tests/test_phase2_2_registry.py::test_real_registry_case_matches_declared_fold_architecture_and_checkpoint
+FAILED tests/test_phase2_2_registry.py::test_case_rejects_historical_or_unknown_fold_before_training
+5 failed in 2.10s

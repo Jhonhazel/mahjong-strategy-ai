@@ -1,0 +1,20 @@
+......F                                                                  [100%]
+=================================== FAILURES ===================================
+____ test_completed_registry_metrics_cannot_disagree_with_frozen_checkpoint ____
+
+optimization_checkpoint = (<training.optimization_data.DevelopmentCorpus object at 0x10bf57380>, <training.optimization_runner.ExperimentRegistr...=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1))
+
+    def test_completed_registry_metrics_cannot_disagree_with_frozen_checkpoint(optimization_checkpoint):
+        from training.optimization_runner import run_case
+        corpus,registry,row,config=optimization_checkpoint
+        original=copy.deepcopy(row['validation'])
+        try:
+            row['validation']['nll']=0.;registry.save()
+>           with pytest.raises(ValueError,match='metric'):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase2_2_registry.py:115: Failed
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_registry.py::test_completed_registry_metrics_cannot_disagree_with_frozen_checkpoint
+1 failed, 6 passed, 5 deselected in 2.86s

@@ -1,0 +1,6 @@
+{"epoch": 1, "train_loss": 1.5941912482634115, "train_top1_online": 0.4666955600982186, "validation_loss": 1.47201934080786, "validation_top1": 0.5137140691388562, "validation_top3": 0.7511719295445932, "validation_macro_f1_34": 0.47093291815386057, "validation_macro_f1_supported": 0.47093291815386057, "run": "E0_f0_s2026", "elapsed_seconds": 12.253}
+{
+  "status": "PAUSED",
+  "selected_experiment": null,
+  "test_used": false
+}

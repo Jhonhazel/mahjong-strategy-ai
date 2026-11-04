@@ -1,0 +1,12 @@
+{
+  "compileall": {
+    "status": "PASS",
+    "exit_code": 0,
+    "output": ""
+  },
+  "git_diff_check": {
+    "status": "PASS",
+    "exit_code": 0,
+    "output": ""
+  }
+}

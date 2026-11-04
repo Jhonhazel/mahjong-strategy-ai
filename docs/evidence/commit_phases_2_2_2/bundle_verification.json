@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "bundle": "artifacts/transfer/mahjong_discard_mlp_v3_inference.tar.gz",
+  "bytes": 1739936,
+  "sha256": "96ea17fab9e13ae7061230a892cc302dfa74a7e765740f363cd7a27fa96119b2",
+  "manifest": "docs/ml_artifact_bundle_manifest.json",
+  "manifest_sha256": "9600da15d2a8549871258d303c958a0b35c8951c8ce82bd7c5f8d539bc7c7028",
+  "exact_members": [
+    "data_contract.json",
+    "mahjong_discard_mlp_v3.metadata.json",
+    "mahjong_discard_mlp_v3.pt",
+    "manifest.json"
+  ],
+  "roundtrip_byte_identical": true,
+  "restored_cpu_checkpoint_load": "PASS",
+  "parameters": 387746,
+  "originals_changed": false
+}

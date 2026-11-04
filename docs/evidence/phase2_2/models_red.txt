@@ -1,0 +1,204 @@
+FFFFFFFFFFFFFF                                                           [100%]
+=================================== FAILURES ===================================
+_ test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths0-89826] _
+
+widths = (64,), parameters = 89826
+
+    @pytest.mark.parametrize('widths,parameters',[((64,),89826),((128,),179618),((256,128),387746)])
+    def test_model_family_counts_forward_masked_probabilities_and_real_gradients(widths,parameters):
+>       from app.mlp import architecture_spec,parameter_count,MahjongDiscardMLP,masked_cross_entropy,masked_log_probabilities
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:15: ImportError
+_ test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths1-179618] _
+
+widths = (128,), parameters = 179618
+
+    @pytest.mark.parametrize('widths,parameters',[((64,),89826),((128,),179618),((256,128),387746)])
+    def test_model_family_counts_forward_masked_probabilities_and_real_gradients(widths,parameters):
+>       from app.mlp import architecture_spec,parameter_count,MahjongDiscardMLP,masked_cross_entropy,masked_log_probabilities
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:15: ImportError
+_ test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths2-387746] _
+
+widths = (256, 128), parameters = 387746
+
+    @pytest.mark.parametrize('widths,parameters',[((64,),89826),((128,),179618),((256,128),387746)])
+    def test_model_family_counts_forward_masked_probabilities_and_real_gradients(widths,parameters):
+>       from app.mlp import architecture_spec,parameter_count,MahjongDiscardMLP,masked_cross_entropy,masked_log_probabilities
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:15: ImportError
+____ test_architecture_rejects_unsupported_or_unsafe_capacity[widths0-0.2] _____
+
+widths = (2048,), dropout = 0.2
+
+    @pytest.mark.parametrize('widths,dropout',[((2048,),.2),((128,64,32),.2),((0,),.2),((True,),.2),((128,),float('nan')),((128,),.9)])
+    def test_architecture_rejects_unsupported_or_unsafe_capacity(widths,dropout):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:31: ImportError
+____ test_architecture_rejects_unsupported_or_unsafe_capacity[widths1-0.2] _____
+
+widths = (128, 64, 32), dropout = 0.2
+
+    @pytest.mark.parametrize('widths,dropout',[((2048,),.2),((128,64,32),.2),((0,),.2),((True,),.2),((128,),float('nan')),((128,),.9)])
+    def test_architecture_rejects_unsupported_or_unsafe_capacity(widths,dropout):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:31: ImportError
+____ test_architecture_rejects_unsupported_or_unsafe_capacity[widths2-0.2] _____
+
+widths = (0,), dropout = 0.2
+
+    @pytest.mark.parametrize('widths,dropout',[((2048,),.2),((128,64,32),.2),((0,),.2),((True,),.2),((128,),float('nan')),((128,),.9)])
+    def test_architecture_rejects_unsupported_or_unsafe_capacity(widths,dropout):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:31: ImportError
+____ test_architecture_rejects_unsupported_or_unsafe_capacity[widths3-0.2] _____
+
+widths = (True,), dropout = 0.2
+
+    @pytest.mark.parametrize('widths,dropout',[((2048,),.2),((128,64,32),.2),((0,),.2),((True,),.2),((128,),float('nan')),((128,),.9)])
+    def test_architecture_rejects_unsupported_or_unsafe_capacity(widths,dropout):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:31: ImportError
+____ test_architecture_rejects_unsupported_or_unsafe_capacity[widths4-nan] _____
+
+widths = (128,), dropout = nan
+
+    @pytest.mark.parametrize('widths,dropout',[((2048,),.2),((128,64,32),.2),((0,),.2),((True,),.2),((128,),float('nan')),((128,),.9)])
+    def test_architecture_rejects_unsupported_or_unsafe_capacity(widths,dropout):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:31: ImportError
+____ test_architecture_rejects_unsupported_or_unsafe_capacity[widths5-0.9] _____
+
+widths = (128,), dropout = 0.9
+
+    @pytest.mark.parametrize('widths,dropout',[((2048,),.2),((128,64,32),.2),((0,),.2),((True,),.2),((128,),float('nan')),((128,),.9)])
+    def test_architecture_rejects_unsupported_or_unsafe_capacity(widths,dropout):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:31: ImportError
+_ test_existing_checkpoints_keep_exact_default_architecture_and_cpu_predictions _
+
+    def test_existing_checkpoints_keep_exact_default_architecture_and_cpu_predictions():
+>       from app.mlp import MLP_SPEC,architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:36: ImportError
+_ test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume[widths0] _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-72/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-72/test_larger_model_uses_existin0')
+widths = (128,)
+
+    @pytest.mark.parametrize('widths',[(128,),(256,128)])
+    def test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume(expanded_root,tmp_path,widths):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:48: ImportError
+---------------------------- Captured stdout setup -----------------------------
+{"attempted": 35, "total": 35, "samples": 1342, "seconds": 0.94, "disk_free": 6319497216}
+_ test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume[widths1] _
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-72/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-72/test_larger_model_uses_existin1')
+widths = (256, 128)
+
+    @pytest.mark.parametrize('widths',[(128,),(256,128)])
+    def test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume(expanded_root,tmp_path,widths):
+>       from app.mlp import architecture_spec
+E       ImportError: cannot import name 'architecture_spec' from 'app.mlp' (/Users/jhonhazel/mahjong-strategy-ai/app/mlp.py)
+
+tests/test_phase2_2_models.py:48: ImportError
+________ test_nonfinite_gradients_are_rejected_before_optimizer_update _________
+
+expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-72/expanded-training0/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-72/test_nonfinite_gradients_are_r0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10e54ce00>
+
+    def test_nonfinite_gradients_are_rejected_before_optimizer_update(expanded_root,tmp_path,monkeypatch):
+        from app.mlp import MahjongDiscardMLP
+        from training.expanded_training import ShardCorpus,nested_match_subset,train_sharded
+        corpus=ShardCorpus(expanded_root)
+        original=MahjongDiscardMLP.forward
+        def poisoned(self,x):
+            logits=original(self,x)
+            logits.register_hook(lambda grad:torch.full_like(grad,float('nan')))
+            return logits
+        monkeypatch.setattr(MahjongDiscardMLP,'forward',poisoned)
+        with pytest.raises(RuntimeError,match='gradient'):
+>           train_sharded(nested_match_subset(corpus.split('train'),80),corpus.split('validation'),TrainConfig(max_epochs=1,device='cpu'),tmp_path)
+
+tests/test_phase2_2_models.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/expanded_training.py:232: in train_sharded
+    logits=model(x); loss=masked_cross_entropy(logits,y,legal)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/mlp.py:41: in masked_cross_entropy
+    masked = masked_logits(logits, legal_masks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+logits = tensor([[nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ....
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan]], grad_fn=<AddmmBackward0>)
+legal_masks = tensor([[False, False, False,  ..., False, False, False],
+        [ True, False, False,  ..., False, False, False],
+  ...],
+        [False, False, False,  ..., False, False,  True],
+        [False, False,  True,  ..., False, False, False]])
+
+    def masked_logits(logits: torch.Tensor, legal_masks: torch.Tensor) -> torch.Tensor:
+        if logits.ndim != 2 or logits.shape[1] != NUM_CLASSES or logits.dtype != torch.float32 or not len(logits):
+            raise ValueError("Logits must be nonempty float32 (N,34)")
+        if legal_masks.shape != logits.shape or legal_masks.dtype != torch.bool or legal_masks.device != logits.device:
+            raise ValueError("Masks must be bool (N,34) on the logits device")
+        if not torch.isfinite(logits).all() or not legal_masks.any(dim=1).all():
+>           raise ValueError("Logits must be finite and every row needs a legal discard")
+E           ValueError: Logits must be finite and every row needs a legal discard
+
+app/mlp.py:32: ValueError
+_ test_retained_resume_generations_are_bounded_without_losing_committed_pointer _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-72/test_retained_resume_generatio0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11841b050>
+
+    def test_retained_resume_generations_are_bounded_without_losing_committed_pointer(tmp_path,monkeypatch):
+        import training.expanded_training as module
+        path=tmp_path/'training_resume.pt'
+>       for epoch in range(1,5):module.save_training_state(path,{'history':[{}]*epoch,'model':{'w':torch.tensor([float(epoch)])}},keep_generations=2)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: save_training_state() got an unexpected keyword argument 'keep_generations'
+
+tests/test_phase2_2_models.py:85: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_phase2_2_models.py::test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths0-89826]
+FAILED tests/test_phase2_2_models.py::test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths1-179618]
+FAILED tests/test_phase2_2_models.py::test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths2-387746]
+FAILED tests/test_phase2_2_models.py::test_architecture_rejects_unsupported_or_unsafe_capacity[widths0-0.2]
+FAILED tests/test_phase2_2_models.py::test_architecture_rejects_unsupported_or_unsafe_capacity[widths1-0.2]
+FAILED tests/test_phase2_2_models.py::test_architecture_rejects_unsupported_or_unsafe_capacity[widths2-0.2]
+FAILED tests/test_phase2_2_models.py::test_architecture_rejects_unsupported_or_unsafe_capacity[widths3-0.2]
+FAILED tests/test_phase2_2_models.py::test_architecture_rejects_unsupported_or_unsafe_capacity[widths4-nan]
+FAILED tests/test_phase2_2_models.py::test_architecture_rejects_unsupported_or_unsafe_capacity[widths5-0.9]
+FAILED tests/test_phase2_2_models.py::test_existing_checkpoints_keep_exact_default_architecture_and_cpu_predictions
+FAILED tests/test_phase2_2_models.py::test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume[widths0]
+FAILED tests/test_phase2_2_models.py::test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume[widths1]
+FAILED tests/test_phase2_2_models.py::test_nonfinite_gradients_are_rejected_before_optimizer_update
+FAILED tests/test_phase2_2_models.py::test_retained_resume_generations_are_bounded_without_losing_committed_pointer
+14 failed in 3.48s

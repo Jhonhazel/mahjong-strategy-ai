@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "counts": {
+    "tests": 279,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "junit_path": "docs/evidence/phase2_2/full_suite.xml",
+  "junit_sha256": "6aa2aca589563f0b0dfd4bf9c2af259fd0303a6d6cd470b4104ee37fb91c775d",
+  "collected_cases": 279,
+  "case_inventory_sha256": "5df781e894ac96da2ea02cdac13a5b5f79301d1636a28aef2e088c791a72ba81"
+}

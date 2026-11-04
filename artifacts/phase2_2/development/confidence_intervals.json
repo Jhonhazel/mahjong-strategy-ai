@@ -1,0 +1,32 @@
+{
+  "method": "Paired resampling of complete match-or-identical-observable-trajectory clusters; decision-weighted accuracy",
+  "matches": 6914,
+  "samples": 350917,
+  "resamples": 2000,
+  "seed": 2026,
+  "models": {
+    "candidate_v3": {
+      "top1": 0.6411744087633258,
+      "interval_95": [
+        0.6384480549654934,
+        0.6439801885659285
+      ]
+    },
+    "reference_E0": {
+      "top1": 0.5877030750861315,
+      "interval_95": [
+        0.5849565540529734,
+        0.5905535296095734
+      ]
+    }
+  },
+  "paired_delta_candidate_vs_reference": {
+    "point": 0.053471333677194324,
+    "interval_95": [
+      0.05178089605577742,
+      0.05518277904243878
+    ]
+  },
+  "limitation": "Known-player match-disjoint cohort; intervals do not establish unseen-player generalization or Mahjong winning strength",
+  "clusters": 6864
+}

@@ -1,0 +1,14 @@
+{
+  "protected_phase1_artifacts": {
+    "datasets/data_contract.json": "7ca332ba641228bb243fd796b21132f0dc707488be344615b8fae24db1ceac48",
+    "datasets/parity_report.json": "258f6fecad47f6fdd7f66b8ca6785a009ff8283aefe6b514d04ccfb6beb50eae",
+    "datasets/strict_audit_report.json": "9d3ae087dd004920a52af667b73ba4d714b8369d62ca13465ce53ab8758dbd67",
+    "datasets/decision_manifest.csv": "c496364986aba84efba65b19ae8c96e206bc7453d077ba7b0fc503e728687eb7",
+    "datasets/strict_decisions/accepted.npz": "45303f98bd1d1bca4ac1dbc9228de398456644030bce8b6cb74945be21d86f4d",
+    "docs/phase1_implementation_report.md": "79c0f49ef48333f124c9c7293f462b07e71101eaaa2964d61d51f57d210a0083",
+    "app/engine/feature_encoder.py": "d757eaafa48ce5539a4575a6329eb1d3a5d3e794b66c6852da03485265f6f8fb",
+    "app/engine/mcr_referee.py": "dc24943dc2883eac4383df10b3213cd3509fedd9c41d1f4820690ca7e9c2394b",
+    "training/replay.py": "832a7926990f1f126436e7d81c04ff34405ed0b287b5053ab852810ad27f073a"
+  },
+  "note": "Read-only guard; Phase 1 data was not regenerated. Approved NPZ/manifest and implementation hashes independently match their Phase 1 contract."
+}

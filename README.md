@@ -1,6 +1,6 @@
-# Mahjong Strategy AI — Phase 1
+# Mahjong Strategy AI — Phases 1–2.2
 
-Playable Botzone Chinese Standard Mahjong (MCR), one human and three local shanten bots. Phase 1 includes the 136/144-tile referee, scoring, private-seat encoder, CLI, corpus audit and strict re-extraction. Training, web APIs, PostgreSQL and frontend are later phases.
+Playable Botzone Chinese Standard Mahjong (MCR), one human and three local shanten bots. Phase 1 includes the 136/144-tile referee, scoring, private-seat encoder, CLI, corpus audit and strict re-extraction. Phase 2 adds an original Behavior Cloning MLP and advisory discard predictions. Web APIs, PostgreSQL and frontend remain later phases.
 
 ## Setup
 
@@ -69,3 +69,109 @@ The complete suite includes a real localhost HTTP server, 20 concurrent threads,
 - Only manifest rows from `strict_decisions/accepted.npz` are approved for future training. Arrays include real source `score`, `match_id`, and `seat`. Keep every `match_id` in exactly one train/validation/test group. `partition_for_match` defines reproducible 80/10/10 buckets; group evidence is checked now, not a model training pipeline.
 
 See [implementation report](docs/phase1_implementation_report.md), [execution ledger](docs/execution_ledger.md), and [third-party attribution](THIRD_PARTY_NOTICES.md). Historical approved plans under `docs/superpowers/` are unchanged. No Git repository existed at preflight; no Git publishing operations were performed.
+
+## Phase 2: verified MLP training and inference
+
+Phase 2 reads the approved Phase 1 snapshot without regenerating it. The source hash gate pins run `84c2606383794fa8bc072d5edac7b252`, 1,879 decisions / 84 matches, encoder `ijcai2026_mcr_v1_strict`. Train/validation/test stay at 1,564/213/102 decisions and 72/7/5 distinct matches. Four known player identities occur in the corpus; this evaluates held-out matches, not unseen-player generalization.
+
+Use the existing `.venv`; install the pinned new PyTorch dependency:
+
+```sh
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m training.phase2_dataset
+.venv/bin/python -m training.baselines
+.venv/bin/python -m training.train_mlp --device auto --seed 2026 --max-epochs 80 --patience 10
+.venv/bin/python -m training.evaluate_mlp
+.venv/bin/python -m scripts.demo_ai_prediction --smoke --seed 42 --human-seat 1 --output artifacts/phase2/live_demo.json
+.venv/bin/python -m pytest tests/test_phase2_*.py -q
+.venv/bin/python -m pytest -q
+```
+
+The first baseline command evaluates validation only. The evaluator freezes the selected checkpoint before reading test tensors; a subsequent evaluation must use `--verify-existing` to recalculate the same frozen model, rather than overwrite the held-out record. Reproducing training into new artifact paths avoids replacing an already evaluated model:
+
+```sh
+.venv/bin/python -m training.train_mlp --device cpu --checkpoint artifacts/models/reproduction.pt --report-dir artifacts/phase2/reproduction
+.venv/bin/python -m training.evaluate_mlp --checkpoint artifacts/models/reproduction.pt --report-dir artifacts/phase2/reproduction
+```
+
+If artifact publication fails, the evaluator records FAIL and supports `--resume` only for the same frozen checkpoint/configuration/data. Reverification requires the original freeze record, saved predictions, checksums, and consistent final checkpoint metadata; it rejects missing or altered evidence.
+
+The model is 1368 → 64 → 34, ReLU and dropout 0.2 (89,826 parameters), initialized randomly. Training uses masked cross-entropy and AdamW, direct float32 conversion of the existing C-order observation, no extra features or normalization. Validation loss selects the checkpoint. MPS is used only after actual forward/backward checks; saved weights are CPU-compatible and inference runs on CPU. MPS reproducibility is best effort; cross-device bit equality is not claimed.
+
+Artifacts:
+
+- `artifacts/models/mahjong_discard_mlp.pt` — local trained state_dict, ignored by Git.
+- `artifacts/models/mahjong_discard_mlp.metadata.json` — architecture, mappings, dataset/encoder identity, training provenance and checksums.
+- `artifacts/phase2/` — data validation, baseline metrics, training history, freeze record, final evaluation, per-class/confusion CSVs and real-game demo evidence.
+
+The test set has only **102 decisions from five matches**, with no T3 target examples. Macro F1 is reported across all 34 classes with zero-denominator F1=0, and separately across supported classes. Top-3 uses up to three legal choices. Random baseline rankings are seeded legal permutations; their NLL is the uniform legal-policy likelihood. Class prior uses only training counts with add-one smoothing. These are behavior predictions, not calibrated chances of winning.
+
+Minimal future application integration:
+
+```python
+from pathlib import Path
+from app.services.ai_prediction_service import AIDiscardPredictionService
+
+ai = AIDiscardPredictionService(Path("artifacts/models/mahjong_discard_mlp.pt"))
+state = game_service.get_human_encoded_turn(game_id)
+prediction = ai.predict(state)
+# User chooses a legal action separately, carrying state.turn_number.
+```
+
+Pass the current data contract through `expected_contract=` when strict dataset-identity binding is required. The service loads once, validates metadata/hash/mapping before `weights_only=True` CPU loading, and never advances the game. `PredictionUnavailableError` signals no legal discard; `InvalidPredictionStateError` signals an incompatible state; `CheckpointValidationError` signals an invalid local model artifact. Claim-only or finished turns cannot request a discard prediction through the game service.
+
+See [Phase 2 implementation report](docs/phase2_implementation_report.md) and [Phase 2 execution ledger](docs/phase2_execution_ledger.md). Windows commands use `.\\.venv\\Scripts\\python.exe`; Windows training/inference remain **NOT RUN** on this host. Phase 2 does not replace opponent bots, expose private hands, or implement Phase 3/4 web/database features.
+
+## Phase 2.1: full-corpus strict expansion
+
+The separate `datasets/expanded_strict_v2/` pipeline preserves all original Phase 1/2 artifacts. The pinned archive contains **44,420 JSON games** plus `_sid.txt` metadata (the historical44,421 count included that file). Full processing accepted **1,946,122 decisions from 38,250 matches**, covering 581 public player UIDs. All four roster seats are independently replayed; every attempted/excluded game has an audit record. Repeated states from distinct source decisions are retained and counted.
+
+Run one extractor per output directory. The default has no game limit; `--max-games` is an operational checkpoint. Committed compressed shards survive interruption and are not replayed on resume. READY is published only after full manifest/shard/source validation. Do not use the earlier Phase 1 parity command to overwrite the original snapshot for expansion.
+
+```sh
+.venv/bin/python -m training.expanded_dataset --max-games 600 --workers 2
+.venv/bin/python -m training.expanded_dataset --audit-partial
+.venv/bin/python -m training.expanded_dataset --max-games 5000 --workers 2
+.venv/bin/python -m training.expanded_dataset --max-games 15000 --workers 2
+.venv/bin/python -m training.expanded_dataset --workers 2
+.venv/bin/python -m training.expanded_dataset --validate
+.venv/bin/python -m training.expanded_training --device cpu
+# Resume interrupted experiments with their original frozen protocol:
+.venv/bin/python -m training.expanded_training --device cpu --resume
+.venv/bin/python -m training.expanded_evaluation
+.venv/bin/python -m training.expanded_evaluation --verify-existing
+.venv/bin/python -m scripts.demo_ai_prediction --checkpoint artifacts/models/mahjong_discard_mlp_v2.pt --contract datasets/expanded_strict_v2/data_contract.json --smoke --seed 42 --human-seat 1 --output artifacts/phase2_1/live_demo.json
+.venv/bin/python -m pytest tests/test_phase2_1_*.py -q
+.venv/bin/python -m pytest -q
+```
+
+The original 84 match roles stay fixed; the original five test matches are reserved as `historical_test` (all their seats excluded from training and fresh test). New matches use SHA-256 `phase2.1-match-split-v1:` with 80/10/10 buckets. The fresh test has 194,388 decisions /3,816 matches. Experiment APIs expose train/validation only. Nested match-complete learning curves and minimum validation NLL select the new checkpoint before any fresh test comparison. The evaluator compares old/new models and train-only prior/random baselines on that same fresh cohort, saves streaming predictions, recalculates metrics independently, and bootstraps complete matches.
+
+The original 1368→64→34 MLP/encoder remain compatible with `AIDiscardPredictionService`; pass the new small contract via `expected_contract=`. The service needs only checkpoint, metadata and optional contract, never raw archives or training shards. New metadata preserves parent Phase 1 identity and explicitly identifies expanded run, shard/manifest inventory digests, split roles and trained subset. CPU was selected after real masked optimizer benchmarks (batch 32: about 107k samples/s CPU vs 10.7k MPS); MPS was available and passed. No additional dependency was installed for Phase 2.1. Windows expansion/training is NOT RUN; resource instrumentation currently targets the verified Unix host.
+
+Primary outputs are under `artifacts/phase2_1/` and `artifacts/models/mahjong_discard_mlp_v2.pt`. Training uses one shard on CPU, batch float32 conversion, deterministic shard/row ordering, early stopping and completed-epoch resume. Resume generations commit with one atomic pointer; power-loss/concurrent-writer guarantees are outside this local workflow. Once `selection_freeze.json` exists, training refuses further selection in that directory. Evaluation failures support `--resume` only with the same frozen model/config/data. Use new dataset/model/report paths for a new independent experiment protocol.
+
+See [Phase 2.1 report](docs/phase2_1_implementation_report.md), [ledger](docs/phase2_1_execution_ledger.md) and [file inventory](docs/phase2_1_file_inventory.md) for measured results and limitations. Model scores describe recorded discard behavior; they do not establish winning strength or unseen-player generalization. The 80–85% target refers to Top-1 and is a stretch goal.
+
+## Phase 2.2: controlled MLP optimization
+
+Phase 2.2 reuses the verified Phase 2.1 shards without extraction or filtering. Every historical test match stays excluded from fitting and selection. The permitted development pool combines the earlier train and validation roles. Identical input-only whole trajectories share a group; two deterministic development folds and two model seeds provide three paired comparisons. This is internal development evaluation. No new blind external cohort is available.
+
+The bounded matrix retrains the original 1368→64→34 architecture as E0, then tests 128 and 256→128 hidden layers and one evidence-driven regularization change. All eight runs use the same frozen training budget. Minimum development NLL selects the primary candidate; paired classification, player, latency, game-safety and regression checks determine promotion. The model and decision freeze precede retrospective evaluation on the already-known Phase 2.1 test cohort. Saved v2 is excluded from fair development comparisons because its prior training overlaps these new folds.
+
+The separate candidate uses `artifacts/models/mahjong_discard_mlp_v3.pt` and its metadata. Both older checkpoints and the service's default model path are preserved. The flexible MLP loader retains the original default architecture and validates explicit architecture, parameter count, development lineage and weight checksums before returning a model.
+
+```sh
+# Continue an interrupted, already initialized matrix under its frozen protocol:
+.venv/bin/python -m training.optimization_runner --resume
+# After all eight runs and a green full-suite XML:
+.venv/bin/python -m pytest -q --junitxml=docs/evidence/phase2_2/full_suite.xml
+.venv/bin/python -m training.optimization_finalize
+# Recheck frozen evidence and repeat actual inference without further tuning:
+.venv/bin/python -m training.optimization_finalize --verify-existing
+.venv/bin/python -m pytest tests/test_phase2_2_*.py -q
+```
+
+Use the [Phase 2.2 report](docs/phase2_2_implementation_report.md) for the promotion decision, actual metrics and complete fresh-output initialization/reproduction commands. See also the [execution ledger](docs/phase2_2_execution_ledger.md) and [file inventory](docs/phase2_2_file_inventory.md). Completed matrices refuse further tuning in the same directory. Historical test results remain retrospective; accuracy measures imitation of recorded discards, and CPU/macOS is the tested deployment environment.
+
+Weights, raw data, optimizer caches and bulky diagnostic dumps stay outside Git. See [artifact transfer and restore](docs/ml_artifact_transfer.md) for the checksum-verified v3 inference bundle and the additional local files required for full audit/retraining. A Git checkout alone does not contain the trained weights or corpus.
