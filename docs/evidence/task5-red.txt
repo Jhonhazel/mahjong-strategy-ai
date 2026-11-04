@@ -1,0 +1,130 @@
+FFFFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+____________ test_deal_draw_privacy_illegal_actions_and_determinism ____________
+
+    def test_deal_draw_privacy_illegal_actions_and_determinism():
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:12: ModuleNotFoundError
+_______ test_hu_beats_peng_beats_chi_with_arbitrary_response_order[True] _______
+
+hu = True
+
+    @pytest.mark.parametrize("hu", [True, False])
+    def test_hu_beats_peng_beats_chi_with_arbitrary_response_order(hu):
+        from app.domain.actions import encode_play_action, encode_chi_action, encode_peng_action
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:44: ModuleNotFoundError
+______ test_hu_beats_peng_beats_chi_with_arbitrary_response_order[False] _______
+
+hu = False
+
+    @pytest.mark.parametrize("hu", [True, False])
+    def test_hu_beats_peng_beats_chi_with_arbitrary_response_order(hu):
+        from app.domain.actions import encode_play_action, encode_chi_action, encode_peng_action
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:44: ModuleNotFoundError
+_____________ test_angang_and_minggang_replacement_and_concealment _____________
+
+    def test_angang_and_minggang_replacement_and_concealment():
+        from app.domain.actions import encode_play_action, encode_angang_action, encode_gang_action
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:63: ModuleNotFoundError
+_______________ test_bugang_robbery_reverts_pung_and_awards_ron ________________
+
+    def test_bugang_robbery_reverts_pung_and_awards_ron():
+        from app.domain.actions import encode_play_action, encode_peng_action, encode_bugang_action
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:84: ModuleNotFoundError
+____________ test_full_round_conserves_tiles_and_finishes[0-False] _____________
+
+seed = 0, flowers = False
+
+    @pytest.mark.parametrize("seed,flowers", [(0, False), (42, False), (7, True), (15, True)])
+    def test_full_round_conserves_tiles_and_finishes(seed, flowers):
+>       run_round(seed, flowers)
+
+tests/test_mcr_engine_playthrough.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 0, flowers = False
+
+    def run_round(seed, flowers=False):
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:114: ModuleNotFoundError
+____________ test_full_round_conserves_tiles_and_finishes[42-False] ____________
+
+seed = 42, flowers = False
+
+    @pytest.mark.parametrize("seed,flowers", [(0, False), (42, False), (7, True), (15, True)])
+    def test_full_round_conserves_tiles_and_finishes(seed, flowers):
+>       run_round(seed, flowers)
+
+tests/test_mcr_engine_playthrough.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 42, flowers = False
+
+    def run_round(seed, flowers=False):
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:114: ModuleNotFoundError
+_____________ test_full_round_conserves_tiles_and_finishes[7-True] _____________
+
+seed = 7, flowers = True
+
+    @pytest.mark.parametrize("seed,flowers", [(0, False), (42, False), (7, True), (15, True)])
+    def test_full_round_conserves_tiles_and_finishes(seed, flowers):
+>       run_round(seed, flowers)
+
+tests/test_mcr_engine_playthrough.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 7, flowers = True
+
+    def run_round(seed, flowers=False):
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:114: ModuleNotFoundError
+____________ test_full_round_conserves_tiles_and_finishes[15-True] _____________
+
+seed = 15, flowers = True
+
+    @pytest.mark.parametrize("seed,flowers", [(0, False), (42, False), (7, True), (15, True)])
+    def test_full_round_conserves_tiles_and_finishes(seed, flowers):
+>       run_round(seed, flowers)
+
+tests/test_mcr_engine_playthrough.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 15, flowers = True
+
+    def run_round(seed, flowers=False):
+>       from app.engine.mcr_referee import MCRRefereeEngine
+E       ModuleNotFoundError: No module named 'app.engine.mcr_referee'
+
+tests/test_mcr_engine_playthrough.py:114: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_mcr_engine_playthrough.py::test_deal_draw_privacy_illegal_actions_and_determinism
+FAILED tests/test_mcr_engine_playthrough.py::test_hu_beats_peng_beats_chi_with_arbitrary_response_order[True]
+FAILED tests/test_mcr_engine_playthrough.py::test_hu_beats_peng_beats_chi_with_arbitrary_response_order[False]
+FAILED tests/test_mcr_engine_playthrough.py::test_angang_and_minggang_replacement_and_concealment
+FAILED tests/test_mcr_engine_playthrough.py::test_bugang_robbery_reverts_pung_and_awards_ron
+FAILED tests/test_mcr_engine_playthrough.py::test_full_round_conserves_tiles_and_finishes[0-False]
+FAILED tests/test_mcr_engine_playthrough.py::test_full_round_conserves_tiles_and_finishes[42-False]
+FAILED tests/test_mcr_engine_playthrough.py::test_full_round_conserves_tiles_and_finishes[7-True]
+FAILED tests/test_mcr_engine_playthrough.py::test_full_round_conserves_tiles_and_finishes[15-True]
+9 failed, 1 deselected in 0.10s

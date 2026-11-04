@@ -1,0 +1,170 @@
+FFFFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+__________________ test_nine_gates_and_real_non_winning_hand ___________________
+
+    def test_nine_gates_and_real_non_winning_hand():
+>       ok, total, fans = evaluate(is_zimo=True)
+                          ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_fan_calculator.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hand = ('W1', 'W1', 'W1', 'W2', 'W3', 'W4', ...), win = 'W5', packs = ()
+flags = {'is_zimo': True}
+
+    def evaluate(hand=NINE, win="W5", packs=(), **flags):
+>       from app.engine.fan_calculator import FanCalculatorAdapter
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:9: ModuleNotFoundError
+___________________ test_flowers_cannot_qualify_low_fan_hand ___________________
+
+    def test_flowers_cannot_qualify_low_fan_hand():
+>       assert evaluate(LOW_HAND, "W9", LOW_PACKS)[:2] == (False, 2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_fan_calculator.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hand = ('W7', 'W8', 'F2', 'F2'), win = 'W9'
+packs = (('CHI', 'W2', 1), ('CHI', 'T6', 2), ('PENG', 'B9', 3)), flags = {}
+
+    def evaluate(hand=NINE, win="W5", packs=(), **flags):
+>       from app.engine.fan_calculator import FanCalculatorAdapter
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:9: ModuleNotFoundError
+_ test_context_fans_are_scored_by_real_library[flags0-Out with Replacement Tile] _
+
+flags = {'is_about_kong': True, 'is_zimo': True}
+fan_name = 'Out with Replacement Tile'
+
+    @pytest.mark.parametrize("flags,fan_name", [({"is_zimo": True, "is_about_kong": True}, "Out with Replacement Tile"), ({"is_about_kong": True}, "Robbing The Kong"), ({"is_zimo": True, "is_wall_last": True}, "Last Tile Draw"), ({"is_wall_last": True}, "Last Tile Claim"), ({"is_fourth_tile": True}, "Last Tile")])
+    def test_context_fans_are_scored_by_real_library(flags, fan_name):
+>       ok, total, fans = evaluate(LOW_HAND, "W9", LOW_PACKS, **flags)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_fan_calculator.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hand = ('W7', 'W8', 'F2', 'F2'), win = 'W9'
+packs = (('CHI', 'W2', 1), ('CHI', 'T6', 2), ('PENG', 'B9', 3))
+flags = {'is_about_kong': True, 'is_zimo': True}
+
+    def evaluate(hand=NINE, win="W5", packs=(), **flags):
+>       from app.engine.fan_calculator import FanCalculatorAdapter
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:9: ModuleNotFoundError
+____ test_context_fans_are_scored_by_real_library[flags1-Robbing The Kong] _____
+
+flags = {'is_about_kong': True}, fan_name = 'Robbing The Kong'
+
+    @pytest.mark.parametrize("flags,fan_name", [({"is_zimo": True, "is_about_kong": True}, "Out with Replacement Tile"), ({"is_about_kong": True}, "Robbing The Kong"), ({"is_zimo": True, "is_wall_last": True}, "Last Tile Draw"), ({"is_wall_last": True}, "Last Tile Claim"), ({"is_fourth_tile": True}, "Last Tile")])
+    def test_context_fans_are_scored_by_real_library(flags, fan_name):
+>       ok, total, fans = evaluate(LOW_HAND, "W9", LOW_PACKS, **flags)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_fan_calculator.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hand = ('W7', 'W8', 'F2', 'F2'), win = 'W9'
+packs = (('CHI', 'W2', 1), ('CHI', 'T6', 2), ('PENG', 'B9', 3))
+flags = {'is_about_kong': True}
+
+    def evaluate(hand=NINE, win="W5", packs=(), **flags):
+>       from app.engine.fan_calculator import FanCalculatorAdapter
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:9: ModuleNotFoundError
+_____ test_context_fans_are_scored_by_real_library[flags2-Last Tile Draw] ______
+
+flags = {'is_wall_last': True, 'is_zimo': True}, fan_name = 'Last Tile Draw'
+
+    @pytest.mark.parametrize("flags,fan_name", [({"is_zimo": True, "is_about_kong": True}, "Out with Replacement Tile"), ({"is_about_kong": True}, "Robbing The Kong"), ({"is_zimo": True, "is_wall_last": True}, "Last Tile Draw"), ({"is_wall_last": True}, "Last Tile Claim"), ({"is_fourth_tile": True}, "Last Tile")])
+    def test_context_fans_are_scored_by_real_library(flags, fan_name):
+>       ok, total, fans = evaluate(LOW_HAND, "W9", LOW_PACKS, **flags)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_fan_calculator.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hand = ('W7', 'W8', 'F2', 'F2'), win = 'W9'
+packs = (('CHI', 'W2', 1), ('CHI', 'T6', 2), ('PENG', 'B9', 3))
+flags = {'is_wall_last': True, 'is_zimo': True}
+
+    def evaluate(hand=NINE, win="W5", packs=(), **flags):
+>       from app.engine.fan_calculator import FanCalculatorAdapter
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:9: ModuleNotFoundError
+_____ test_context_fans_are_scored_by_real_library[flags3-Last Tile Claim] _____
+
+flags = {'is_wall_last': True}, fan_name = 'Last Tile Claim'
+
+    @pytest.mark.parametrize("flags,fan_name", [({"is_zimo": True, "is_about_kong": True}, "Out with Replacement Tile"), ({"is_about_kong": True}, "Robbing The Kong"), ({"is_zimo": True, "is_wall_last": True}, "Last Tile Draw"), ({"is_wall_last": True}, "Last Tile Claim"), ({"is_fourth_tile": True}, "Last Tile")])
+    def test_context_fans_are_scored_by_real_library(flags, fan_name):
+>       ok, total, fans = evaluate(LOW_HAND, "W9", LOW_PACKS, **flags)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_fan_calculator.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hand = ('W7', 'W8', 'F2', 'F2'), win = 'W9'
+packs = (('CHI', 'W2', 1), ('CHI', 'T6', 2), ('PENG', 'B9', 3))
+flags = {'is_wall_last': True}
+
+    def evaluate(hand=NINE, win="W5", packs=(), **flags):
+>       from app.engine.fan_calculator import FanCalculatorAdapter
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:9: ModuleNotFoundError
+________ test_context_fans_are_scored_by_real_library[flags4-Last Tile] ________
+
+flags = {'is_fourth_tile': True}, fan_name = 'Last Tile'
+
+    @pytest.mark.parametrize("flags,fan_name", [({"is_zimo": True, "is_about_kong": True}, "Out with Replacement Tile"), ({"is_about_kong": True}, "Robbing The Kong"), ({"is_zimo": True, "is_wall_last": True}, "Last Tile Draw"), ({"is_wall_last": True}, "Last Tile Claim"), ({"is_fourth_tile": True}, "Last Tile")])
+    def test_context_fans_are_scored_by_real_library(flags, fan_name):
+>       ok, total, fans = evaluate(LOW_HAND, "W9", LOW_PACKS, **flags)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_fan_calculator.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hand = ('W7', 'W8', 'F2', 'F2'), win = 'W9'
+packs = (('CHI', 'W2', 1), ('CHI', 'T6', 2), ('PENG', 'B9', 3))
+flags = {'is_fourth_tile': True}
+
+    def evaluate(hand=NINE, win="W5", packs=(), **flags):
+>       from app.engine.fan_calculator import FanCalculatorAdapter
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:9: ModuleNotFoundError
+______ test_invalid_counts_tiles_and_unexpected_native_errors_are_visible ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10a56e690>
+
+    def test_invalid_counts_tiles_and_unexpected_native_errors_are_visible(monkeypatch):
+        from app.domain.exceptions import EngineInvariantError
+>       from app.engine import fan_calculator as module
+E       ImportError: cannot import name 'fan_calculator' from 'app.engine' (/Users/jhonhazel/mahjong-strategy-ai/app/engine/__init__.py)
+
+tests/test_fan_calculator.py:42: ImportError
+_____________________ test_special_hand_shanten_and_scores _____________________
+
+    def test_special_hand_shanten_and_scores():
+>       from app.engine.fan_calculator import FanCalculatorAdapter, compute_mcr_score_deltas
+E       ModuleNotFoundError: No module named 'app.engine.fan_calculator'
+
+tests/test_fan_calculator.py:54: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_fan_calculator.py::test_nine_gates_and_real_non_winning_hand
+FAILED tests/test_fan_calculator.py::test_flowers_cannot_qualify_low_fan_hand
+FAILED tests/test_fan_calculator.py::test_context_fans_are_scored_by_real_library[flags0-Out with Replacement Tile]
+FAILED tests/test_fan_calculator.py::test_context_fans_are_scored_by_real_library[flags1-Robbing The Kong]
+FAILED tests/test_fan_calculator.py::test_context_fans_are_scored_by_real_library[flags2-Last Tile Draw]
+FAILED tests/test_fan_calculator.py::test_context_fans_are_scored_by_real_library[flags3-Last Tile Claim]
+FAILED tests/test_fan_calculator.py::test_context_fans_are_scored_by_real_library[flags4-Last Tile]
+FAILED tests/test_fan_calculator.py::test_invalid_counts_tiles_and_unexpected_native_errors_are_visible
+FAILED tests/test_fan_calculator.py::test_special_hand_shanten_and_scores - M...
+9 failed in 0.04s

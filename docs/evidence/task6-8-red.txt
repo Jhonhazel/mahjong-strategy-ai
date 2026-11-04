@@ -1,0 +1,68 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+___________ test_heuristic_prefers_hu_and_never_uses_illegal_actions ___________
+
+    def test_heuristic_prefers_hu_and_never_uses_illegal_actions():
+        from app.engine.mcr_referee import MCRRefereeEngine
+>       from app.services.bot_service import ShantenHeuristicBot
+E       ModuleNotFoundError: No module named 'app.services.bot_service'
+
+tests/test_game_service.py:11: ModuleNotFoundError
+____________ test_human_vs_three_bots_pause_and_complete_real_round ____________
+
+    def test_human_vs_three_bots_pause_and_complete_real_round():
+>       from app.services.game_service import GameSessionService
+E       ModuleNotFoundError: No module named 'app.services.game_service'
+
+tests/test_game_service.py:29: ModuleNotFoundError
+___________ test_invalid_stale_and_missing_turn_token_do_not_mutate ____________
+
+    def test_invalid_stale_and_missing_turn_token_do_not_mutate():
+>       from app.services.game_service import GameSessionService
+E       ModuleNotFoundError: No module named 'app.services.game_service'
+
+tests/test_game_service.py:51: ModuleNotFoundError
+______________ test_20_real_threads_accept_exactly_one_turn_token ______________
+
+    def test_20_real_threads_accept_exactly_one_turn_token():
+>       from app.services.game_service import GameSessionService
+E       ModuleNotFoundError: No module named 'app.services.game_service'
+
+tests/test_game_service.py:64: ModuleNotFoundError
+____________________ test_capacity_ttl_delete_and_shutdown _____________________
+
+    def test_capacity_ttl_delete_and_shutdown():
+>       from app.services.game_service import GameSessionService
+E       ModuleNotFoundError: No module named 'app.services.game_service'
+
+tests/test_game_service.py:83: ModuleNotFoundError
+________________ test_shutdown_waits_for_real_inflight_bot_step ________________
+
+    def test_shutdown_waits_for_real_inflight_bot_step():
+>       from app.services.bot_service import RandomLegalBot
+E       ModuleNotFoundError: No module named 'app.services.bot_service'
+
+tests/test_game_service.py:103: ModuleNotFoundError
+_______________ test_automated_cli_completes_real_service_round ________________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-0/test_automated_cli_completes_r0')
+
+    def test_automated_cli_completes_real_service_round(tmp_path):
+        output = tmp_path / "round.json"
+        run = subprocess.run([sys.executable, "-m", "scripts.play_cli_round", "--auto-human-demo", "--seed", "42", "--human-seat", "1", "--output", str(output)], capture_output=True, text=True, timeout=60)
+>       assert run.returncode == 0, run.stderr
+E       AssertionError: /Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python: No module named scripts.play_cli_round
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python', '-m', 'scripts.play_cli_round', '--aut...1, stdout='', stderr='/Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python: No module named scripts.play_cli_round\n').returncode
+
+tests/test_cli.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_game_service.py::test_heuristic_prefers_hu_and_never_uses_illegal_actions
+FAILED tests/test_game_service.py::test_human_vs_three_bots_pause_and_complete_real_round
+FAILED tests/test_game_service.py::test_invalid_stale_and_missing_turn_token_do_not_mutate
+FAILED tests/test_game_service.py::test_20_real_threads_accept_exactly_one_turn_token
+FAILED tests/test_game_service.py::test_capacity_ttl_delete_and_shutdown - Mo...
+FAILED tests/test_game_service.py::test_shutdown_waits_for_real_inflight_bot_step
+FAILED tests/test_cli.py::test_automated_cli_completes_real_service_round - A...
+7 failed in 0.13s

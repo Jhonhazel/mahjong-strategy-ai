@@ -1,0 +1,1236 @@
+{
+  "status": "FAIL",
+  "selected_strategy": "strict_reextraction",
+  "encoder_version": "ijcai2026_mcr_v1_strict",
+  "scope": "First 60 JSON files in pinned archive order; every attempted match reported; only complete verified tracked seats accepted",
+  "n_games_inspected": 60,
+  "n_replay_attempts": 60,
+  "n_tracked_seats_inspected": 28,
+  "n_seats_compared": 92,
+  "n_matches_verified": 23,
+  "n_matches_failed_replay": 37,
+  "n_matches_unmatched": 0,
+  "n_matches_ambiguous": 0,
+  "n_decisions_compared": 1159,
+  "n_exact_decisions": 1159,
+  "n_mismatches": 0,
+  "obs_mismatches": 0,
+  "mask_mismatches": 0,
+  "act_mismatches": 0,
+  "parity_rate": 1.0,
+  "parity_kind": "reextracted_training_vs_live_referee_full_match",
+  "historical_npz_full_parity_claimed": false,
+  "accepted_samples": 290,
+  "accepted_matches": 23,
+  "provenance_coverage": 1.0,
+  "group_contract": {
+    "match_count": 23,
+    "sample_count": 290,
+    "overlap_count": 0,
+    "group_counts": {
+      "train": 22,
+      "test": 1
+    }
+  },
+  "status_counts": {
+    "verified_exact": 23,
+    "replay_error": 37
+  },
+  "attempts": [
+    {
+      "source_file": "finalist_games/693e6992416c555f2909fc48.json",
+      "match_id": "693e6992416c555f2909fc48",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 40,
+      "compared_seats": 4,
+      "accepted_samples": 10,
+      "source_hash": "a4356108ce6ce4f673ccc0865910a9463c747eb5aae3008ebc03bc6aec1ee0f1"
+    },
+    {
+      "source_file": "finalist_games/693aecd5416c555f29061d0f.json",
+      "match_id": "693aecd5416c555f29061d0f",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 28,
+      "compared_seats": 4,
+      "accepted_samples": 7,
+      "source_hash": "19c91744023428e4cba7e8db8deccb098b8d14de50ed4cb97f5416b655220669"
+    },
+    {
+      "source_file": "finalist_games/693e68da416c555f2909fbef.json",
+      "match_id": "693e68da416c555f2909fbef",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 47,
+      "compared_seats": 4,
+      "accepted_samples": 11,
+      "source_hash": "ea0d3afcb5c15c4c4d0b5e42ac2758d0681f46e17f31849238ffd133a083a871"
+    },
+    {
+      "source_file": "finalist_games/693d62d4416c555f2908ce0c.json",
+      "match_id": "693d62d4416c555f2908ce0c",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 51,
+      "compared_seats": 4,
+      "accepted_samples": 13,
+      "source_hash": "c121d9aeeb9f6e63dd4acae0a257364721eb68fe7e967d53159a217b2ead39ef"
+    },
+    {
+      "source_file": "finalist_games/693e6aea416c555f2909fd27.json",
+      "match_id": "693e6aea416c555f2909fd27",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693d6322416c555f2908ce4e.json",
+      "match_id": "693d6322416c555f2908ce4e",
+      "status": "replay_error",
+      "tracked_seats": 1,
+      "reason": "CorruptedDatasetError('Empty Botzone response')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 161, in verify_replay_parity\n    observed = replay_observers(game)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 84, in replay_observers\n    response = _response(game, index, seat)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 47, in _response\n    _require(isinstance(response, str) and bool(response.strip()), \"Empty Botzone response\")\napp.domain.exceptions.CorruptedDatasetError: Empty Botzone response\n"
+    },
+    {
+      "source_file": "finalist_games/693e6ce7416c555f2909fe4d.json",
+      "match_id": "693e6ce7416c555f2909fe4d",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693dae83416c555f29090673.json",
+      "match_id": "693dae83416c555f29090673",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e6d41416c555f2909feb9.json",
+      "match_id": "693e6d41416c555f2909feb9",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693db05f416c555f290907a3.json",
+      "match_id": "693db05f416c555f290907a3",
+      "status": "replay_error",
+      "tracked_seats": 1,
+      "reason": "CorruptedDatasetError('Excluded abnormal terminal: RE')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 161, in verify_replay_parity\n    observed = replay_observers(game)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 60, in replay_observers\n    _require(ending in (\"HU\", \"HUANG\"), f\"Excluded abnormal terminal: {ending}\")\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 30, in _require\n    raise CorruptedDatasetError(message)\napp.domain.exceptions.CorruptedDatasetError: Excluded abnormal terminal: RE\n"
+    },
+    {
+      "source_file": "finalist_games/693e6dce416c555f2909ff8f.json",
+      "match_id": "693e6dce416c555f2909ff8f",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693db0c2416c555f290907e1.json",
+      "match_id": "693db0c2416c555f290907e1",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e725c416c555f290a0339.json",
+      "match_id": "693e725c416c555f290a0339",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 53,
+      "compared_seats": 4,
+      "accepted_samples": 12,
+      "source_hash": "222cc183c4331f7421e471075a6d84b93154887aee5754a434ed351c2673fdde"
+    },
+    {
+      "source_file": "finalist_games/693db22b416c555f29090926.json",
+      "match_id": "693db22b416c555f29090926",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ec031416c555f290a45b8.json",
+      "match_id": "693ec031416c555f290a45b8",
+      "status": "replay_error",
+      "tracked_seats": 1,
+      "reason": "CorruptedDatasetError('Excluded abnormal terminal: RE')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 161, in verify_replay_parity\n    observed = replay_observers(game)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 60, in replay_observers\n    _require(ending in (\"HU\", \"HUANG\"), f\"Excluded abnormal terminal: {ending}\")\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 30, in _require\n    raise CorruptedDatasetError(message)\napp.domain.exceptions.CorruptedDatasetError: Excluded abnormal terminal: RE\n"
+    },
+    {
+      "source_file": "finalist_games/693db2ec416c555f29090991.json",
+      "match_id": "693db2ec416c555f29090991",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 87,
+      "compared_seats": 4,
+      "accepted_samples": 23,
+      "source_hash": "7cd4bd629fb1fd6c48125177ccc343910e8365808f764fde5a4633e8b560421d"
+    },
+    {
+      "source_file": "finalist_games/693ec054416c555f290a45e5.json",
+      "match_id": "693ec054416c555f290a45e5",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 45,
+      "compared_seats": 4,
+      "accepted_samples": 10,
+      "source_hash": "183c94e5dca0028ed46755d45bea982188f4a4ddf9822a89376c644ffc65dfa8"
+    },
+    {
+      "source_file": "finalist_games/693db35d416c555f290909e7.json",
+      "match_id": "693db35d416c555f290909e7",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed02c416c555f290a51d7.json",
+      "match_id": "693ed02c416c555f290a51d7",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693db453416c555f29090a69.json",
+      "match_id": "693db453416c555f29090a69",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 57,
+      "compared_seats": 4,
+      "accepted_samples": 15,
+      "source_hash": "31014b97875f9f1af4950974c87f863726408e2965f0c96a02d0e93f1fc9d7ef"
+    },
+    {
+      "source_file": "finalist_games/693ed124416c555f290a5274.json",
+      "match_id": "693ed124416c555f290a5274",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693db4b6416c555f29090abb.json",
+      "match_id": "693db4b6416c555f29090abb",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed159416c555f290a52c2.json",
+      "match_id": "693ed159416c555f290a52c2",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693db535416c555f29090b27.json",
+      "match_id": "693db535416c555f29090b27",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed171416c555f290a52e2.json",
+      "match_id": "693ed171416c555f290a52e2",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693db5af416c555f29090b74.json",
+      "match_id": "693db5af416c555f29090b74",
+      "status": "replay_error",
+      "tracked_seats": 1,
+      "reason": "CorruptedDatasetError('Excluded abnormal terminal: RE')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 161, in verify_replay_parity\n    observed = replay_observers(game)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 60, in replay_observers\n    _require(ending in (\"HU\", \"HUANG\"), f\"Excluded abnormal terminal: {ending}\")\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 30, in _require\n    raise CorruptedDatasetError(message)\napp.domain.exceptions.CorruptedDatasetError: Excluded abnormal terminal: RE\n"
+    },
+    {
+      "source_file": "finalist_games/693ed195416c555f290a5318.json",
+      "match_id": "693ed195416c555f290a5318",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693db5fb416c555f29090ba0.json",
+      "match_id": "693db5fb416c555f29090ba0",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 45,
+      "compared_seats": 4,
+      "accepted_samples": 12,
+      "source_hash": "4261d3c95fac8c83308884bbd45e9f4adb8cd157d6aaee7f70365232d3319bdd"
+    },
+    {
+      "source_file": "finalist_games/693ed1ab416c555f290a532f.json",
+      "match_id": "693ed1ab416c555f290a532f",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e303b416c555f2909cd91.json",
+      "match_id": "693e303b416c555f2909cd91",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed1c5416c555f290a5353.json",
+      "match_id": "693ed1c5416c555f290a5353",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e30d6416c555f2909ce15.json",
+      "match_id": "693e30d6416c555f2909ce15",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed289416c555f290a543f.json",
+      "match_id": "693ed289416c555f290a543f",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e30ff416c555f2909ce68.json",
+      "match_id": "693e30ff416c555f2909ce68",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed2b4416c555f290a5466.json",
+      "match_id": "693ed2b4416c555f290a5466",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e3153416c555f2909cef2.json",
+      "match_id": "693e3153416c555f2909cef2",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed31b416c555f290a54c8.json",
+      "match_id": "693ed31b416c555f290a54c8",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e3197416c555f2909cf22.json",
+      "match_id": "693e3197416c555f2909cf22",
+      "status": "replay_error",
+      "tracked_seats": 1,
+      "reason": "CorruptedDatasetError('Excluded abnormal terminal: RE')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 161, in verify_replay_parity\n    observed = replay_observers(game)\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 60, in replay_observers\n    _require(ending in (\"HU\", \"HUANG\"), f\"Excluded abnormal terminal: {ending}\")\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/replay.py\", line 30, in _require\n    raise CorruptedDatasetError(message)\napp.domain.exceptions.CorruptedDatasetError: Excluded abnormal terminal: RE\n"
+    },
+    {
+      "source_file": "finalist_games/693ed3d0416c555f290a559a.json",
+      "match_id": "693ed3d0416c555f290a559a",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e328c416c555f2909cffe.json",
+      "match_id": "693e328c416c555f2909cffe",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed3f6416c555f290a55bf.json",
+      "match_id": "693ed3f6416c555f290a55bf",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e33df416c555f2909d129.json",
+      "match_id": "693e33df416c555f2909d129",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693ed445416c555f290a55f6.json",
+      "match_id": "693ed445416c555f290a55f6",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/693e6062416c555f2909f3f9.json",
+      "match_id": "693e6062416c555f2909f3f9",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/69402ff7416c555f290e6034.json",
+      "match_id": "69402ff7416c555f290e6034",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 78,
+      "compared_seats": 4,
+      "accepted_samples": 20,
+      "source_hash": "678bacdbbf1831361ff8606229b3d6a81b24ab30deeca56467c1c2c0195b2d79"
+    },
+    {
+      "source_file": "finalist_games/693e60f5416c555f2909f4c4.json",
+      "match_id": "693e60f5416c555f2909f4c4",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/6940e3c8416c555f291076ee.json",
+      "match_id": "6940e3c8416c555f291076ee",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 70,
+      "compared_seats": 4,
+      "accepted_samples": 18,
+      "source_hash": "4b702d060bff069ce37dd04eced0f5a366e0932e2258aff62a904f40eac1d03c"
+    },
+    {
+      "source_file": "finalist_games/693e62b7416c555f2909f628.json",
+      "match_id": "693e62b7416c555f2909f628",
+      "status": "replay_error",
+      "reason": "CorruptedDatasetError('Tracked uid cannot be mapped uniquely to seat')",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jhonhazel/mahjong-strategy-ai/training/verify_encoder_parity.py\", line 158, in verify_replay_parity\n    raise CorruptedDatasetError(\"Tracked uid cannot be mapped uniquely to seat\")\napp.domain.exceptions.CorruptedDatasetError: Tracked uid cannot be mapped uniquely to seat\n"
+    },
+    {
+      "source_file": "finalist_games/69421aac416c555f2911ffef.json",
+      "match_id": "69421aac416c555f2911ffef",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 44,
+      "compared_seats": 4,
+      "accepted_samples": 11,
+      "source_hash": "bf372c1de5c9cbfe35b7d0f858e186a1e612f7961c50d108222495cda62ba104"
+    },
+    {
+      "source_file": "finalist_games/693e62f8416c555f2909f65b.json",
+      "match_id": "693e62f8416c555f2909f65b",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 32,
+      "compared_seats": 4,
+      "accepted_samples": 8,
+      "source_hash": "bb7f330386b8a5132f3a0e12a7ba07eb7cc236c8196b04cf45fdbca8c28ebf96"
+    },
+    {
+      "source_file": "finalist_games/69421adf416c555f29120016.json",
+      "match_id": "69421adf416c555f29120016",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 70,
+      "compared_seats": 4,
+      "accepted_samples": 17,
+      "source_hash": "1d49f9b388b6825e3cf6bd00697b90b39f28adc0f1d94e39bbb66dc82f9a334d"
+    },
+    {
+      "source_file": "finalist_games/693e6353416c555f2909f6dd.json",
+      "match_id": "693e6353416c555f2909f6dd",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 65,
+      "compared_seats": 4,
+      "accepted_samples": 17,
+      "source_hash": "c34a8d8a181b14eed6b0c25689f2c84ec82dac328e8a65eb56860f1d370fac77"
+    },
+    {
+      "source_file": "finalist_games/69421af7416c555f2912003c.json",
+      "match_id": "69421af7416c555f2912003c",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 65,
+      "compared_seats": 4,
+      "accepted_samples": 16,
+      "source_hash": "3ffed829bd48c7413e3a560b202e2410f1bc3e519821e57f71428abf94a8c064"
+    },
+    {
+      "source_file": "finalist_games/693e6415416c555f2909f7b5.json",
+      "match_id": "693e6415416c555f2909f7b5",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 39,
+      "compared_seats": 4,
+      "accepted_samples": 10,
+      "source_hash": "e72211375f7ea02571a7294172000c5b1db4e3a2100ed32ad469d22fdbedcc26"
+    },
+    {
+      "source_file": "finalist_games/6944abfe416c555f29150e49.json",
+      "match_id": "6944abfe416c555f29150e49",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 57,
+      "compared_seats": 4,
+      "accepted_samples": 14,
+      "source_hash": "020c41bafa0e3cef83f19838624e50811610f17409f52fb7a1e67a0802870c72"
+    },
+    {
+      "source_file": "finalist_games/693e643d416c555f2909f7c2.json",
+      "match_id": "693e643d416c555f2909f7c2",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 44,
+      "compared_seats": 4,
+      "accepted_samples": 11,
+      "source_hash": "4289c00dc109bb55241c7ce8fafbbbda0f41a67a39e25bae5d1939d1ed596ec1"
+    },
+    {
+      "source_file": "finalist_games/6944acab416c555f29150ea8.json",
+      "match_id": "6944acab416c555f29150ea8",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 36,
+      "compared_seats": 4,
+      "accepted_samples": 9,
+      "source_hash": "e4785507026721fc062a02cb619eaeb09e6156408845e2c1f3784c244ccd2f68"
+    },
+    {
+      "source_file": "finalist_games/693e645c416c555f2909f7fe.json",
+      "match_id": "693e645c416c555f2909f7fe",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 46,
+      "compared_seats": 4,
+      "accepted_samples": 12,
+      "source_hash": "09678c8958e77ac9112f30d6526dbfdb88ae0263ee10c1e8d63687a519b4e541"
+    },
+    {
+      "source_file": "finalist_games/69457afa416c555f2915a53d.json",
+      "match_id": "69457afa416c555f2915a53d",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 25,
+      "compared_seats": 4,
+      "accepted_samples": 5,
+      "source_hash": "765a385b042b42896a4f1f962fc3ff16b4add964154765888eb98af2ea0a0fc0"
+    },
+    {
+      "source_file": "finalist_games/693e64a0416c555f2909f85b.json",
+      "match_id": "693e64a0416c555f2909f85b",
+      "status": "verified_exact",
+      "tracked_seats": 1,
+      "n_decisions": 35,
+      "compared_seats": 4,
+      "accepted_samples": 9,
+      "source_hash": "e91a734d7386239c720a118e0481ee6d186969f770566ed5447b10f3d38a0bbf"
+    }
+  ],
+  "historical_npz": {
+    "status_counts": {
+      "not_in_npz": 8,
+      "mismatch": 12,
+      "verified_exact": 3
+    },
+    "seats_inspected": 23,
+    "decisions_compared": 156,
+    "exact_decisions": 56,
+    "obs_mismatches": 100,
+    "mask_mismatches": 60,
+    "act_mismatches": 0,
+    "parity_rate": 0.358974358974359,
+    "training_approved_rows": 0,
+    "records": [
+      {
+        "seat": 2,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e6992416c555f2909fc48",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "whatcanisayman.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=0, full_label_score_sequences=0"
+      },
+      {
+        "seat": 2,
+        "player_uid": "64479d3637d38a1cc585553e",
+        "match_id": "693aecd5416c555f29061d0f",
+        "compared": 7,
+        "obs_mismatches": 2,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 5,
+        "source_file": "QiuQiuR.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 4971,
+        "mismatch_examples": [
+          {
+            "source_row": 4976,
+            "log_index": 90,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 4977,
+            "log_index": 106,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 3,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e68da416c555f2909fbef",
+        "compared": 11,
+        "obs_mismatches": 6,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 5,
+        "source_file": "whatcanisayman.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 704,
+        "mismatch_examples": [
+          {
+            "source_row": 709,
+            "log_index": 94,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 710,
+            "log_index": 110,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 711,
+            "log_index": 126,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 0,
+        "player_uid": "64479d3637d38a1cc585553e",
+        "match_id": "693d62d4416c555f2908ce0c",
+        "compared": 11,
+        "obs_mismatches": 10,
+        "mask_mismatches": 10,
+        "act_mismatches": 0,
+        "exact_decisions": 1,
+        "source_file": "QiuQiuR.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 4960,
+        "mismatch_examples": [
+          {
+            "source_row": 4961,
+            "log_index": 34,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              30
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 4962,
+            "log_index": 50,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              30
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 4963,
+            "log_index": 66,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              30
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 2,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e725c416c555f290a0339",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "whatcanisayman.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=1, full_label_score_sequences=0"
+      },
+      {
+        "seat": 0,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693db2ec416c555f29090991",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "whatcanisayman.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=1, full_label_score_sequences=0"
+      },
+      {
+        "seat": 3,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693ec054416c555f290a45e5",
+        "compared": 9,
+        "obs_mismatches": 8,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 1,
+        "source_file": "whatcanisayman.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 650,
+        "mismatch_examples": [
+          {
+            "source_row": 651,
+            "log_index": 42,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 652,
+            "log_index": 58,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 653,
+            "log_index": 74,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 0,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693db453416c555f29090a69",
+        "compared": 14,
+        "obs_mismatches": 9,
+        "mask_mismatches": 5,
+        "act_mismatches": 0,
+        "exact_decisions": 5,
+        "source_file": "whatcanisayman.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 973,
+        "mismatch_examples": [
+          {
+            "source_row": 978,
+            "log_index": 82,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 979,
+            "log_index": 98,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 980,
+            "log_index": 114,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 0,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693db5fb416c555f29090ba0",
+        "compared": 11,
+        "obs_mismatches": 10,
+        "mask_mismatches": 4,
+        "act_mismatches": 0,
+        "exact_decisions": 1,
+        "source_file": "whatcanisayman.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 946,
+        "mismatch_examples": [
+          {
+            "source_row": 947,
+            "log_index": 14,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 948,
+            "log_index": 30,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 949,
+            "log_index": 44,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 1,
+        "player_uid": "64479d3637d38a1cc585553e",
+        "match_id": "69402ff7416c555f290e6034",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "QiuQiuR.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=1, full_label_score_sequences=0"
+      },
+      {
+        "seat": 0,
+        "player_uid": "64479d3637d38a1cc585553e",
+        "match_id": "6940e3c8416c555f291076ee",
+        "compared": 16,
+        "obs_mismatches": 15,
+        "mask_mismatches": 14,
+        "act_mismatches": 0,
+        "exact_decisions": 1,
+        "source_file": "QiuQiuR.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 4932,
+        "mismatch_examples": [
+          {
+            "source_row": 4933,
+            "log_index": 30,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              9
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 4934,
+            "log_index": 46,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              9
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 4935,
+            "log_index": 62,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              9
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 2,
+        "player_uid": "6641a0a35a5a94783d8831ba",
+        "match_id": "69421aac416c555f2911ffef",
+        "compared": 11,
+        "obs_mismatches": 7,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 4,
+        "source_file": "Chinese_zjc_.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 1796,
+        "mismatch_examples": [
+          {
+            "source_row": 1800,
+            "log_index": 74,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 1801,
+            "log_index": 88,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 1802,
+            "log_index": 104,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 0,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e62f8416c555f2909f65b",
+        "compared": 8,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 8,
+        "source_file": "whatcanisayman.npz",
+        "status": "verified_exact",
+        "diagnostic_candidate_start": 829,
+        "mismatch_examples": [],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 2,
+        "player_uid": "6641a0a35a5a94783d8831ba",
+        "match_id": "69421adf416c555f29120016",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "Chinese_zjc_.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=1, full_label_score_sequences=0"
+      },
+      {
+        "seat": 0,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e6353416c555f2909f6dd",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "whatcanisayman.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=1, full_label_score_sequences=0"
+      },
+      {
+        "seat": 1,
+        "player_uid": "6641a0a35a5a94783d8831ba",
+        "match_id": "69421af7416c555f2912003c",
+        "compared": 14,
+        "obs_mismatches": 12,
+        "mask_mismatches": 12,
+        "act_mismatches": 0,
+        "exact_decisions": 2,
+        "source_file": "Chinese_zjc_.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 1782,
+        "mismatch_examples": [
+          {
+            "source_row": 1784,
+            "log_index": 54,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              10
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 1785,
+            "log_index": 70,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              10
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 1786,
+            "log_index": 98,
+            "after_chi_peng": true,
+            "different_obs_cells": 5,
+            "different_mask_bits": [
+              10,
+              25
+            ],
+            "historical_hand_count": 10,
+            "strict_hand_count": 8
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 0,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e6415416c555f2909f7b5",
+        "compared": 9,
+        "obs_mismatches": 6,
+        "mask_mismatches": 2,
+        "act_mismatches": 0,
+        "exact_decisions": 3,
+        "source_file": "whatcanisayman.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 785,
+        "mismatch_examples": [
+          {
+            "source_row": 788,
+            "log_index": 50,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 789,
+            "log_index": 66,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 790,
+            "log_index": 76,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 2,
+        "player_uid": "6641a0a35a5a94783d8831ba",
+        "match_id": "6944abfe416c555f29150e49",
+        "compared": 12,
+        "obs_mismatches": 10,
+        "mask_mismatches": 8,
+        "act_mismatches": 0,
+        "exact_decisions": 2,
+        "source_file": "Chinese_zjc_.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 1768,
+        "mismatch_examples": [
+          {
+            "source_row": 1770,
+            "log_index": 42,
+            "after_chi_peng": true,
+            "different_obs_cells": 1,
+            "different_mask_bits": [],
+            "historical_hand_count": 14,
+            "strict_hand_count": 14
+          },
+          {
+            "source_row": 1771,
+            "log_index": 72,
+            "after_chi_peng": true,
+            "different_obs_cells": 3,
+            "different_mask_bits": [],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 1772,
+            "log_index": 100,
+            "after_chi_peng": true,
+            "different_obs_cells": 6,
+            "different_mask_bits": [
+              21,
+              33
+            ],
+            "historical_hand_count": 10,
+            "strict_hand_count": 8
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 2,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e643d416c555f2909f7c2",
+        "compared": 11,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 11,
+        "source_file": "whatcanisayman.npz",
+        "status": "verified_exact",
+        "diagnostic_candidate_start": 809,
+        "mismatch_examples": [],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 1,
+        "player_uid": "6641a0a35a5a94783d8831ba",
+        "match_id": "6944acab416c555f29150ea8",
+        "compared": 7,
+        "obs_mismatches": 5,
+        "mask_mismatches": 5,
+        "act_mismatches": 0,
+        "exact_decisions": 2,
+        "source_file": "Chinese_zjc_.npz",
+        "status": "mismatch",
+        "diagnostic_candidate_start": 1761,
+        "mismatch_examples": [
+          {
+            "source_row": 1763,
+            "log_index": 54,
+            "after_chi_peng": true,
+            "different_obs_cells": 2,
+            "different_mask_bits": [
+              20
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 1764,
+            "log_index": 68,
+            "after_chi_peng": true,
+            "different_obs_cells": 3,
+            "different_mask_bits": [
+              20
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          },
+          {
+            "source_row": 1765,
+            "log_index": 84,
+            "after_chi_peng": true,
+            "different_obs_cells": 3,
+            "different_mask_bits": [
+              20
+            ],
+            "historical_hand_count": 12,
+            "strict_hand_count": 11
+          }
+        ],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 1,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e645c416c555f2909f7fe",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "whatcanisayman.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=1, full_label_score_sequences=0"
+      },
+      {
+        "seat": 2,
+        "player_uid": "6641a0a35a5a94783d8831ba",
+        "match_id": "69457afa416c555f2915a53d",
+        "compared": 5,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 5,
+        "source_file": "Chinese_zjc_.npz",
+        "status": "verified_exact",
+        "diagnostic_candidate_start": 1756,
+        "mismatch_examples": [],
+        "note": "Only normal-draw decisions compared; historical NPZ omit post-meld discard samples. No historical rows accepted for training."
+      },
+      {
+        "seat": 0,
+        "player_uid": "692e88f12ab5c344942824ef",
+        "match_id": "693e64a0416c555f2909f85b",
+        "compared": 0,
+        "obs_mismatches": 0,
+        "mask_mismatches": 0,
+        "act_mismatches": 0,
+        "exact_decisions": 0,
+        "source_file": "whatcanisayman.npz",
+        "status": "not_in_npz",
+        "reason": "first_hand_candidates=1, full_label_score_sequences=0"
+      }
+    ]
+  }
+}

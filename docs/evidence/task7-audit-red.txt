@@ -1,0 +1,24 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_______ test_aggregate_rows_are_verified_copies_and_never_double_counted _______
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-5/test_aggregate_rows_are_verifi0')
+
+    def test_aggregate_rows_are_verified_copies_and_never_double_counted(tmp_path):
+>       from training.inspect_dataset import audit_decisions_directory
+E       ModuleNotFoundError: No module named 'training.inspect_dataset'
+
+tests/test_dataset_audit.py:19: ModuleNotFoundError
+_______________ test_audit_writes_failure_report_before_raising ________________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-5/test_audit_writes_failure_repo0')
+
+    def test_audit_writes_failure_report_before_raising(tmp_path):
+>       from training.inspect_dataset import audit_decisions_directory
+E       ModuleNotFoundError: No module named 'training.inspect_dataset'
+
+tests/test_dataset_audit.py:29: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_dataset_audit.py::test_aggregate_rows_are_verified_copies_and_never_double_counted
+FAILED tests/test_dataset_audit.py::test_audit_writes_failure_report_before_raising
+2 failed in 0.08s

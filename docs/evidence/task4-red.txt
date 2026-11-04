@@ -1,0 +1,192 @@
+FFFFFFFFFF                                                               [100%]
+=================================== FAILURES ===================================
+______________ test_exact_unary_channels_dtypes_padding_and_masks ______________
+
+    def test_exact_unary_channels_dtypes_padding_and_masks():
+>       obs = observer(2, "W1 W1 W2 W3 T5 T6 B7 B8 B9 F1 F2 J1 J1")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_feature_encoder.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 2, hand = 'W1 W1 W2 W3 T5 T6 B7 B8 B9 F1 F2 J1 J1'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+_ test_opponent_events_refresh_public_planes_immediately_without_hidden_tiles __
+
+    def test_opponent_events_refresh_public_planes_immediately_without_hidden_tiles():
+        from app.domain.actions import encode_chi_action, encode_peng_action, encode_gang_action
+>       obs = observer()
+              ^^^^^^^^^^
+
+tests/test_feature_encoder.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 1, hand = 'W2 W3 T5 T5 T5 B1 B2 B3 F1 F1 J2 J2 J3'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+________________ test_own_chi_peng_kongs_hu_and_terminal_masks _________________
+
+    def test_own_chi_peng_kongs_hu_and_terminal_masks():
+        from app.domain.actions import encode_play_action, encode_bugang_action, encode_angang_action
+>       obs = observer(0, "B2 B2 W1 W2 W3 T1 T2 T3 F1 F2 F3 J1 J2")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_feature_encoder.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 0, hand = 'B2 B2 W1 W2 W3 T1 T2 T3 F1 F2 F3 J1 J2'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+___________ test_wall_exhaustion_disables_claims_except_hu_and_pass ____________
+
+    def test_wall_exhaustion_disables_claims_except_hu_and_pass():
+>       obs = observer()
+              ^^^^^^^^^^
+
+tests/test_feature_encoder.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 1, hand = 'W2 W3 T5 T5 T5 B1 B2 B3 F1 F1 J2 J2 J3'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+_ test_fourth_tile_counts_do_not_double_count_and_native_clears_concealed_copies _
+
+    def test_fourth_tile_counts_do_not_double_count_and_native_clears_concealed_copies():
+>       from app.engine.feature_encoder import is_fourth_tile
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:90: ModuleNotFoundError
+____________________ test_invalid_events_fail_explicitly[] _____________________
+
+event = ''
+
+    @pytest.mark.parametrize("event", ["", "Unknown X", "Player 4 Draw", "Wind 4", "Draw ZZ"])
+    def test_invalid_events_fail_explicitly(event):
+        from app.domain.exceptions import IllegalActionError
+        with pytest.raises(IllegalActionError):
+>           observer().on_event(event)
+            ^^^^^^^^^^
+
+tests/test_feature_encoder.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 1, hand = 'W2 W3 T5 T5 T5 B1 B2 B3 F1 F1 J2 J2 J3'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+________________ test_invalid_events_fail_explicitly[Unknown X] ________________
+
+event = 'Unknown X'
+
+    @pytest.mark.parametrize("event", ["", "Unknown X", "Player 4 Draw", "Wind 4", "Draw ZZ"])
+    def test_invalid_events_fail_explicitly(event):
+        from app.domain.exceptions import IllegalActionError
+        with pytest.raises(IllegalActionError):
+>           observer().on_event(event)
+            ^^^^^^^^^^
+
+tests/test_feature_encoder.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 1, hand = 'W2 W3 T5 T5 T5 B1 B2 B3 F1 F1 J2 J2 J3'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+______________ test_invalid_events_fail_explicitly[Player 4 Draw] ______________
+
+event = 'Player 4 Draw'
+
+    @pytest.mark.parametrize("event", ["", "Unknown X", "Player 4 Draw", "Wind 4", "Draw ZZ"])
+    def test_invalid_events_fail_explicitly(event):
+        from app.domain.exceptions import IllegalActionError
+        with pytest.raises(IllegalActionError):
+>           observer().on_event(event)
+            ^^^^^^^^^^
+
+tests/test_feature_encoder.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 1, hand = 'W2 W3 T5 T5 T5 B1 B2 B3 F1 F1 J2 J2 J3'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+_________________ test_invalid_events_fail_explicitly[Wind 4] __________________
+
+event = 'Wind 4'
+
+    @pytest.mark.parametrize("event", ["", "Unknown X", "Player 4 Draw", "Wind 4", "Draw ZZ"])
+    def test_invalid_events_fail_explicitly(event):
+        from app.domain.exceptions import IllegalActionError
+        with pytest.raises(IllegalActionError):
+>           observer().on_event(event)
+            ^^^^^^^^^^
+
+tests/test_feature_encoder.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 1, hand = 'W2 W3 T5 T5 T5 B1 B2 B3 F1 F1 J2 J2 J3'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+_________________ test_invalid_events_fail_explicitly[Draw ZZ] _________________
+
+event = 'Draw ZZ'
+
+    @pytest.mark.parametrize("event", ["", "Unknown X", "Player 4 Draw", "Wind 4", "Draw ZZ"])
+    def test_invalid_events_fail_explicitly(event):
+        from app.domain.exceptions import IllegalActionError
+        with pytest.raises(IllegalActionError):
+>           observer().on_event(event)
+            ^^^^^^^^^^
+
+tests/test_feature_encoder.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seat = 1, hand = 'W2 W3 T5 T5 T5 B1 B2 B3 F1 F1 J2 J2 J3'
+
+    def observer(seat=1, hand=HAND):
+>       from app.engine.feature_encoder import PerSeatObserver
+E       ModuleNotFoundError: No module named 'app.engine.feature_encoder'
+
+tests/test_feature_encoder.py:8: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_feature_encoder.py::test_exact_unary_channels_dtypes_padding_and_masks
+FAILED tests/test_feature_encoder.py::test_opponent_events_refresh_public_planes_immediately_without_hidden_tiles
+FAILED tests/test_feature_encoder.py::test_own_chi_peng_kongs_hu_and_terminal_masks
+FAILED tests/test_feature_encoder.py::test_wall_exhaustion_disables_claims_except_hu_and_pass
+FAILED tests/test_feature_encoder.py::test_fourth_tile_counts_do_not_double_count_and_native_clears_concealed_copies
+FAILED tests/test_feature_encoder.py::test_invalid_events_fail_explicitly[]
+FAILED tests/test_feature_encoder.py::test_invalid_events_fail_explicitly[Unknown X]
+FAILED tests/test_feature_encoder.py::test_invalid_events_fail_explicitly[Player 4 Draw]
+FAILED tests/test_feature_encoder.py::test_invalid_events_fail_explicitly[Wind 4]
+FAILED tests/test_feature_encoder.py::test_invalid_events_fail_explicitly[Draw ZZ]
+10 failed in 0.07s

@@ -1,0 +1,306 @@
+
+Turn 4 | WAITING_HUMAN_DISCARD | active=1 | wall=82
+Your hand: W5 T1 T2 T2 T3 B2 B4 B5 B6 B7 B7 B9 J1 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2
+Seat 1: concealed=14 melds=[] flowers=[] discards=
+Seat 2: concealed=13 melds=[] flowers=[] discards=
+Seat 3: concealed=13 melds=[] flowers=[] discards=
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 21: Play B2 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 33: Play J1 | 34: Play J2
+Auto human: 12 Play
+
+Turn 17 | WAITING_HUMAN_CLAIM | active=0 | wall=79
+Your hand: W5 T1 T2 T3 B2 B4 B5 B6 B7 B7 B9 J1 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4
+Seat 1: concealed=13 melds=[] flowers=[] discards=T2
+Seat 2: concealed=13 melds=[] flowers=[] discards=W4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2
+Actions: 0: Pass | 62: Chi T2-T3-T4
+Auto human: 0 Pass
+
+Turn 20 | WAITING_HUMAN_DISCARD | active=1 | wall=78
+Your hand: W5 T1 T2 T2 T3 B2 B4 B5 B6 B7 B7 B9 J1 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2
+Seat 2: concealed=13 melds=[] flowers=[] discards=W4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 21: Play B2 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 33: Play J1 | 34: Play J2
+Auto human: 12 Play
+
+Turn 36 | WAITING_HUMAN_DISCARD | active=1 | wall=74
+Your hand: W5 T1 T2 T3 B2 B4 B5 B6 B7 B7 B9 F3 J1 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2
+Seat 2: concealed=13 melds=[] flowers=[] discards=W4 W2
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 21: Play B2 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 31: Play F3 | 33: Play J1 | 34: Play J2
+Auto human: 33 Play
+
+Turn 52 | WAITING_HUMAN_DISCARD | active=1 | wall=71
+Your hand: W5 W9 T1 T2 T3 B2 B4 B5 B6 B7 B7 B9 F3 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9
+Actions: 6: Play W5 | 10: Play W9 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 21: Play B2 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 31: Play F3 | 34: Play J2
+Auto human: 10 Play
+
+Turn 68 | WAITING_HUMAN_DISCARD | active=1 | wall=67
+Your hand: W5 T1 T2 T3 T8 B2 B4 B5 B6 B7 B7 B9 F3 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9 F1
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9 T2
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 18: Play T8 | 21: Play B2 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 31: Play F3 | 34: Play J2
+Auto human: 31 Play
+
+Turn 84 | WAITING_HUMAN_DISCARD | active=1 | wall=63
+Your hand: W5 T1 T2 T3 T8 B2 B4 B4 B5 B6 B7 B7 B9 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9 F1 B1
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9 T2 T9
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 18: Play T8 | 21: Play B2 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 34: Play J2
+Auto human: 23 Play
+
+Turn 97 | WAITING_HUMAN_CLAIM | active=0 | wall=60
+Your hand: W5 T1 T2 T3 T8 B2 B4 B5 B6 B7 B7 B9 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5
+Seat 1: concealed=13 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9 T2 T9 W4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7
+Actions: 0: Pass | 88: Chi B4-B5-B6 | 90: Chi B5-B6-B7
+Auto human: 0 Pass
+
+Turn 100 | WAITING_HUMAN_DISCARD | active=1 | wall=59
+Your hand: W5 T1 T2 T3 T5 T8 B2 B4 B5 B6 B7 B7 B9 J2
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9 T2 T9 W4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 18: Play T8 | 21: Play B2 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 34: Play J2
+Auto human: 34 Play
+
+Turn 116 | WAITING_HUMAN_DISCARD | active=1 | wall=55
+Your hand: W5 T1 T2 T3 T5 T8 B2 B3 B4 B5 B6 B7 B7 B9
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 18: Play T8 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9
+Auto human: 18 Play
+
+Turn 132 | WAITING_HUMAN_DISCARD | active=1 | wall=51
+Your hand: W5 T1 T2 T3 T5 B2 B2 B3 B4 B5 B6 B7 B7 B9
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9
+Auto human: 21 Play
+
+Turn 148 | WAITING_HUMAN_DISCARD | active=1 | wall=47
+Your hand: W5 T1 T2 T3 T5 T6 B2 B3 B4 B5 B6 B7 B7 B9
+Seat 0: concealed=13 melds=[] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2
+Seat 2: concealed=10 melds=['PENG:J1'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9
+Auto human: 26 Play
+
+Turn 164 | WAITING_HUMAN_DISCARD | active=1 | wall=45
+Your hand: W5 T1 T2 T3 T5 T6 B2 B3 B4 B5 B6 B7 B9 F2
+Seat 0: concealed=10 melds=['CHI:T8'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 30: Play F2
+Auto human: 30 Play
+
+Turn 176 | WAITING_HUMAN_DISCARD | active=1 | wall=43
+Your hand: W5 T1 T2 T3 T5 T6 T8 B2 B3 B4 B5 B6 B7 B9
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 18: Play T8 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9
+Auto human: 18 Play
+
+Turn 192 | WAITING_HUMAN_DISCARD | active=1 | wall=39
+Your hand: W4 W5 T1 T2 T3 T5 T6 B2 B3 B4 B5 B6 B7 B9
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8
+Actions: 5: Play W4 | 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9
+Auto human: 5 Play
+
+Turn 205 | WAITING_HUMAN_CLAIM | active=0 | wall=36
+Your hand: W5 T1 T2 T3 T5 T6 B2 B3 B4 B5 B6 B7 B9
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6
+Seat 1: concealed=13 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3
+Actions: 0: Pass | 89: Chi B4-B5-B6 | 91: Chi B5-B6-B7
+Auto human: 0 Pass
+
+Turn 208 | WAITING_HUMAN_DISCARD | active=1 | wall=35
+Your hand: W5 T1 T2 T3 T5 T6 B2 B3 B4 B5 B6 B7 B9 F4
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 32: Play F4
+Auto human: 32 Play
+
+Turn 221 | WAITING_HUMAN_CLAIM | active=0 | wall=32
+Your hand: W5 T1 T2 T3 T5 T6 B2 B3 B4 B5 B6 B7 B9
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4
+Seat 1: concealed=13 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2
+Actions: 0: Pass | 83: Chi B2-B3-B4 | 85: Chi B3-B4-B5 | 87: Chi B4-B5-B6
+Auto human: 0 Pass
+
+Turn 224 | WAITING_HUMAN_DISCARD | active=1 | wall=31
+Your hand: W5 T1 T2 T3 T5 T6 B2 B3 B4 B5 B6 B7 B9 F3
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9 | 31: Play F3
+Auto human: 31 Play
+
+Turn 240 | WAITING_HUMAN_DISCARD | active=1 | wall=27
+Your hand: W5 T1 T2 T3 T5 T6 T7 B2 B3 B4 B5 B6 B7 B9
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 17: Play T7 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 28: Play B9
+Auto human: 28 Play
+
+Turn 253 | WAITING_HUMAN_CLAIM | active=0 | wall=24
+Your hand: W5 T1 T2 T3 T5 T6 T7 B2 B3 B4 B5 B6 B7
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9 B1
+Seat 1: concealed=13 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3 B9
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7 W3
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1 W9
+Actions: 0: Pass | 78: Chi B1-B2-B3
+Auto human: 0 Pass
+
+Turn 256 | WAITING_HUMAN_DISCARD | active=1 | wall=23
+Your hand: W1 W5 T1 T2 T3 T5 T6 T7 B2 B3 B4 B5 B6 B7
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9 B1
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3 B9
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7 W3
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1 W9
+Actions: 2: Play W1 | 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 17: Play T7 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7
+Auto human: 2 Play
+
+Turn 272 | WAITING_HUMAN_DISCARD | active=1 | wall=19
+Your hand: W5 T1 T2 T3 T5 T6 T6 T7 B2 B3 B4 B5 B6 B7
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9 B1 W5
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3 B9 W1
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7 W3 B4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1 W9 B8
+Actions: 6: Play W5 | 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 17: Play T7 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7
+Auto human: 6 Play
+
+Turn 288 | WAITING_HUMAN_DISCARD | active=1 | wall=15
+Your hand: T1 T2 T3 T5 T6 T6 T7 B2 B3 B4 B5 B6 B7 F3
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9 B1 W5 J2
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3 B9 W1 W5
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7 W3 B4 F4
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1 W9 B8 W1
+Actions: 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 17: Play T7 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 31: Play F3
+Auto human: 31 Play
+
+Turn 304 | WAITING_HUMAN_DISCARD | active=1 | wall=11
+Your hand: T1 T2 T3 T5 T6 T6 T7 B2 B3 B4 B5 B6 B7 F3
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9 B1 W5 J2 W3
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3 B9 W1 W5 F3
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7 W3 B4 F4 B3
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1 W9 B8 W1 B7
+Actions: 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 17: Play T7 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7 | 31: Play F3
+Auto human: 31 Play
+
+Turn 320 | WAITING_HUMAN_DISCARD | active=1 | wall=7
+Your hand: T1 T2 T3 T5 T5 T6 T6 T7 B2 B3 B4 B5 B6 B7
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9 B1 W5 J2 W3 J3
+Seat 1: concealed=14 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3 B9 W1 W5 F3 F3
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7 W3 B4 F4 B3 B3
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1 W9 B8 W1 B7 B9
+Actions: 11: Play T1 | 12: Play T2 | 13: Play T3 | 15: Play T5 | 16: Play T6 | 17: Play T7 | 21: Play B2 | 22: Play B3 | 23: Play B4 | 24: Play B5 | 25: Play B6 | 26: Play B7
+Auto human: 17 Play
+
+Turn 336 | FINISHED | active=1 | wall=4
+Your hand: T1 T2 T3 T5 T5 T6 T6 B2 B3 B4 B5 B6 B7
+Seat 0: concealed=7 melds=['CHI:T8', 'PENG:T1'] flowers=[] discards=F2 T4 W2 W9 F1 B1 B5 W6 F1 F1 J3 W5 W1 B6 B4 B9 B1 W5 J2 W3 J3 T7
+Seat 1: concealed=13 melds=[] flowers=[] discards=T2 T2 J1 W9 F3 B4 J2 T8 B2 B7 F2 T8 W4 F4 F3 B9 W1 W5 F3 F3 T7
+Seat 2: concealed=7 melds=['PENG:J1', 'CHI:B7'] flowers=[] discards=W4 W2 W9 T2 T9 W4 W4 F4 F4 J3 T1 B2 T3 B1 W7 W3 B4 F4 B3 B3 B8
+Seat 3: concealed=13 melds=[] flowers=[] discards=W2 F1 T9 J1 T9 W7 B5 B3 B5 T9 T8 J3 B2 B1 W9 B8 W1 B7 B9 W1
+{
+  "ending": "draw",
+  "winner_seat": null,
+  "discarder_seat": null,
+  "qianggang": false,
+  "win_tile": null,
+  "total_fan": 0,
+  "fans": [],
+  "score_deltas": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "revealed_hands": [
+    [
+      "W8",
+      "W8",
+      "T4",
+      "T4",
+      "B7",
+      "B8",
+      "B9"
+    ],
+    [
+      "T1",
+      "T2",
+      "T3",
+      "T5",
+      "T5",
+      "T6",
+      "T6",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7"
+    ],
+    [
+      "W3",
+      "W5",
+      "T3",
+      "T3",
+      "T4",
+      "T5",
+      "T6"
+    ],
+    [
+      "W2",
+      "W3",
+      "W6",
+      "W6",
+      "W7",
+      "W7",
+      "W8",
+      "W8",
+      "T5",
+      "T6",
+      "T7",
+      "J2",
+      "J2"
+    ]
+  ]
+}

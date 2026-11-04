@@ -1,0 +1,109 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+__________ test_scalar_action_replaces_stale_audit_pass_with_failure ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-21/test_scalar_action_replaces_st0')
+
+    def test_scalar_action_replaces_stale_audit_pass_with_failure(tmp_path):
+        from training.inspect_dataset import audit_decisions_directory
+        from app.domain.exceptions import CorruptedDatasetError
+        path = tmp_path / "malformed.npz"
+        write_fixture(path)
+        with np.load(path, allow_pickle=False) as z:
+            arrays = {k: z[k] for k in z.files}
+        arrays["act"] = np.array(2, dtype=np.int16)
+        np.savez_compressed(path, **arrays)
+        report_path = tmp_path / "report.json"
+        report_path.write_text('{"status":"PASS"}')
+        with pytest.raises(CorruptedDatasetError):
+>           audit_decisions_directory(tmp_path, report_path)
+
+tests/test_dataset_audit.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/inspect_dataset.py:65: in audit_decisions_directory
+    n = validate_arrays(arrays, require_legal_labels=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+arrays = {'act': array(2, dtype=int16), 'mask': array([[False, False,  True,  True,  True,  True,  True, False,  True,
+        ..., 0, 0, 0],
+         [0, 0, 0, ..., 0, 0, 0]]]], shape=(1, 38, 4, 9), dtype=int8), 'score': array([0.], dtype=float32)}
+require_legal_labels = False
+
+    def validate_arrays(arrays, require_legal_labels=True):
+        base_keys = {"obs", "mask", "act", "score"}
+        if set(arrays) not in (base_keys, base_keys | {"match_id", "seat"}):
+            raise CorruptedDatasetError(f"Unexpected array keys: {list(arrays)}")
+        obs, mask, act, score = (arrays[k] for k in ("obs", "mask", "act", "score"))
+>       n = len(act)
+            ^^^^^^^^
+E       TypeError: len() of unsized object
+
+training/inspect_dataset.py:31: TypeError
+__________ test_missing_archive_invalidates_previous_ready_artifacts ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-21/test_missing_archive_invalidat0')
+
+    def test_missing_archive_invalidates_previous_ready_artifacts(tmp_path):
+        from training.verify_encoder_parity import verify_replay_parity
+        from app.domain.exceptions import ParityVerificationError
+        report = tmp_path / "parity_report.json"
+        contract = tmp_path / "data_contract.json"
+        report.write_text('{"status":"PASS"}')
+        contract.write_text('{"status":"READY"}')
+        with pytest.raises(ParityVerificationError):
+>           verify_replay_parity(tmp_path / "missing.tar.gz", tmp_path, report, max_games=1, min_verified_matches=1)
+
+tests/test_encoder_parity.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/verify_encoder_parity.py:221: in verify_replay_parity
+    contract = {"status": "READY" if passed else "BLOCKED", "selected_strategy": "strict_reextraction", "dataset_id": DATASET_ID, "dataset_revision": DATASET_REVISION, "source_archive": archive_name, "source_archive_sha256": file_sha256(Path(games_tar_path)), "encoder_version": ENCODER_VERSION, "obs": {"shape": [38, 4, 9], "dtype": "int8", "flat_size": 1368}, "legal_mask": {"shape": [235], "dtype": "bool"}, "legal_discard_mask": {"shape": [34], "dtype": "bool", "slice": [2, 36]}, "labels": {"dtype": "int16", "action_id_range": [2, 35], "class_idx": "action_id - 2", "meaning": "Observed player behavior; not an optimal strategy label"}, "accepted_samples": len(samples), "accepted_matches": groups["match_count"], "manifest": "decision_manifest.csv", "samples": "strict_decisions/accepted.npz", "historical_npz_approved": False, "grouping": {"key": "match_id", "algorithm": "sha256('phase1-match-groups-v1:' + match_id), first 8 bytes, big-endian, modulo 100; <80 train, <90 validation, else test", "evidence": groups}, "scope_note": "Only manifest rows accepted. Other original logs/NPZ need verification/re-extraction before training.", "comparison_method": "Same strict encoder; independent protocol observer replay and legal referee action replay with terminal score/fan validation"}
+                                                                                                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+training/dataset_loader.py:44: in file_sha256
+    with path.open("rb") as stream:
+         ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-21/test_missing_archive_invalidat0/missing.tar.gz')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-21/test_missing_archive_invalidat0/missing.tar.gz'
+
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_________ test_duplicate_real_match_cannot_satisfy_distinct_match_gate _________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-21/test_duplicate_real_match_cann0')
+
+    @pytest.mark.dataset
+    def test_duplicate_real_match_cannot_satisfy_distinct_match_gate(tmp_path):
+        from training.verify_encoder_parity import verify_replay_parity
+        from app.domain.exceptions import ParityVerificationError
+        import io
+        payload = json.dumps(real_game()).encode()
+        archive = tmp_path / "duplicate.tar.gz"
+        with tarfile.open(archive, "w:gz") as tar:
+            for name in ("first.json", "duplicate.json"):
+                member = tarfile.TarInfo(name)
+                member.size = len(payload)
+                tar.addfile(member, io.BytesIO(payload))
+        report = tmp_path / "parity_report.json"
+>       with pytest.raises(ParityVerificationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'app.domain.exceptions.ParityVerificationError'>
+
+tests/test_encoder_parity.py:124: Failed
+=========================== short test summary info ============================
+FAILED tests/test_dataset_audit.py::test_scalar_action_replaces_stale_audit_pass_with_failure
+FAILED tests/test_encoder_parity.py::test_missing_archive_invalidates_previous_ready_artifacts
+FAILED tests/test_encoder_parity.py::test_duplicate_real_match_cannot_satisfy_distinct_match_gate
+3 failed in 0.20s

@@ -1,0 +1,96 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+______________ test_real_http_retries_503_and_truncated_response _______________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_real_http_retries_503_and0')
+
+    @pytest.mark.integration
+    def test_real_http_retries_503_and_truncated_response(tmp_path):
+>       from training.dataset_loader import download_with_retry
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:25: ModuleNotFoundError
+_______ test_exhausted_download_and_bad_hash_never_publish_partial_file ________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_exhausted_download_and_ba0')
+
+    @pytest.mark.integration
+    def test_exhausted_download_and_bad_hash_never_publish_partial_file(tmp_path):
+>       from training.dataset_loader import download_with_retry
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:56: ModuleNotFoundError
+_____ test_unsafe_archives_are_rejected_before_writes[../escape.txt-None] ______
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_unsafe_archives_are_rejec0')
+name = '../escape.txt', link = None
+
+    @pytest.mark.parametrize("name,link", [("../escape.txt", None), ("/absolute.txt", None), ("C:\\escape.txt", None), ("safe/link", "../../escape"), ("safe\\..\\escape", None)])
+    def test_unsafe_archives_are_rejected_before_writes(tmp_path, name, link):
+>       from training.dataset_loader import safe_extract_tar_gz
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:66: ModuleNotFoundError
+_____ test_unsafe_archives_are_rejected_before_writes[/absolute.txt-None] ______
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_unsafe_archives_are_rejec1')
+name = '/absolute.txt', link = None
+
+    @pytest.mark.parametrize("name,link", [("../escape.txt", None), ("/absolute.txt", None), ("C:\\escape.txt", None), ("safe/link", "../../escape"), ("safe\\..\\escape", None)])
+    def test_unsafe_archives_are_rejected_before_writes(tmp_path, name, link):
+>       from training.dataset_loader import safe_extract_tar_gz
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:66: ModuleNotFoundError
+_____ test_unsafe_archives_are_rejected_before_writes[C:\\escape.txt-None] _____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_unsafe_archives_are_rejec2')
+name = 'C:\\escape.txt', link = None
+
+    @pytest.mark.parametrize("name,link", [("../escape.txt", None), ("/absolute.txt", None), ("C:\\escape.txt", None), ("safe/link", "../../escape"), ("safe\\..\\escape", None)])
+    def test_unsafe_archives_are_rejected_before_writes(tmp_path, name, link):
+>       from training.dataset_loader import safe_extract_tar_gz
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:66: ModuleNotFoundError
+___ test_unsafe_archives_are_rejected_before_writes[safe/link-../../escape] ____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_unsafe_archives_are_rejec3')
+name = 'safe/link', link = '../../escape'
+
+    @pytest.mark.parametrize("name,link", [("../escape.txt", None), ("/absolute.txt", None), ("C:\\escape.txt", None), ("safe/link", "../../escape"), ("safe\\..\\escape", None)])
+    def test_unsafe_archives_are_rejected_before_writes(tmp_path, name, link):
+>       from training.dataset_loader import safe_extract_tar_gz
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:66: ModuleNotFoundError
+____ test_unsafe_archives_are_rejected_before_writes[safe\\..\\escape-None] ____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_unsafe_archives_are_rejec4')
+name = 'safe\\..\\escape', link = None
+
+    @pytest.mark.parametrize("name,link", [("../escape.txt", None), ("/absolute.txt", None), ("C:\\escape.txt", None), ("safe/link", "../../escape"), ("safe\\..\\escape", None)])
+    def test_unsafe_archives_are_rejected_before_writes(tmp_path, name, link):
+>       from training.dataset_loader import safe_extract_tar_gz
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:66: ModuleNotFoundError
+____________________ test_valid_archive_and_truncated_gzip _____________________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-2/test_valid_archive_and_truncat0')
+
+    def test_valid_archive_and_truncated_gzip(tmp_path):
+>       from training.dataset_loader import safe_extract_tar_gz
+E       ModuleNotFoundError: No module named 'training.dataset_loader'
+
+tests/test_dataset_resilience.py:77: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_dataset_resilience.py::test_real_http_retries_503_and_truncated_response
+FAILED tests/test_dataset_resilience.py::test_exhausted_download_and_bad_hash_never_publish_partial_file
+FAILED tests/test_dataset_resilience.py::test_unsafe_archives_are_rejected_before_writes[../escape.txt-None]
+FAILED tests/test_dataset_resilience.py::test_unsafe_archives_are_rejected_before_writes[/absolute.txt-None]
+FAILED tests/test_dataset_resilience.py::test_unsafe_archives_are_rejected_before_writes[C:\\escape.txt-None]
+FAILED tests/test_dataset_resilience.py::test_unsafe_archives_are_rejected_before_writes[safe/link-../../escape]
+FAILED tests/test_dataset_resilience.py::test_unsafe_archives_are_rejected_before_writes[safe\\..\\escape-None]
+FAILED tests/test_dataset_resilience.py::test_valid_archive_and_truncated_gzip
+8 failed in 0.05s

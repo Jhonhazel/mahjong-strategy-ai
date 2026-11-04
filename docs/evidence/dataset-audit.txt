@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/jhonhazel/mahjong-strategy-ai/training/inspect_dataset.py", line 111, in <module>
+    main()
+  File "/Users/jhonhazel/mahjong-strategy-ai/training/inspect_dataset.py", line 106, in main
+    report = audit_decisions_directory(args.root / "finalist_decisions", args.root / "audit_report.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jhonhazel/mahjong-strategy-ai/training/inspect_dataset.py", line 98, in audit_decisions_directory
+    raise CorruptedDatasetError(f"Dataset audit failed; see {destination}")
+app.domain.exceptions.CorruptedDatasetError: Dataset audit failed; see datasets/audit_report.json

@@ -1,0 +1,295 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFF                                              [100%]
+=================================== FAILURES ===================================
+__________________ test_canonical_tiles_grid_and_wall_counts ___________________
+
+    def test_canonical_tiles_grid_and_wall_counts():
+>       from app.domain.tiles import TILE_LIST, FLOWER_TILES, tile_to_index, index_to_tile, tile_to_grid_rc, sort_hand_tiles, build_standard_136_wall, build_144_wall_with_flowers
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:8: ModuleNotFoundError
+________________ test_invalid_tile_indices_fail_explicitly[-1] _________________
+
+value = -1
+
+    @pytest.mark.parametrize("value", [-1, 34, True, 1.2, "1", None])
+    def test_invalid_tile_indices_fail_explicitly(value):
+>       from app.domain.tiles import index_to_tile
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:25: ModuleNotFoundError
+________________ test_invalid_tile_indices_fail_explicitly[34] _________________
+
+value = 34
+
+    @pytest.mark.parametrize("value", [-1, 34, True, 1.2, "1", None])
+    def test_invalid_tile_indices_fail_explicitly(value):
+>       from app.domain.tiles import index_to_tile
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:25: ModuleNotFoundError
+_______________ test_invalid_tile_indices_fail_explicitly[True] ________________
+
+value = True
+
+    @pytest.mark.parametrize("value", [-1, 34, True, 1.2, "1", None])
+    def test_invalid_tile_indices_fail_explicitly(value):
+>       from app.domain.tiles import index_to_tile
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:25: ModuleNotFoundError
+________________ test_invalid_tile_indices_fail_explicitly[1.2] ________________
+
+value = 1.2
+
+    @pytest.mark.parametrize("value", [-1, 34, True, 1.2, "1", None])
+    def test_invalid_tile_indices_fail_explicitly(value):
+>       from app.domain.tiles import index_to_tile
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:25: ModuleNotFoundError
+_________________ test_invalid_tile_indices_fail_explicitly[1] _________________
+
+value = '1'
+
+    @pytest.mark.parametrize("value", [-1, 34, True, 1.2, "1", None])
+    def test_invalid_tile_indices_fail_explicitly(value):
+>       from app.domain.tiles import index_to_tile
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:25: ModuleNotFoundError
+_______________ test_invalid_tile_indices_fail_explicitly[None] ________________
+
+value = None
+
+    @pytest.mark.parametrize("value", [-1, 34, True, 1.2, "1", None])
+    def test_invalid_tile_indices_fail_explicitly(value):
+>       from app.domain.tiles import index_to_tile
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:25: ModuleNotFoundError
+________________ test_invalid_normal_tiles_fail_explicitly[W0] _________________
+
+value = 'W0'
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+________________ test_invalid_normal_tiles_fail_explicitly[W10] ________________
+
+value = 'W10'
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+________________ test_invalid_normal_tiles_fail_explicitly[F5] _________________
+
+value = 'F5'
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+________________ test_invalid_normal_tiles_fail_explicitly[J4] _________________
+
+value = 'J4'
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+________________ test_invalid_normal_tiles_fail_explicitly[H1] _________________
+
+value = 'H1'
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+_________________ test_invalid_normal_tiles_fail_explicitly[] __________________
+
+value = ''
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+_______________ test_invalid_normal_tiles_fail_explicitly[None] ________________
+
+value = None
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+______________ test_invalid_normal_tiles_fail_explicitly[value7] _______________
+
+value = []
+
+    @pytest.mark.parametrize("value", ["W0", "W10", "F5", "J4", "H1", "", None, []])
+    def test_invalid_normal_tiles_fail_explicitly(value):
+>       from app.domain.tiles import tile_to_index
+E       ModuleNotFoundError: No module named 'app.domain.tiles'
+
+tests/test_tiles_and_actions.py:33: ModuleNotFoundError
+_____________ test_all_235_actions_roundtrip_and_discard_contract ______________
+
+    def test_all_235_actions_roundtrip_and_discard_contract():
+>       from app.domain import actions as a
+E       ImportError: cannot import name 'actions' from 'app.domain' (/Users/jhonhazel/mahjong-strategy-ai/app/domain/__init__.py)
+
+tests/test_tiles_and_actions.py:40: ImportError
+___________________ test_invalid_actions_fail_explicitly[-1] ___________________
+
+aid = -1
+
+    @pytest.mark.parametrize("aid", [-1, 235, True, 1.5, "2", None])
+    def test_invalid_actions_fail_explicitly(aid):
+>       from app.domain.actions import decode_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:70: ModuleNotFoundError
+__________________ test_invalid_actions_fail_explicitly[235] ___________________
+
+aid = 235
+
+    @pytest.mark.parametrize("aid", [-1, 235, True, 1.5, "2", None])
+    def test_invalid_actions_fail_explicitly(aid):
+>       from app.domain.actions import decode_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:70: ModuleNotFoundError
+__________________ test_invalid_actions_fail_explicitly[True] __________________
+
+aid = True
+
+    @pytest.mark.parametrize("aid", [-1, 235, True, 1.5, "2", None])
+    def test_invalid_actions_fail_explicitly(aid):
+>       from app.domain.actions import decode_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:70: ModuleNotFoundError
+__________________ test_invalid_actions_fail_explicitly[1.5] ___________________
+
+aid = 1.5
+
+    @pytest.mark.parametrize("aid", [-1, 235, True, 1.5, "2", None])
+    def test_invalid_actions_fail_explicitly(aid):
+>       from app.domain.actions import decode_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:70: ModuleNotFoundError
+___________________ test_invalid_actions_fail_explicitly[2] ____________________
+
+aid = '2'
+
+    @pytest.mark.parametrize("aid", [-1, 235, True, 1.5, "2", None])
+    def test_invalid_actions_fail_explicitly(aid):
+>       from app.domain.actions import decode_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:70: ModuleNotFoundError
+__________________ test_invalid_actions_fail_explicitly[None] __________________
+
+aid = None
+
+    @pytest.mark.parametrize("aid", [-1, 235, True, 1.5, "2", None])
+    def test_invalid_actions_fail_explicitly(aid):
+>       from app.domain.actions import decode_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:70: ModuleNotFoundError
+___________________ test_invalid_chi_fails_explicitly[W1-W2] ___________________
+
+mid = 'W1', claimed = 'W2'
+
+    @pytest.mark.parametrize("mid,claimed", [("W1", "W2"), ("W8", "W6"), ("F2", "F1"), ("W2", "T1"), ("Wx", "W2")])
+    def test_invalid_chi_fails_explicitly(mid, claimed):
+>       from app.domain.actions import encode_chi_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:78: ModuleNotFoundError
+___________________ test_invalid_chi_fails_explicitly[W8-W6] ___________________
+
+mid = 'W8', claimed = 'W6'
+
+    @pytest.mark.parametrize("mid,claimed", [("W1", "W2"), ("W8", "W6"), ("F2", "F1"), ("W2", "T1"), ("Wx", "W2")])
+    def test_invalid_chi_fails_explicitly(mid, claimed):
+>       from app.domain.actions import encode_chi_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:78: ModuleNotFoundError
+___________________ test_invalid_chi_fails_explicitly[F2-F1] ___________________
+
+mid = 'F2', claimed = 'F1'
+
+    @pytest.mark.parametrize("mid,claimed", [("W1", "W2"), ("W8", "W6"), ("F2", "F1"), ("W2", "T1"), ("Wx", "W2")])
+    def test_invalid_chi_fails_explicitly(mid, claimed):
+>       from app.domain.actions import encode_chi_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:78: ModuleNotFoundError
+___________________ test_invalid_chi_fails_explicitly[W2-T1] ___________________
+
+mid = 'W2', claimed = 'T1'
+
+    @pytest.mark.parametrize("mid,claimed", [("W1", "W2"), ("W8", "W6"), ("F2", "F1"), ("W2", "T1"), ("Wx", "W2")])
+    def test_invalid_chi_fails_explicitly(mid, claimed):
+>       from app.domain.actions import encode_chi_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:78: ModuleNotFoundError
+___________________ test_invalid_chi_fails_explicitly[Wx-W2] ___________________
+
+mid = 'Wx', claimed = 'W2'
+
+    @pytest.mark.parametrize("mid,claimed", [("W1", "W2"), ("W8", "W6"), ("F2", "F1"), ("W2", "T1"), ("Wx", "W2")])
+    def test_invalid_chi_fails_explicitly(mid, claimed):
+>       from app.domain.actions import encode_chi_action
+E       ModuleNotFoundError: No module named 'app.domain.actions'
+
+tests/test_tiles_and_actions.py:78: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_tiles_and_actions.py::test_canonical_tiles_grid_and_wall_counts
+FAILED tests/test_tiles_and_actions.py::test_invalid_tile_indices_fail_explicitly[-1]
+FAILED tests/test_tiles_and_actions.py::test_invalid_tile_indices_fail_explicitly[34]
+FAILED tests/test_tiles_and_actions.py::test_invalid_tile_indices_fail_explicitly[True]
+FAILED tests/test_tiles_and_actions.py::test_invalid_tile_indices_fail_explicitly[1.2]
+FAILED tests/test_tiles_and_actions.py::test_invalid_tile_indices_fail_explicitly[1]
+FAILED tests/test_tiles_and_actions.py::test_invalid_tile_indices_fail_explicitly[None]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[W0]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[W10]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[F5]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[J4]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[H1]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[None]
+FAILED tests/test_tiles_and_actions.py::test_invalid_normal_tiles_fail_explicitly[value7]
+FAILED tests/test_tiles_and_actions.py::test_all_235_actions_roundtrip_and_discard_contract
+FAILED tests/test_tiles_and_actions.py::test_invalid_actions_fail_explicitly[-1]
+FAILED tests/test_tiles_and_actions.py::test_invalid_actions_fail_explicitly[235]
+FAILED tests/test_tiles_and_actions.py::test_invalid_actions_fail_explicitly[True]
+FAILED tests/test_tiles_and_actions.py::test_invalid_actions_fail_explicitly[1.5]
+FAILED tests/test_tiles_and_actions.py::test_invalid_actions_fail_explicitly[2]
+FAILED tests/test_tiles_and_actions.py::test_invalid_actions_fail_explicitly[None]
+FAILED tests/test_tiles_and_actions.py::test_invalid_chi_fails_explicitly[W1-W2]
+FAILED tests/test_tiles_and_actions.py::test_invalid_chi_fails_explicitly[W8-W6]
+FAILED tests/test_tiles_and_actions.py::test_invalid_chi_fails_explicitly[F2-F1]
+FAILED tests/test_tiles_and_actions.py::test_invalid_chi_fails_explicitly[W2-T1]
+FAILED tests/test_tiles_and_actions.py::test_invalid_chi_fails_explicitly[Wx-W2]
+27 failed in 0.11s

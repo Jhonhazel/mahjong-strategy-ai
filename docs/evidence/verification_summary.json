@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-04",
+  "verdict": "PHASE 1 PASS",
+  "verified_platform": "macOS arm64 / CPython 3.12.10",
+  "windows_x64": "NOT RUN",
+  "pytest": {
+    "tests": 90,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "parity": {
+    "n_matches_verified": 84,
+    "n_matches_excluded": 16,
+    "n_matches_failed_replay": 0,
+    "n_decisions_compared": 4482,
+    "n_mismatches": 0,
+    "accepted_samples": 1879,
+    "accepted_matches": 84
+  },
+  "legacy_npz_validation": {
+    "status": "REJECTED_FOR_TRAINING",
+    "individual_rows": 576868,
+    "illegal_labels": 13
+  },
+  "strict_audit": {
+    "status": "PASS",
+    "rows": 1879,
+    "illegal_labels": 0
+  },
+  "group_contract": {
+    "match_count": 84,
+    "sample_count": 1879,
+    "overlap_count": 0,
+    "group_counts": {
+      "train": 72,
+      "validation": 7,
+      "test": 5
+    }
+  },
+  "data_contract_run_id": "84c2606383794fa8bc072d5edac7b252",
+  "git": "No repository metadata; no staging/commit/publishing operations",
+  "review": "3 Important findings fixed with RED/GREEN; no deferred minors"
+}

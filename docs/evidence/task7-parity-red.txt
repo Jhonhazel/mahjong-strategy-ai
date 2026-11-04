@@ -1,0 +1,32 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_____ test_real_full_match_strict_events_match_independent_referee_replay ______
+
+    @pytest.mark.dataset
+    def test_real_full_match_strict_events_match_independent_referee_replay():
+>       from training.replay import replay_observers, replay_referee
+E       ModuleNotFoundError: No module named 'training.replay'
+
+tests/test_encoder_parity.py:23: ModuleNotFoundError
+___ test_match_group_contract_rejects_conflicts_and_supports_disjoint_groups ___
+
+    def test_match_group_contract_rejects_conflicts_and_supports_disjoint_groups():
+>       from training.verify_encoder_parity import validate_manifest, partition_for_match
+E       ModuleNotFoundError: No module named 'training.verify_encoder_parity'
+
+tests/test_encoder_parity.py:41: ModuleNotFoundError
+____________ test_failed_replay_writes_report_and_cannot_pass_gate _____________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-7/test_failed_replay_writes_repo0')
+
+    @pytest.mark.dataset
+    def test_failed_replay_writes_report_and_cannot_pass_gate(tmp_path):
+>       from training.verify_encoder_parity import verify_replay_parity
+E       ModuleNotFoundError: No module named 'training.verify_encoder_parity'
+
+tests/test_encoder_parity.py:57: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_encoder_parity.py::test_real_full_match_strict_events_match_independent_referee_replay
+FAILED tests/test_encoder_parity.py::test_match_group_contract_rejects_conflicts_and_supports_disjoint_groups
+FAILED tests/test_encoder_parity.py::test_failed_replay_writes_report_and_cannot_pass_gate
+3 failed, 1 deselected in 0.09s

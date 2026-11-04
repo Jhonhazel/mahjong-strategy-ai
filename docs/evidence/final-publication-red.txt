@@ -1,0 +1,40 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_artifact_write_failure_publishes_fail_and_blocked_contract ________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-23/test_artifact_write_failure_pu0')
+
+    @pytest.mark.dataset
+    def test_artifact_write_failure_publishes_fail_and_blocked_contract(tmp_path):
+        from training.verify_encoder_parity import verify_replay_parity
+        from app.domain.exceptions import ParityVerificationError
+        from tests.test_dataset_resilience import tar_bytes
+        source = tmp_path / "one.tar.gz"
+        source.write_bytes(tar_bytes("one.json", json.dumps(real_game()).encode()))
+        (tmp_path / "strict_decisions").write_text("occupied; must preserve")
+        report = tmp_path / "parity_report.json"
+        (tmp_path / "data_contract.json").write_text('{"status":"READY"}')
+        with pytest.raises(ParityVerificationError):
+>           verify_replay_parity(source, ROOT / "datasets/finalist_decisions", report, max_games=1, min_verified_matches=1)
+
+tests/test_encoder_parity.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/verify_encoder_parity.py:226: in verify_replay_parity
+    directory.mkdir(exist_ok=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-23/test_artifact_write_failure_pu0/strict_decisions')
+mode = 511, parents = False, exist_ok = True
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileExistsError: [Errno 17] File exists: '/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-23/test_artifact_write_failure_pu0/strict_decisions'
+
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1311: FileExistsError
+=========================== short test summary info ============================
+FAILED tests/test_encoder_parity.py::test_artifact_write_failure_publishes_fail_and_blocked_contract
+1 failed in 0.16s

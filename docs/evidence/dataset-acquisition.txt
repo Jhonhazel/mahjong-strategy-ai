@@ -1,0 +1,1 @@
+{'decisions_tar': 'datasets/finalist_decisions.tar.gz', 'games_tar': 'datasets/finalist_games.tar.gz', 'decisions_dir': 'datasets/finalist_decisions'}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "n_matches_verified": 84,
+  "n_matches_failed_replay": 0,
+  "n_decisions_compared": 4482,
+  "n_mismatches": 0,
+  "accepted_samples": 1879
+}
