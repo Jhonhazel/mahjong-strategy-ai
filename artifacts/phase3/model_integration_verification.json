@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+  "encoder_version": "ijcai2026_mcr_v1_strict",
+  "weights_sha256_before": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "weights_sha256_after": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "input_shape": [
+    38,
+    4,
+    9
+  ],
+  "flattened_inputs": 1368,
+  "legal_mask_size": 235,
+  "discard_mask_size": 34,
+  "classes": 34,
+  "parameters": 387746,
+  "device": "cpu",
+  "ranked_legal_top3_verified": true,
+  "actual_http_scores_normalized_with_illegal_zero": true,
+  "input_state_hashes_equal_before_after": true,
+  "sources": [
+    "artifacts/phase3/end_to_end_complete.json",
+    "artifacts/phase3/api_examples.json",
+    "docs/evidence/phase3/full_regression_complete.xml"
+  ],
+  "runtime_without_training_shards": "Actual Uvicorn np.load failure guard; see network_complete.json",
+  "model_fallback": "None; exact checkpoint and metadata digests mandatory"
+}

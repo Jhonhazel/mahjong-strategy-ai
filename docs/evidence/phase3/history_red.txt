@@ -1,0 +1,88 @@
+EEEEEEE                                                                  [100%]
+==================================== ERRORS ====================================
+__ ERROR at setup of test_real_postgres_schema_jsonb_timezone_and_constraints __
+
+postgres_url = 'postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437'
+
+    @pytest.fixture(scope='session')
+    def postgres_engine(postgres_url):
+        from app.settings import Settings
+>       from app.db import create_db_engine, initialize_schema
+E       ModuleNotFoundError: No module named 'app.db'
+
+tests/phase3_support.py:29: ModuleNotFoundError
+_ ERROR at setup of test_real_postgres_create_read_delete_owner_isolation_and_utc _
+
+postgres_url = 'postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437'
+
+    @pytest.fixture(scope='session')
+    def postgres_engine(postgres_url):
+        from app.settings import Settings
+>       from app.db import create_db_engine, initialize_schema
+E       ModuleNotFoundError: No module named 'app.db'
+
+tests/phase3_support.py:29: ModuleNotFoundError
+_ ERROR at setup of test_real_postgres_pagination_and_service_restart_preserve_records _
+
+postgres_url = 'postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437'
+
+    @pytest.fixture(scope='session')
+    def postgres_engine(postgres_url):
+        from app.settings import Settings
+>       from app.db import create_db_engine, initialize_schema
+E       ModuleNotFoundError: No module named 'app.db'
+
+tests/phase3_support.py:29: ModuleNotFoundError
+_ ERROR at setup of test_real_postgres_same_snapshot_is_idempotent_and_original_is_immutable _
+
+postgres_url = 'postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437'
+
+    @pytest.fixture(scope='session')
+    def postgres_engine(postgres_url):
+        from app.settings import Settings
+>       from app.db import create_db_engine, initialize_schema
+E       ModuleNotFoundError: No module named 'app.db'
+
+tests/phase3_support.py:29: ModuleNotFoundError
+_ ERROR at setup of test_real_postgres_duplicate_insert_race_has_one_identity __
+
+postgres_url = 'postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437'
+
+    @pytest.fixture(scope='session')
+    def postgres_engine(postgres_url):
+        from app.settings import Settings
+>       from app.db import create_db_engine, initialize_schema
+E       ModuleNotFoundError: No module named 'app.db'
+
+tests/phase3_support.py:29: ModuleNotFoundError
+_ ERROR at setup of test_real_postgres_failed_insert_rolls_back_and_next_transaction_works _
+
+postgres_url = 'postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437'
+
+    @pytest.fixture(scope='session')
+    def postgres_engine(postgres_url):
+        from app.settings import Settings
+>       from app.db import create_db_engine, initialize_schema
+E       ModuleNotFoundError: No module named 'app.db'
+
+tests/phase3_support.py:29: ModuleNotFoundError
+_ ERROR at setup of test_owner_filter_is_parameterized_and_missing_id_is_safe __
+
+postgres_url = 'postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437'
+
+    @pytest.fixture(scope='session')
+    def postgres_engine(postgres_url):
+        from app.settings import Settings
+>       from app.db import create_db_engine, initialize_schema
+E       ModuleNotFoundError: No module named 'app.db'
+
+tests/phase3_support.py:29: ModuleNotFoundError
+=========================== short test summary info ============================
+ERROR tests/test_phase3_history.py::test_real_postgres_schema_jsonb_timezone_and_constraints
+ERROR tests/test_phase3_history.py::test_real_postgres_create_read_delete_owner_isolation_and_utc
+ERROR tests/test_phase3_history.py::test_real_postgres_pagination_and_service_restart_preserve_records
+ERROR tests/test_phase3_history.py::test_real_postgres_same_snapshot_is_idempotent_and_original_is_immutable
+ERROR tests/test_phase3_history.py::test_real_postgres_duplicate_insert_race_has_one_identity
+ERROR tests/test_phase3_history.py::test_real_postgres_failed_insert_rolls_back_and_next_transaction_works
+ERROR tests/test_phase3_history.py::test_owner_filter_is_parameterized_and_missing_id_is_safe
+7 errors in 0.21s

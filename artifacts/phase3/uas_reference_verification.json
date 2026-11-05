@@ -1,0 +1,20 @@
+{
+  "status": "READ",
+  "path": "docs/reference/SOAL UAS PEMROGRAMAN WEB FRAMEWORK.pdf",
+  "sha256": "41b044b9e95ee7b8b7237abf53e1e74c8722960b3cd85b60d1f68f35bd871682",
+  "bytes": 100956,
+  "pages": 2,
+  "review_method": "pdfinfo + rendered both pages; page 2 is blank",
+  "requirements": [
+    "Group project",
+    "Complete source + SQL export + final PDF",
+    "FastAPI + AI + PostgreSQL/MySQL in health/business/entertainment",
+    "AI preprocessing/training/testing/evaluation/saved model",
+    "FastAPI/Jinja2/CSS/JS website, descriptive Home and group Contact",
+    "At least one connected AI-result table",
+    "Create input+output, Read saved results, Delete through website",
+    "Final PDF: problem/dataset/algorithm rationale, project/database captures, demo-video link, group task division"
+  ],
+  "roster_status": "UNVERIFIED; empty configurable Contact retained; no inferred names/IDs/roles",
+  "final_submission_status": "Final PDF/video/group division intentionally pending; not produced during Phase3"
+}

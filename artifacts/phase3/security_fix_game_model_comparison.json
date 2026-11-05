@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "historical_source": "artifacts/phase3/end_to_end_complete.json",
+  "historical_source_sha256": "27e5bf307f2a04cb58c7e8d752ca5bbfd8d20fbc650f9636cd8394cbbc47e209",
+  "current_full_suite_fixture": "/private/tmp/mahjong-p3-security-final.uz72sb/fixtures/test_real_two_round_web_model_0/demo.json",
+  "current_source_sha256": "22b13f91778323fabc1885265554d2d587e7932d0b9c514af5587eddda638329",
+  "normalized_outputs_equal": true,
+  "excluded_identity_fields": [
+    "game_id",
+    "prediction_id",
+    "persisted_state_digest includes game_id",
+    "created_at"
+  ],
+  "rounds": [
+    {
+      "seed": 42,
+      "actions": 11,
+      "ending": "ron",
+      "score_deltas": [
+        -17,
+        -8,
+        33,
+        -8
+      ],
+      "game_id": "24e8e1f0-40d4-4676-9aa5-2333c9489166",
+      "predictions": [
+        {
+          "prediction_id": "c76d07a7-0dd0-4033-82f9-b6558187c3af",
+          "turn_number": 4,
+          "turn_phase": "SELF_TURN",
+          "recommended_tile": "J1",
+          "top3": [
+            {
+              "tile": "J1",
+              "class_index": 31,
+              "action_id": 33,
+              "score": 0.8203998804092407
+            },
+            {
+              "tile": "J2",
+              "class_index": 32,
+              "action_id": 34,
+              "score": 0.06920811533927917
+            },
+            {
+              "tile": "T1",
+              "class_index": 9,
+              "action_id": 11,
+              "score": 0.02715257927775383
+            }
+          ],
+          "input_sha256_before": "d83c12888d281cf96bea2b99ea60f9a4253a1a65d34a3e0c9532d01b00bc0d8a",
+          "input_sha256_after": "d83c12888d281cf96bea2b99ea60f9a4253a1a65d34a3e0c9532d01b00bc0d8a",
+          "created_at": "2026-11-05T09:55:40.986070+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        },
+        {
+          "prediction_id": "a9ce0ab5-c72e-42d8-a3d4-2ba76e631366",
+          "turn_number": 20,
+          "turn_phase": "POST_MELD_DISCARD",
+          "recommended_tile": "T1",
+          "top3": [
+            {
+              "tile": "T1",
+              "class_index": 9,
+              "action_id": 11,
+              "score": 0.6899568438529968
+            },
+            {
+              "tile": "J1",
+              "class_index": 31,
+              "action_id": 33,
+              "score": 0.19104927778244019
+            },
+            {
+              "tile": "W5",
+              "class_index": 4,
+              "action_id": 6,
+              "score": 0.040395040065050125
+            }
+          ],
+          "input_sha256_before": "33d25ffb8b16a496a18e4b48e605470f73bf3babd7f070ed821149b8d74f6cb2",
+          "input_sha256_after": "33d25ffb8b16a496a18e4b48e605470f73bf3babd7f070ed821149b8d74f6cb2",
+          "created_at": "2026-11-05T09:55:41.007908+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        }
+      ]
+    },
+    {
+      "seed": 43,
+      "actions": 26,
+      "ending": "draw",
+      "score_deltas": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "game_id": "00afd9c5-93c9-4255-9ceb-08630a710bc1",
+      "predictions": [
+        {
+          "prediction_id": "7aaf5d1f-f069-4f36-86d9-f1958f83bda9",
+          "turn_number": 4,
+          "turn_phase": "SELF_TURN",
+          "recommended_tile": "F4",
+          "top3": [
+            {
+              "tile": "F4",
+              "class_index": 30,
+              "action_id": 32,
+              "score": 0.8518426418304443
+            },
+            {
+              "tile": "W8",
+              "class_index": 7,
+              "action_id": 9,
+              "score": 0.03548278287053108
+            },
+            {
+              "tile": "B4",
+              "class_index": 21,
+              "action_id": 23,
+              "score": 0.03373042121529579
+            }
+          ],
+          "input_sha256_before": "76fdb512fb27f78e46dc8cfb496b88a24b7853688a7878dea94b2e8a5b358f72",
+          "input_sha256_after": "76fdb512fb27f78e46dc8cfb496b88a24b7853688a7878dea94b2e8a5b358f72",
+          "created_at": "2026-11-05T09:55:41.318500+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        },
+        {
+          "prediction_id": "32fa3f01-eecc-47fa-b7f1-616bf30f7c93",
+          "turn_number": 20,
+          "turn_phase": "SELF_TURN",
+          "recommended_tile": "F4",
+          "top3": [
+            {
+              "tile": "F4",
+              "class_index": 30,
+              "action_id": 32,
+              "score": 0.48179566860198975
+            },
+            {
+              "tile": "T1",
+              "class_index": 9,
+              "action_id": 11,
+              "score": 0.08193202316761017
+            },
+            {
+              "tile": "W8",
+              "class_index": 7,
+              "action_id": 9,
+              "score": 0.0649387463927269
+            }
+          ],
+          "input_sha256_before": "eea7c104949b96ffd3859824a6ba815abc17d7bf719931585b3517a0d5fff3be",
+          "input_sha256_after": "eea7c104949b96ffd3859824a6ba815abc17d7bf719931585b3517a0d5fff3be",
+          "created_at": "2026-11-05T09:55:41.335259+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        },
+        {
+          "prediction_id": "1920a882-1211-4a57-beab-8d8c6f566bc3",
+          "turn_number": 52,
+          "turn_phase": "POST_MELD_DISCARD",
+          "recommended_tile": "F4",
+          "top3": [
+            {
+              "tile": "F4",
+              "class_index": 30,
+              "action_id": 32,
+              "score": 0.8758319616317749
+            },
+            {
+              "tile": "W1",
+              "class_index": 0,
+              "action_id": 2,
+              "score": 0.045713603496551514
+            },
+            {
+              "tile": "B8",
+              "class_index": 25,
+              "action_id": 27,
+              "score": 0.02112899348139763
+            }
+          ],
+          "input_sha256_before": "c3615523523e3e967cf4e14cf03a03894edc79eee13be8bcfff8b4c7a05c7fbb",
+          "input_sha256_after": "c3615523523e3e967cf4e14cf03a03894edc79eee13be8bcfff8b4c7a05c7fbb",
+          "created_at": "2026-11-05T09:55:41.360656+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        }
+      ]
+    }
+  ],
+  "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "weights_before": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "weights_after": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92"
+}

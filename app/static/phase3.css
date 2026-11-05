@@ -1,0 +1,13 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; color: #172f2a; background: #f4f7f5; }
+body { margin: 0; } header, footer, main { padding: 1.25rem; } main { max-width: 65rem; margin: auto; }
+header { display: flex; gap: 2rem; flex-wrap: wrap; background: #123d32; } header a { color: white; }
+nav { display: flex; gap: 1rem; flex-wrap: wrap; } footer { border-top: 1px solid #b3c5bd; text-align: center; }
+a { color: #075a45; } button, input, select, .button { font: inherit; padding: .6rem; margin: .3rem; }
+button, .button { background: #145843; color: white; border: 1px solid #145843; border-radius: .25rem; cursor: pointer; }
+button:disabled { opacity: .6; cursor: wait; } label { display: inline-block; margin-right: 1rem; }
+fieldset, .notice { border: 1px solid #a4bbb0; border-radius: .35rem; padding: 1rem; background: white; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 1rem; background: #e5ede8; }
+dt { font-weight: bold; margin-top: .7rem; } dd { margin: .3rem 0; overflow-wrap: anywhere; }
+table { width: 100%; border-collapse: collapse; } td, th { text-align: left; padding: .6rem; border-bottom: 1px solid #b3c5bd; }
+.table-wrap { overflow-x: auto; } :focus-visible { outline: 3px solid #bc6810; outline-offset: 3px; }
+[hidden] { display: none !important; }

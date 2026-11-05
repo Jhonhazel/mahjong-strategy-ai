@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Prediction History · Mahjong Strategy AI{% endblock %}
+{% block content %}
+<h1>Prediction History</h1><p>{{ total }} prediksi tersimpan untuk identitas browser ini.</p>
+{% if records %}
+<div class="table-wrap"><table><thead><tr><th>Waktu UTC</th><th>Turn</th><th>Saran</th><th>Detail</th><th>Hapus</th></tr></thead><tbody>
+{% for record in records %}<tr><td>{{ record.created_at }}</td><td>{{ record.turn_number }} · {{ record.turn_phase }}</td><td>{{ record.recommended_tile }}</td>
+<td><a href="/history/{{ record.prediction_id }}">{{ record.prediction_id }}</a></td>
+<td><form method="post" action="/history/{{ record.prediction_id }}/delete"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">Hapus prediksi</button></form></td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<p>Belum ada prediksi. Mulai game dan pilih “Minta prediksi”.</p>{% endif %}
+<nav aria-label="Halaman history">
+{% if offset > 0 %}<a href="/history?limit={{ limit }}&amp;offset={{ [0, offset-limit]|max }}">Sebelumnya</a>{% endif %}
+{% if offset+limit < total %}<a href="/history?limit={{ limit }}&amp;offset={{ offset+limit }}">Berikutnya</a>{% endif %}
+</nav>
+{% endblock %}

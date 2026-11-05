@@ -1,0 +1,20 @@
+$ .venv/bin/python -m compileall -q app scripts
+exit=0
+
+$ .venv/bin/python -m pip check
+No broken requirements found.
+WARNING: The directory '/Users/jhonhazel/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+exit=0
+
+$ node --check app/static/phase3.js
+exit=0
+
+$ .venv/bin/python -c 'import app.main'
+exit=0
+
+$ git diff --check
+exit=0
+
+$ git diff --cached --quiet
+exit=0
+

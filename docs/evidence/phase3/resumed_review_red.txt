@@ -1,0 +1,213 @@
+........F.......FFFFFFF.........F..F                                     [100%]
+=================================== FAILURES ===================================
+_ test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ADD COLUMN source TEXT NOT NULL] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x110e9a990>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+drift = 'ALTER TABLE prediction_results ADD COLUMN source TEXT NOT NULL'
+
+    @pytest.mark.parametrize('drift',[
+        "ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz",
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED',
+        'ALTER TABLE prediction_results ADD COLUMN source TEXT NOT NULL',
+    ])
+    def test_semantically_drifted_schema_is_not_ready(local_postgres_controller,web_settings,drift):
+        from sqlalchemy import text
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            initialize_schema(engine)
+            with engine.begin() as connection:
+                for statement in drift.split(';'):connection.execute(text(statement))
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:81: Failed
+_ test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[KEEP existing file] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x110f744a0>
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-117/test_export_attests_private_by0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110f74590>
+replacement = 'KEEP existing file'
+
+    @pytest.mark.parametrize('replacement',['KEEP existing file',r'SELECT 1 \connect mahjong_phase3_dev'])
+    def test_export_attests_private_bytes_and_never_clobbers_a_racing_destination(local_postgres_controller,postgres_engine,tmp_path,monkeypatch,replacement):
+        import hashlib
+        controller=local_postgres_controller;destination=tmp_path/'shared.sql';run=controller._run
+        def racing_writer(args,input_text=None):
+            result=run(args,input_text)
+            if '--file' in args:destination.write_text(replacement)
+            return result
+        monkeypatch.setattr(controller,'_run',racing_writer)
+>       with pytest.raises(FileExistsError):controller.export_sql('test',destination)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'FileExistsError'>
+
+tests/test_phase3_database_tools.py:126: Failed
+_ test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[SELECT 1 \\connect mahjong_phase3_dev] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x110f74d40>
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-117/test_export_attests_private_by1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110f74230>
+replacement = 'SELECT 1 \\connect mahjong_phase3_dev'
+
+    @pytest.mark.parametrize('replacement',['KEEP existing file',r'SELECT 1 \connect mahjong_phase3_dev'])
+    def test_export_attests_private_bytes_and_never_clobbers_a_racing_destination(local_postgres_controller,postgres_engine,tmp_path,monkeypatch,replacement):
+        import hashlib
+        controller=local_postgres_controller;destination=tmp_path/'shared.sql';run=controller._run
+        def racing_writer(args,input_text=None):
+            result=run(args,input_text)
+            if '--file' in args:destination.write_text(replacement)
+            return result
+        monkeypatch.setattr(controller,'_run',racing_writer)
+>       with pytest.raises(FileExistsError):controller.export_sql('test',destination)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'FileExistsError'>
+
+tests/test_phase3_database_tools.py:126: Failed
+_ test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\connect mahjong_phase3_dev] _
+
+command = 'SELECT 1 \\connect mahjong_phase3_dev'
+
+    @pytest.mark.parametrize('command',[r'SELECT 1 \connect mahjong_phase3_dev',r'SELECT 1 \gexec',r'SELECT 1 \! whoami'])
+    def test_restore_boundary_rejects_midline_psql_commands(command):
+        from scripts.phase3_db import LocalPostgres
+>       with pytest.raises(ValueError,match='unsafe|Unsafe'):LocalPostgres._check_restore_boundary(command)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase3_database_tools.py:135: Failed
+____ test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\gexec] _____
+
+command = 'SELECT 1 \\gexec'
+
+    @pytest.mark.parametrize('command',[r'SELECT 1 \connect mahjong_phase3_dev',r'SELECT 1 \gexec',r'SELECT 1 \! whoami'])
+    def test_restore_boundary_rejects_midline_psql_commands(command):
+        from scripts.phase3_db import LocalPostgres
+>       with pytest.raises(ValueError,match='unsafe|Unsafe'):LocalPostgres._check_restore_boundary(command)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase3_database_tools.py:135: Failed
+___ test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\! whoami] ___
+
+command = 'SELECT 1 \\! whoami'
+
+    @pytest.mark.parametrize('command',[r'SELECT 1 \connect mahjong_phase3_dev',r'SELECT 1 \gexec',r'SELECT 1 \! whoami'])
+    def test_restore_boundary_rejects_midline_psql_commands(command):
+        from scripts.phase3_db import LocalPostgres
+>       with pytest.raises(ValueError,match='unsafe|Unsafe'):LocalPostgres._check_restore_boundary(command)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase3_database_tools.py:135: Failed
+_______________ test_read_only_postgres_connection_is_not_ready ________________
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x110f47440>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+
+    def test_read_only_postgres_connection_is_not_ready(local_postgres_controller,web_settings):
+        from sqlalchemy import text
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            initialize_schema(engine)
+            with engine.connect() as connection:
+                connection.execute(text('SET default_transaction_read_only=on'));connection.commit()
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:148: Failed
+____ test_postgres_role_requires_real_insert_delete_and_row_lock_privileges ____
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x110fdac90>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+
+    def test_postgres_role_requires_real_insert_delete_and_row_lock_privileges(local_postgres_controller,web_settings):
+        from sqlalchemy.engine import make_url
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller);role='mahjong_phase3_probe_'+uuid.uuid4().hex[:12]
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:initialize_schema(engine)
+        finally:engine.dispose()
+        with controller.connect(name) as connection:
+            connection.execute(sql.SQL('CREATE ROLE {} LOGIN').format(sql.Identifier(role)))
+            connection.execute(sql.SQL('GRANT SELECT ON prediction_results TO {}').format(sql.Identifier(role)))
+        limited=make_url(controller.url_for_database(name)).set(username=role).render_as_string(hide_password=False)
+        engine=create_db_engine(config.model_copy(update={'database_url':type(config.database_url)(limited)}))
+        try:
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:166: Failed
+_________ test_competing_chi_does_not_label_the_next_draw_as_post_meld _________
+
+    def test_competing_chi_does_not_label_the_next_draw_as_post_meld():
+        from app.web.games import OwnedGames
+        legacy=GameSessionService(session_ttl_seconds=float('inf'));games=OwnedGames(legacy);owner=secrets.token_hex(32)
+        try:
+            view=games.create(owner,seed=44,human_seat=1)
+            for _ in range(10):
+                choices=[a for a in view.legal_actions if a.action_type=='Hu'] or [a for a in view.legal_actions if a.action_type in ('Chi','Peng')] or list(view.legal_actions)
+                chosen=choices[0];before=view
+                view=games.action(owner,view.game_id,chosen.action_id,view.turn_number)
+                if before.turn_number==33:
+                    assert chosen.action_id==73 and chosen.action_type=='Chi'
+                    assert view.turn_number==48 and len(view.seat_public_states[1].melds)==0
+                    assert legacy._sessions[view.game_id].engine.phase=='SELF_TURN'
+>                   with games.owned(owner,view.game_id) as entry:assert entry.turn_phase=='SELF_TURN'
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   AssertionError: assert 'POST_MELD_DISCARD' == 'SELF_TURN'
+E                     
+E                     - SELF_TURN
+E                     + POST_MELD_DISCARD
+
+tests/test_phase3_security.py:151: AssertionError
+_ test_openapi_exposes_the_cookie_and_csrf_contract_without_changing_error_semantics _
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    def test_openapi_exposes_the_cookie_and_csrf_contract_without_changing_error_semantics(web_settings,postgres_engine):
+        from app.main import create_app
+        with TestClient(create_app(web_settings)) as client:
+            schema=client.get('/openapi.json').json()
+            for path,method in [('/api/games','post'),('/api/games/{game_id}/actions','post'),
+                                ('/api/games/{game_id}/predict','post'),('/api/predictions/{prediction_id}','delete')]:
+                parameters=schema['paths'][path][method].get('parameters',[])
+>               assert any(p['in']=='header' and p['name']=='X-CSRF-Token' for p in parameters)
+E               assert False
+E                +  where False = any(<generator object test_openapi_exposes_the_cookie_and_csrf_contract_without_changing_error_semantics.<locals>.<genexpr> at 0x111679a40>)
+
+tests/test_phase3_documentation.py:40: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase3_database_tools.py::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ADD COLUMN source TEXT NOT NULL]
+FAILED tests/test_phase3_database_tools.py::test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[KEEP existing file]
+FAILED tests/test_phase3_database_tools.py::test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[SELECT 1 \\connect mahjong_phase3_dev]
+FAILED tests/test_phase3_database_tools.py::test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\connect mahjong_phase3_dev]
+FAILED tests/test_phase3_database_tools.py::test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\gexec]
+FAILED tests/test_phase3_database_tools.py::test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\! whoami]
+FAILED tests/test_phase3_database_tools.py::test_read_only_postgres_connection_is_not_ready
+FAILED tests/test_phase3_database_tools.py::test_postgres_role_requires_real_insert_delete_and_row_lock_privileges
+FAILED tests/test_phase3_security.py::test_competing_chi_does_not_label_the_next_draw_as_post_meld
+FAILED tests/test_phase3_documentation.py::test_openapi_exposes_the_cookie_and_csrf_contract_without_changing_error_semantics
+10 failed, 26 passed, 1 warning in 3.58s

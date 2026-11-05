@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Prediction Detail · Mahjong Strategy AI{% endblock %}
+{% block content %}
+<h1>Prediction Detail</h1><p>{{ record.prediction_id }} · {{ record.created_at }} UTC</p>
+<p>Game {{ record.game_id }} · turn {{ record.turn_number }} · {{ record.turn_phase }}</p>
+<p>Model {{ record.model_version }} · encoder {{ record.encoder_version }}</p>
+<h2>Input yang terlihat oleh pemain</h2><pre>{{ snapshot|tojson(indent=2) }}</pre>
+<h2>Hasil tersimpan</h2><pre>{{ output|tojson(indent=2) }}</pre>
+<form method="post" action="/history/{{ record.prediction_id }}/delete"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">Hapus prediksi ini</button></form>
+<p><a href="/history">Kembali ke history</a></p>
+{% endblock %}

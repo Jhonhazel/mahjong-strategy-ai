@@ -1,0 +1,460 @@
+F...FFFFFFFFFFFFFF                                                       [100%]
+=================================== FAILURES ===================================
+_____________ test_reused_prediction_is_locked_until_save_commits ______________
+
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1090c6720>
+
+    def test_reused_prediction_is_locked_until_save_commits(postgres_engine,monkeypatch):
+        from threading import Event
+        from sqlmodel import Session
+        from app.services import prediction_history_service as module
+        store=module.PredictionHistoryService(postgres_engine);owner=secrets.token_hex(32);snapshot=sample_snapshot()
+        original,_=store.save(owner,snapshot)
+        selected=Event();release=Event();deleted=Event()
+        class PausingSession(Session):
+            def commit(self):
+                if any(getattr(row,'id',None)==original.id for row in self.identity_map.values()):
+                    selected.set()
+                    assert release.wait(5)
+                return super().commit()
+        monkeypatch.setattr(module,'Session',PausingSession)
+        def remove():
+            result=store.delete(owner,original.id);deleted.set();return result
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            saved=pool.submit(store.save,owner,snapshot)
+            assert selected.wait(5)
+            removed=pool.submit(remove)
+            try:
+>               assert not deleted.wait(.3), 'DELETE committed before the reused save transaction'
+E               AssertionError: DELETE committed before the reused save transaction
+E               assert not True
+E                +  where True = wait(0.3)
+E                +    where wait = <threading.Event at 0x10bebac00: set>.wait
+
+tests/test_phase3_history.py:120: AssertionError
+_ test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x111392000>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+drift = "ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz"
+
+    @pytest.mark.parametrize('drift',[
+        "ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz",
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED',
+    ])
+    def test_semantically_drifted_schema_is_not_ready(local_postgres_controller,web_settings,drift):
+        from sqlalchemy import text
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            initialize_schema(engine)
+            with engine.begin() as connection:
+                for statement in drift.split(';'):connection.execute(text(statement))
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:80: Failed
+_ test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x1114df410>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+drift = 'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)'
+
+    @pytest.mark.parametrize('drift',[
+        "ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz",
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED',
+    ])
+    def test_semantically_drifted_schema_is_not_ready(local_postgres_controller,web_settings,drift):
+        from sqlalchemy import text
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            initialize_schema(engine)
+            with engine.begin() as connection:
+                for statement in drift.split(';'):connection.execute(text(statement))
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:80: Failed
+_ test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x11155f1a0>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+drift = 'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)'
+
+    @pytest.mark.parametrize('drift',[
+        "ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz",
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED',
+    ])
+    def test_semantically_drifted_schema_is_not_ready(local_postgres_controller,web_settings,drift):
+        from sqlalchemy import text
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            initialize_schema(engine)
+            with engine.begin() as connection:
+                for statement in drift.split(';'):connection.execute(text(statement))
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:80: Failed
+_ test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x1115d8170>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+drift = 'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)'
+
+    @pytest.mark.parametrize('drift',[
+        "ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz",
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED',
+    ])
+    def test_semantically_drifted_schema_is_not_ready(local_postgres_controller,web_settings,drift):
+        from sqlalchemy import text
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            initialize_schema(engine)
+            with engine.begin() as connection:
+                for statement in drift.split(';'):connection.execute(text(statement))
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:80: Failed
+_ test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x11155cd10>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+drift = 'ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED'
+
+    @pytest.mark.parametrize('drift',[
+        "ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz",
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)',
+        'ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED',
+    ])
+    def test_semantically_drifted_schema_is_not_ready(local_postgres_controller,web_settings,drift):
+        from sqlalchemy import text
+        from app.db import initialize_schema,check_schema,create_db_engine,DatabaseUnavailable
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            initialize_schema(engine)
+            with engine.begin() as connection:
+                for statement in drift.split(';'):connection.execute(text(statement))
+>           with pytest.raises(DatabaseUnavailable):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:80: Failed
+_ test_restore_rejects_unverified_or_connection_changing_input_before_execution[\\connect mahjong_phase3_dev\nSELECT 1;] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x1116cb410>
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-113/test_restore_rejects_unverifie0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1116cb6b0>
+content = '\\connect mahjong_phase3_dev\nSELECT 1;'
+
+    @pytest.mark.parametrize('content',[
+        '\\connect mahjong_phase3_dev\nSELECT 1;',
+        'CREATE DATABASE outside_project;',
+        'DROP DATABASE mahjong_phase3_dev;',
+        'ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;',
+    ])
+    def test_restore_rejects_unverified_or_connection_changing_input_before_execution(local_postgres_controller,tmp_path,monkeypatch,content):
+        controller=local_postgres_controller;source=tmp_path/'untrusted.sql';source.write_text(content)
+        def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+        monkeypatch.setattr(controller,'connect',unexpected);monkeypatch.setattr(controller,'_run',unexpected)
+>       with pytest.raises(ValueError,match='verified|unsafe'):controller.restore_sql(source)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase3_database_tools.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/phase3_db.py:118: in restore_sql
+    with self.connect('postgres') as connection:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ('postgres',), kwargs = {}
+
+>   def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Unverified SQL reached database/process execution
+
+tests/test_phase3_database_tools.py:92: Failed
+_ test_restore_rejects_unverified_or_connection_changing_input_before_execution[CREATE DATABASE outside_project;] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x1116cbe30>
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-113/test_restore_rejects_unverifie1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1116cbfb0>
+content = 'CREATE DATABASE outside_project;'
+
+    @pytest.mark.parametrize('content',[
+        '\\connect mahjong_phase3_dev\nSELECT 1;',
+        'CREATE DATABASE outside_project;',
+        'DROP DATABASE mahjong_phase3_dev;',
+        'ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;',
+    ])
+    def test_restore_rejects_unverified_or_connection_changing_input_before_execution(local_postgres_controller,tmp_path,monkeypatch,content):
+        controller=local_postgres_controller;source=tmp_path/'untrusted.sql';source.write_text(content)
+        def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+        monkeypatch.setattr(controller,'connect',unexpected);monkeypatch.setattr(controller,'_run',unexpected)
+>       with pytest.raises(ValueError,match='verified|unsafe'):controller.restore_sql(source)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase3_database_tools.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/phase3_db.py:118: in restore_sql
+    with self.connect('postgres') as connection:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ('postgres',), kwargs = {}
+
+>   def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Unverified SQL reached database/process execution
+
+tests/test_phase3_database_tools.py:92: Failed
+_ test_restore_rejects_unverified_or_connection_changing_input_before_execution[DROP DATABASE mahjong_phase3_dev;] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x111727050>
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-113/test_restore_rejects_unverifie2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x111727f20>
+content = 'DROP DATABASE mahjong_phase3_dev;'
+
+    @pytest.mark.parametrize('content',[
+        '\\connect mahjong_phase3_dev\nSELECT 1;',
+        'CREATE DATABASE outside_project;',
+        'DROP DATABASE mahjong_phase3_dev;',
+        'ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;',
+    ])
+    def test_restore_rejects_unverified_or_connection_changing_input_before_execution(local_postgres_controller,tmp_path,monkeypatch,content):
+        controller=local_postgres_controller;source=tmp_path/'untrusted.sql';source.write_text(content)
+        def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+        monkeypatch.setattr(controller,'connect',unexpected);monkeypatch.setattr(controller,'_run',unexpected)
+>       with pytest.raises(ValueError,match='verified|unsafe'):controller.restore_sql(source)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase3_database_tools.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/phase3_db.py:118: in restore_sql
+    with self.connect('postgres') as connection:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ('postgres',), kwargs = {}
+
+>   def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Unverified SQL reached database/process execution
+
+tests/test_phase3_database_tools.py:92: Failed
+_ test_restore_rejects_unverified_or_connection_changing_input_before_execution[ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;] _
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x111630ec0>
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-113/test_restore_rejects_unverifie3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1115e4980>
+content = 'ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;'
+
+    @pytest.mark.parametrize('content',[
+        '\\connect mahjong_phase3_dev\nSELECT 1;',
+        'CREATE DATABASE outside_project;',
+        'DROP DATABASE mahjong_phase3_dev;',
+        'ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;',
+    ])
+    def test_restore_rejects_unverified_or_connection_changing_input_before_execution(local_postgres_controller,tmp_path,monkeypatch,content):
+        controller=local_postgres_controller;source=tmp_path/'untrusted.sql';source.write_text(content)
+        def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+        monkeypatch.setattr(controller,'connect',unexpected);monkeypatch.setattr(controller,'_run',unexpected)
+>       with pytest.raises(ValueError,match='verified|unsafe'):controller.restore_sql(source)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase3_database_tools.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/phase3_db.py:118: in restore_sql
+    with self.connect('postgres') as connection:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ('postgres',), kwargs = {}
+
+>   def unexpected(*args,**kwargs):pytest.fail('Unverified SQL reached database/process execution')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Unverified SQL reached database/process execution
+
+tests/test_phase3_database_tools.py:92: Failed
+_________________ test_restore_rejects_tampered_project_export _________________
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x1115d8980>
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-113/test_restore_rejects_tampered_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1115d90a0>
+
+    def test_restore_rejects_tampered_project_export(local_postgres_controller,postgres_engine,tmp_path,monkeypatch):
+        controller=local_postgres_controller;source=controller.export_sql('test',tmp_path/'tampered.sql')
+        source.write_text(source.read_text()+'\n\\connect mahjong_phase3_dev\n')
+        def unexpected(*args,**kwargs):pytest.fail('Tampered SQL reached execution')
+        monkeypatch.setattr(controller,'connect',unexpected);monkeypatch.setattr(controller,'_run',unexpected)
+>       with pytest.raises(ValueError,match='verified|unsafe'):controller.restore_sql(source)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase3_database_tools.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/phase3_db.py:118: in restore_sql
+    with self.connect('postgres') as connection:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ('postgres',), kwargs = {}
+
+>   def unexpected(*args,**kwargs):pytest.fail('Tampered SQL reached execution')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Tampered SQL reached execution
+
+tests/test_phase3_database_tools.py:100: Failed
+___ test_restore_input_size_is_bounded_before_read_or_database_execution[0] ____
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x111591f40>
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-113/test_restore_input_size_is_bou0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x111591eb0>, size = 0
+
+    @pytest.mark.parametrize('size',[0,2049])
+    def test_restore_input_size_is_bounded_before_read_or_database_execution(local_postgres_controller,tmp_path,monkeypatch,size):
+        from scripts import phase3_db
+        controller=local_postgres_controller;source=tmp_path/'bounded.sql'
+        with source.open('wb') as output:output.truncate(size)
+        monkeypatch.setattr(phase3_db,'MAX_RESTORE_BYTES',2048,raising=False)
+        def unexpected(*args,**kwargs):pytest.fail('Invalid-sized SQL reached execution')
+        monkeypatch.setattr(controller,'connect',unexpected);monkeypatch.setattr(controller,'_run',unexpected)
+>       with pytest.raises(ValueError,match='size|empty|large'):controller.restore_sql(source)
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase3_database_tools.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/phase3_db.py:118: in restore_sql
+    with self.connect('postgres') as connection:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ('postgres',), kwargs = {}
+
+>   def unexpected(*args,**kwargs):pytest.fail('Invalid-sized SQL reached execution')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Invalid-sized SQL reached execution
+
+tests/test_phase3_database_tools.py:111: Failed
+__ test_restore_input_size_is_bounded_before_read_or_database_execution[2049] __
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x1114deed0>
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-113/test_restore_input_size_is_bou1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1114dd010>
+size = 2049
+
+    @pytest.mark.parametrize('size',[0,2049])
+    def test_restore_input_size_is_bounded_before_read_or_database_execution(local_postgres_controller,tmp_path,monkeypatch,size):
+        from scripts import phase3_db
+        controller=local_postgres_controller;source=tmp_path/'bounded.sql'
+        with source.open('wb') as output:output.truncate(size)
+        monkeypatch.setattr(phase3_db,'MAX_RESTORE_BYTES',2048,raising=False)
+        def unexpected(*args,**kwargs):pytest.fail('Invalid-sized SQL reached execution')
+        monkeypatch.setattr(controller,'connect',unexpected);monkeypatch.setattr(controller,'_run',unexpected)
+>       with pytest.raises(ValueError,match='size|empty|large'):controller.restore_sql(source)
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase3_database_tools.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/phase3_db.py:118: in restore_sql
+    with self.connect('postgres') as connection:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ('postgres',), kwargs = {}
+
+>   def unexpected(*args,**kwargs):pytest.fail('Invalid-sized SQL reached execution')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Invalid-sized SQL reached execution
+
+tests/test_phase3_database_tools.py:111: Failed
+_________ test_generated_api_docs_csp_permits_its_own_resources[/docs] _________
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+path = '/docs'
+
+    @pytest.mark.parametrize('path',['/docs','/redoc'])
+    def test_generated_api_docs_csp_permits_its_own_resources(web_settings,postgres_engine,path):
+        from app.main import create_app
+        with TestClient(create_app(web_settings)) as client:
+            response=client.get(path);assert response.status_code==200
+            policy=response.headers['content-security-policy']
+            directives={part.strip().split()[0]:part.strip().split()[1:] for part in policy.split(';') if part.strip()}
+>           assert 'https://cdn.jsdelivr.net' in directives['script-src']
+E           assert 'https://cdn.jsdelivr.net' in ["'self'"]
+
+tests/test_phase3_documentation.py:20: AssertionError
+________ test_generated_api_docs_csp_permits_its_own_resources[/redoc] _________
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+path = '/redoc'
+
+    @pytest.mark.parametrize('path',['/docs','/redoc'])
+    def test_generated_api_docs_csp_permits_its_own_resources(web_settings,postgres_engine,path):
+        from app.main import create_app
+        with TestClient(create_app(web_settings)) as client:
+            response=client.get(path);assert response.status_code==200
+            policy=response.headers['content-security-policy']
+            directives={part.strip().split()[0]:part.strip().split()[1:] for part in policy.split(';') if part.strip()}
+>           assert 'https://cdn.jsdelivr.net' in directives['script-src']
+E           assert 'https://cdn.jsdelivr.net' in ["'self'"]
+
+tests/test_phase3_documentation.py:20: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase3_history.py::test_reused_prediction_is_locked_until_save_commits
+FAILED tests/test_phase3_database_tools.py::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz]
+FAILED tests/test_phase3_database_tools.py::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)]
+FAILED tests/test_phase3_database_tools.py::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)]
+FAILED tests/test_phase3_database_tools.py::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)]
+FAILED tests/test_phase3_database_tools.py::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED]
+FAILED tests/test_phase3_database_tools.py::test_restore_rejects_unverified_or_connection_changing_input_before_execution[\\connect mahjong_phase3_dev\nSELECT 1;]
+FAILED tests/test_phase3_database_tools.py::test_restore_rejects_unverified_or_connection_changing_input_before_execution[CREATE DATABASE outside_project;]
+FAILED tests/test_phase3_database_tools.py::test_restore_rejects_unverified_or_connection_changing_input_before_execution[DROP DATABASE mahjong_phase3_dev;]
+FAILED tests/test_phase3_database_tools.py::test_restore_rejects_unverified_or_connection_changing_input_before_execution[ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;]
+FAILED tests/test_phase3_database_tools.py::test_restore_rejects_tampered_project_export
+FAILED tests/test_phase3_database_tools.py::test_restore_input_size_is_bounded_before_read_or_database_execution[0]
+FAILED tests/test_phase3_database_tools.py::test_restore_input_size_is_bounded_before_read_or_database_execution[2049]
+FAILED tests/test_phase3_documentation.py::test_generated_api_docs_csp_permits_its_own_resources[/docs]
+FAILED tests/test_phase3_documentation.py::test_generated_api_docs_csp_permits_its_own_resources[/redoc]
+15 failed, 3 passed, 1 warning in 3.30s

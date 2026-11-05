@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "full_junit": "docs/evidence/phase3/full_regression_security_fix.xml",
+  "total": 370,
+  "unique_identities": 370,
+  "passed": 370,
+  "failed": [],
+  "errors": [],
+  "skipped": [],
+  "historical_359_preserved": true,
+  "historical_279_phase1_2_2_preserved": true,
+  "historical_80_phase3_preserved": true,
+  "new_cases": [
+    "tests.test_phase3_security::test_p3_01_declared_oversize_has_security_headers_and_connection_close",
+    "tests.test_phase3_security::test_p3_01_disconnect_does_not_execute_downstream_or_respond",
+    "tests.test_phase3_security::test_p3_01_exact_body_limit_preserves_the_full_request",
+    "tests.test_phase3_security::test_p3_01_invalid_content_length_has_security_headers_without_route[-1]",
+    "tests.test_phase3_security::test_p3_01_invalid_content_length_has_security_headers_without_route[malformed]",
+    "tests.test_phase3_security::test_p3_01_non_http_scope_keeps_original_callbacks",
+    "tests.test_phase3_security::test_p3_01_normal_and_documentation_responses_preserve_body_and_csp[normal]",
+    "tests.test_phase3_security::test_p3_01_normal_and_documentation_responses_preserve_body_and_csp[redoc]",
+    "tests.test_phase3_security::test_p3_01_normal_and_documentation_responses_preserve_body_and_csp[swagger]",
+    "tests.test_phase3_security::test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[1]",
+    "tests.test_phase3_security::test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[None]"
+  ],
+  "new_case_count": 11,
+  "focused_cases": 91,
+  "full_pytest_seconds": 64.3,
+  "focused_pytest_seconds": 6.8,
+  "junit_sha256": {
+    "docs/evidence/phase3/full_regression_security_fix.xml": "520f2647a1d115f912759d3efa9e1afa1cbcbc2bab3181a4bb84c7f8cf3852cd",
+    "docs/evidence/phase3/full_regression_complete.xml": "0a11f7a49d4c4725d33efe1203dc5b51be4a4ad84401c5ef8a95c0d0cc5a0b97",
+    "docs/evidence/phase2_2/full_suite.xml": "6aa2aca589563f0b0dfd4bf9c2af259fd0303a6d6cd470b4104ee37fb91c775d",
+    "docs/evidence/phase3/focused_complete.xml": "670c6b4050892364c8446980c7d595ebb0826d0f3be4a43f9c0662f1a9e7c867",
+    "docs/evidence/phase3/security_fix_focused.xml": "c92c36526947a61f7d2f062d3f7717f7b6c599398e5492887257ae0244329e27"
+  }
+}

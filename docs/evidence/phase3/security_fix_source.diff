@@ -1,0 +1,157 @@
+--- before/app/web/security.py
++++ after/app/web/security.py
+@@ -66,21 +66,29 @@
+     async def __call__(self, scope, receive, send):
+         if scope['type']!='http':
+             return await self.app(scope,receive,send)
++        async def private_send(message):
++            if message['type']=='http.response.start':
++                response_headers=[*message.get('headers',[]),(b'cache-control',b'no-store'),
++                                  (b'x-content-type-options',b'nosniff')]
++                if not any(name.lower()==b'content-security-policy' for name,value in response_headers):
++                    response_headers.append((b'content-security-policy',b"default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"))
++                message['headers']=response_headers
++            await send(message)
+         headers = dict(scope.get('headers',[]))
+         try:
+             length = int(headers.get(b'content-length',b'0'))
+             if length<0:raise ValueError
+         except ValueError:
+-            return await JSONResponse({'detail':{'code':'invalid_body','message':'Invalid content length'}},status_code=400)(scope,receive,send)
++            return await JSONResponse({'detail':{'code':'invalid_body','message':'Invalid content length'}},status_code=400)(scope,receive,private_send)
+         body = bytearray()
+         if length>self.maximum_bytes:
+-            return await self._too_large(scope,receive,send)
++            return await self._too_large(scope,receive,private_send)
+         while True:
+             message = await receive()
+             if message['type']=='http.disconnect':return
+             chunk = message.get('body',b'')
+             if len(body)+len(chunk)>self.maximum_bytes:
+-                return await self._too_large(scope,receive,send)
++                return await self._too_large(scope,receive,private_send)
+             body.extend(chunk)
+             if not message.get('more_body',False):break
+         delivered = False
+@@ -90,14 +98,6 @@
+                 delivered=True
+                 return {'type':'http.request','body':bytes(body),'more_body':False}
+             return await receive()
+-        async def private_send(message):
+-            if message['type']=='http.response.start':
+-                response_headers=[*message.get('headers',[]),(b'cache-control',b'no-store'),
+-                                  (b'x-content-type-options',b'nosniff')]
+-                if not any(name.lower()==b'content-security-policy' for name,value in response_headers):
+-                    response_headers.append((b'content-security-policy',b"default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"))
+-                message['headers']=response_headers
+-            await send(message)
+         await self.app(scope,bounded_receive,private_send)
+ 
+     async def _too_large(self, scope, receive, send):
+--- before/tests/test_phase3_security.py
++++ after/tests/test_phase3_security.py
+@@ -152,3 +152,104 @@
+                 return
+         pytest.fail('Deterministic competitive Chi fixture was not reached')
+     finally:games.shutdown()
++
++
++def _body_boundary_exchange(headers,events,response=None):
++    from app.web.security import BoundedBodyMiddleware
++    messages=[];received=[];downstream=[];pending=list(events)
++    async def endpoint(scope,receive,send):
++        downstream.append(await receive())
++        result=response if response is not None else JSONResponse({'ok':True},headers={'X-Route':'preserved'})
++        await result(scope,receive,send)
++    async def receive():
++        assert pending, 'Middleware read past the supplied bounded request'
++        event=pending.pop(0);received.append(event);return event
++    async def send(message):messages.append(message)
++    scope={'type':'http','method':'POST','path':'/api/games','headers':headers}
++    asyncio.run(BoundedBodyMiddleware(endpoint,maximum_bytes=1024)(scope,receive,send))
++    return messages,received,downstream,pending
++
++
++def _assert_p3_01_headers(messages,expected_csp=None):
++    expected_csp=expected_csp or "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
++    headers=messages[0]['headers']
++    for name,expected in ((b'cache-control',b'no-store'),(b'x-content-type-options',b'nosniff'),
++                          (b'content-security-policy',expected_csp.encode())):
++        values=[value for key,value in headers if key.lower()==name]
++        assert values==[expected], (name,values)
++
++
++@pytest.mark.parametrize('length',[b'-1',b'malformed'])
++def test_p3_01_invalid_content_length_has_security_headers_without_route(length):
++    import json
++    messages,received,downstream,_=_body_boundary_exchange([(b'content-length',length)],[])
++    assert messages[0]['status']==400 and not received and not downstream
++    assert json.loads(messages[1]['body'])=={'detail':{'code':'invalid_body','message':'Invalid content length'}}
++    assert b'connection' not in dict(messages[0]['headers'])
++    _assert_p3_01_headers(messages)
++
++
++def test_p3_01_declared_oversize_has_security_headers_and_connection_close():
++    import json
++    messages,received,downstream,_=_body_boundary_exchange([(b'content-length',b'1025')],[])
++    assert messages[0]['status']==413 and not received and not downstream
++    assert json.loads(messages[1]['body'])=={'detail':{'code':'payload_too_large','message':'Request body exceeds the allowed limit'}}
++    assert dict(messages[0]['headers'])[b'connection']==b'close'
++    _assert_p3_01_headers(messages)
++
++
++@pytest.mark.parametrize('length',[None,b'1'])
++def test_p3_01_streamed_oversize_has_security_headers_and_stops_reading(length):
++    import json
++    events=[{'type':'http.request','body':b'x'*700,'more_body':True},
++            {'type':'http.request','body':b'y'*400,'more_body':True},
++            {'type':'http.request','body':b'unread','more_body':False}]
++    headers=[] if length is None else [(b'content-length',length)]
++    messages,received,downstream,pending=_body_boundary_exchange(headers,events)
++    assert messages[0]['status']==413 and not downstream
++    assert len(received)==2 and pending==events[2:]
++    assert json.loads(messages[1]['body'])=={'detail':{'code':'payload_too_large','message':'Request body exceeds the allowed limit'}}
++    assert dict(messages[0]['headers'])[b'connection']==b'close'
++    _assert_p3_01_headers(messages)
++
++
++@pytest.mark.parametrize('kind',['normal','swagger','redoc'])
++def test_p3_01_normal_and_documentation_responses_preserve_body_and_csp(kind):
++    from app.web.documentation import documentation_response
++    response=(JSONResponse({'ok':True},headers={'X-Route':'preserved'}) if kind=='normal'
++              else documentation_response('/openapi.json',kind))
++    original_csp=response.headers.get('content-security-policy')
++    event={'type':'http.request','body':b'input','more_body':False}
++    messages,received,downstream,pending=_body_boundary_exchange([], [event],response)
++    assert messages[0]['status']==200 and messages[1]['body']==response.body
++    assert received==[event] and downstream==[event] and not pending
++    if kind=='normal':assert dict(messages[0]['headers'])[b'x-route']==b'preserved'
++    else:assert original_csp and 'https://cdn.jsdelivr.net' in original_csp
++    _assert_p3_01_headers(messages,original_csp)
++
++
++def test_p3_01_exact_body_limit_preserves_the_full_request():
++    event={'type':'http.request','body':b'x'*1024,'more_body':False}
++    messages,received,downstream,pending=_body_boundary_exchange([(b'content-length',b'1024')],[event])
++    assert messages[0]['status']==200 and downstream==[event] and received==[event] and not pending
++    _assert_p3_01_headers(messages)
++
++
++def test_p3_01_disconnect_does_not_execute_downstream_or_respond():
++    events=[{'type':'http.request','body':b'partial','more_body':True},{'type':'http.disconnect'},
++            {'type':'http.request','body':b'unread','more_body':False}]
++    messages,received,downstream,pending=_body_boundary_exchange([],events)
++    assert not messages and not downstream and received==events[:2] and pending==events[2:]
++
++
++def test_p3_01_non_http_scope_keeps_original_callbacks():
++    from app.web.security import BoundedBodyMiddleware
++    scope={'type':'lifespan'};messages=[]
++    async def receive():return {'type':'lifespan.startup'}
++    async def send(message):messages.append(message)
++    async def endpoint(actual_scope,actual_receive,actual_send):
++        assert actual_scope is scope and actual_receive is receive and actual_send is send
++        assert await actual_receive()=={'type':'lifespan.startup'}
++        await actual_send({'type':'lifespan.startup.complete'})
++    asyncio.run(BoundedBodyMiddleware(endpoint)(scope,receive,send))
++    assert messages==[{'type':'lifespan.startup.complete'}]

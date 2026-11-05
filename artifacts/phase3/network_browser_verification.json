@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "server": "Uvicorn single worker, 127.0.0.1:8873",
+  "transport": "real TCP HTTP",
+  "readiness": {
+    "status": "ready",
+    "model": "ready",
+    "database": "ready"
+  },
+  "game_id": "49acb6af-d5fe-45f0-beba-99d99f21e684",
+  "turn_number": 4,
+  "prediction_id": "0db7024a-07cd-4c51-bfe4-52c82ef8ed18",
+  "top3": [
+    {
+      "tile": "J1",
+      "class_index": 31,
+      "action_id": 33,
+      "score": 0.8203998804092407
+    },
+    {
+      "tile": "J2",
+      "class_index": 32,
+      "action_id": 34,
+      "score": 0.06920811533927917
+    },
+    {
+      "tile": "T1",
+      "class_index": 9,
+      "action_id": 11,
+      "score": 0.02715257927775383
+    }
+  ],
+  "checkpoint_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "np_load_guard": "np.load raises; startup, game encoding and prediction still passed",
+  "read_status": 200,
+  "delete_status": 204,
+  "read_after_delete": 404,
+  "game_unchanged_by_prediction": true,
+  "browser": {
+    "status": "PASS",
+    "engine": "in-app browser",
+    "game_id": "395202ce-9315-4aab-be52-50bc37e3a659",
+    "prediction_id": "cdf9f79f-7d8f-4714-bc99-ae85e065e591",
+    "turn": 4,
+    "recommended_tile": "J1",
+    "observed": [
+      "JavaScript game creation",
+      "predict and save",
+      "History list",
+      "full input/output detail",
+      "HTML delete redirects to empty History",
+      "Contact incomplete notice"
+    ],
+    "scope": "Own synthetic local test data only"
+  }
+}

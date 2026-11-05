@@ -29,3 +29,6 @@ artifacts/**/training_resume*.json
 artifacts/phase2_1/subgroup_metrics.json
 artifacts/phase2_2/**/*_analysis.json
 artifacts/transfer/
+.local/
+artifacts/phase3/*.sql
+!.env.example

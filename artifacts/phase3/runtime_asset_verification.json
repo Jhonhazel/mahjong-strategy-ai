@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checkpoint": "artifacts/models/mahjong_discard_mlp_v3.pt",
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+  "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "encoder_version": "ijcai2026_mcr_v1_strict",
+  "parameters": 387746,
+  "cpu_load": true
+}

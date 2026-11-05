@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "transport": "real Uvicorn single-worker TCP HTTP",
+  "readiness": {
+    "status": "ready",
+    "model": "ready",
+    "database": "ready"
+  },
+  "game_id": "c7a448a0-6ade-4c7d-ae12-8e604bd72abe",
+  "prediction_id": "abef5b55-830c-42a8-8b3f-9f1bfecdee9d",
+  "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "prediction_did_not_mutate_game": true,
+  "new_status": 201,
+  "reused_status": 200,
+  "read_status": 200,
+  "delete_status": 204,
+  "read_after_delete": 404,
+  "other_owner_game": 404,
+  "other_owner_history": 404,
+  "np_load_guard": "np.load raises throughout server lifecycle; startup/game/predict passed",
+  "documentation": {
+    "/docs": {
+      "status_code": 200,
+      "csp": "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'sha256-P28/j37f0MgfkZ2lTEH5bnnfZ8YlHZ4cHtK+EWL/Qhw='; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; img-src 'self' data: https://fastapi.tiangolo.com; worker-src 'self' blob:; base-uri 'self'; frame-ancestors 'none'"
+    },
+    "/redoc": {
+      "status_code": 200,
+      "csp": "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net ; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; img-src 'self' data: https://fastapi.tiangolo.com; worker-src 'self' blob:; base-uri 'self'; frame-ancestors 'none'"
+    }
+  },
+  "browser_observations": {
+    "swagger": "rendered endpoint list",
+    "redoc": "rendered endpoint list and schemas",
+    "cross_tab_red": {
+      "game_id": "6353fd76-8f4d-4dd8-8eb1-a35d3bddd0e1",
+      "prediction_turn": 4,
+      "refreshed_turn": 17,
+      "stale_suggestion_retained": true
+    },
+    "cross_tab_green": {
+      "prediction_id": "af7a30cc-5e82-4e7a-a13a-33eb5fcf5642",
+      "prediction_turn": 4,
+      "refreshed_turn": 17,
+      "displayed_suggestion_after_refresh": ""
+    }
+  }
+}

@@ -1,0 +1,189 @@
+FFFFFFFFFFFFFF                                                           [100%]
+=================================== FAILURES ===================================
+___________ test_settings_reject_unsafe_or_missing_values[changes0] ____________
+
+changes = {'session_secret': ''}
+
+    @pytest.mark.parametrize('changes',[
+        {'session_secret':''}, {'database_url':'sqlite:///wrong.db'}, {'workers':2},
+        {'max_active_games':0}, {'game_ttl_seconds':0},
+        {'environment':'production','cookie_secure':False},
+    ])
+    def test_settings_reject_unsafe_or_missing_values(changes):
+>       from app.settings import Settings
+E       ModuleNotFoundError: No module named 'app.settings'
+
+tests/test_phase3_bootstrap.py:19: ModuleNotFoundError
+___________ test_settings_reject_unsafe_or_missing_values[changes1] ____________
+
+changes = {'database_url': 'sqlite:///wrong.db'}
+
+    @pytest.mark.parametrize('changes',[
+        {'session_secret':''}, {'database_url':'sqlite:///wrong.db'}, {'workers':2},
+        {'max_active_games':0}, {'game_ttl_seconds':0},
+        {'environment':'production','cookie_secure':False},
+    ])
+    def test_settings_reject_unsafe_or_missing_values(changes):
+>       from app.settings import Settings
+E       ModuleNotFoundError: No module named 'app.settings'
+
+tests/test_phase3_bootstrap.py:19: ModuleNotFoundError
+___________ test_settings_reject_unsafe_or_missing_values[changes2] ____________
+
+changes = {'workers': 2}
+
+    @pytest.mark.parametrize('changes',[
+        {'session_secret':''}, {'database_url':'sqlite:///wrong.db'}, {'workers':2},
+        {'max_active_games':0}, {'game_ttl_seconds':0},
+        {'environment':'production','cookie_secure':False},
+    ])
+    def test_settings_reject_unsafe_or_missing_values(changes):
+>       from app.settings import Settings
+E       ModuleNotFoundError: No module named 'app.settings'
+
+tests/test_phase3_bootstrap.py:19: ModuleNotFoundError
+___________ test_settings_reject_unsafe_or_missing_values[changes3] ____________
+
+changes = {'max_active_games': 0}
+
+    @pytest.mark.parametrize('changes',[
+        {'session_secret':''}, {'database_url':'sqlite:///wrong.db'}, {'workers':2},
+        {'max_active_games':0}, {'game_ttl_seconds':0},
+        {'environment':'production','cookie_secure':False},
+    ])
+    def test_settings_reject_unsafe_or_missing_values(changes):
+>       from app.settings import Settings
+E       ModuleNotFoundError: No module named 'app.settings'
+
+tests/test_phase3_bootstrap.py:19: ModuleNotFoundError
+___________ test_settings_reject_unsafe_or_missing_values[changes4] ____________
+
+changes = {'game_ttl_seconds': 0}
+
+    @pytest.mark.parametrize('changes',[
+        {'session_secret':''}, {'database_url':'sqlite:///wrong.db'}, {'workers':2},
+        {'max_active_games':0}, {'game_ttl_seconds':0},
+        {'environment':'production','cookie_secure':False},
+    ])
+    def test_settings_reject_unsafe_or_missing_values(changes):
+>       from app.settings import Settings
+E       ModuleNotFoundError: No module named 'app.settings'
+
+tests/test_phase3_bootstrap.py:19: ModuleNotFoundError
+___________ test_settings_reject_unsafe_or_missing_values[changes5] ____________
+
+changes = {'cookie_secure': False, 'environment': 'production'}
+
+    @pytest.mark.parametrize('changes',[
+        {'session_secret':''}, {'database_url':'sqlite:///wrong.db'}, {'workers':2},
+        {'max_active_games':0}, {'game_ttl_seconds':0},
+        {'environment':'production','cookie_secure':False},
+    ])
+    def test_settings_reject_unsafe_or_missing_values(changes):
+>       from app.settings import Settings
+E       ModuleNotFoundError: No module named 'app.settings'
+
+tests/test_phase3_bootstrap.py:19: ModuleNotFoundError
+_______ test_runtime_paths_resolve_from_repository_not_working_directory _______
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-104/test_runtime_paths_resolve_fro0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x106e75a60>
+
+    def test_runtime_paths_resolve_from_repository_not_working_directory(tmp_path,monkeypatch):
+        monkeypatch.chdir(tmp_path)
+>       config=settings()
+               ^^^^^^^^^^
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase3_bootstrap.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+changes = {}
+
+    def settings(**changes):
+>       from app.settings import Settings
+E       ModuleNotFoundError: No module named 'app.settings'
+
+/Users/jhonhazel/mahjong-strategy-ai/tests/test_phase3_bootstrap.py:8: ModuleNotFoundError
+________ test_explicit_v3_runtime_loads_real_model_and_verified_metrics ________
+
+    def test_explicit_v3_runtime_loads_real_model_and_verified_metrics():
+>       from app.web.runtime import load_runtime_model
+E       ModuleNotFoundError: No module named 'app.web'
+
+tests/test_phase3_bootstrap.py:36: ModuleNotFoundError
+_ test_missing_runtime_asset_fails_explicitly_without_model_fallback[model_checkpoint_path] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-104/test_missing_runtime_asset_fai0')
+asset = 'model_checkpoint_path'
+
+    @pytest.mark.parametrize('asset',['model_checkpoint_path','model_metadata_path','dataset_contract_path'])
+    def test_missing_runtime_asset_fails_explicitly_without_model_fallback(tmp_path,asset):
+>       from app.web.runtime import load_runtime_model
+E       ModuleNotFoundError: No module named 'app.web'
+
+tests/test_phase3_bootstrap.py:47: ModuleNotFoundError
+_ test_missing_runtime_asset_fails_explicitly_without_model_fallback[model_metadata_path] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-104/test_missing_runtime_asset_fai1')
+asset = 'model_metadata_path'
+
+    @pytest.mark.parametrize('asset',['model_checkpoint_path','model_metadata_path','dataset_contract_path'])
+    def test_missing_runtime_asset_fails_explicitly_without_model_fallback(tmp_path,asset):
+>       from app.web.runtime import load_runtime_model
+E       ModuleNotFoundError: No module named 'app.web'
+
+tests/test_phase3_bootstrap.py:47: ModuleNotFoundError
+_ test_missing_runtime_asset_fails_explicitly_without_model_fallback[dataset_contract_path] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-104/test_missing_runtime_asset_fai2')
+asset = 'dataset_contract_path'
+
+    @pytest.mark.parametrize('asset',['model_checkpoint_path','model_metadata_path','dataset_contract_path'])
+    def test_missing_runtime_asset_fails_explicitly_without_model_fallback(tmp_path,asset):
+>       from app.web.runtime import load_runtime_model
+E       ModuleNotFoundError: No module named 'app.web'
+
+tests/test_phase3_bootstrap.py:47: ModuleNotFoundError
+___________ test_corrupted_checkpoint_and_incompatible_metadata_fail ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-104/test_corrupted_checkpoint_and_0')
+
+    def test_corrupted_checkpoint_and_incompatible_metadata_fail(tmp_path):
+>       from app.web.runtime import load_runtime_model
+E       ModuleNotFoundError: No module named 'app.web'
+
+tests/test_phase3_bootstrap.py:53: ModuleNotFoundError
+_____ test_local_database_tool_refuses_foreign_directory_and_unowned_start _____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-104/test_local_database_tool_refus0')
+
+    def test_local_database_tool_refuses_foreign_directory_and_unowned_start(tmp_path):
+>       from scripts.phase3_db import LocalPostgres
+E       ModuleNotFoundError: No module named 'scripts.phase3_db'
+
+tests/test_phase3_bootstrap.py:61: ModuleNotFoundError
+_______________ test_local_database_urls_are_scoped_and_private ________________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-104/test_local_database_urls_are_s0')
+
+    def test_local_database_urls_are_scoped_and_private(tmp_path):
+>       from scripts.phase3_db import LocalPostgres
+E       ModuleNotFoundError: No module named 'scripts.phase3_db'
+
+tests/test_phase3_bootstrap.py:70: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase3_bootstrap.py::test_settings_reject_unsafe_or_missing_values[changes0]
+FAILED tests/test_phase3_bootstrap.py::test_settings_reject_unsafe_or_missing_values[changes1]
+FAILED tests/test_phase3_bootstrap.py::test_settings_reject_unsafe_or_missing_values[changes2]
+FAILED tests/test_phase3_bootstrap.py::test_settings_reject_unsafe_or_missing_values[changes3]
+FAILED tests/test_phase3_bootstrap.py::test_settings_reject_unsafe_or_missing_values[changes4]
+FAILED tests/test_phase3_bootstrap.py::test_settings_reject_unsafe_or_missing_values[changes5]
+FAILED tests/test_phase3_bootstrap.py::test_runtime_paths_resolve_from_repository_not_working_directory
+FAILED tests/test_phase3_bootstrap.py::test_explicit_v3_runtime_loads_real_model_and_verified_metrics
+FAILED tests/test_phase3_bootstrap.py::test_missing_runtime_asset_fails_explicitly_without_model_fallback[model_checkpoint_path]
+FAILED tests/test_phase3_bootstrap.py::test_missing_runtime_asset_fails_explicitly_without_model_fallback[model_metadata_path]
+FAILED tests/test_phase3_bootstrap.py::test_missing_runtime_asset_fails_explicitly_without_model_fallback[dataset_contract_path]
+FAILED tests/test_phase3_bootstrap.py::test_corrupted_checkpoint_and_incompatible_metadata_fail
+FAILED tests/test_phase3_bootstrap.py::test_local_database_tool_refuses_foreign_directory_and_unowned_start
+FAILED tests/test_phase3_bootstrap.py::test_local_database_urls_are_scoped_and_private
+14 failed in 0.07s

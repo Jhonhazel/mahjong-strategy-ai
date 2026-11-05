@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "baseline_cases": 279,
+  "final_cases": 359,
+  "new_phase3_cases": 80,
+  "all_original_cases_present_and_passing": true,
+  "missing_original_cases": [],
+  "baseline_xml_sha256": "b70800d0d44d1a9dd2c3f5d28c08c2107c900e12090bd1585fc2994e1f513c59",
+  "final_xml_sha256": "0a11f7a49d4c4725d33efe1203dc5b51be4a4ad84401c5ef8a95c0d0cc5a0b97",
+  "documented_phase2_2_junit": "docs/evidence/phase2_2/full_suite.xml",
+  "documented_phase2_2_cases": 279,
+  "documented_phase2_2_junit_sha256": "6aa2aca589563f0b0dfd4bf9c2af259fd0303a6d6cd470b4104ee37fb91c775d",
+  "all_documented_phase2_2_cases_present_and_passing": true
+}

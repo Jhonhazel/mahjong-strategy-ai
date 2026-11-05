@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="21" failures="1" skipped="0" tests="279" time="57.302" timestamp="2026-11-05T00:34:39.856618+07:00" hostname="Jhonhazels-MacBook-Air.local"><testcase classname="tests.test_cli" name="test_automated_cli_completes_real_service_round[entry0]" time="0.156" /><testcase classname="tests.test_cli" name="test_automated_cli_completes_real_service_round[entry1]" time="0.133" /><testcase classname="tests.test_dataset_audit" name="test_aggregate_rows_are_verified_copies_and_never_double_counted" time="0.005" /><testcase classname="tests.test_dataset_audit" name="test_audit_writes_failure_report_before_raising" time="0.001" /><testcase classname="tests.test_dataset_audit" name="test_strict_corpus_metadata_is_validated_without_discarding_identity" time="0.002" /><testcase classname="tests.test_dataset_audit" name="test_scalar_action_replaces_stale_audit_pass_with_failure" time="0.002" /><testcase classname="tests.test_dataset_resilience" name="test_real_http_retries_503_and_truncated_response" time="0.540" /><testcase classname="tests.test_dataset_resilience" name="test_exhausted_download_and_bad_hash_never_publish_partial_file" time="0.003" /><testcase classname="tests.test_dataset_resilience" name="test_unsafe_archives_are_rejected_before_writes[../escape.txt-None]" time="0.003" /><testcase classname="tests.test_dataset_resilience" name="test_unsafe_archives_are_rejected_before_writes[/absolute.txt-None]" time="0.002" /><testcase classname="tests.test_dataset_resilience" name="test_unsafe_archives_are_rejected_before_writes[C:\\escape.txt-None]" time="0.002" /><testcase classname="tests.test_dataset_resilience" name="test_unsafe_archives_are_rejected_before_writes[safe/link-../../escape]" time="0.002" /><testcase classname="tests.test_dataset_resilience" name="test_unsafe_archives_are_rejected_before_writes[safe\\..\\escape-None]" time="0.002" /><testcase classname="tests.test_dataset_resilience" name="test_valid_archive_and_truncated_gzip" time="0.004" /><testcase classname="tests.test_encoder_parity" name="test_real_full_match_strict_events_match_independent_referee_replay" time="0.068" /><testcase classname="tests.test_encoder_parity" name="test_same_public_uid_in_two_seats_keeps_both_explicit_seat_identities" time="3.696" /><testcase classname="tests.test_encoder_parity" name="test_real_draw_terminal_scores_from_content_are_verified" time="2.018" /><testcase classname="tests.test_encoder_parity" name="test_match_group_contract_rejects_conflicts_and_supports_disjoint_groups" time="0.004" /><testcase classname="tests.test_encoder_parity" name="test_failed_replay_writes_report_and_cannot_pass_gate" time="0.007" /><testcase classname="tests.test_encoder_parity" name="test_missing_archive_invalidates_previous_ready_artifacts" time="0.002" /><testcase classname="tests.test_encoder_parity" name="test_artifact_write_failure_publishes_fail_and_blocked_contract" time="0.033" /><testcase classname="tests.test_encoder_parity" name="test_duplicate_real_match_cannot_satisfy_distinct_match_gate" time="0.035" /><testcase classname="tests.test_encoder_parity" name="test_real_at_least_50_complete_matches_and_accepted_provenance" time="0.017" /><testcase classname="tests.test_env_bootstrap" name="test_supported_python_and_real_library_calculations" time="0.025" /><testcase classname="tests.test_fan_calculator" name="test_nine_gates_and_real_non_winning_hand" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_flowers_cannot_qualify_low_fan_hand" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_exact_eight_fan_chicken_hand_is_accepted" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_context_fans_are_scored_by_real_library[flags0-Out with Replacement Tile]" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_context_fans_are_scored_by_real_library[flags1-Robbing The Kong]" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_context_fans_are_scored_by_real_library[flags2-Last Tile Draw]" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_context_fans_are_scored_by_real_library[flags3-Last Tile Claim]" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_context_fans_are_scored_by_real_library[flags4-Last Tile]" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_invalid_counts_tiles_and_unexpected_native_errors_are_visible" time="0.000" /><testcase classname="tests.test_fan_calculator" name="test_special_hand_shanten_and_scores" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_exact_unary_channels_dtypes_padding_and_masks" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_opponent_events_refresh_public_planes_immediately_without_hidden_tiles" time="0.001" /><testcase classname="tests.test_feature_encoder" name="test_own_chi_peng_kongs_hu_and_terminal_masks" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_wall_exhaustion_disables_claims_except_hu_and_pass" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_fourth_tile_counts_do_not_double_count_and_native_clears_concealed_copies" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_invalid_events_fail_explicitly[]" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_invalid_events_fail_explicitly[Unknown X]" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_invalid_events_fail_explicitly[Player 4 Draw]" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_invalid_events_fail_explicitly[Wind 4]" time="0.000" /><testcase classname="tests.test_feature_encoder" name="test_invalid_events_fail_explicitly[Draw ZZ]" time="0.000" /><testcase classname="tests.test_game_service" name="test_heuristic_prefers_hu_and_never_uses_illegal_actions" time="0.221" /><testcase classname="tests.test_game_service" name="test_heuristic_discards_isolated_honor_to_retain_tenpai" time="0.001" /><testcase classname="tests.test_game_service" name="test_human_vs_three_bots_pause_and_complete_real_round" time="0.075" /><testcase classname="tests.test_game_service" name="test_invalid_stale_and_missing_turn_token_do_not_mutate" time="0.001" /><testcase classname="tests.test_game_service" name="test_20_real_threads_accept_exactly_one_turn_token" time="0.004" /><testcase classname="tests.test_game_service" name="test_capacity_ttl_delete_and_shutdown" time="0.001" /><testcase classname="tests.test_game_service" name="test_shutdown_waits_for_real_inflight_bot_step" time="0.002" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_deal_draw_privacy_illegal_actions_and_determinism" time="0.001" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_hu_beats_peng_beats_chi_with_arbitrary_response_order[True]" time="0.001" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_hu_beats_peng_beats_chi_with_arbitrary_response_order[False]" time="0.001" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_angang_and_minggang_replacement_and_concealment" time="0.001" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_bugang_robbery_reverts_pung_and_awards_ron" time="0.003" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_flower_after_kong_replacement_does_not_award_replacement_fan" time="0.000" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_full_round_conserves_tiles_and_finishes[0-False]" time="0.055" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_full_round_conserves_tiles_and_finishes[42-False]" time="0.065" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_full_round_conserves_tiles_and_finishes[7-True]" time="0.056" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_full_round_conserves_tiles_and_finishes[15-True]" time="0.059" /><testcase classname="tests.test_mcr_engine_playthrough" name="test_200_complete_seeded_rounds" time="12.445" /><testcase classname="tests.test_phase2_1_checkpoint" name="test_v2_checkpoint_binds_expanded_run_contract_shards_and_preserves_parent_identity" time="2.239" /><testcase classname="tests.test_phase2_1_checkpoint" name="test_v2_metadata_missing_provenance_rejected_before_deserialization[contract_sha256]" time="0.001" /><testcase classname="tests.test_phase2_1_checkpoint" name="test_v2_metadata_missing_provenance_rejected_before_deserialization[shards]" time="0.001" /><testcase classname="tests.test_phase2_1_checkpoint" name="test_v2_metadata_missing_provenance_rejected_before_deserialization[expanded_run_id]" time="0.001" /><testcase classname="tests.test_phase2_1_checkpoint" name="test_v2_metadata_missing_provenance_rejected_before_deserialization[dataset_version]" time="0.001" /><testcase classname="tests.test_phase2_1_checkpoint" name="test_new_model_live_round_uses_existing_service_both_phases_without_mutation" time="0.026" /><testcase classname="tests.test_phase2_1_evaluation" name="test_frozen_common_cohort_evaluation_and_independent_saved_recalculation" time="8.392" /><testcase classname="tests.test_phase2_1_evaluation" name="test_reverification_rejects_missing_or_modified_artifacts[model_freeze.json]" time="0.650" /><testcase classname="tests.test_phase2_1_evaluation" name="test_reverification_rejects_missing_or_modified_artifacts[test_predictions.jsonl.gz]" time="0.677" /><testcase classname="tests.test_phase2_1_evaluation" name="test_reverification_rejects_missing_or_modified_artifacts[per_class_metrics.csv]" time="0.576" /><testcase classname="tests.test_phase2_1_evaluation" name="test_reverification_rejects_missing_or_modified_artifacts[protocol.json]" time="0.603" /><testcase classname="tests.test_phase2_1_evaluation" name="test_metadata_publication_failure_cannot_leave_pass_and_same_frozen_model_can_resume" time="1.068" /><testcase classname="tests.test_phase2_1_evaluation" name="test_frozen_identity_cannot_be_changed_before_test[weights]" time="0.407" /><testcase classname="tests.test_phase2_1_evaluation" name="test_frozen_identity_cannot_be_changed_before_test[protocol]" time="0.360" /><testcase classname="tests.test_phase2_1_evaluation" name="test_frozen_identity_cannot_be_changed_before_test[missing_freeze]" time="0.440" /><testcase classname="tests.test_phase2_1_evaluation" name="test_frozen_identity_cannot_be_changed_before_test[metadata]" time="0.387" /><testcase classname="tests.test_phase2_1_evaluation" name="test_paired_match_bootstrap_identical_models_has_zero_difference" time="0.000" /><testcase classname="tests.test_phase2_1_expansion" name="test_versioned_split_preserves_all_original_roles_and_protects_old_test" time="0.011" /><testcase classname="tests.test_phase2_1_expansion" name="test_full_real_replay_extracts_all_four_roster_seats_with_exact_parity" time="0.106" /><testcase classname="tests.test_phase2_1_expansion" name="test_interrupted_run_resumes_from_commits_without_replaying_or_duplicate_ingestion" time="0.117" /><testcase classname="tests.test_phase2_1_expansion" name="test_every_invalid_attempt_has_an_explicit_exclusion_status[corrupt_json]" time="0.078" /><testcase classname="tests.test_phase2_1_expansion" name="test_every_invalid_attempt_has_an_explicit_exclusion_status[abnormal_terminal]" time="0.079" /><testcase classname="tests.test_phase2_1_expansion" name="test_every_invalid_attempt_has_an_explicit_exclusion_status[missing_response]" time="0.085" /><testcase classname="tests.test_phase2_1_expansion" name="test_every_invalid_attempt_has_an_explicit_exclusion_status[invalid_roster]" time="0.078" /><testcase classname="tests.test_phase2_1_expansion" name="test_every_invalid_attempt_has_an_explicit_exclusion_status[invalid_label]" time="0.084" /><testcase classname="tests.test_phase2_1_expansion" name="test_archive_failure_is_fail_closed_and_never_leaves_ready[checksum]" time="0.006" /><testcase classname="tests.test_phase2_1_expansion" name="test_archive_failure_is_fail_closed_and_never_leaves_ready[missing]" time="0.004" /><testcase classname="tests.test_phase2_1_expansion" name="test_archive_failure_is_fail_closed_and_never_leaves_ready[traversal]" time="0.002" /><testcase classname="tests.test_phase2_1_expansion" name="test_archive_failure_is_fail_closed_and_never_leaves_ready[duplicate_member]" time="0.003" /><testcase classname="tests.test_phase2_1_expansion" name="test_committed_artifact_corruption_blocks_validation_and_resume[samples.npz]" time="0.112" /><testcase classname="tests.test_phase2_1_expansion" name="test_committed_artifact_corruption_blocks_validation_and_resume[manifest.csv.gz]" time="0.168" /><testcase classname="tests.test_phase2_1_expansion" name="test_committed_artifact_corruption_blocks_validation_and_resume[audit.jsonl]" time="0.111" /><testcase classname="tests.test_phase2_1_expansion" name="test_low_disk_preserves_committed_shards_and_resumes_later" time="0.115" /><testcase classname="tests.test_phase2_1_expansion" name="test_interruption_before_commit_does_not_publish_or_duplicate_samples" time="0.151" /><testcase classname="tests.test_phase2_1_expansion" name="test_original_output_directory_cannot_be_overwritten" time="0.018" /><testcase classname="tests.test_phase2_1_expansion" name="test_non_game_archive_metadata_is_reported_and_does_not_shift_game_ordinals" time="0.139" /><testcase classname="tests.test_phase2_1_expansion" name="test_duplicate_ingestion_is_excluded_and_conflicting_match_identity_blocks_ready" time="0.092" /><testcase classname="tests.test_phase2_1_expansion" name="test_naturally_repeated_state_does_not_delete_distinct_source_decisions" time="0.080" /><testcase classname="tests.test_phase2_1_expansion" name="test_final_report_failure_leaves_blocked_and_completed_shards_can_be_republished" time="0.116" /><testcase classname="tests.test_phase2_1_expansion" name="test_missing_initial_inventory_is_rebuilt_from_pinned_archive_on_resume" time="0.105" /><testcase classname="tests.test_phase2_1_training" name="test_sharded_loader_only_exposes_train_validation_before_freeze" time="1.156" /><testcase classname="tests.test_phase2_1_training" name="test_batches_are_bounded_float32_legal_and_reproducibly_shuffled" time="0.092" /><testcase classname="tests.test_phase2_1_training" name="test_nested_learning_curve_subsets_are_match_complete_and_training_only" time="0.067" /><testcase classname="tests.test_phase2_1_training" name="test_streaming_metrics_equal_existing_independent_batch_metrics" time="0.001" /><testcase classname="tests.test_phase2_1_training" name="test_streaming_metrics_reject_invalid_probabilities_or_targets[illegal_target]" time="0.000" /><testcase classname="tests.test_phase2_1_training" name="test_streaming_metrics_reject_invalid_probabilities_or_targets[unnormalized]" time="0.000" /><testcase classname="tests.test_phase2_1_training" name="test_streaming_metrics_reject_invalid_probabilities_or_targets[nonfinite]" time="0.000" /><testcase classname="tests.test_phase2_1_training" name="test_real_streamed_training_updates_weights_selects_validation_and_reloads_cpu" time="0.158" /><testcase classname="tests.test_phase2_1_training" name="test_epoch_checkpoint_resume_matches_uninterrupted_cpu_training" time="0.311" /><testcase classname="tests.test_phase2_1_training" name="test_training_rejects_heldout_split_before_accessing_targets" time="0.001" /><testcase classname="tests.test_phase2_1_training" name="test_loader_rejects_corrupt_expanded_contract_before_training" time="0.077" /><testcase classname="tests.test_phase2_1_training" name="test_experiments_freeze_protocol_select_validation_only_and_never_open_test" time="0.431" /><testcase classname="tests.test_phase2_1_training" name="test_published_contract_must_match_all_audited_fields_before_loading[duplicate_shard]" time="0.073" /><testcase classname="tests.test_phase2_1_training" name="test_published_contract_must_match_all_audited_fields_before_loading[omitted_shard]" time="0.074" /><testcase classname="tests.test_phase2_1_training" name="test_published_contract_must_match_all_audited_fields_before_loading[substituted_shard]" time="0.073" /><testcase classname="tests.test_phase2_1_training" name="test_published_contract_must_match_all_audited_fields_before_loading[roles]" time="0.073" /><testcase classname="tests.test_phase2_1_training" name="test_published_contract_must_match_all_audited_fields_before_loading[split_counts]" time="0.075" /><testcase classname="tests.test_phase2_1_training" name="test_published_contract_must_match_all_audited_fields_before_loading[encoder_source]" time="0.075" /><testcase classname="tests.test_phase2_1_training" name="test_interrupted_resume_pointer_retains_previous_complete_checkpoint" time="0.002" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_group_development_lineage_excludes_all_historical_tests" time="1.116" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_remapped_batches_cover_both_old_development_roles_without_test_rows" time="0.074" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_saved_v2_in_sample_reference_is_rejected" time="0.067" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_failed_new_audit_does_not_overwrite_old_contract" time="0.075" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_score_diagnostics_calibration_ranks_and_nontrivial_strata_are_correct" time="0.002" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_duplicate_audit_retains_rows_and_distinguishes_input_label_conflicts" time="0.000" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_identical_trajectory_groups_stay_in_one_fold_without_deleting_rows" time="0.205" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_diagnostics_cannot_rewrite_protocol_bound_lineage[protocol.json]" time="0.001" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_diagnostics_cannot_rewrite_protocol_bound_lineage[model_freeze.json]" time="0.001" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_diagnostics_rejects_protected_output_before_read_or_write[artifacts/phase2]" time="0.001" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_diagnostics_rejects_protected_output_before_read_or_write[artifacts/phase2_1/nested]" time="0.001" /><testcase classname="tests.test_phase2_2_data_analysis" name="test_diagnostics_rejects_protected_output_before_read_or_write[datasets/old]" time="0.001" /><testcase classname="tests.test_phase2_2_evaluation" name="test_single_model_saved_record_recalculation_has_hand_computed_metrics" time="0.001" /><testcase classname="tests.test_phase2_2_evaluation" name="test_generic_paired_bootstrap_preserves_actual_comparison_names" time="0.000" /><testcase classname="tests.test_phase2_2_evaluation" name="test_candidate_freeze_and_matched_development_comparison_are_reproducible" time="1.245"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_candidate_freeze_and_matc0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a80e0&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ab9e0&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_optimization_evaluation_rejects_saved_evidence_tampering[candidate_v3_predictions.jsonl.gz]" time="0.134"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_optimization_evaluation_r0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c387890&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c377f50&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_optimization_evaluation_rejects_saved_evidence_tampering[reference_E0_analysis.json]" time="0.137"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_optimization_evaluation_r1')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c545430&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c5457c0&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_optimization_evaluation_rejects_saved_evidence_tampering[confidence_intervals.json]" time="0.136"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_optimization_evaluation_r2')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2ab980&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c546600&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_changed_candidate_cannot_be_refrozen" time="0.133"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_changed_candidate_cannot_0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c4cdb20&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c3748c0&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_frozen_reference_cannot_change_after_candidate_export" time="0.130"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_frozen_reference_cannot_c0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c3c3ad0&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c66e720&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_saved_v2_is_not_accepted_as_unseen_reference_on_new_development" time="0.176"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_saved_v2_is_not_accepted_0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c4ce180&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c5460c0&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_prediction_write_failure_cannot_publish_pass" time="0.137"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_prediction_write_failure_0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c4cc770&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c44d220&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_real_v3_latency_and_two_game_rounds_preserve_weights_and_state" time="0.145"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_real_v3_latency_and_two_g0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c3875f0&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2a8200&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_test_evidence_requires_old_and_new_families_and_zero_failures" time="0.006" /><testcase classname="tests.test_phase2_2_evaluation" name="test_retrospective_comparison_cannot_run_before_final_selection_freeze" time="0.149"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_retrospective_comparison_0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c49e330&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c49eb40&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_failed_comparison_verification_replaces_previous_pass" time="0.138"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_failed_comparison_verific0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c267fe0&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c49c560&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_frozen_final_verification_rejects_development_leaf_changes[corrupt]" time="0.006" /><testcase classname="tests.test_phase2_2_evaluation" name="test_frozen_final_verification_rejects_development_leaf_changes[delete]" time="0.004" /><testcase classname="tests.test_phase2_2_evaluation" name="test_failed_final_verification_replaces_previous_pass" time="0.003" /><testcase classname="tests.test_phase2_2_evaluation" name="test_regression_gate_rejects_real_missing_family_and_duplicate_cases" time="5.336" /><testcase classname="tests.test_phase2_2_evaluation" name="test_rejected_duplicate_final_attempt_preserves_frozen_result" time="0.004" /><testcase classname="tests.test_phase2_2_evaluation" name="test_frozen_final_verification_rejects_changed_junit_evidence" time="0.004" /><testcase classname="tests.test_phase2_2_evaluation" name="test_frozen_unselected_experiment_artifact_tampering_is_rejected[model.pt]" time="0.130"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_frozen_unselected_experim0')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2e9430&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c397800&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_frozen_unselected_experiment_artifact_tampering_is_rejected[model.metadata.json]" time="0.129"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_frozen_unselected_experim1')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c3975c0&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2a70e0&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_evaluation" name="test_frozen_unselected_experiment_artifact_tampering_is_rejected[history.json]" time="0.133"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training3/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_frozen_unselected_experim2')
+
+    @pytest.fixture
+    def completed_matrix(expanded_root,tmp_path):
+        from training.optimization_data import DevelopmentCorpus,build_trajectory_groups
+        from training.optimization_runner import run_matrix
+        from training.reporting import write_json_report
+        from training.train_mlp import TrainConfig
+        corpus=DevelopmentCorpus(expanded_root);output=tmp_path/'matrix';output.mkdir()
+        groups=build_trajectory_groups(corpus);write_json_report(output/'trajectory_groups.json',groups)
+&gt;       run_matrix(expanded_root,output,common_config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu'))
+
+tests/test_phase2_2_evaluation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+training/optimization_runner.py:124: in run_matrix
+    for name in ('E0','E1','E2'):primary[name]=run_case(corpus,registry,name,protocol['primary_architectures'][name],common,0,resume=resume)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c3d3650&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c3d1910&gt;
+experiment = 'E0'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_v1', 'dropout': 0.2, 'hidden_dim': 64, ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_models" name="test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths0-89826]" time="0.013" /><testcase classname="tests.test_phase2_2_models" name="test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths1-179618]" time="0.004" /><testcase classname="tests.test_phase2_2_models" name="test_model_family_counts_forward_masked_probabilities_and_real_gradients[widths2-387746]" time="0.010" /><testcase classname="tests.test_phase2_2_models" name="test_architecture_rejects_unsupported_or_unsafe_capacity[widths0-0.2]" time="0.000" /><testcase classname="tests.test_phase2_2_models" name="test_architecture_rejects_unsupported_or_unsafe_capacity[widths1-0.2]" time="0.000" /><testcase classname="tests.test_phase2_2_models" name="test_architecture_rejects_unsupported_or_unsafe_capacity[widths2-0.2]" time="0.000" /><testcase classname="tests.test_phase2_2_models" name="test_architecture_rejects_unsupported_or_unsafe_capacity[widths3-0.2]" time="0.000" /><testcase classname="tests.test_phase2_2_models" name="test_architecture_rejects_unsupported_or_unsafe_capacity[widths4-nan]" time="0.000" /><testcase classname="tests.test_phase2_2_models" name="test_architecture_rejects_unsupported_or_unsafe_capacity[widths5-0.9]" time="0.000" /><testcase classname="tests.test_phase2_2_models" name="test_existing_checkpoints_keep_exact_default_architecture_and_cpu_predictions" time="0.014" /><testcase classname="tests.test_phase2_2_models" name="test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume[widths0]" time="1.845" /><testcase classname="tests.test_phase2_2_models" name="test_larger_model_uses_existing_streamed_trainer_safe_checkpoint_and_resume[widths1]" time="0.770" /><testcase classname="tests.test_phase2_2_models" name="test_nonfinite_gradients_are_rejected_before_optimizer_update" time="0.072" /><testcase classname="tests.test_phase2_2_models" name="test_retained_resume_generations_are_bounded_without_losing_committed_pointer" time="0.004" /><testcase classname="tests.test_phase2_2_registry" name="test_registry_is_deterministic_rejects_duplicate_ids_and_changed_protocol" time="0.002" /><testcase classname="tests.test_phase2_2_registry" name="test_regularization_changes_one_axis_from_development_evidence_only" time="0.000" /><testcase classname="tests.test_phase2_2_registry" name="test_promotion_uses_paired_development_runs_and_safety_not_historical_test" time="0.000" /><testcase classname="tests.test_phase2_2_registry" name="test_real_registry_case_matches_declared_fold_architecture_and_checkpoint" time="1.128"><failure message="OSError: Insufficient disk: retain at least1GiB before training">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/test_real_registry_case_matche0')
+
+    def test_real_registry_case_matches_declared_fold_architecture_and_checkpoint(expanded_root,tmp_path):
+        from app.mlp import architecture_spec
+        from app.model_checkpoint import load_checkpoint
+        from training.optimization_data import DevelopmentCorpus,development_splits,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);lineage=evaluation_lineage(corpus)
+        config=TrainConfig(max_epochs=2,patience=1,batch_size=32,device='cpu')
+        protocol=protocol_config(corpus.contract_sha256,canonical_hash(lineage),config);registry=ExperimentRegistry(tmp_path,protocol)
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a5310&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x1158963f0&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=2, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</failure></testcase><testcase classname="tests.test_phase2_2_registry" name="test_case_rejects_historical_or_unknown_fold_before_training" time="0.076" /><testcase classname="tests.test_phase2_2_registry" name="test_development_metadata_rejected_before_weights_deserialization[overlap]" time="0.074"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=&lt;pluggy._tracing.TagTracerSub object at 0x10a08dd00&gt;, _basetemp=PosixPath...ders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def optimization_checkpoint(expanded_root,tmp_path_factory):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu')
+        registry=ExperimentRegistry(tmp_path_factory.mktemp('optimization-checkpoint'),protocol_config(corpus.contract_sha256,canonical_hash(evaluation_lineage(corpus)),config))
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a6630&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ba630&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_registry" name="test_development_metadata_rejected_before_weights_deserialization[historical]" time="0.000"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=&lt;pluggy._tracing.TagTracerSub object at 0x10a08dd00&gt;, _basetemp=PosixPath...ders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def optimization_checkpoint(expanded_root,tmp_path_factory):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu')
+        registry=ExperimentRegistry(tmp_path_factory.mktemp('optimization-checkpoint'),protocol_config(corpus.contract_sha256,canonical_hash(evaluation_lineage(corpus)),config))
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a6630&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ba630&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_registry" name="test_development_metadata_rejected_before_weights_deserialization[protocol]" time="0.000"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=&lt;pluggy._tracing.TagTracerSub object at 0x10a08dd00&gt;, _basetemp=PosixPath...ders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def optimization_checkpoint(expanded_root,tmp_path_factory):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu')
+        registry=ExperimentRegistry(tmp_path_factory.mktemp('optimization-checkpoint'),protocol_config(corpus.contract_sha256,canonical_hash(evaluation_lineage(corpus)),config))
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a6630&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ba630&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_registry" name="test_development_metadata_rejected_before_weights_deserialization[blind_claim]" time="0.000"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=&lt;pluggy._tracing.TagTracerSub object at 0x10a08dd00&gt;, _basetemp=PosixPath...ders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def optimization_checkpoint(expanded_root,tmp_path_factory):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu')
+        registry=ExperimentRegistry(tmp_path_factory.mktemp('optimization-checkpoint'),protocol_config(corpus.contract_sha256,canonical_hash(evaluation_lineage(corpus)),config))
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a6630&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ba630&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_registry" name="test_development_metadata_rejected_before_weights_deserialization[missing_phase]" time="0.000"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=&lt;pluggy._tracing.TagTracerSub object at 0x10a08dd00&gt;, _basetemp=PosixPath...ders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def optimization_checkpoint(expanded_root,tmp_path_factory):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu')
+        registry=ExperimentRegistry(tmp_path_factory.mktemp('optimization-checkpoint'),protocol_config(corpus.contract_sha256,canonical_hash(evaluation_lineage(corpus)),config))
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a6630&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ba630&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_registry" name="test_development_metadata_rejected_before_weights_deserialization[missing_development]" time="0.000"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=&lt;pluggy._tracing.TagTracerSub object at 0x10a08dd00&gt;, _basetemp=PosixPath...ders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def optimization_checkpoint(expanded_root,tmp_path_factory):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu')
+        registry=ExperimentRegistry(tmp_path_factory.mktemp('optimization-checkpoint'),protocol_config(corpus.contract_sha256,canonical_hash(evaluation_lineage(corpus)),config))
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a6630&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ba630&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_2_registry" name="test_completed_registry_metrics_cannot_disagree_with_frozen_checkpoint" time="0.000"><error message="failed on setup with &quot;OSError: Insufficient disk: retain at least1GiB before training&quot;">expanded_root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103/expanded-training5/expanded')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=&lt;pluggy._tracing.TagTracerSub object at 0x10a08dd00&gt;, _basetemp=PosixPath...ders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-103'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def optimization_checkpoint(expanded_root,tmp_path_factory):
+        from app.mlp import architecture_spec
+        from training.optimization_data import DevelopmentCorpus,evaluation_lineage
+        from training.optimization_runner import ExperimentRegistry,protocol_config,run_case
+        from training.expanded_dataset import canonical_hash
+        corpus=DevelopmentCorpus(expanded_root);config=TrainConfig(max_epochs=1,patience=1,batch_size=32,device='cpu')
+        registry=ExperimentRegistry(tmp_path_factory.mktemp('optimization-checkpoint'),protocol_config(corpus.contract_sha256,canonical_hash(evaluation_lineage(corpus)),config))
+&gt;       row=run_case(corpus,registry,'E1',architecture_spec((128,),.2),config,0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase2_2_registry.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+corpus = &lt;training.optimization_data.DevelopmentCorpus object at 0x11c2a6630&gt;
+registry = &lt;training.optimization_runner.ExperimentRegistry object at 0x11c2ba630&gt;
+experiment = 'E1'
+spec = {'activation': 'ReLU', 'architecture_version': 'discard_mlp_flexible_v1', 'dropout': 0.2, 'hidden_dims': [128], ...}
+config = TrainConfig(seed=2026, learning_rate=0.001, weight_decay=0.0001, batch_size=32, max_epochs=1, patience=1, device='cpu', cpu_threads=1)
+fold = 0, resume = False, stop_after_epoch = None
+
+    def run_case(corpus,registry,experiment,spec,config,fold,resume=False,stop_after_epoch=None):
+        if (registry.root/'model_freeze.json').exists():raise ValueError('Model already frozen; no further experiments')
+        if experiment not in ('E0','E1','E2','E3') or fold not in (0,1):raise ValueError('Unknown experiment/fold')
+        common=TrainConfig(**registry.protocol['common_config'])
+        if config.seed not in (registry.protocol['primary_seed'],registry.protocol['robustness_seed']):raise ValueError('Undeclared experiment seed')
+        expected=replace(common,seed=config.seed)
+        if experiment=='E3' and config.weight_decay==.001:expected=replace(expected,weight_decay=.001)
+        if asdict(config)!=asdict(expected):raise ValueError('Configuration differs from frozen protocol')
+        if experiment!='E3' and spec!=registry.protocol['primary_architectures'][experiment]:raise ValueError('Architecture differs from frozen primary matrix')
+        if corpus.contract_sha256!=registry.protocol['dataset_contract_sha256'] or canonical_hash(evaluation_lineage(corpus))!=registry.protocol['lineage_content_sha256']:raise ValueError('Development lineage identity changed')
+        training,validation=development_splits(corpus,fold)
+        identity={'id':f'{experiment}_f{fold}_s{config.seed}','experiment':experiment,'architecture':spec,'parameters':parameter_count(spec),'config':asdict(config),'fold':fold,'model_seed':config.seed,'training_identity':training.identity,'validation_identity':validation.identity}
+        entry=registry.register(identity,resume)
+        folder=registry.root/'experiments'/identity['id'];checkpoint=folder/'model.pt'
+        if entry['status']=='PASS':
+            model,metadata=load_checkpoint(checkpoint,expected_contract=corpus.contract)
+            if file_sha256(checkpoint)!=entry['checkpoint_sha256'] or file_sha256(checkpoint.with_suffix('.metadata.json'))!=entry['metadata_sha256'] or weights_sha256(model.state_dict())!=entry['best_weights_sha256']:raise ValueError('Completed experiment artifact changed')
+            history_path=folder/'history.json';summary=json.loads(history_path.read_text())
+            if file_sha256(history_path)!=entry['history_sha256'] or metadata['validation_metrics']!=entry['validation'] or summary['best_validation_metrics']!=entry['validation'] or summary['selected_train_metrics']!=entry['train'] or summary['generalization_gap']!=entry['generalization_gap'] or entry['checkpoint']!=str(checkpoint):raise ValueError('Completed experiment metric/evidence mismatch')
+            if metadata['development']!=development_metadata(corpus,training,validation,config,fold,registry,history_path):raise ValueError('Completed experiment development identity changed')
+            return entry
+&gt;       if shutil.disk_usage(registry.root).free&lt;1024**3:raise OSError('Insufficient disk: retain at least1GiB before training')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: Insufficient disk: retain at least1GiB before training
+
+training/optimization_runner.py:82: OSError</error></testcase><testcase classname="tests.test_phase2_checkpoint" name="test_cpu_state_dict_roundtrip_and_independent_metadata" time="0.103" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[input]" time="0.006" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[output]" time="0.005" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[encoder]" time="0.007" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[tiles]" time="0.007" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[actions]" time="0.005" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[dataset]" time="0.010" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[preprocessing]" time="0.007" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[corrupt]" time="0.006" /><testcase classname="tests.test_phase2_checkpoint" name="test_checkpoint_rejects_incompatible_or_corrupt_artifacts[missing]" time="0.006" /><testcase classname="tests.test_phase2_checkpoint" name="test_metadata_is_rejected_before_deserialization" time="0.005" /><testcase classname="tests.test_phase2_dataset" name="test_real_approved_snapshot_and_match_disjoint_preprocessing" time="0.048" /><testcase classname="tests.test_phase2_dataset" name="test_tampered_snapshot_fails_and_writes_report[npz_hash]" time="0.005" /><testcase classname="tests.test_phase2_dataset" name="test_tampered_snapshot_fails_and_writes_report[manifest_hash]" time="0.005" /><testcase classname="tests.test_phase2_dataset" name="test_tampered_snapshot_fails_and_writes_report[run_id]" time="0.004" /><testcase classname="tests.test_phase2_dataset" name="test_tampered_snapshot_fails_and_writes_report[strategy]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_tampered_snapshot_fails_and_writes_report[source_hash]" time="0.004" /><testcase classname="tests.test_phase2_dataset" name="test_tampered_snapshot_fails_and_writes_report[audit_status]" time="0.007" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[duplicate_row]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[missing_row]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[match]" time="0.007" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[seat]" time="0.007" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[action]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[score]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[uid]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[source]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_manifest_alignment_rejects_wrong_real_row_identity[duplicate_identity]" time="0.006" /><testcase classname="tests.test_phase2_dataset" name="test_alignment_accepts_explicit_row_order_and_rejects_empty_mask" time="0.013" /><testcase classname="tests.test_phase2_demo" name="test_real_saved_model_demo_finishes_round_without_prediction_mutation" time="0.767" /><testcase classname="tests.test_phase2_evaluation" name="test_frozen_checkpoint_evaluation_is_complete_and_independently_recalculated" time="0.188" /><testcase classname="tests.test_phase2_evaluation" name="test_independent_metrics_have_hand_checked_expected_values" time="0.000" /><testcase classname="tests.test_phase2_evaluation" name="test_reverification_rejects_missing_or_changed_saved_evidence[missing_freeze]" time="0.089" /><testcase classname="tests.test_phase2_evaluation" name="test_reverification_rejects_missing_or_changed_saved_evidence[missing_predictions]" time="0.103" /><testcase classname="tests.test_phase2_evaluation" name="test_reverification_rejects_missing_or_changed_saved_evidence[empty_predictions]" time="0.104" /><testcase classname="tests.test_phase2_evaluation" name="test_reverification_rejects_missing_or_changed_saved_evidence[changed_freeze]" time="0.090" /><testcase classname="tests.test_phase2_evaluation" name="test_metadata_write_failure_cannot_publish_pass_and_same_frozen_model_can_resume" time="0.149" /><testcase classname="tests.test_phase2_inference" name="test_predictions_are_legal_normalized_readonly_and_model_is_cached" time="0.081" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[obs_shape]" time="0.020" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[obs_dtype]" time="0.015" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[mask_shape]" time="0.008" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[mask_dtype]" time="0.007" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[mask_disagreement]" time="0.005" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[encoder]" time="0.005" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[seat]" time="0.005" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[turn]" time="0.005" /><testcase classname="tests.test_phase2_inference" name="test_service_rejects_incompatible_encoded_state[obs_values]" time="0.005" /><testcase classname="tests.test_phase2_inference" name="test_service_handles_no_legal_discard_explicitly" time="0.010" /><testcase classname="tests.test_phase2_inference" name="test_inference_and_normal_gameplay_complete_round_with_post_meld_turns" time="0.176" /><testcase classname="tests.test_phase2_metrics" name="test_hand_calculated_metrics_and_zero_support_convention" time="0.000" /><testcase classname="tests.test_phase2_metrics" name="test_top3_uses_only_available_legal_classes_and_ties_are_stable" time="0.000" /><testcase classname="tests.test_phase2_metrics" name="test_invalid_metric_inputs_fail_explicitly[empty]" time="0.000" /><testcase classname="tests.test_phase2_metrics" name="test_invalid_metric_inputs_fail_explicitly[illegal_target]" time="0.000" /><testcase classname="tests.test_phase2_metrics" name="test_invalid_metric_inputs_fail_explicitly[nan]" time="0.000" /><testcase classname="tests.test_phase2_metrics" name="test_invalid_metric_inputs_fail_explicitly[unnormalized]" time="0.000" /><testcase classname="tests.test_phase2_metrics" name="test_baselines_fit_training_only_and_are_legal_and_reproducible" time="0.001" /><testcase classname="tests.test_phase2_model" name="test_original_mlp_dimensions_parameters_and_real_optimizer_step" time="0.003" /><testcase classname="tests.test_phase2_model" name="test_illegal_logits_do_not_compete_or_receive_gradients" time="0.001" /><testcase classname="tests.test_phase2_model" name="test_masked_loss_rejects_invalid_states[empty]" time="0.000" /><testcase classname="tests.test_phase2_model" name="test_masked_loss_rejects_invalid_states[illegal_target]" time="0.000" /><testcase classname="tests.test_phase2_model" name="test_masked_loss_rejects_invalid_states[float_mask]" time="0.000" /><testcase classname="tests.test_phase2_model" name="test_masked_loss_rejects_invalid_states[nan]" time="0.000" /><testcase classname="tests.test_phase2_model" name="test_masked_loss_rejects_invalid_states[bad_shape]" time="0.000" /><testcase classname="tests.test_phase2_model" name="test_masked_loss_rejects_invalid_states[bad_target]" time="0.000" /><testcase classname="tests.test_phase2_model" name="test_single_legal_class_has_finite_zero_loss" time="0.000" /><testcase classname="tests.test_phase2_training" name="test_early_stopping_selects_minimum_validation_and_stops_after_patience" time="0.000" /><testcase classname="tests.test_phase2_training" name="test_real_training_updates_weights_and_restores_independent_best_state" time="0.009" /><testcase classname="tests.test_phase2_training" name="test_cpu_training_is_repeatable_with_same_seed" time="0.008" /><testcase classname="tests.test_phase2_training" name="test_training_rejects_test_split_before_reading_its_labels" time="0.000" /><testcase classname="tests.test_phase2_training" name="test_training_rejects_overlapping_match_groups" time="0.000" /><testcase classname="tests.test_source_action_contract" name="test_all_action_ids_conform_to_actual_published_feature_agent" time="0.004" /><testcase classname="tests.test_tiles_and_actions" name="test_canonical_tiles_grid_and_wall_counts" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_tile_indices_fail_explicitly[-1]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_tile_indices_fail_explicitly[34]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_tile_indices_fail_explicitly[True]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_tile_indices_fail_explicitly[1.2]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_tile_indices_fail_explicitly[1]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_tile_indices_fail_explicitly[None]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[W0]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[W10]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[F5]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[J4]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[H1]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[None]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_normal_tiles_fail_explicitly[value7]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_all_235_actions_roundtrip_and_discard_contract" time="0.001" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_actions_fail_explicitly[-1]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_actions_fail_explicitly[235]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_actions_fail_explicitly[True]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_actions_fail_explicitly[1.5]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_actions_fail_explicitly[2]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_actions_fail_explicitly[None]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_chi_fails_explicitly[W1-W2]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_chi_fails_explicitly[W8-W6]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_chi_fails_explicitly[F2-F1]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_chi_fails_explicitly[W2-T1]" time="0.000" /><testcase classname="tests.test_tiles_and_actions" name="test_invalid_chi_fails_explicitly[Wx-W2]" time="0.001" /></testsuite></testsuites>

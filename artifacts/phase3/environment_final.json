@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-05T04:12:58.510751+00:00",
+  "python": "3.12.10 (main, Apr  8 2025, 11:35:47) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "versions": {
+    "torch": "2.15.0",
+    "numpy": "2.5.4",
+    "PyMahjongGB": "1.4.0",
+    "pytest": "8.4.2",
+    "fastapi": "0.162.0",
+    "starlette": "1.10.0",
+    "sqlmodel": "0.0.48",
+    "SQLAlchemy": "2.0.57",
+    "psycopg": "3.3.8",
+    "uvicorn": "0.54.0",
+    "Jinja2": "3.1.6",
+    "pydantic": "2.14.2",
+    "httpx": "0.28.1"
+  },
+  "node": "v24.4.1",
+  "locked_packages": 41,
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e"
+}

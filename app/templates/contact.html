@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Contact Us · Mahjong Strategy AI{% endblock %}
+{% block content %}
+<h1>Contact Us</h1>
+{% if not verified or not members %}
+<p class="notice">Data anggota kelompok dan pembagian tugas belum diverifikasi. Konten Contact Us belum lengkap.</p>
+{% else %}
+<ul>{% for member in members %}<li><strong>{{ member.name }}</strong>
+{% if member.student_id %}<p>NIM: {{ member.student_id }}</p>{% endif %}
+{% if member.role %}<p>Peran: {{ member.role }}</p>{% endif %}
+{% if member.email %}<p>Email: {{ member.email }}</p>{% endif %}
+</li>{% endfor %}</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "app",
+        "scripts"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "app/static/phase3.js"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import app.main"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--quiet"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "evidence": "docs/evidence/phase3/final_checks.txt",
+  "unrun": [
+    "No configured Python linter/typechecker",
+    "Clean environment installation",
+    "Windows/Linux/production/multi-worker operation"
+  ]
+}

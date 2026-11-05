@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "server_version": "14.19 (Homebrew)",
+  "real_postgresql": true,
+  "schema": {
+    "status": "PASS",
+    "dialect": "postgresql",
+    "table": "prediction_results",
+    "columns": [
+      "checkpoint_sha256",
+      "created_at",
+      "encoder_version",
+      "game_id",
+      "id",
+      "input_snapshot",
+      "model_version",
+      "output_snapshot",
+      "owner_key",
+      "state_digest",
+      "turn_number",
+      "turn_phase"
+    ],
+    "jsonb": [
+      "input_snapshot",
+      "output_snapshot"
+    ],
+    "unique_constraint": "uq_prediction_snapshot",
+    "indexes": [
+      "ix_prediction_owner_created",
+      "uq_prediction_snapshot"
+    ]
+  },
+  "test_database": "mahjong_phase3_test",
+  "development_rows_before": 11,
+  "development_rows_after": 11,
+  "development_hash_before": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+  "development_hash_after": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+  "development_history_unchanged": true,
+  "database_schema_or_migration_changes": false,
+  "sqlite_substitution": false,
+  "evidence": [
+    "docs/evidence/phase3/security_fix_focused.xml",
+    "docs/evidence/phase3/full_regression_security_fix.xml"
+  ]
+}

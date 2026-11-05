@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Play, Predict &amp; Learn</h1>
+<p>Mainkan Mahjong Competition Rules melawan tiga bot dan pelajari saran discard dari MLP v3.</p>
+<p>Game menggunakan engine yang sama dengan versi CLI. Anda tetap memilih setiap aksi.</p>
+<dl>
+  <dt>Kategori</dt><dd>Hiburan / Entertainment</dd>
+  <dt>Dataset</dt><dd>{{ dataset_id }} · {{ samples }} sampel terverifikasi</dd>
+  <dt>Metode</dt><dd>Behavior Cloning; encoding state yang terlihat oleh pemain, lalu klasifikasi discard legal</dd>
+  <dt>Arsitektur</dt><dd>{{ architecture }}</dd>
+  <dt>Model version</dt><dd><code>{{ model_version }}</code></dd>
+  <dt>Top-1 retrospektif</dt><dd>{{ top1 }}</dd>
+  <dt>Top-3 retrospektif</dt><dd>{{ top3 }}</dd>
+</dl>
+<p>Angka di atas adalah akurasi meniru discard pada pengujian historis retrospektif, bukan blind test eksternal baru dan bukan probabilitas menang.</p>
+<p>History menyimpan input yang terlihat oleh Anda dan hasil prediksi. Identitas browser diperlukan untuk mengakses atau menghapusnya; pergantian identitas browser membuat history lama tidak dapat diakses.</p>
+<p><a class="button" href="/game">Mulai bermain</a> <a href="/history">Lihat history Anda</a></p>
+{% endblock %}

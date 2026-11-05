@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "protected_prior_files": 1868,
+  "changed_or_missing": [],
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+  "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "encoder_version": "ijcai2026_mcr_v1_strict",
+  "parameters": 387746,
+  "device": "cpu",
+  "inference_bundle_sha256": "96ea17fab9e13ae7061230a892cc302dfa74a7e765740f363cd7a27fa96119b2",
+  "checkpoint_inference_only": true,
+  "training_performed_for_v3": false,
+  "old_evidence_changed": false
+}

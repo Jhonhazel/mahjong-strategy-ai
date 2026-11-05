@@ -1,0 +1,285 @@
+{
+  "status": "PASS",
+  "finding": "P3-01",
+  "severity": "LOW / MINOR",
+  "verification_stage": "Completed pre-commit gates; actual commit identity is recorded by Git and final response, avoiding a self-referential commit hash",
+  "checked_at_utc": "2026-11-05T10:02:00.405572+00:00",
+  "root_cause": "The protected ASGI send wrapper was defined after early-return branches; invalid Content-Length and both oversize paths used the original send",
+  "minimal_fix": "Move the existing wrapper after non-HTTP passthrough and before length parsing; pass it to early400/413 and downstream; default policy and response logic unchanged",
+  "production_files_changed_by_this_fix": [
+    "app/web/security.py"
+  ],
+  "test_files_changed_by_this_fix": [
+    "tests/test_phase3_security.py"
+  ],
+  "documentation_appends": [
+    "docs/phase3_implementation_report.md",
+    "docs/phase3_file_inventory.md",
+    "docs/phase3_execution_ledger.md",
+    "docs/evidence/phase3/code_review.md"
+  ],
+  "before": {
+    "normal": {
+      "status": 200,
+      "headers": {
+        "x-route": "preserved",
+        "content-length": "11",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 1,
+      "request_chunks_received": 1
+    },
+    "invalid_length": {
+      "status": 400,
+      "headers": {
+        "content-length": "69",
+        "content-type": "application/json"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "negative_length": {
+      "status": 400,
+      "headers": {
+        "content-length": "69",
+        "content-type": "application/json"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "declared_oversize": {
+      "status": 413,
+      "headers": {
+        "connection": "close",
+        "content-length": "90",
+        "content-type": "application/json"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "streamed_oversize": {
+      "status": 413,
+      "headers": {
+        "connection": "close",
+        "content-length": "90",
+        "content-type": "application/json"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 2
+    }
+  },
+  "after": {
+    "normal": {
+      "status": 200,
+      "headers": {
+        "x-route": "preserved",
+        "content-length": "11",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 1,
+      "request_chunks_received": 1
+    },
+    "invalid_length": {
+      "status": 400,
+      "headers": {
+        "content-length": "69",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "negative_length": {
+      "status": 400,
+      "headers": {
+        "content-length": "69",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "declared_oversize": {
+      "status": 413,
+      "headers": {
+        "connection": "close",
+        "content-length": "90",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "streamed_oversize": {
+      "status": 413,
+      "headers": {
+        "connection": "close",
+        "content-length": "90",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 2
+    }
+  },
+  "invariants_verified": [
+    "Original400/413 status and JSON bodies",
+    "413 Connection close",
+    "No downstream on rejected requests",
+    "Bounded streamed read/no drain after rejection",
+    "Exact request limit allowed",
+    "Normal body/status/extra header preserved",
+    "One of each intended security header on tested responses",
+    "Actual Swagger/ReDoc CSP unchanged",
+    "Non-HTTP callback identity passthrough",
+    "Disconnect produces no response/downstream"
+  ],
+  "red": {
+    "command": ".venv/bin/python -m pytest tests/test_phase3_security.py -q -k p3_01",
+    "failed": 5,
+    "passed": 6,
+    "deselected": 10,
+    "seconds": 0.33,
+    "cause": "Actual missing cache-control on all five early-error cases; no import/PostgreSQL errors"
+  },
+  "green": {
+    "command": ".venv/bin/python -m pytest tests/test_phase3_security.py -q -k p3_01 --junitxml=docs/evidence/phase3/security_fix_green.xml",
+    "passed": 11,
+    "deselected": 10,
+    "seconds": 0.19
+  },
+  "affected": {
+    "passed": 33,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 2.46
+  },
+  "phase3_focused": {
+    "passed": 91,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 6.8
+  },
+  "full_regression": {
+    "passed": 370,
+    "unique": 370,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 64.3,
+    "junit": "docs/evidence/phase3/full_regression_security_fix.xml"
+  },
+  "historical_preservation": {
+    "all_359_cases": true,
+    "original279": true,
+    "previous_phase3_80": true,
+    "new_cases": [
+      "tests.test_phase3_security::test_p3_01_declared_oversize_has_security_headers_and_connection_close",
+      "tests.test_phase3_security::test_p3_01_disconnect_does_not_execute_downstream_or_respond",
+      "tests.test_phase3_security::test_p3_01_exact_body_limit_preserves_the_full_request",
+      "tests.test_phase3_security::test_p3_01_invalid_content_length_has_security_headers_without_route[-1]",
+      "tests.test_phase3_security::test_p3_01_invalid_content_length_has_security_headers_without_route[malformed]",
+      "tests.test_phase3_security::test_p3_01_non_http_scope_keeps_original_callbacks",
+      "tests.test_phase3_security::test_p3_01_normal_and_documentation_responses_preserve_body_and_csp[normal]",
+      "tests.test_phase3_security::test_p3_01_normal_and_documentation_responses_preserve_body_and_csp[redoc]",
+      "tests.test_phase3_security::test_p3_01_normal_and_documentation_responses_preserve_body_and_csp[swagger]",
+      "tests.test_phase3_security::test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[1]",
+      "tests.test_phase3_security::test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[None]"
+    ],
+    "new_case_count": 11,
+    "prior_protected_files": 1868,
+    "changed_or_missing_prior_assets": 0,
+    "old_evidence_overwritten": false
+  },
+  "model": {
+    "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+    "encoder_version": "ijcai2026_mcr_v1_strict",
+    "parameters": 387746,
+    "device": "cpu",
+    "unchanged": true,
+    "inference_bundle_sha256": "96ea17fab9e13ae7061230a892cc302dfa74a7e765740f363cd7a27fa96119b2"
+  },
+  "postgresql": {
+    "real": true,
+    "server_version": "14.19 (Homebrew)",
+    "test_database": "mahjong_phase3_test",
+    "development_rows_before": 11,
+    "development_rows_after": 11,
+    "development_history_unchanged": true
+  },
+  "two_rounds_and_predictions_equal_to_prior_baseline": true,
+  "existing_engine_training_and_encoder_changes": false,
+  "new_dependencies": false,
+  "environment": {
+    "python": "3.12.10 (main, Apr  8 2025, 11:35:47) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "versions": {
+      "pytest": "8.4.2",
+      "fastapi": "0.162.0",
+      "starlette": "1.10.0",
+      "sqlmodel": "0.0.48",
+      "SQLAlchemy": "2.0.57",
+      "psycopg": "3.3.8",
+      "torch": "2.15.0",
+      "numpy": "2.5.4",
+      "PyMahjongGB": "1.4.0"
+    }
+  },
+  "limitations": [
+    "One known Starlette/httpx TestClient deprecation warning, unchanged",
+    "No clean-install/Windows/Linux/production verification",
+    "No new independent reviewer reapproval claimed",
+    "Contact roster still unverified",
+    "In-memory games/single worker",
+    "Polished board/final UAS PDF/video future",
+    "64.35% retrospective Top1 is not a win probability"
+  ],
+  "commit_plan": {
+    "user_explicitly_authorized": true,
+    "branch": "main",
+    "expected_parent": "b9821fd53b1ef73e2df85de238e028c0244d511f",
+    "message": "feat(web): complete Phase 3 Mahjong backend integration",
+    "exactly_one_local_commit": true,
+    "push_authorized": false,
+    "deployment_authorized": false
+  },
+  "evidence_sha256": {
+    "docs/evidence/phase3/security_fix_red.txt": "74f25a9ecb611a5866f0178c7a000dc91ed51f59262688dd2b5592fd3a281ea1",
+    "docs/evidence/phase3/security_fix_green.txt": "d54ebc71eb01dc68b6b8061171638d37ac6ab32ebdc8c32787dfb66be0752ade",
+    "docs/evidence/phase3/security_fix_green.xml": "310d0d141c1ebbb6d5e5346a8206ac9e69d96121e9158247ebeadeadf84b22df",
+    "docs/evidence/phase3/security_fix_affected.txt": "e8057c5ad4c680540f4380d89cdb32d3eed94ed206284d4018c67ae1900266d6",
+    "docs/evidence/phase3/security_fix_affected.xml": "6b194c829239ef0685d1a0e4eced2638b6ec694ab76d08211ba6fe72ab594365",
+    "docs/evidence/phase3/security_fix_focused.txt": "99209cab34131e50ee60335bda672dad20d982ba732630d60c138a30c315c8d4",
+    "docs/evidence/phase3/security_fix_focused.xml": "c92c36526947a61f7d2f062d3f7717f7b6c599398e5492887257ae0244329e27",
+    "docs/evidence/phase3/full_regression_security_fix.txt": "4054d0242ea32febe18394d74d078ee7aa5e636d016db20fa6dd94ed2babc126",
+    "docs/evidence/phase3/full_regression_security_fix.xml": "520f2647a1d115f912759d3efa9e1afa1cbcbc2bab3181a4bb84c7f8cf3852cd",
+    "docs/evidence/phase3/security_fix_checks.txt": "f24b50e04d1d24d191d710908172c31b91488ad43f34b6d732a1f6123c004677",
+    "docs/evidence/phase3/security_fix_source.diff": "52f7259b542c08770e0864c28d7c2981a317cd150a432c232b4016f727656aac",
+    "artifacts/phase3/security_fix_checks.json": "937fa0acf5c3bbfc6d3d2eb77658674f66f00bfa21ed750860bde42289f0cb8c",
+    "artifacts/phase3/security_fix_dev_history_before.json": "eb784ca3a7fc4e6dbeacc02ba52b5aee557e8cf9ed068d9239b5e584af31fd65",
+    "artifacts/phase3/security_fix_game_model_comparison.json": "48042b838b97506a222800134ee782c3f5b8e258a67c4ba1c7f6926a46aa9d51",
+    "artifacts/phase3/security_fix_model_preservation.json": "249eca79c6d631ba25c247a7c118cdf391a2b014b3c439c03fd824903b4b320a",
+    "artifacts/phase3/security_fix_observed_after.json": "541a17e1ede31e924ec53293a6ff3410147ec3a6eb19d3773141d4f9030f8e3a",
+    "artifacts/phase3/security_fix_observed_before.json": "39c54600fbe0e41f42834a708cce77e994caa58d25199f1f46fb4ff135a63e74",
+    "artifacts/phase3/security_fix_postgres_verification.json": "1cc4f8cedfd0066f80f10b3552c4af24c07c7ddd6b32756ee7a03d70cb1f999b",
+    "artifacts/phase3/security_fix_test_reconciliation.json": "30346be6543e217b3364083db847f4561d31331ed93c9fd278f63ede3f072c79"
+  }
+}

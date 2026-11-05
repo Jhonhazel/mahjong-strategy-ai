@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "query_mode": "READ ONLY",
+  "rows": 11,
+  "canonical_rows_sha256": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+  "server_version": "14.19 (Homebrew)",
+  "listen_addresses": "",
+  "scope": "Existing development history; never mutated by this finalization"
+}

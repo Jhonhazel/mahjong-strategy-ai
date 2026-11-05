@@ -1,0 +1,140 @@
+{
+  "status": "PASS",
+  "verdict": "PHASE 3 PASS — READY FOR PHASE 4",
+  "phase4_readiness": "GO WITH CAVEATS",
+  "completed_at_utc": "2026-11-05T04:25:02.734240+00:00",
+  "report_date": "2026-11-05 Asia/Jakarta",
+  "branch": "main",
+  "head": "b9821fd53b1ef73e2df85de238e028c0244d511f",
+  "tests": {
+    "baseline_passed": 279,
+    "full": {
+      "passed": 359,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_seconds": 73.88,
+      "junit": "docs/evidence/phase3/full_regression_complete.xml"
+    },
+    "phase3_focused": {
+      "passed": 80,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_seconds": 9.34,
+      "junit": "docs/evidence/phase3/focused_complete.xml"
+    },
+    "all_original_279_case_identities_present_and_passing": true,
+    "phase3_cases_by_file": {
+      "tests.test_phase3_bootstrap": 14,
+      "tests.test_phase3_concurrency": 8,
+      "tests.test_phase3_database_tools": 23,
+      "tests.test_phase3_documentation": 3,
+      "tests.test_phase3_end_to_end": 1,
+      "tests.test_phase3_history": 8,
+      "tests.test_phase3_http": 9,
+      "tests.test_phase3_pages": 4,
+      "tests.test_phase3_security": 10
+    },
+    "warnings": [
+      "Starlette TestClient supported httpx fallback deprecation; retained in raw evidence"
+    ],
+    "documented_phase2_2_279_cases_present_and_passing": true
+  },
+  "checkpoint": {
+    "path": "artifacts/models/mahjong_discard_mlp_v3.pt",
+    "sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "unchanged": true,
+    "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+  },
+  "preservation": {
+    "protected_files": 1868,
+    "changed": 0,
+    "missing": 0
+  },
+  "postgresql": {
+    "version": "14.19 (Homebrew)",
+    "real_integration": true,
+    "source_rows": 11,
+    "restored_rows": 11,
+    "all_rows_equal": true,
+    "export": "artifacts/phase3/prediction_history_complete.sql",
+    "export_sha256": "9bf2d934f373e983a7864821e8adb747f004e959478c607a3a3dc3e781505e3d",
+    "export_bytes": 88936,
+    "cluster_stopped_data_retained": true
+  },
+  "acceptance": {
+    "rounds": 2,
+    "outcomes": [
+      "ron",
+      "draw"
+    ],
+    "http_testclient_real_engine_and_v3_and_postgresql": true,
+    "additional_actual_tcp_and_browser": true,
+    "history_after_app_restart": true,
+    "observations_and_weights_unchanged_by_prediction": true
+  },
+  "review": {
+    "fresh_independent_review_count": 2,
+    "critical_found": 0,
+    "initial_important": 4,
+    "resumed_important": 3,
+    "resumed_minor_promoted_and_fixed": 2,
+    "all_findings_addressed": true,
+    "unresolved_critical_or_important": 0,
+    "deferred_review_minors": [],
+    "post_fix_independent_reapproval_claimed": false,
+    "closure": "Observed targeted RED→GREEN; full359/focused80; actual browser RED→GREEN and executor final review",
+    "record": "docs/evidence/phase3/code_review.md"
+  },
+  "git": {
+    "tracked_modified": 4,
+    "untracked": 114,
+    "phase3_git_visible_files": 117,
+    "source_related_files": 45,
+    "staged": 0,
+    "working_tree_clean": false,
+    "staging": false,
+    "commit": false,
+    "push": false,
+    "branch_switch": false,
+    "deployment": false
+  },
+  "limitations": [
+    "Unverified group roster; Contact deliberately incomplete",
+    "One worker; active games in memory expire/restart",
+    "Anonymous history access requires valid original cookie and stable signing secret",
+    "Windows/Linux/clean installation/production unverified",
+    "Documentation CDN assets need network",
+    "Polished board Phase4; final UAS PDF/video/group task division pending",
+    "Restore helper accepts only receipt-verified exports of its own project cluster, max64MiB; arbitrary or cross-machine restore not offered"
+  ],
+  "reports": [
+    "docs/phase3_implementation_report.md",
+    "docs/phase3_file_inventory.md",
+    "docs/phase3_execution_ledger.md"
+  ],
+  "evidence_sha256": {
+    "artifacts/phase3/end_to_end_complete.json": "27e5bf307f2a04cb58c7e8d752ca5bbfd8d20fbc650f9636cd8394cbbc47e209",
+    "artifacts/phase3/database_verification_complete.json": "e32f41bad57c89849b82675ad3cb61a46de2c2cbfe58ba11fec2ee6a09bc3766",
+    "artifacts/phase3/network_complete.json": "62a4aec34e2e0d6ba6347b62c4fe8732ad1da1562eac2da16fe3b965995e5a7b",
+    "artifacts/phase3/model_integration_verification.json": "bb2a5454e269990cc42bf3bc17d4d229bb3b92a960311f18a170d46109d9d2a2",
+    "artifacts/phase3/session_isolation_verification.json": "cc858c7348384f29482c3336ff75923c78fddbe54d7efad5400af6c14c6821b6",
+    "artifacts/phase3/preservation_verification.json": "8e3538cfb6fdc994606799bed45fa935831550728130baae38a8e21ad988272b",
+    "artifacts/phase3/regression_case_reconciliation.json": "e2b6b71ad5b90a3563e3307527065136ed7235d12ec5526adf727b29ab9c2256",
+    "artifacts/phase3/backend_contract.json": "2c105b3b3193e5aa707413b781babcae0b7f23c60f655615fc539d7e798c2620",
+    "artifacts/phase3/api_examples.json": "48df1ee8715d52b05f7c3082d8d357377b166d7aa3cc77eaa943b2ea94e58e19",
+    "artifacts/phase3/environment_final.json": "91cc8adeb0e4e896cf9478790446059df0f37855ffa91cda11d842dff5ddf04b",
+    "artifacts/phase3/uas_reference_verification.json": "4a87d3fd1b5c42f24a15dbc6b5f249a30958d81809e36b97fce3aa1688d693e5",
+    "artifacts/phase3/git_verification.json": "db85a3a809df9c11e8b8b2594049fd240465ef5c3e39042d2378310085165df1",
+    "artifacts/phase3/final_checks.json": "4c8c1f3941a1ce24f7bbaea54316e7717824aa36e438604f694b75632f51ade4",
+    "artifacts/phase3/shutdown_verification.json": "9d3e916dc66c1c389ae359ecbad4cd81d7495ef8b8675249e8b76034859f0e61",
+    "docs/evidence/phase2_2/full_suite.xml": "6aa2aca589563f0b0dfd4bf9c2af259fd0303a6d6cd470b4104ee37fb91c775d"
+  },
+  "junit_sha256": {
+    "docs/evidence/phase3/full_regression_complete.xml": "0a11f7a49d4c4725d33efe1203dc5b51be4a4ad84401c5ef8a95c0d0cc5a0b97",
+    "docs/evidence/phase3/focused_complete.xml": "670c6b4050892364c8446980c7d595ebb0826d0f3be4a43f9c0662f1a9e7c867"
+  },
+  "local_run_guide": "README.md — Run the Phase 3 web app locally; own verification servers stopped; start cluster before init/run"
+}

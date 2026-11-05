@@ -1,0 +1,69 @@
+{
+  "finding": "P3-01",
+  "observation": "After minimal common-send fix",
+  "scenarios": {
+    "normal": {
+      "status": 200,
+      "headers": {
+        "x-route": "preserved",
+        "content-length": "11",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 1,
+      "request_chunks_received": 1
+    },
+    "invalid_length": {
+      "status": 400,
+      "headers": {
+        "content-length": "69",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "negative_length": {
+      "status": 400,
+      "headers": {
+        "content-length": "69",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "declared_oversize": {
+      "status": 413,
+      "headers": {
+        "connection": "close",
+        "content-length": "90",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 0
+    },
+    "streamed_oversize": {
+      "status": 413,
+      "headers": {
+        "connection": "close",
+        "content-length": "90",
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+      },
+      "downstream_calls": 0,
+      "request_chunks_received": 2
+    }
+  }
+}

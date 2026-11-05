@@ -1,0 +1,181 @@
+FFFFF......                                                              [100%]
+=================================== FAILURES ===================================
+___ test_p3_01_invalid_content_length_has_security_headers_without_route[-1] ___
+
+length = b'-1'
+
+    @pytest.mark.parametrize('length',[b'-1',b'malformed'])
+    def test_p3_01_invalid_content_length_has_security_headers_without_route(length):
+        import json
+        messages,received,downstream,_=_body_boundary_exchange([(b'content-length',length)],[])
+        assert messages[0]['status']==400 and not received and not downstream
+        assert json.loads(messages[1]['body'])=={'detail':{'code':'invalid_body','message':'Invalid content length'}}
+        assert b'connection' not in dict(messages[0]['headers'])
+>       _assert_p3_01_headers(messages)
+
+tests/test_phase3_security.py:189: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+messages = [{'headers': [(b'content-length', b'69'), (b'content-type', b'application/json')], 'status': 400, 'type': 'http.respon...rt'}, {'body': b'{"detail":{"code":"invalid_body","message":"Invalid content length"}}', 'type': 'http.response.body'}]
+expected_csp = "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+
+    def _assert_p3_01_headers(messages,expected_csp=None):
+        expected_csp=expected_csp or "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+        headers=messages[0]['headers']
+        for name,expected in ((b'cache-control',b'no-store'),(b'x-content-type-options',b'nosniff'),
+                              (b'content-security-policy',expected_csp.encode())):
+            values=[value for key,value in headers if key.lower()==name]
+>           assert values==[expected], (name,values)
+E           AssertionError: (b'cache-control', [])
+E           assert [] == [b'no-store']
+E             
+E             Right contains one more item: b'no-store'
+E             Use -v to get more diff
+
+tests/test_phase3_security.py:179: AssertionError
+_ test_p3_01_invalid_content_length_has_security_headers_without_route[malformed] _
+
+length = b'malformed'
+
+    @pytest.mark.parametrize('length',[b'-1',b'malformed'])
+    def test_p3_01_invalid_content_length_has_security_headers_without_route(length):
+        import json
+        messages,received,downstream,_=_body_boundary_exchange([(b'content-length',length)],[])
+        assert messages[0]['status']==400 and not received and not downstream
+        assert json.loads(messages[1]['body'])=={'detail':{'code':'invalid_body','message':'Invalid content length'}}
+        assert b'connection' not in dict(messages[0]['headers'])
+>       _assert_p3_01_headers(messages)
+
+tests/test_phase3_security.py:189: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+messages = [{'headers': [(b'content-length', b'69'), (b'content-type', b'application/json')], 'status': 400, 'type': 'http.respon...rt'}, {'body': b'{"detail":{"code":"invalid_body","message":"Invalid content length"}}', 'type': 'http.response.body'}]
+expected_csp = "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+
+    def _assert_p3_01_headers(messages,expected_csp=None):
+        expected_csp=expected_csp or "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+        headers=messages[0]['headers']
+        for name,expected in ((b'cache-control',b'no-store'),(b'x-content-type-options',b'nosniff'),
+                              (b'content-security-policy',expected_csp.encode())):
+            values=[value for key,value in headers if key.lower()==name]
+>           assert values==[expected], (name,values)
+E           AssertionError: (b'cache-control', [])
+E           assert [] == [b'no-store']
+E             
+E             Right contains one more item: b'no-store'
+E             Use -v to get more diff
+
+tests/test_phase3_security.py:179: AssertionError
+____ test_p3_01_declared_oversize_has_security_headers_and_connection_close ____
+
+    def test_p3_01_declared_oversize_has_security_headers_and_connection_close():
+        import json
+        messages,received,downstream,_=_body_boundary_exchange([(b'content-length',b'1025')],[])
+        assert messages[0]['status']==413 and not received and not downstream
+        assert json.loads(messages[1]['body'])=={'detail':{'code':'payload_too_large','message':'Request body exceeds the allowed limit'}}
+        assert dict(messages[0]['headers'])[b'connection']==b'close'
+>       _assert_p3_01_headers(messages)
+
+tests/test_phase3_security.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+messages = [{'headers': [(b'connection', b'close'), (b'content-length', b'90'), (b'content-type', b'application/json')], 'status'...tail":{"code":"payload_too_large","message":"Request body exceeds the allowed limit"}}', 'type': 'http.response.body'}]
+expected_csp = "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+
+    def _assert_p3_01_headers(messages,expected_csp=None):
+        expected_csp=expected_csp or "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+        headers=messages[0]['headers']
+        for name,expected in ((b'cache-control',b'no-store'),(b'x-content-type-options',b'nosniff'),
+                              (b'content-security-policy',expected_csp.encode())):
+            values=[value for key,value in headers if key.lower()==name]
+>           assert values==[expected], (name,values)
+E           AssertionError: (b'cache-control', [])
+E           assert [] == [b'no-store']
+E             
+E             Right contains one more item: b'no-store'
+E             Use -v to get more diff
+
+tests/test_phase3_security.py:179: AssertionError
+__ test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[None] ___
+
+length = None
+
+    @pytest.mark.parametrize('length',[None,b'1'])
+    def test_p3_01_streamed_oversize_has_security_headers_and_stops_reading(length):
+        import json
+        events=[{'type':'http.request','body':b'x'*700,'more_body':True},
+                {'type':'http.request','body':b'y'*400,'more_body':True},
+                {'type':'http.request','body':b'unread','more_body':False}]
+        headers=[] if length is None else [(b'content-length',length)]
+        messages,received,downstream,pending=_body_boundary_exchange(headers,events)
+        assert messages[0]['status']==413 and not downstream
+        assert len(received)==2 and pending==events[2:]
+        assert json.loads(messages[1]['body'])=={'detail':{'code':'payload_too_large','message':'Request body exceeds the allowed limit'}}
+        assert dict(messages[0]['headers'])[b'connection']==b'close'
+>       _assert_p3_01_headers(messages)
+
+tests/test_phase3_security.py:213: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+messages = [{'headers': [(b'connection', b'close'), (b'content-length', b'90'), (b'content-type', b'application/json')], 'status'...tail":{"code":"payload_too_large","message":"Request body exceeds the allowed limit"}}', 'type': 'http.response.body'}]
+expected_csp = "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+
+    def _assert_p3_01_headers(messages,expected_csp=None):
+        expected_csp=expected_csp or "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+        headers=messages[0]['headers']
+        for name,expected in ((b'cache-control',b'no-store'),(b'x-content-type-options',b'nosniff'),
+                              (b'content-security-policy',expected_csp.encode())):
+            values=[value for key,value in headers if key.lower()==name]
+>           assert values==[expected], (name,values)
+E           AssertionError: (b'cache-control', [])
+E           assert [] == [b'no-store']
+E             
+E             Right contains one more item: b'no-store'
+E             Use -v to get more diff
+
+tests/test_phase3_security.py:179: AssertionError
+____ test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[1] ____
+
+length = b'1'
+
+    @pytest.mark.parametrize('length',[None,b'1'])
+    def test_p3_01_streamed_oversize_has_security_headers_and_stops_reading(length):
+        import json
+        events=[{'type':'http.request','body':b'x'*700,'more_body':True},
+                {'type':'http.request','body':b'y'*400,'more_body':True},
+                {'type':'http.request','body':b'unread','more_body':False}]
+        headers=[] if length is None else [(b'content-length',length)]
+        messages,received,downstream,pending=_body_boundary_exchange(headers,events)
+        assert messages[0]['status']==413 and not downstream
+        assert len(received)==2 and pending==events[2:]
+        assert json.loads(messages[1]['body'])=={'detail':{'code':'payload_too_large','message':'Request body exceeds the allowed limit'}}
+        assert dict(messages[0]['headers'])[b'connection']==b'close'
+>       _assert_p3_01_headers(messages)
+
+tests/test_phase3_security.py:213: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+messages = [{'headers': [(b'connection', b'close'), (b'content-length', b'90'), (b'content-type', b'application/json')], 'status'...tail":{"code":"payload_too_large","message":"Request body exceeds the allowed limit"}}', 'type': 'http.response.body'}]
+expected_csp = "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+
+    def _assert_p3_01_headers(messages,expected_csp=None):
+        expected_csp=expected_csp or "default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; frame-ancestors 'none'"
+        headers=messages[0]['headers']
+        for name,expected in ((b'cache-control',b'no-store'),(b'x-content-type-options',b'nosniff'),
+                              (b'content-security-policy',expected_csp.encode())):
+            values=[value for key,value in headers if key.lower()==name]
+>           assert values==[expected], (name,values)
+E           AssertionError: (b'cache-control', [])
+E           assert [] == [b'no-store']
+E             
+E             Right contains one more item: b'no-store'
+E             Use -v to get more diff
+
+tests/test_phase3_security.py:179: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase3_security.py::test_p3_01_invalid_content_length_has_security_headers_without_route[-1]
+FAILED tests/test_phase3_security.py::test_p3_01_invalid_content_length_has_security_headers_without_route[malformed]
+FAILED tests/test_phase3_security.py::test_p3_01_declared_oversize_has_security_headers_and_connection_close
+FAILED tests/test_phase3_security.py::test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[None]
+FAILED tests/test_phase3_security.py::test_p3_01_streamed_oversize_has_security_headers_and_stops_reading[1]
+5 failed, 6 passed, 10 deselected in 0.33s

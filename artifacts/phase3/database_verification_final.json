@@ -1,0 +1,236 @@
+{
+  "status": "PASS",
+  "server_version": "14.19 (Homebrew)",
+  "listen_addresses": "",
+  "schema": {
+    "status": "PASS",
+    "dialect": "postgresql",
+    "table": "prediction_results",
+    "columns": [
+      "checkpoint_sha256",
+      "created_at",
+      "encoder_version",
+      "game_id",
+      "id",
+      "input_snapshot",
+      "model_version",
+      "output_snapshot",
+      "owner_key",
+      "state_digest",
+      "turn_number",
+      "turn_phase"
+    ],
+    "jsonb": [
+      "input_snapshot",
+      "output_snapshot"
+    ],
+    "unique_constraint": "uq_prediction_snapshot",
+    "indexes": [
+      "ix_prediction_owner_created",
+      "uq_prediction_snapshot"
+    ]
+  },
+  "restored_schema": {
+    "status": "PASS",
+    "dialect": "postgresql",
+    "table": "prediction_results",
+    "columns": [
+      "checkpoint_sha256",
+      "created_at",
+      "encoder_version",
+      "game_id",
+      "id",
+      "input_snapshot",
+      "model_version",
+      "output_snapshot",
+      "owner_key",
+      "state_digest",
+      "turn_number",
+      "turn_phase"
+    ],
+    "jsonb": [
+      "input_snapshot",
+      "output_snapshot"
+    ],
+    "unique_constraint": "uq_prediction_snapshot",
+    "indexes": [
+      "ix_prediction_owner_created",
+      "uq_prediction_snapshot"
+    ]
+  },
+  "columns": [
+    {
+      "name": "id",
+      "type": "UUID",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "owner_key",
+      "type": "VARCHAR(64)",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "game_id",
+      "type": "UUID",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "turn_number",
+      "type": "INTEGER",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "turn_phase",
+      "type": "VARCHAR(32)",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "input_snapshot",
+      "type": "JSONB",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "output_snapshot",
+      "type": "JSONB",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "model_version",
+      "type": "VARCHAR(128)",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "encoder_version",
+      "type": "VARCHAR(64)",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "checkpoint_sha256",
+      "type": "VARCHAR(64)",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "state_digest",
+      "type": "VARCHAR(64)",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "created_at",
+      "type": "TIMESTAMP",
+      "nullable": false,
+      "default": "now()"
+    }
+  ],
+  "primary_key": {
+    "constrained_columns": [
+      "id"
+    ],
+    "name": "prediction_results_pkey",
+    "comment": null,
+    "dialect_options": {
+      "postgresql_include": []
+    }
+  },
+  "indexes": [
+    {
+      "name": "ix_prediction_owner_created",
+      "unique": false,
+      "column_names": [
+        "owner_key",
+        "created_at",
+        "id"
+      ],
+      "column_sorting": {
+        "created_at": [
+          "desc"
+        ],
+        "id": [
+          "desc"
+        ]
+      },
+      "include_columns": [],
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    },
+    {
+      "name": "uq_prediction_snapshot",
+      "unique": true,
+      "column_names": [
+        "owner_key",
+        "game_id",
+        "turn_number",
+        "model_version",
+        "state_digest"
+      ],
+      "duplicates_constraint": "uq_prediction_snapshot",
+      "include_columns": [],
+      "dialect_options": {
+        "postgresql_include": []
+      }
+    }
+  ],
+  "unique_constraints": [
+    {
+      "column_names": [
+        "owner_key",
+        "game_id",
+        "turn_number",
+        "model_version",
+        "state_digest"
+      ],
+      "name": "uq_prediction_snapshot",
+      "comment": null,
+      "dialect_options": {
+        "postgresql_include": [],
+        "postgresql_nulls_not_distinct": false
+      }
+    }
+  ],
+  "check_constraints": [
+    {
+      "name": "ck_prediction_digests",
+      "sqltext": "length(state_digest::text) = 64 AND length(checkpoint_sha256::text) = 64",
+      "comment": null
+    },
+    {
+      "name": "ck_prediction_phase",
+      "sqltext": "turn_phase::text = ANY (ARRAY['SELF_TURN'::character varying, 'POST_MELD_DISCARD'::character varying]::text[])",
+      "comment": null
+    },
+    {
+      "name": "ck_prediction_turn",
+      "sqltext": "turn_number >= 0",
+      "comment": null
+    }
+  ],
+  "export": "artifacts/phase3/prediction_history_final.sql",
+  "export_sha256": "6bfb169549fd550ed26effe1a79f39ce731e2466d27f7fe02eaec02871a8adeb",
+  "export_bytes": 49710,
+  "restore_input_limit_bytes": 67108864,
+  "restore_integrity": "tool-owned SHA256 receipt + bounded validated bytes via transactional psql stdin",
+  "restored_database": "mahjong_phase3_restore_e0d4836b7949",
+  "source_rows": 6,
+  "restored_rows": 6,
+  "all_records_equal": true,
+  "record_ids": [
+    "3ca4009f-55c3-45d4-9bb0-dac519afc97b",
+    "44013ab6-f546-4e78-9444-8dfd4b8ce786",
+    "48510ced-8545-4217-9dac-2ed99b14b814",
+    "8a07653f-77f9-45c6-a0db-69e713a3c642",
+    "9adaceb9-501e-41cf-b823-aa0543106c33",
+    "ff8ef299-bc80-4a41-9363-f2a104926951"
+  ],
+  "scope": "Dedicated project dev source; new restore target only; no database dropped or replaced"
+}

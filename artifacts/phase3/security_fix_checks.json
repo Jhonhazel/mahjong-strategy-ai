@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "app",
+        "scripts",
+        "tests/test_phase3_security.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import app.main; import app.web.security; import app.web.documentation"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "app/static/phase3.js"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "evidence": "docs/evidence/phase3/security_fix_checks.txt",
+  "dependencies_added": false
+}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Game · Mahjong Strategy AI{% endblock %}
+{% block content %}
+<h1>Mahjong Game</h1>
+<p>Mulai round, pilih aksi legal, dan bandingkan saran AI tanpa menjalankan aksi secara otomatis.</p>
+<form id="new-game"><fieldset><legend>Game baru</legend>
+<label>Seat Anda <select id="human-seat"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
+<label>Seed opsional <input id="game-seed" type="number" min="0" max="9007199254740991" placeholder="Acak"></label>
+<button type="submit">Mulai game</button></fieldset></form>
+<p id="game-message" role="status" aria-live="polite"></p>
+<section id="game-state" data-game-id="{{ game_id }}" hidden>
+<h2 id="game-status">State game</h2><p id="game-id"></p><p id="own-hand"></p>
+<form id="action-form"><label>Aksi legal <select id="legal-action"></select></label><button id="submit-action" type="submit">Jalankan aksi yang dipilih</button></form>
+<button id="predict-button" type="button">Minta prediksi dan simpan</button><button id="refresh-button" type="button">Refresh state</button>
+<p>Prediksi tidak membuang tile secara otomatis. Skor menunjukkan perilaku discard, bukan peluang menang.</p>
+<pre id="prediction" aria-live="polite"></pre>
+<h3>Informasi publik</h3><pre id="public-state"></pre><h3>Hasil round</h3><pre id="round-result"></pre>
+</section>
+<noscript>JavaScript diperlukan untuk kontrol game ini. History dan Contact tetap tersedia melalui halaman biasa.</noscript>
+<script src="{{ url_for('static', path='phase3.js') }}" defer></script>
+{% endblock %}

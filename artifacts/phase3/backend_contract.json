@@ -1,0 +1,1500 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Mahjong Strategy AI",
+    "description": "One human vs three existing bots; real v3 discard suggestions and owned PostgreSQL history. Single worker.",
+    "version": "3.0"
+  },
+  "paths": {
+    "/health/live": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Live",
+        "operationId": "live_health_live_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Ready",
+        "operationId": "ready_health_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          }
+        }
+      }
+    },
+    "/api/session": {
+      "get": {
+        "tags": [
+          "session"
+        ],
+        "summary": "Session Context",
+        "operationId": "session_context_api_session_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          }
+        }
+      }
+    },
+    "/api/games": {
+      "post": {
+        "tags": [
+          "games"
+        ],
+        "summary": "Create Game",
+        "operationId": "create_game_api_games_post",
+        "parameters": [
+          {
+            "name": "X-CSRF-Token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie",
+              "title": "X-Csrf-Token"
+            },
+            "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie"
+          },
+          {
+            "name": "mahjong_visitor",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources",
+              "title": "Mahjong Visitor"
+            },
+            "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameViewOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          },
+          "429": {
+            "description": "Game capacity reached"
+          }
+        }
+      }
+    },
+    "/api/games/{game_id}": {
+      "get": {
+        "tags": [
+          "games"
+        ],
+        "summary": "Get Game",
+        "operationId": "get_game_api_games__game_id__get",
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Game Id"
+            }
+          },
+          {
+            "name": "mahjong_visitor",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources",
+              "title": "Mahjong Visitor"
+            },
+            "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameViewOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          }
+        }
+      }
+    },
+    "/api/games/{game_id}/actions": {
+      "post": {
+        "tags": [
+          "games"
+        ],
+        "summary": "Submit Action",
+        "operationId": "submit_action_api_games__game_id__actions_post",
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Game Id"
+            }
+          },
+          {
+            "name": "X-CSRF-Token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie",
+              "title": "X-Csrf-Token"
+            },
+            "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie"
+          },
+          {
+            "name": "mahjong_visitor",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources",
+              "title": "Mahjong Visitor"
+            },
+            "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameViewOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          },
+          "400": {
+            "description": "Action is illegal"
+          }
+        }
+      }
+    },
+    "/api/games/{game_id}/predict": {
+      "post": {
+        "tags": [
+          "predictions"
+        ],
+        "summary": "Predict",
+        "operationId": "predict_api_games__game_id__predict_post",
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Game Id"
+            }
+          },
+          {
+            "name": "X-CSRF-Token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie",
+              "title": "X-Csrf-Token"
+            },
+            "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie"
+          },
+          {
+            "name": "mahjong_visitor",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources",
+              "title": "Mahjong Visitor"
+            },
+            "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedPredictionOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          },
+          "200": {
+            "description": "Existing prediction reused"
+          }
+        }
+      }
+    },
+    "/api/predictions": {
+      "get": {
+        "tags": [
+          "history"
+        ],
+        "summary": "List Predictions",
+        "operationId": "list_predictions_api_predictions_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100000,
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "mahjong_visitor",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources",
+              "title": "Mahjong Visitor"
+            },
+            "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoryPageOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          }
+        }
+      }
+    },
+    "/api/predictions/{prediction_id}": {
+      "get": {
+        "tags": [
+          "history"
+        ],
+        "summary": "Get Prediction",
+        "operationId": "get_prediction_api_predictions__prediction_id__get",
+        "parameters": [
+          {
+            "name": "prediction_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Prediction Id"
+            }
+          },
+          {
+            "name": "mahjong_visitor",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources",
+              "title": "Mahjong Visitor"
+            },
+            "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoryDetailOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "history"
+        ],
+        "summary": "Delete Prediction",
+        "operationId": "delete_prediction_api_predictions__prediction_id__delete",
+        "parameters": [
+          {
+            "name": "prediction_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Prediction Id"
+            }
+          },
+          {
+            "name": "X-CSRF-Token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie",
+              "title": "X-Csrf-Token"
+            },
+            "description": "Required for mutations: copy csrf_token from GET /api/session; keep its browser cookie"
+          },
+          {
+            "name": "mahjong_visitor",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources",
+              "title": "Mahjong Visitor"
+            },
+            "description": "Signed HttpOnly context issued by GET /api/session or a page; required for owned resources"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "401": {
+            "description": "Missing or expired browser session"
+          },
+          "403": {
+            "description": "CSRF/origin rejected"
+          },
+          "404": {
+            "description": "Unknown, expired or inaccessible resource"
+          },
+          "409": {
+            "description": "Stale turn or incompatible game phase"
+          },
+          "422": {
+            "description": "Invalid request"
+          },
+          "503": {
+            "description": "Required model/history dependency unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActionOut": {
+        "properties": {
+          "action_id": {
+            "type": "integer",
+            "title": "Action Id"
+          },
+          "action_type": {
+            "type": "string",
+            "title": "Action Type"
+          },
+          "tile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tile"
+          },
+          "meld_tiles": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Meld Tiles"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "action_type",
+          "tile",
+          "meld_tiles",
+          "label"
+        ],
+        "title": "ActionOut"
+      },
+      "ActionRequest": {
+        "properties": {
+          "expected_turn_number": {
+            "type": "integer",
+            "maximum": 1000000.0,
+            "minimum": 0.0,
+            "title": "Expected Turn Number"
+          },
+          "action_id": {
+            "type": "integer",
+            "maximum": 234.0,
+            "minimum": 0.0,
+            "title": "Action Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_turn_number",
+          "action_id"
+        ],
+        "title": "ActionRequest"
+      },
+      "FanOut": {
+        "properties": {
+          "fan_points": {
+            "type": "integer",
+            "title": "Fan Points"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "fan_name_zh": {
+            "type": "string",
+            "title": "Fan Name Zh"
+          },
+          "fan_name_en": {
+            "type": "string",
+            "title": "Fan Name En"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "fan_points",
+          "count",
+          "fan_name_zh",
+          "fan_name_en"
+        ],
+        "title": "FanOut"
+      },
+      "GameCreate": {
+        "properties": {
+          "human_seat": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Human Seat",
+            "default": 0
+          },
+          "prevalent_wind": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Prevalent Wind",
+            "default": 0
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 1.8446744073709552e+19,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed"
+          },
+          "include_flowers": {
+            "type": "boolean",
+            "title": "Include Flowers",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "GameCreate"
+      },
+      "GameViewOut": {
+        "properties": {
+          "game_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Game Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "WAITING_HUMAN_DISCARD",
+              "WAITING_HUMAN_CLAIM",
+              "FINISHED"
+            ],
+            "title": "Status"
+          },
+          "human_seat": {
+            "type": "integer",
+            "title": "Human Seat"
+          },
+          "prevalent_wind": {
+            "type": "integer",
+            "title": "Prevalent Wind"
+          },
+          "active_seat": {
+            "type": "integer",
+            "title": "Active Seat"
+          },
+          "turn_number": {
+            "type": "integer",
+            "title": "Turn Number"
+          },
+          "wall_tiles_remaining": {
+            "type": "integer",
+            "title": "Wall Tiles Remaining"
+          },
+          "own_hand": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Own Hand"
+          },
+          "own_flowers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Own Flowers"
+          },
+          "seat_public_states": {
+            "items": {
+              "$ref": "#/components/schemas/SeatOut"
+            },
+            "type": "array",
+            "title": "Seat Public States"
+          },
+          "legal_actions": {
+            "items": {
+              "$ref": "#/components/schemas/ActionOut"
+            },
+            "type": "array",
+            "title": "Legal Actions"
+          },
+          "can_request_ai_prediction": {
+            "type": "boolean",
+            "title": "Can Request Ai Prediction"
+          },
+          "round_result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RoundOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "game_id",
+          "status",
+          "human_seat",
+          "prevalent_wind",
+          "active_seat",
+          "turn_number",
+          "wall_tiles_remaining",
+          "own_hand",
+          "own_flowers",
+          "seat_public_states",
+          "legal_actions",
+          "can_request_ai_prediction",
+          "round_result"
+        ],
+        "title": "GameViewOut"
+      },
+      "HistoryDetailOut": {
+        "properties": {
+          "prediction_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Prediction Id"
+          },
+          "game_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Game Id"
+          },
+          "turn_number": {
+            "type": "integer",
+            "title": "Turn Number"
+          },
+          "turn_phase": {
+            "type": "string",
+            "title": "Turn Phase"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "encoder_version": {
+            "type": "string",
+            "title": "Encoder Version"
+          },
+          "recommended_tile": {
+            "type": "string",
+            "title": "Recommended Tile"
+          },
+          "top3": {
+            "items": {
+              "$ref": "#/components/schemas/SuggestionOut"
+            },
+            "type": "array",
+            "title": "Top3"
+          },
+          "input_snapshot": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Input Snapshot"
+          },
+          "output_snapshot": {
+            "$ref": "#/components/schemas/PredictionData"
+          },
+          "checkpoint_sha256": {
+            "type": "string",
+            "title": "Checkpoint Sha256"
+          },
+          "state_digest": {
+            "type": "string",
+            "title": "State Digest"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prediction_id",
+          "game_id",
+          "turn_number",
+          "turn_phase",
+          "created_at",
+          "model_version",
+          "encoder_version",
+          "recommended_tile",
+          "top3",
+          "input_snapshot",
+          "output_snapshot",
+          "checkpoint_sha256",
+          "state_digest"
+        ],
+        "title": "HistoryDetailOut"
+      },
+      "HistoryPageOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/HistorySummaryOut"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "limit",
+          "offset"
+        ],
+        "title": "HistoryPageOut"
+      },
+      "HistorySummaryOut": {
+        "properties": {
+          "prediction_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Prediction Id"
+          },
+          "game_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Game Id"
+          },
+          "turn_number": {
+            "type": "integer",
+            "title": "Turn Number"
+          },
+          "turn_phase": {
+            "type": "string",
+            "title": "Turn Phase"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "encoder_version": {
+            "type": "string",
+            "title": "Encoder Version"
+          },
+          "recommended_tile": {
+            "type": "string",
+            "title": "Recommended Tile"
+          },
+          "top3": {
+            "items": {
+              "$ref": "#/components/schemas/SuggestionOut"
+            },
+            "type": "array",
+            "title": "Top3"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prediction_id",
+          "game_id",
+          "turn_number",
+          "turn_phase",
+          "created_at",
+          "model_version",
+          "encoder_version",
+          "recommended_tile",
+          "top3"
+        ],
+        "title": "HistorySummaryOut"
+      },
+      "MeldOut": {
+        "properties": {
+          "pack_type": {
+            "type": "string",
+            "title": "Pack Type"
+          },
+          "tile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tile"
+          },
+          "offer": {
+            "type": "integer",
+            "title": "Offer"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "pack_type",
+          "tile",
+          "offer"
+        ],
+        "title": "MeldOut"
+      },
+      "PredictionData": {
+        "properties": {
+          "recommended_tile": {
+            "type": "string",
+            "title": "Recommended Tile"
+          },
+          "recommended_class_index": {
+            "type": "integer",
+            "title": "Recommended Class Index"
+          },
+          "recommended_action_id": {
+            "type": "integer",
+            "title": "Recommended Action Id"
+          },
+          "top3": {
+            "items": {
+              "$ref": "#/components/schemas/SuggestionOut"
+            },
+            "type": "array",
+            "title": "Top3"
+          },
+          "scores": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "maxItems": 34,
+            "minItems": 34,
+            "title": "Scores"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "encoder_version": {
+            "type": "string",
+            "title": "Encoder Version"
+          },
+          "seat": {
+            "type": "integer",
+            "title": "Seat"
+          },
+          "turn_number": {
+            "type": "integer",
+            "title": "Turn Number"
+          },
+          "score_meaning": {
+            "type": "string",
+            "title": "Score Meaning"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "recommended_tile",
+          "recommended_class_index",
+          "recommended_action_id",
+          "top3",
+          "scores",
+          "model_version",
+          "encoder_version",
+          "seat",
+          "turn_number",
+          "score_meaning"
+        ],
+        "title": "PredictionData"
+      },
+      "RoundOut": {
+        "properties": {
+          "ending": {
+            "type": "string",
+            "enum": [
+              "zimo",
+              "ron",
+              "draw"
+            ],
+            "title": "Ending"
+          },
+          "outcome_type": {
+            "type": "string",
+            "enum": [
+              "HU",
+              "HUANGZHUANG"
+            ],
+            "title": "Outcome Type"
+          },
+          "winner_seat": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Winner Seat"
+          },
+          "discarder_seat": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discarder Seat"
+          },
+          "qianggang": {
+            "type": "boolean",
+            "title": "Qianggang"
+          },
+          "win_tile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Tile"
+          },
+          "total_fan": {
+            "type": "integer",
+            "title": "Total Fan"
+          },
+          "fans": {
+            "items": {
+              "$ref": "#/components/schemas/FanOut"
+            },
+            "type": "array",
+            "title": "Fans"
+          },
+          "score_deltas": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Score Deltas"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ending",
+          "outcome_type",
+          "winner_seat",
+          "discarder_seat",
+          "qianggang",
+          "win_tile",
+          "total_fan",
+          "fans",
+          "score_deltas"
+        ],
+        "title": "RoundOut"
+      },
+      "SavedPredictionOut": {
+        "properties": {
+          "recommended_tile": {
+            "type": "string",
+            "title": "Recommended Tile"
+          },
+          "recommended_class_index": {
+            "type": "integer",
+            "title": "Recommended Class Index"
+          },
+          "recommended_action_id": {
+            "type": "integer",
+            "title": "Recommended Action Id"
+          },
+          "top3": {
+            "items": {
+              "$ref": "#/components/schemas/SuggestionOut"
+            },
+            "type": "array",
+            "title": "Top3"
+          },
+          "scores": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "maxItems": 34,
+            "minItems": 34,
+            "title": "Scores"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version"
+          },
+          "encoder_version": {
+            "type": "string",
+            "title": "Encoder Version"
+          },
+          "seat": {
+            "type": "integer",
+            "title": "Seat"
+          },
+          "turn_number": {
+            "type": "integer",
+            "title": "Turn Number"
+          },
+          "score_meaning": {
+            "type": "string",
+            "title": "Score Meaning"
+          },
+          "prediction_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Prediction Id"
+          },
+          "game_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Game Id"
+          },
+          "turn_phase": {
+            "type": "string",
+            "enum": [
+              "SELF_TURN",
+              "POST_MELD_DISCARD"
+            ],
+            "title": "Turn Phase"
+          },
+          "reused": {
+            "type": "boolean",
+            "title": "Reused"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "recommended_tile",
+          "recommended_class_index",
+          "recommended_action_id",
+          "top3",
+          "scores",
+          "model_version",
+          "encoder_version",
+          "seat",
+          "turn_number",
+          "score_meaning",
+          "prediction_id",
+          "game_id",
+          "turn_phase",
+          "reused"
+        ],
+        "title": "SavedPredictionOut"
+      },
+      "SeatOut": {
+        "properties": {
+          "seat": {
+            "type": "integer",
+            "title": "Seat"
+          },
+          "concealed_count": {
+            "type": "integer",
+            "title": "Concealed Count"
+          },
+          "melds": {
+            "items": {
+              "$ref": "#/components/schemas/MeldOut"
+            },
+            "type": "array",
+            "title": "Melds"
+          },
+          "flowers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Flowers"
+          },
+          "discards": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Discards"
+          },
+          "wall_remaining": {
+            "type": "integer",
+            "title": "Wall Remaining"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "seat",
+          "concealed_count",
+          "melds",
+          "flowers",
+          "discards",
+          "wall_remaining"
+        ],
+        "title": "SeatOut"
+      },
+      "SuggestionOut": {
+        "properties": {
+          "tile": {
+            "type": "string",
+            "title": "Tile"
+          },
+          "class_index": {
+            "type": "integer",
+            "title": "Class Index"
+          },
+          "action_id": {
+            "type": "integer",
+            "title": "Action Id"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "tile",
+          "class_index",
+          "action_id",
+          "score"
+        ],
+        "title": "SuggestionOut"
+      },
+      "TurnRequest": {
+        "properties": {
+          "expected_turn_number": {
+            "type": "integer",
+            "maximum": 1000000.0,
+            "minimum": 0.0,
+            "title": "Expected Turn Number"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_turn_number"
+        ],
+        "title": "TurnRequest"
+      }
+    }
+  }
+}

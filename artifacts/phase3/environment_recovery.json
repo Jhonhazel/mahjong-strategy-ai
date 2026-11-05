@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "baseline_initial": "1 failed,257 passed,21 errors; disk reserve guard, no production code changes",
+  "removed_disposable_scratch": [
+    {
+      "path": "/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-101",
+      "bytes": 820836559,
+      "verified_as": "Inactive temporary fixtures from this repository; no project/frozen artifacts"
+    },
+    {
+      "path": "/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-102",
+      "bytes": 820836566,
+      "verified_as": "Inactive temporary fixtures from this repository; no project/frozen artifacts"
+    }
+  ],
+  "disk_free_bytes": 3862261760
+}

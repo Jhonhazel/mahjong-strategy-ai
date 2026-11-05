@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_real_two_round_web_model_postgres_workflow_and_restart __________
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-110/test_real_two_round_web_model_0')
+
+    def test_real_two_round_web_model_postgres_workflow_and_restart(web_settings,postgres_engine,tmp_path):
+>       from scripts.demo_backend import run_workflow
+E       ModuleNotFoundError: No module named 'scripts.demo_backend'
+
+tests/test_phase3_end_to_end.py:9: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_phase3_end_to_end.py::test_real_two_round_web_model_postgres_workflow_and_restart
+1 failed in 0.36s

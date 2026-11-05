@@ -1,0 +1,901 @@
+{
+  "status": "PASS",
+  "reviewed_at_utc": "2026-11-05T10:05:02.663281+00:00",
+  "expected_branch": "main",
+  "expected_parent": "b9821fd53b1ef73e2df85de238e028c0244d511f",
+  "reviewed_paths": [
+    ".env.example",
+    ".gitignore",
+    "README.md",
+    "app/db.py",
+    "app/domain/predictions.py",
+    "app/main.py",
+    "app/services/prediction_history_service.py",
+    "app/services/web_prediction_service.py",
+    "app/settings.py",
+    "app/static/phase3.css",
+    "app/static/phase3.js",
+    "app/templates/base.html",
+    "app/templates/contact.html",
+    "app/templates/game.html",
+    "app/templates/history.html",
+    "app/templates/history_detail.html",
+    "app/templates/home.html",
+    "app/web/__init__.py",
+    "app/web/api.py",
+    "app/web/contact.py",
+    "app/web/documentation.py",
+    "app/web/errors.py",
+    "app/web/games.py",
+    "app/web/pages.py",
+    "app/web/runtime.py",
+    "app/web/schemas.py",
+    "app/web/security.py",
+    "app/web/views.py",
+    "artifacts/phase3/api_examples.json",
+    "artifacts/phase3/backend_contract.json",
+    "artifacts/phase3/database_verification.json",
+    "artifacts/phase3/database_verification_complete.json",
+    "artifacts/phase3/database_verification_final.json",
+    "artifacts/phase3/end_to_end_complete.json",
+    "artifacts/phase3/end_to_end_demo.json",
+    "artifacts/phase3/end_to_end_final.json",
+    "artifacts/phase3/environment_final.json",
+    "artifacts/phase3/environment_recovery.json",
+    "artifacts/phase3/final_checks.json",
+    "artifacts/phase3/final_temporary_cleanup.json",
+    "artifacts/phase3/final_test_scratch_recovery.json",
+    "artifacts/phase3/finalization_preflight.json",
+    "artifacts/phase3/finalization_preservation_after.json",
+    "artifacts/phase3/finalization_preservation_before.json",
+    "artifacts/phase3/finalization_staging_review.json",
+    "artifacts/phase3/git_verification.json",
+    "artifacts/phase3/model_integration_verification.json",
+    "artifacts/phase3/network_browser_verification.json",
+    "artifacts/phase3/network_complete.json",
+    "artifacts/phase3/preflight.json",
+    "artifacts/phase3/preservation_manifest.json",
+    "artifacts/phase3/preservation_verification.json",
+    "artifacts/phase3/regression_case_reconciliation.json",
+    "artifacts/phase3/runtime_asset_verification.json",
+    "artifacts/phase3/security_fix_checks.json",
+    "artifacts/phase3/security_fix_dev_history_before.json",
+    "artifacts/phase3/security_fix_game_model_comparison.json",
+    "artifacts/phase3/security_fix_model_preservation.json",
+    "artifacts/phase3/security_fix_observed_after.json",
+    "artifacts/phase3/security_fix_observed_before.json",
+    "artifacts/phase3/security_fix_postgres_verification.json",
+    "artifacts/phase3/security_fix_test_reconciliation.json",
+    "artifacts/phase3/security_fix_verification.json",
+    "artifacts/phase3/session_isolation_verification.json",
+    "artifacts/phase3/shutdown_verification.json",
+    "artifacts/phase3/uas_reference_verification.json",
+    "artifacts/phase3/verification_summary.json",
+    "config/contact_members.example.json",
+    "docs/evidence/phase3/baseline.txt",
+    "docs/evidence/phase3/baseline.xml",
+    "docs/evidence/phase3/baseline_recovered.txt",
+    "docs/evidence/phase3/baseline_recovered.xml",
+    "docs/evidence/phase3/bootstrap_green.txt",
+    "docs/evidence/phase3/bootstrap_red.txt",
+    "docs/evidence/phase3/code_review.md",
+    "docs/evidence/phase3/concurrency_tests.txt",
+    "docs/evidence/phase3/database_tools_green.txt",
+    "docs/evidence/phase3/dependency_install.txt",
+    "docs/evidence/phase3/dependency_resolution.txt",
+    "docs/evidence/phase3/end_to_end_green.txt",
+    "docs/evidence/phase3/end_to_end_red.txt",
+    "docs/evidence/phase3/final_checks.txt",
+    "docs/evidence/phase3/focused_complete.txt",
+    "docs/evidence/phase3/focused_complete.xml",
+    "docs/evidence/phase3/focused_final.txt",
+    "docs/evidence/phase3/focused_final.xml",
+    "docs/evidence/phase3/full_regression_complete.txt",
+    "docs/evidence/phase3/full_regression_complete.xml",
+    "docs/evidence/phase3/full_regression_final.txt",
+    "docs/evidence/phase3/full_regression_final.xml",
+    "docs/evidence/phase3/full_regression_security_fix.txt",
+    "docs/evidence/phase3/full_regression_security_fix.xml",
+    "docs/evidence/phase3/git_status_final.txt",
+    "docs/evidence/phase3/history_green.txt",
+    "docs/evidence/phase3/history_red.txt",
+    "docs/evidence/phase3/http_green.txt",
+    "docs/evidence/phase3/http_red.txt",
+    "docs/evidence/phase3/pages_green.txt",
+    "docs/evidence/phase3/pages_red.txt",
+    "docs/evidence/phase3/phase_annotation_red.txt",
+    "docs/evidence/phase3/postgres_start.txt",
+    "docs/evidence/phase3/resumed_review_green.txt",
+    "docs/evidence/phase3/resumed_review_green.xml",
+    "docs/evidence/phase3/resumed_review_red.txt",
+    "docs/evidence/phase3/review_fixes_green.txt",
+    "docs/evidence/phase3/review_fixes_green.xml",
+    "docs/evidence/phase3/review_fixes_red.txt",
+    "docs/evidence/phase3/schema_type_red.txt",
+    "docs/evidence/phase3/security_fix_affected.txt",
+    "docs/evidence/phase3/security_fix_affected.xml",
+    "docs/evidence/phase3/security_fix_checks.txt",
+    "docs/evidence/phase3/security_fix_focused.txt",
+    "docs/evidence/phase3/security_fix_focused.xml",
+    "docs/evidence/phase3/security_fix_green.txt",
+    "docs/evidence/phase3/security_fix_green.xml",
+    "docs/evidence/phase3/security_fix_red.txt",
+    "docs/evidence/phase3/security_fix_source.diff",
+    "docs/evidence/phase3/security_green.txt",
+    "docs/evidence/phase3/security_red.txt",
+    "docs/phase3_execution_ledger.md",
+    "docs/phase3_file_inventory.md",
+    "docs/phase3_implementation_report.md",
+    "docs/reference/SOAL UAS PEMROGRAMAN WEB FRAMEWORK.pdf",
+    "docs/superpowers/plans/2026-11-05-mahjong-phase3.md",
+    "docs/superpowers/specs/2026-11-05-mahjong-phase3-design.md",
+    "requirements-lock.txt",
+    "requirements.txt",
+    "scripts/demo_backend.py",
+    "scripts/init_db.py",
+    "scripts/phase3_db.py",
+    "scripts/run_backend.py",
+    "tests/phase3_support.py",
+    "tests/test_phase3_bootstrap.py",
+    "tests/test_phase3_concurrency.py",
+    "tests/test_phase3_database_tools.py",
+    "tests/test_phase3_documentation.py",
+    "tests/test_phase3_end_to_end.py",
+    "tests/test_phase3_history.py",
+    "tests/test_phase3_http.py",
+    "tests/test_phase3_pages.py",
+    "tests/test_phase3_security.py"
+  ],
+  "file_count": 141,
+  "source_config_test_and_original_modified_files": 45,
+  "file_metadata_excluding_self": [
+    {
+      "path": ".env.example",
+      "bytes": 819
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 726
+    },
+    {
+      "path": "README.md",
+      "bytes": 23527
+    },
+    {
+      "path": "app/db.py",
+      "bytes": 8516
+    },
+    {
+      "path": "app/domain/predictions.py",
+      "bytes": 443
+    },
+    {
+      "path": "app/main.py",
+      "bytes": 6243
+    },
+    {
+      "path": "app/services/prediction_history_service.py",
+      "bytes": 4140
+    },
+    {
+      "path": "app/services/web_prediction_service.py",
+      "bytes": 4549
+    },
+    {
+      "path": "app/settings.py",
+      "bytes": 3102
+    },
+    {
+      "path": "app/static/phase3.css",
+      "bytes": 1310
+    },
+    {
+      "path": "app/static/phase3.js",
+      "bytes": 4213
+    },
+    {
+      "path": "app/templates/base.html",
+      "bytes": 704
+    },
+    {
+      "path": "app/templates/contact.html",
+      "bytes": 617
+    },
+    {
+      "path": "app/templates/game.html",
+      "bytes": 1625
+    },
+    {
+      "path": "app/templates/history.html",
+      "bytes": 1244
+    },
+    {
+      "path": "app/templates/history_detail.html",
+      "bytes": 787
+    },
+    {
+      "path": "app/templates/home.html",
+      "bytes": 1220
+    },
+    {
+      "path": "app/web/__init__.py",
+      "bytes": 83
+    },
+    {
+      "path": "app/web/api.py",
+      "bytes": 6055
+    },
+    {
+      "path": "app/web/contact.py",
+      "bytes": 961
+    },
+    {
+      "path": "app/web/documentation.py",
+      "bytes": 1268
+    },
+    {
+      "path": "app/web/errors.py",
+      "bytes": 207
+    },
+    {
+      "path": "app/web/games.py",
+      "bytes": 4648
+    },
+    {
+      "path": "app/web/pages.py",
+      "bytes": 4021
+    },
+    {
+      "path": "app/web/runtime.py",
+      "bytes": 1244
+    },
+    {
+      "path": "app/web/schemas.py",
+      "bytes": 3093
+    },
+    {
+      "path": "app/web/security.py",
+      "bytes": 5124
+    },
+    {
+      "path": "app/web/views.py",
+      "bytes": 2603
+    },
+    {
+      "path": "artifacts/phase3/api_examples.json",
+      "bytes": 38345
+    },
+    {
+      "path": "artifacts/phase3/backend_contract.json",
+      "bytes": 40283
+    },
+    {
+      "path": "artifacts/phase3/database_verification.json",
+      "bytes": 5092
+    },
+    {
+      "path": "artifacts/phase3/database_verification_complete.json",
+      "bytes": 5820
+    },
+    {
+      "path": "artifacts/phase3/database_verification_final.json",
+      "bytes": 5394
+    },
+    {
+      "path": "artifacts/phase3/end_to_end_complete.json",
+      "bytes": 14873
+    },
+    {
+      "path": "artifacts/phase3/end_to_end_demo.json",
+      "bytes": 14873
+    },
+    {
+      "path": "artifacts/phase3/end_to_end_final.json",
+      "bytes": 14873
+    },
+    {
+      "path": "artifacts/phase3/environment_final.json",
+      "bytes": 806
+    },
+    {
+      "path": "artifacts/phase3/environment_recovery.json",
+      "bytes": 687
+    },
+    {
+      "path": "artifacts/phase3/final_checks.json",
+      "bytes": 1061
+    },
+    {
+      "path": "artifacts/phase3/final_temporary_cleanup.json",
+      "bytes": 250
+    },
+    {
+      "path": "artifacts/phase3/final_test_scratch_recovery.json",
+      "bytes": 422
+    },
+    {
+      "path": "artifacts/phase3/finalization_preflight.json",
+      "bytes": 13276
+    },
+    {
+      "path": "artifacts/phase3/finalization_preservation_after.json",
+      "bytes": 660
+    },
+    {
+      "path": "artifacts/phase3/finalization_preservation_before.json",
+      "bytes": 12672
+    },
+    {
+      "path": "artifacts/phase3/git_verification.json",
+      "bytes": 5676
+    },
+    {
+      "path": "artifacts/phase3/model_integration_verification.json",
+      "bytes": 1179
+    },
+    {
+      "path": "artifacts/phase3/network_browser_verification.json",
+      "bytes": 1468
+    },
+    {
+      "path": "artifacts/phase3/network_complete.json",
+      "bytes": 1841
+    },
+    {
+      "path": "artifacts/phase3/preflight.json",
+      "bytes": 406
+    },
+    {
+      "path": "artifacts/phase3/preservation_manifest.json",
+      "bytes": 237628
+    },
+    {
+      "path": "artifacts/phase3/preservation_verification.json",
+      "bytes": 416
+    },
+    {
+      "path": "artifacts/phase3/regression_case_reconciliation.json",
+      "bytes": 636
+    },
+    {
+      "path": "artifacts/phase3/runtime_asset_verification.json",
+      "bytes": 416
+    },
+    {
+      "path": "artifacts/phase3/security_fix_checks.json",
+      "bytes": 907
+    },
+    {
+      "path": "artifacts/phase3/security_fix_dev_history_before.json",
+      "bytes": 306
+    },
+    {
+      "path": "artifacts/phase3/security_fix_game_model_comparison.json",
+      "bytes": 6619
+    },
+    {
+      "path": "artifacts/phase3/security_fix_model_preservation.json",
+      "bytes": 619
+    },
+    {
+      "path": "artifacts/phase3/security_fix_observed_after.json",
+      "bytes": 2369
+    },
+    {
+      "path": "artifacts/phase3/security_fix_observed_before.json",
+      "bytes": 1493
+    },
+    {
+      "path": "artifacts/phase3/security_fix_postgres_verification.json",
+      "bytes": 1241
+    },
+    {
+      "path": "artifacts/phase3/security_fix_test_reconciliation.json",
+      "bytes": 2241
+    },
+    {
+      "path": "artifacts/phase3/security_fix_verification.json",
+      "bytes": 11989
+    },
+    {
+      "path": "artifacts/phase3/session_isolation_verification.json",
+      "bytes": 5009
+    },
+    {
+      "path": "artifacts/phase3/shutdown_verification.json",
+      "bytes": 435
+    },
+    {
+      "path": "artifacts/phase3/uas_reference_verification.json",
+      "bytes": 1022
+    },
+    {
+      "path": "artifacts/phase3/verification_summary.json",
+      "bytes": 6229
+    },
+    {
+      "path": "config/contact_members.example.json",
+      "bytes": 41
+    },
+    {
+      "path": "docs/evidence/phase3/baseline.txt",
+      "bytes": 117541
+    },
+    {
+      "path": "docs/evidence/phase3/baseline.xml",
+      "bytes": 153589
+    },
+    {
+      "path": "docs/evidence/phase3/baseline_recovered.txt",
+      "bytes": 456
+    },
+    {
+      "path": "docs/evidence/phase3/baseline_recovered.xml",
+      "bytes": 38413
+    },
+    {
+      "path": "docs/evidence/phase3/bootstrap_green.txt",
+      "bytes": 99
+    },
+    {
+      "path": "docs/evidence/phase3/bootstrap_red.txt",
+      "bytes": 9812
+    },
+    {
+      "path": "docs/evidence/phase3/code_review.md",
+      "bytes": 5368
+    },
+    {
+      "path": "docs/evidence/phase3/concurrency_tests.txt",
+      "bytes": 603
+    },
+    {
+      "path": "docs/evidence/phase3/database_tools_green.txt",
+      "bytes": 604
+    },
+    {
+      "path": "docs/evidence/phase3/dependency_install.txt",
+      "bytes": 6272
+    },
+    {
+      "path": "docs/evidence/phase3/dependency_resolution.txt",
+      "bytes": 5377
+    },
+    {
+      "path": "docs/evidence/phase3/end_to_end_green.txt",
+      "bytes": 637
+    },
+    {
+      "path": "docs/evidence/phase3/end_to_end_red.txt",
+      "bytes": 1307
+    },
+    {
+      "path": "docs/evidence/phase3/final_checks.txt",
+      "bytes": 558
+    },
+    {
+      "path": "docs/evidence/phase3/focused_complete.txt",
+      "bytes": 787
+    },
+    {
+      "path": "docs/evidence/phase3/focused_complete.xml",
+      "bytes": 12421
+    },
+    {
+      "path": "docs/evidence/phase3/focused_final.txt",
+      "bytes": 704
+    },
+    {
+      "path": "docs/evidence/phase3/focused_final.xml",
+      "bytes": 10844
+    },
+    {
+      "path": "docs/evidence/phase3/full_regression_complete.txt",
+      "bytes": 1047
+    },
+    {
+      "path": "docs/evidence/phase3/full_regression_complete.xml",
+      "bytes": 50569
+    },
+    {
+      "path": "docs/evidence/phase3/full_regression_final.txt",
+      "bytes": 1044
+    },
+    {
+      "path": "docs/evidence/phase3/full_regression_final.xml",
+      "bytes": 48992
+    },
+    {
+      "path": "docs/evidence/phase3/full_regression_security_fix.txt",
+      "bytes": 1131
+    },
+    {
+      "path": "docs/evidence/phase3/full_regression_security_fix.xml",
+      "bytes": 52114
+    },
+    {
+      "path": "docs/evidence/phase3/git_status_final.txt",
+      "bytes": 4499
+    },
+    {
+      "path": "docs/evidence/phase3/history_green.txt",
+      "bytes": 98
+    },
+    {
+      "path": "docs/evidence/phase3/history_red.txt",
+      "bytes": 4747
+    },
+    {
+      "path": "docs/evidence/phase3/http_green.txt",
+      "bytes": 604
+    },
+    {
+      "path": "docs/evidence/phase3/http_red.txt",
+      "bytes": 8590
+    },
+    {
+      "path": "docs/evidence/phase3/pages_green.txt",
+      "bytes": 603
+    },
+    {
+      "path": "docs/evidence/phase3/pages_red.txt",
+      "bytes": 5214
+    },
+    {
+      "path": "docs/evidence/phase3/phase_annotation_red.txt",
+      "bytes": 2038
+    },
+    {
+      "path": "docs/evidence/phase3/postgres_start.txt",
+      "bytes": 0
+    },
+    {
+      "path": "docs/evidence/phase3/resumed_review_green.txt",
+      "bytes": 711
+    },
+    {
+      "path": "docs/evidence/phase3/resumed_review_green.xml",
+      "bytes": 6399
+    },
+    {
+      "path": "docs/evidence/phase3/resumed_review_red.txt",
+      "bytes": 15380
+    },
+    {
+      "path": "docs/evidence/phase3/review_fixes_green.txt",
+      "bytes": 709
+    },
+    {
+      "path": "docs/evidence/phase3/review_fixes_green.xml",
+      "bytes": 4648
+    },
+    {
+      "path": "docs/evidence/phase3/review_fixes_red.txt",
+      "bytes": 33912
+    },
+    {
+      "path": "docs/evidence/phase3/schema_type_red.txt",
+      "bytes": 2205
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_affected.txt",
+      "bytes": 712
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_affected.xml",
+      "bytes": 4797
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_checks.txt",
+      "bytes": 607
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_focused.txt",
+      "bytes": 791
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_focused.xml",
+      "bytes": 13966
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_green.txt",
+      "bytes": 219
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_green.xml",
+      "bytes": 1810
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_red.txt",
+      "bytes": 11179
+    },
+    {
+      "path": "docs/evidence/phase3/security_fix_source.diff",
+      "bytes": 8943
+    },
+    {
+      "path": "docs/evidence/phase3/security_green.txt",
+      "bytes": 98
+    },
+    {
+      "path": "docs/evidence/phase3/security_red.txt",
+      "bytes": 4160
+    },
+    {
+      "path": "docs/phase3_execution_ledger.md",
+      "bytes": 11012
+    },
+    {
+      "path": "docs/phase3_file_inventory.md",
+      "bytes": 13811
+    },
+    {
+      "path": "docs/phase3_implementation_report.md",
+      "bytes": 32474
+    },
+    {
+      "path": "docs/reference/SOAL UAS PEMROGRAMAN WEB FRAMEWORK.pdf",
+      "bytes": 100956
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-05-mahjong-phase3.md",
+      "bytes": 4572
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-05-mahjong-phase3-design.md",
+      "bytes": 5557
+    },
+    {
+      "path": "requirements-lock.txt",
+      "bytes": 726
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 269
+    },
+    {
+      "path": "scripts/demo_backend.py",
+      "bytes": 10198
+    },
+    {
+      "path": "scripts/init_db.py",
+      "bytes": 386
+    },
+    {
+      "path": "scripts/phase3_db.py",
+      "bytes": 10086
+    },
+    {
+      "path": "scripts/run_backend.py",
+      "bytes": 374
+    },
+    {
+      "path": "tests/phase3_support.py",
+      "bytes": 1616
+    },
+    {
+      "path": "tests/test_phase3_bootstrap.py",
+      "bytes": 3933
+    },
+    {
+      "path": "tests/test_phase3_concurrency.py",
+      "bytes": 6104
+    },
+    {
+      "path": "tests/test_phase3_database_tools.py",
+      "bytes": 9943
+    },
+    {
+      "path": "tests/test_phase3_documentation.py",
+      "bytes": 2309
+    },
+    {
+      "path": "tests/test_phase3_end_to_end.py",
+      "bytes": 947
+    },
+    {
+      "path": "tests/test_phase3_history.py",
+      "bytes": 6820
+    },
+    {
+      "path": "tests/test_phase3_http.py",
+      "bytes": 9923
+    },
+    {
+      "path": "tests/test_phase3_pages.py",
+      "bytes": 3622
+    },
+    {
+      "path": "tests/test_phase3_security.py",
+      "bytes": 14103
+    }
+  ],
+  "total_bytes_excluding_self": 1460334,
+  "maximum_file_bytes": 237628,
+  "sha256_excluding_self": {
+    ".env.example": "2c494c64389313f91f9dd18814efed9b4645e028da4d1b8862dcc8cb5a3bb75e",
+    ".gitignore": "fb3b618fefba0f666a33f05da9dfe2758a7df4452ad1771bf2b371328188829e",
+    "README.md": "2a219e21a72467fa96e94aa5aff19a527665832c58dddd037f570b74a8ad305e",
+    "app/db.py": "46d25deda2705f9aa2fa18bb1c98becc5509f37fb8469e9816ec835191ab3ba3",
+    "app/domain/predictions.py": "e6573d857fd57e9efc1341c178861f7ffd54e7038ea0f3788f12070a715433d1",
+    "app/main.py": "ec37a18ec362980c05351c15c18c1a6a4bb673cd94d017bda21eaa8b3c2326c5",
+    "app/services/prediction_history_service.py": "a662546dff1831b76c230b97daa6487b8b21c40f560238bfcc5c403f6daf184c",
+    "app/services/web_prediction_service.py": "696efa64c83229176143bbdfa1d07eb0342fc56737c0fe1ec6f7c8deed9c6f50",
+    "app/settings.py": "c7256d6c8f133e51ff8f4eed9dd4650c90fe689c75539d54ee72aae52a42f76b",
+    "app/static/phase3.css": "3ad0f53f40f5e8b2fcaefb30ac554d7ef201f5ef4db8047036ce781ff0a82dab",
+    "app/static/phase3.js": "392bcd8896e67d52ecf42d1fdab1130e1a36080f3a24e3ac5b1eac094d298086",
+    "app/templates/base.html": "9acde5ea2720a98a2552e38d7653d0f8e48f1b0d690ba7f224f2a41140ba251d",
+    "app/templates/contact.html": "f0115f43e9de2861d60645a74664898d3ee431819a1bb92fb576c243ab362bb8",
+    "app/templates/game.html": "3af767ddd7936ae90a668b81e80e607ab97c4dcaaabc2fa2084d6051d0198dd2",
+    "app/templates/history.html": "1e2dbd4440601dea87ffc847d64c644b0ef599b2f6495e9a7aeb2efb84b032bf",
+    "app/templates/history_detail.html": "2ad5c3c2140247294bf0d0c6b3245bf83a0631a068ad18855e8f2b40763cc4ca",
+    "app/templates/home.html": "a0fc4ce49d28b7e285ff176d7bce489dfe01c7995dfe67de5e020b18f067f9c1",
+    "app/web/__init__.py": "1c43a79a72a2c2d572f6505f5c0300095a04c8a3b393d0a1b2e5fda14d2e7622",
+    "app/web/api.py": "b6a9729997cf8162499626e043c6a9f6f8c969b2da9ee93cfecb9a94fb0fa8ff",
+    "app/web/contact.py": "3cbd351fdc92d10a81f6fa2d95a3eba3112f1972fa8b63fe6548a0a139c96092",
+    "app/web/documentation.py": "bf8d1118606b1f0687cb613cee07724ff642ac6c92af246cfe13c4c9d466b801",
+    "app/web/errors.py": "e2450d7a54027f5131072d7221afcc3a4dd04979351d17b23a7cc3b89c2566f2",
+    "app/web/games.py": "83e25c51376cb4454c4e2f374da85d919bfd494a566baa733ddd7de1c24f7e3c",
+    "app/web/pages.py": "2f72dd6a591f50092737f1fefbcbfdf40938afd2b6b87bb4016ea74f116ea463",
+    "app/web/runtime.py": "b2a9c0dbead80ab39b074c1a2d613ddbc20a5189bef7ce42dbc335c7692c9dd3",
+    "app/web/schemas.py": "5f95df4738f78b8449aba72bbbb7d5d0af446af1d3f25e593527c390fb08907a",
+    "app/web/security.py": "cc1fd278fc4495875626e312f5bdd8c8986bbc246525aeb986d9884d75d70822",
+    "app/web/views.py": "0771c7e38c4126bd436044f1db10b865ef2c68a5bf7dc535b787813bc3b11b6d",
+    "artifacts/phase3/api_examples.json": "48df1ee8715d52b05f7c3082d8d357377b166d7aa3cc77eaa943b2ea94e58e19",
+    "artifacts/phase3/backend_contract.json": "2c105b3b3193e5aa707413b781babcae0b7f23c60f655615fc539d7e798c2620",
+    "artifacts/phase3/database_verification.json": "fb82fbbbf175283b8b20f29a01d932c5b0271d1833395afe925c56f3eb64b32e",
+    "artifacts/phase3/database_verification_complete.json": "e32f41bad57c89849b82675ad3cb61a46de2c2cbfe58ba11fec2ee6a09bc3766",
+    "artifacts/phase3/database_verification_final.json": "687f9bcb1701d9a2507fd49bb08f843cc87cf332866250247fc3a94e40dbb89b",
+    "artifacts/phase3/end_to_end_complete.json": "27e5bf307f2a04cb58c7e8d752ca5bbfd8d20fbc650f9636cd8394cbbc47e209",
+    "artifacts/phase3/end_to_end_demo.json": "82f53bfdc1da026054e350eea20e188948944f75a92a95f551f54d05003a24d4",
+    "artifacts/phase3/end_to_end_final.json": "4e7f41715e186524cfa8ab29b4d72044073a60f681f5d1c5088aff0319843785",
+    "artifacts/phase3/environment_final.json": "91cc8adeb0e4e896cf9478790446059df0f37855ffa91cda11d842dff5ddf04b",
+    "artifacts/phase3/environment_recovery.json": "b1d0d06876b45ee3fa0b4af4c75541dec35ef55ea87c1e75252b556b0e930633",
+    "artifacts/phase3/final_checks.json": "4c8c1f3941a1ce24f7bbaea54316e7717824aa36e438604f694b75632f51ade4",
+    "artifacts/phase3/final_temporary_cleanup.json": "e828901e5cd57dbe946537cce9b56c88cb5110a8dbc258fc1c5376b093b5e888",
+    "artifacts/phase3/final_test_scratch_recovery.json": "a56bd8e28148edd22a18bfa7ddf4d44d152d18f6aae3fc97b682ceee59a356d1",
+    "artifacts/phase3/finalization_preflight.json": "780e7d36a3054938325060a10871c5fb9e06b6b5d95415d5519bbdcd1760111b",
+    "artifacts/phase3/finalization_preservation_after.json": "085897ec60ab1d4bd51202f409b365e10a8067f9fd42bde98a13ac371224d944",
+    "artifacts/phase3/finalization_preservation_before.json": "f60f8ebc09ea0ea8df7fec2cb725b543338a2680fe71d59a7f6caba12847288e",
+    "artifacts/phase3/git_verification.json": "db85a3a809df9c11e8b8b2594049fd240465ef5c3e39042d2378310085165df1",
+    "artifacts/phase3/model_integration_verification.json": "bb2a5454e269990cc42bf3bc17d4d229bb3b92a960311f18a170d46109d9d2a2",
+    "artifacts/phase3/network_browser_verification.json": "dfb7acbadd3c128810560ab1080284e4fb143c2b3737a2fd88456c8a6fc2fea1",
+    "artifacts/phase3/network_complete.json": "62a4aec34e2e0d6ba6347b62c4fe8732ad1da1562eac2da16fe3b965995e5a7b",
+    "artifacts/phase3/preflight.json": "6c265f5c78254e3bdc09cfdab94bb12819b6437e19e424b6d6809b35c9372826",
+    "artifacts/phase3/preservation_manifest.json": "b61a64e5650850137b9bf57fb0efb7ec035a9067aac5c46410e0ba3bf157c484",
+    "artifacts/phase3/preservation_verification.json": "8e3538cfb6fdc994606799bed45fa935831550728130baae38a8e21ad988272b",
+    "artifacts/phase3/regression_case_reconciliation.json": "e2b6b71ad5b90a3563e3307527065136ed7235d12ec5526adf727b29ab9c2256",
+    "artifacts/phase3/runtime_asset_verification.json": "b40176faade9702c052d3a098cbb1a4feb65b6a6cc149286cb7a3395c1bff59f",
+    "artifacts/phase3/security_fix_checks.json": "937fa0acf5c3bbfc6d3d2eb77658674f66f00bfa21ed750860bde42289f0cb8c",
+    "artifacts/phase3/security_fix_dev_history_before.json": "eb784ca3a7fc4e6dbeacc02ba52b5aee557e8cf9ed068d9239b5e584af31fd65",
+    "artifacts/phase3/security_fix_game_model_comparison.json": "48042b838b97506a222800134ee782c3f5b8e258a67c4ba1c7f6926a46aa9d51",
+    "artifacts/phase3/security_fix_model_preservation.json": "249eca79c6d631ba25c247a7c118cdf391a2b014b3c439c03fd824903b4b320a",
+    "artifacts/phase3/security_fix_observed_after.json": "541a17e1ede31e924ec53293a6ff3410147ec3a6eb19d3773141d4f9030f8e3a",
+    "artifacts/phase3/security_fix_observed_before.json": "39c54600fbe0e41f42834a708cce77e994caa58d25199f1f46fb4ff135a63e74",
+    "artifacts/phase3/security_fix_postgres_verification.json": "1cc4f8cedfd0066f80f10b3552c4af24c07c7ddd6b32756ee7a03d70cb1f999b",
+    "artifacts/phase3/security_fix_test_reconciliation.json": "30346be6543e217b3364083db847f4561d31331ed93c9fd278f63ede3f072c79",
+    "artifacts/phase3/security_fix_verification.json": "574569120b6bf3f57724491455a9c9283bf0a5822e565693680647b1ec6e2832",
+    "artifacts/phase3/session_isolation_verification.json": "cc858c7348384f29482c3336ff75923c78fddbe54d7efad5400af6c14c6821b6",
+    "artifacts/phase3/shutdown_verification.json": "9d3e916dc66c1c389ae359ecbad4cd81d7495ef8b8675249e8b76034859f0e61",
+    "artifacts/phase3/uas_reference_verification.json": "4a87d3fd1b5c42f24a15dbc6b5f249a30958d81809e36b97fce3aa1688d693e5",
+    "artifacts/phase3/verification_summary.json": "be1c4dc941bcf5635292622a322deb893a41edbf60c8326646dc7a05c6d26b8e",
+    "config/contact_members.example.json": "ace8ee28f23636f31ef0a2855846340c5de72daafb01da2051ebd12a902526be",
+    "docs/evidence/phase3/baseline.txt": "e367761bec782b5d2672cdc58ced2305192731f3979871c6e39a724d73d6a024",
+    "docs/evidence/phase3/baseline.xml": "0900d723334d94d22795526e941ae3297798644215257b77efaf132774cece41",
+    "docs/evidence/phase3/baseline_recovered.txt": "79f5e43e9e3224639cb86d852e4cfb5cdd71cf1930095656285ef501f79d8efc",
+    "docs/evidence/phase3/baseline_recovered.xml": "b70800d0d44d1a9dd2c3f5d28c08c2107c900e12090bd1585fc2994e1f513c59",
+    "docs/evidence/phase3/bootstrap_green.txt": "aac89ae325081fbae69d377855a87b5f0b3caee2a25f0f4351c35044163f733f",
+    "docs/evidence/phase3/bootstrap_red.txt": "567cd5168863fefb6f107ce85e82e368f2194f945b98e3c426abcd37d24ebed0",
+    "docs/evidence/phase3/code_review.md": "4cf9f9c784f716279e4a9e7a469390f2baa182fc3dd669611cbd0fdecf0dac41",
+    "docs/evidence/phase3/concurrency_tests.txt": "71ba4e022792a9f1b55d40a97e86e8e2c6e15bdbb5a67e26664d3bff17b7c6f5",
+    "docs/evidence/phase3/database_tools_green.txt": "4297dad0856da92776a01bf39e25184302fa680494f625ccf23a17d6ff902aa9",
+    "docs/evidence/phase3/dependency_install.txt": "5c42292c93248acf9d75b27202f137197cef9445349bd49ea7f055cc849803d8",
+    "docs/evidence/phase3/dependency_resolution.txt": "df1b6210ceee811dca641e1454245046497dba602b00749e6bdf649f36e982a1",
+    "docs/evidence/phase3/end_to_end_green.txt": "20ce1a97039c3e2673783c68c3731d10e90607efdd257214e78159d0dfc48ffe",
+    "docs/evidence/phase3/end_to_end_red.txt": "47969781af9cdb34b7c079f77f2cb6a12fe8e3b8924388ec428527798ce91b6c",
+    "docs/evidence/phase3/final_checks.txt": "f91771eec30cc5ad24f0d38798bbd697ba8fca5144f3b30f591aa02db924d40e",
+    "docs/evidence/phase3/focused_complete.txt": "f971ed85e4d8826b9019b24298b0d2ae277a0604eefd3e979bf5f4ecbbc0f015",
+    "docs/evidence/phase3/focused_complete.xml": "670c6b4050892364c8446980c7d595ebb0826d0f3be4a43f9c0662f1a9e7c867",
+    "docs/evidence/phase3/focused_final.txt": "e71522a53f6c229f1754a75627630c6bac9a555dc7bbea4e2828fdf422b4fcc9",
+    "docs/evidence/phase3/focused_final.xml": "16f4c55a4a87eace55e54474186e6ddc3ae92237f0a6f44c6a7939aa1f31c66f",
+    "docs/evidence/phase3/full_regression_complete.txt": "b846fc92bf601d3d62c0ad3a2797d8c54f14eeb773e683b4d3747de8a15f2442",
+    "docs/evidence/phase3/full_regression_complete.xml": "0a11f7a49d4c4725d33efe1203dc5b51be4a4ad84401c5ef8a95c0d0cc5a0b97",
+    "docs/evidence/phase3/full_regression_final.txt": "7dad853126c3d4ae8a85b6c4156aadeeeeef45208b159dd433c7da032c93ec16",
+    "docs/evidence/phase3/full_regression_final.xml": "56b28cdbe32022406c9c97c6c10e8f30761cecab8dd49931c24f74e725bf9983",
+    "docs/evidence/phase3/full_regression_security_fix.txt": "4054d0242ea32febe18394d74d078ee7aa5e636d016db20fa6dd94ed2babc126",
+    "docs/evidence/phase3/full_regression_security_fix.xml": "520f2647a1d115f912759d3efa9e1afa1cbcbc2bab3181a4bb84c7f8cf3852cd",
+    "docs/evidence/phase3/git_status_final.txt": "f78c7236e6019c3e9c915e67db7a277ad93479eaa1855d931f4adb862af09d93",
+    "docs/evidence/phase3/history_green.txt": "bc65fea56c68f1a807dc2339b23a78aedc6580de5b33f37938f9efa9ddcc4a82",
+    "docs/evidence/phase3/history_red.txt": "fa0f7def9c278ee54d0948b24125bd20da5e6d150339f5fbe3043942ff67504b",
+    "docs/evidence/phase3/http_green.txt": "e9bdcbf67e769eb9189ba6d359634435ca503a6a8608eea71a3acf1da37b7407",
+    "docs/evidence/phase3/http_red.txt": "f33a50f1c590d8894abe3e3f9f8754d1720d6a7065c89b20d87fecf984246fff",
+    "docs/evidence/phase3/pages_green.txt": "77200a6e2c6951207c8bb9b2feee5b009ce6a015b3dcac2dc1a39ddc9b3bb48e",
+    "docs/evidence/phase3/pages_red.txt": "47bf56ff5dde4f5887834e113276922063c84fb5010a55dfea12b71a89c1107f",
+    "docs/evidence/phase3/phase_annotation_red.txt": "6a03a544dd9eef5b639df5ef286395133bc8a6d3761bfb88628e5627d761bf2c",
+    "docs/evidence/phase3/postgres_start.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/evidence/phase3/resumed_review_green.txt": "bbde89e45799de8d6e97810d146f173177c6c776d262271e9aee3d5d57c584f3",
+    "docs/evidence/phase3/resumed_review_green.xml": "97e83765851f9d706e3c0b2f7ce1ddeed339b5ff73f912d48f88f3f1e5e0d733",
+    "docs/evidence/phase3/resumed_review_red.txt": "cd4bd36dd180cc3818aafe5f9a3db0a5eeae30e0cd2f4e6717fc70e028006db7",
+    "docs/evidence/phase3/review_fixes_green.txt": "f42725dc18a25d93bc8c2b412a312a2609bb0c8e3c8b2f580b7ca2da216fce68",
+    "docs/evidence/phase3/review_fixes_green.xml": "2ba2001428d2d9615728f02a314368711a9a2b5ad3ca5023dccc260fd916dbd0",
+    "docs/evidence/phase3/review_fixes_red.txt": "051ab39795b813eba3db83cc6bbc21f611ef0532060c7685d0bf7264ee2482d2",
+    "docs/evidence/phase3/schema_type_red.txt": "06cff682e8d12bee9a9c6eeeaa88ec44846a6e80e14455bdd0026b0ba1dbe50e",
+    "docs/evidence/phase3/security_fix_affected.txt": "e8057c5ad4c680540f4380d89cdb32d3eed94ed206284d4018c67ae1900266d6",
+    "docs/evidence/phase3/security_fix_affected.xml": "6b194c829239ef0685d1a0e4eced2638b6ec694ab76d08211ba6fe72ab594365",
+    "docs/evidence/phase3/security_fix_checks.txt": "f24b50e04d1d24d191d710908172c31b91488ad43f34b6d732a1f6123c004677",
+    "docs/evidence/phase3/security_fix_focused.txt": "99209cab34131e50ee60335bda672dad20d982ba732630d60c138a30c315c8d4",
+    "docs/evidence/phase3/security_fix_focused.xml": "c92c36526947a61f7d2f062d3f7717f7b6c599398e5492887257ae0244329e27",
+    "docs/evidence/phase3/security_fix_green.txt": "d54ebc71eb01dc68b6b8061171638d37ac6ab32ebdc8c32787dfb66be0752ade",
+    "docs/evidence/phase3/security_fix_green.xml": "310d0d141c1ebbb6d5e5346a8206ac9e69d96121e9158247ebeadeadf84b22df",
+    "docs/evidence/phase3/security_fix_red.txt": "74f25a9ecb611a5866f0178c7a000dc91ed51f59262688dd2b5592fd3a281ea1",
+    "docs/evidence/phase3/security_fix_source.diff": "52f7259b542c08770e0864c28d7c2981a317cd150a432c232b4016f727656aac",
+    "docs/evidence/phase3/security_green.txt": "28dc6d5399d1981687db3d419b9bcba5286cae926208993213af8e03278ceb43",
+    "docs/evidence/phase3/security_red.txt": "80419d79e365f09808971b8044052f53ec2cd54cd6fdc408f751aa4561aac3ca",
+    "docs/phase3_execution_ledger.md": "af8c85db1bcb4bc4814c4e604f5c4f1da955f553c20c05441aea6eba4bd90c66",
+    "docs/phase3_file_inventory.md": "5ff35a3d7946a4a61340d418e29e55c5e26a6f2703bccd24751771940f10133c",
+    "docs/phase3_implementation_report.md": "b64aaafb9e443344ccb81fd2d987aac9ca76b90e765011a04ef3d9a667598826",
+    "docs/reference/SOAL UAS PEMROGRAMAN WEB FRAMEWORK.pdf": "41b044b9e95ee7b8b7237abf53e1e74c8722960b3cd85b60d1f68f35bd871682",
+    "docs/superpowers/plans/2026-11-05-mahjong-phase3.md": "4ab0a846b3af6a1c5f661e9b6c0d5a2ee8c55d62a08a85985c881fa5e1482776",
+    "docs/superpowers/specs/2026-11-05-mahjong-phase3-design.md": "e0fa486602a25859e9812de6b8d473b512cc7b41022b49a490578b0ba4ee703f",
+    "requirements-lock.txt": "95f9a6d917c8bf68f959f70f784ce4bfd40f389ae4501890a6c329f755f17e3f",
+    "requirements.txt": "2a46e4e2401783d95263ec8a0a5f65046ab0cd955e7331706657309d4c666844",
+    "scripts/demo_backend.py": "f594505d8fd743bcfb9ca5cf7bf09a5603048ff1b65a32b60854942d503d6ef9",
+    "scripts/init_db.py": "c4ee3b49cb230da8fc1032cb419f4dd8d0ad424ba0559086e273fa8807bd8b80",
+    "scripts/phase3_db.py": "b8f27849c066233eb473cc3f45a3bfa173baad0cdcf5af2039d3b317e282920c",
+    "scripts/run_backend.py": "e0bcafc2b237e5548e0d247e6297f2c2c74b590d3a4226bbefdecf84960fd2fe",
+    "tests/phase3_support.py": "39795850477b1387217b0856f889a1b31ced26c54c7cf276bf0c141e8d01f750",
+    "tests/test_phase3_bootstrap.py": "815f9e759829084b4e737fd66f2bd8f06fc42637f5d8d62e45250ceac3c2ce2f",
+    "tests/test_phase3_concurrency.py": "0cd7842cd7cee22a88a1e828425eb7f897b499a924b21927a41917696efa917a",
+    "tests/test_phase3_database_tools.py": "cf2088a0c870bd2042f61c811dcddda2b7c0676370e3e2e4adc6fc3df514228c",
+    "tests/test_phase3_documentation.py": "393e08ef34e4c7c5a5cf03127e521f301857449be8291f506c96c2eeb580bae3",
+    "tests/test_phase3_end_to_end.py": "9e6164c84e033ab4265f6e23194a71c0f37542a684df9b12dfca7bbcfece6b08",
+    "tests/test_phase3_history.py": "d3af50b020bdb9af7ece123ebaec51a356b075dbdbc865ee7ca4b3faa7fda3d0",
+    "tests/test_phase3_http.py": "e043b87c98608d0b63dcd064004f0a42e39d6865ee3219ff0e73d9ea9882afe7",
+    "tests/test_phase3_pages.py": "e58e73aab6539f53eb9072d2cdaccc84e7ee97ffd4cf6bba06e0fa2131d53685",
+    "tests/test_phase3_security.py": "a420c0ab1a23b21220b31178ddaaeff77d2c5a6b13f255d139f445546cf5a390"
+  },
+  "self_referential_hash_omitted": true,
+  "secret_pattern_findings": [],
+  "connection_string_review": "Only passwordless dedicated local/test URLs, invalid placeholders and quoted code/examples; no .env or actual signing secret staged",
+  "connection_string_files": [
+    ".env.example",
+    "app/db.py",
+    "app/services/prediction_history_service.py",
+    "app/settings.py",
+    "artifacts/phase3/database_verification.json",
+    "artifacts/phase3/database_verification_complete.json",
+    "artifacts/phase3/database_verification_final.json",
+    "artifacts/phase3/security_fix_postgres_verification.json",
+    "artifacts/phase3/security_fix_verification.json",
+    "artifacts/phase3/shutdown_verification.json",
+    "artifacts/phase3/verification_summary.json",
+    "docs/evidence/phase3/end_to_end_red.txt",
+    "docs/evidence/phase3/history_red.txt",
+    "docs/evidence/phase3/http_red.txt",
+    "docs/evidence/phase3/pages_red.txt",
+    "docs/evidence/phase3/resumed_review_red.txt",
+    "docs/evidence/phase3/review_fixes_red.txt",
+    "docs/phase3_implementation_report.md",
+    "docs/superpowers/specs/2026-11-05-mahjong-phase3-design.md",
+    "scripts/phase3_db.py",
+    "tests/phase3_support.py",
+    "tests/test_phase3_bootstrap.py",
+    "tests/test_phase3_http.py"
+  ],
+  "content_review": "Prior117 Phase3 files compared by SHA; only the planned six differ; exact two-file P3-01 patch reviewed, user reference PDF SHA/magic verified, all text decoded and scanned; no new independent reapproval claimed",
+  "ignored_candidates": "",
+  "excluded_unrelated": [
+    ".DS_Store",
+    "app/services.zip",
+    "app/static.zip",
+    "app/templates.zip",
+    "app/web.zip",
+    "artifacts/.DS_Store",
+    "docs/.DS_Store",
+    "docs/evidence/.DS_Store",
+    "tests/.DS_Store"
+  ],
+  "artifact_policy": "Existing .gitignore/.gitattributes retained; no force-add, no source data/weights/SQL/cluster/ZIP/Finder metadata",
+  "commit_message": "feat(web): complete Phase 3 Mahjong backend integration",
+  "push_or_deployment": false
+}

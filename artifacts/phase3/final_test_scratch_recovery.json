@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "path": "/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-116",
+  "bytes": 823235885,
+  "uid": 501,
+  "lock_present": false,
+  "validated_top_level_test_fixtures": 267,
+  "scope": "Only disposable pytest-116 fixtures from the completed 349-test suite; factory prefixes cross-checked against repository test sources; no repository corpus/model/evidence removed"
+}

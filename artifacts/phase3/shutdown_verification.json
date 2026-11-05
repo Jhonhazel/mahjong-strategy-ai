@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "uvicorn_pid": 14210,
+  "uvicorn_process_exit": 0,
+  "uvicorn_observed": "Application shutdown complete; Finished server process",
+  "temporary_tcp_port": 8873,
+  "temporary_tcp_listener_open": false,
+  "project_postgresql_running": false,
+  "project_database_files_retained": true,
+  "scope": "Only verification processes started for this project were stopped; no database dropped or global service changed"
+}

@@ -1,0 +1,583 @@
+{
+  "status": "PASS",
+  "branch": "main",
+  "head": "b9821fd53b1ef73e2df85de238e028c0244d511f",
+  "staged": 0,
+  "prior_phase3_files_found": 117,
+  "initial_status": [
+    {
+      "status": " M",
+      "path": ".gitignore"
+    },
+    {
+      "status": " M",
+      "path": "README.md"
+    },
+    {
+      "status": " M",
+      "path": "requirements-lock.txt"
+    },
+    {
+      "status": " M",
+      "path": "requirements.txt"
+    },
+    {
+      "status": "??",
+      "path": ".DS_Store"
+    },
+    {
+      "status": "??",
+      "path": ".env.example"
+    },
+    {
+      "status": "??",
+      "path": "app/db.py"
+    },
+    {
+      "status": "??",
+      "path": "app/domain/predictions.py"
+    },
+    {
+      "status": "??",
+      "path": "app/main.py"
+    },
+    {
+      "status": "??",
+      "path": "app/services.zip"
+    },
+    {
+      "status": "??",
+      "path": "app/services/prediction_history_service.py"
+    },
+    {
+      "status": "??",
+      "path": "app/services/web_prediction_service.py"
+    },
+    {
+      "status": "??",
+      "path": "app/settings.py"
+    },
+    {
+      "status": "??",
+      "path": "app/static.zip"
+    },
+    {
+      "status": "??",
+      "path": "app/static/phase3.css"
+    },
+    {
+      "status": "??",
+      "path": "app/static/phase3.js"
+    },
+    {
+      "status": "??",
+      "path": "app/templates.zip"
+    },
+    {
+      "status": "??",
+      "path": "app/templates/base.html"
+    },
+    {
+      "status": "??",
+      "path": "app/templates/contact.html"
+    },
+    {
+      "status": "??",
+      "path": "app/templates/game.html"
+    },
+    {
+      "status": "??",
+      "path": "app/templates/history.html"
+    },
+    {
+      "status": "??",
+      "path": "app/templates/history_detail.html"
+    },
+    {
+      "status": "??",
+      "path": "app/templates/home.html"
+    },
+    {
+      "status": "??",
+      "path": "app/web.zip"
+    },
+    {
+      "status": "??",
+      "path": "app/web/__init__.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/api.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/contact.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/documentation.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/errors.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/games.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/pages.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/runtime.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/schemas.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/security.py"
+    },
+    {
+      "status": "??",
+      "path": "app/web/views.py"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/.DS_Store"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/api_examples.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/backend_contract.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/database_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/database_verification_complete.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/database_verification_final.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/end_to_end_complete.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/end_to_end_demo.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/end_to_end_final.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/environment_final.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/environment_recovery.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/final_checks.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/final_temporary_cleanup.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/final_test_scratch_recovery.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/finalization_preservation_before.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/git_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/model_integration_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/network_browser_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/network_complete.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/preflight.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/preservation_manifest.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/preservation_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/regression_case_reconciliation.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/runtime_asset_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/session_isolation_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/shutdown_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/uas_reference_verification.json"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/phase3/verification_summary.json"
+    },
+    {
+      "status": "??",
+      "path": "config/contact_members.example.json"
+    },
+    {
+      "status": "??",
+      "path": "docs/.DS_Store"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/.DS_Store"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/baseline.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/baseline.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/baseline_recovered.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/baseline_recovered.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/bootstrap_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/bootstrap_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/code_review.md"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/concurrency_tests.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/database_tools_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/dependency_install.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/dependency_resolution.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/end_to_end_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/end_to_end_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/final_checks.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/focused_complete.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/focused_complete.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/focused_final.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/focused_final.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/full_regression_complete.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/full_regression_complete.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/full_regression_final.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/full_regression_final.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/git_status_final.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/history_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/history_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/http_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/http_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/pages_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/pages_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/phase_annotation_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/postgres_start.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/resumed_review_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/resumed_review_green.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/resumed_review_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/review_fixes_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/review_fixes_green.xml"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/review_fixes_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/schema_type_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/security_green.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/evidence/phase3/security_red.txt"
+    },
+    {
+      "status": "??",
+      "path": "docs/phase3_execution_ledger.md"
+    },
+    {
+      "status": "??",
+      "path": "docs/phase3_file_inventory.md"
+    },
+    {
+      "status": "??",
+      "path": "docs/phase3_implementation_report.md"
+    },
+    {
+      "status": "??",
+      "path": "docs/reference/SOAL UAS PEMROGRAMAN WEB FRAMEWORK.pdf"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/plans/2026-11-05-mahjong-phase3.md"
+    },
+    {
+      "status": "??",
+      "path": "docs/superpowers/specs/2026-11-05-mahjong-phase3-design.md"
+    },
+    {
+      "status": "??",
+      "path": "scripts/demo_backend.py"
+    },
+    {
+      "status": "??",
+      "path": "scripts/init_db.py"
+    },
+    {
+      "status": "??",
+      "path": "scripts/phase3_db.py"
+    },
+    {
+      "status": "??",
+      "path": "scripts/run_backend.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/.DS_Store"
+    },
+    {
+      "status": "??",
+      "path": "tests/phase3_support.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_bootstrap.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_concurrency.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_database_tools.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_documentation.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_end_to_end.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_history.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_http.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_pages.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_phase3_security.py"
+    }
+  ],
+  "additional_archives": [
+    {
+      "path": "app/services.zip",
+      "bytes": 36114,
+      "sha256": "ca82c632be293ca2d81eb7c56d0ffb1442e3646f3feae923bbdcc48ae9d7b5e6",
+      "members": 28,
+      "sample_paths": [
+        "services/",
+        "__MACOSX/._services",
+        "services/bot_service.py",
+        "__MACOSX/services/._bot_service.py"
+      ],
+      "policy": "Preserve, exclude backup archive from commit; do not extract"
+    },
+    {
+      "path": "app/static.zip",
+      "bytes": 3470,
+      "sha256": "0d2c05dcce71dbd328c07a0743d349546dd329274ce95bd71ed32b64e8df3ffe",
+      "members": 6,
+      "sample_paths": [
+        "static/",
+        "__MACOSX/._static",
+        "static/phase3.css",
+        "__MACOSX/static/._phase3.css"
+      ],
+      "policy": "Preserve, exclude backup archive from commit; do not extract"
+    },
+    {
+      "path": "app/templates.zip",
+      "bytes": 6578,
+      "sha256": "aff2fb2ad2469c0c5f3f714de24a68026e0f86a2870acfa3a4cc48d30ddba0ad",
+      "members": 14,
+      "sample_paths": [
+        "templates/",
+        "__MACOSX/._templates",
+        "templates/history_detail.html",
+        "__MACOSX/templates/._history_detail.html"
+      ],
+      "policy": "Preserve, exclude backup archive from commit; do not extract"
+    },
+    {
+      "path": "app/web.zip",
+      "bytes": 50696,
+      "sha256": "3904f57f2655819a9045704f3b00bd312de5bac544da00bb04fe272f5ed033a9",
+      "members": 48,
+      "sample_paths": [
+        "web/",
+        "__MACOSX/._web",
+        "web/documentation.py",
+        "__MACOSX/web/._documentation.py"
+      ],
+      "policy": "Preserve, exclude backup archive from commit; do not extract"
+    }
+  ],
+  "disk_free_bytes": 35581321216,
+  "commit_authority": "Current user finalization request explicitly permits one local commit on main; previous no-commit instructions superseded for this task only",
+  "only_allowed_existing_production_change": "app/web/security.py",
+  "planned_existing_test_change": "tests/test_phase3_security.py",
+  "planned_doc_changes": [
+    "docs/phase3_implementation_report.md",
+    "docs/phase3_file_inventory.md",
+    "docs/phase3_execution_ledger.md",
+    "docs/evidence/phase3/code_review.md"
+  ],
+  "status_capture_includes_own_snapshot_file": true,
+  "preexisting_untracked_count": 122
+}

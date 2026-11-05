@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "client_date": "2026-11-05",
+  "branch": "main",
+  "head": "b9821fd53b1ef73e2df85de238e028c0244d511f",
+  "initial_working_tree": "clean before new Phase3 evidence",
+  "python": "3.12.10",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "protected_files": 1868,
+  "dependencies": {
+    "torch": "2.15.0",
+    "numpy": "2.5.4",
+    "PyMahjongGB": "1.4.0",
+    "pytest": "8.4.2"
+  }
+}

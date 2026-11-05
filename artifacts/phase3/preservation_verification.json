@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-05T04:12:58.499095+00:00",
+  "manifest": "artifacts/phase3/preservation_manifest.json",
+  "manifest_sha256": "b61a64e5650850137b9bf57fb0efb7ec035a9067aac5c46410e0ba3bf157c484",
+  "protected_files": 1868,
+  "missing": [],
+  "changed": [],
+  "allowed_existing_modifications": [
+    "README.md",
+    "requirements.txt",
+    "requirements-lock.txt",
+    ".gitignore"
+  ]
+}

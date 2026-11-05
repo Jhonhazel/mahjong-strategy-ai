@@ -1,0 +1,29 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_incompatible_postgres_column_type_is_rejected_before_readiness ______
+
+local_postgres_controller = <scripts.phase3_db.LocalPostgres object at 0x10b23aba0>
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+
+    def test_incompatible_postgres_column_type_is_rejected_before_readiness(local_postgres_controller,web_settings):
+        from app.db import PredictionResult,DatabaseUnavailable,check_schema,create_db_engine
+        controller=local_postgres_controller;name=new_database(controller)
+        config=web_settings.model_copy(update={'database_url':type(web_settings.database_url)(controller.url_for_database(name))})
+        engine=create_db_engine(config)
+        try:
+            clone=PredictionResult.__table__.to_metadata(MetaData());clone.c.owner_key.type=Integer()
+            clone.create(engine)
+>           with pytest.raises(DatabaseUnavailable,match='incompatible'):check_schema(engine)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'app.db.DatabaseUnavailable'>
+
+tests/test_phase3_database_tools.py:59: Failed
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase3_database_tools.py::test_incompatible_postgres_column_type_is_rejected_before_readiness
+1 failed, 2 deselected, 1 warning in 0.73s

@@ -1,6 +1,53 @@
-# Mahjong Strategy AI — Phases 1–2.2
+# Mahjong Strategy AI — Phases 1–3
 
-Playable Botzone Chinese Standard Mahjong (MCR), one human and three local shanten bots. Phase 1 includes the 136/144-tile referee, scoring, private-seat encoder, CLI, corpus audit and strict re-extraction. Phase 2 adds an original Behavior Cloning MLP and advisory discard predictions. Web APIs, PostgreSQL and frontend remain later phases.
+Playable Botzone Chinese Standard Mahjong (MCR), one human and three local shanten bots. Phase 1 includes the referee, scoring, private-seat encoder and CLI. Phases 2–2.2 add the verified Behavior Cloning models. Phase 3 connects the unchanged engine and promoted v3 model to FastAPI, PostgreSQL history and functional Jinja2 pages.
+
+## Run the Phase 3 web app locally
+
+Use CPython 3.12 and PostgreSQL 14 tools (`initdb`, `pg_ctl`, `pg_dump`, `psql`) on the tested macOS host. Installation in the existing environment used the previous lock as a constraint; a clean installation and Windows/Linux operation have not been repeated. Restore inference assets separately using [the checksum-verified procedure](docs/ml_artifact_transfer.md). The runtime needs only the v3 checkpoint, metadata and small expanded data contract; it does not read training shards or raw archives.
+
+From the repository root:
+
+```sh
+.venv/bin/python -m pip install -r requirements-lock.txt
+.venv/bin/python -m scripts.phase3_db start
+export MAHJONG_DATABASE_URL="$(.venv/bin/python -m scripts.phase3_db url --database dev)"
+export MAHJONG_SESSION_SECRET="$(.venv/bin/python -c 'import secrets; print(secrets.token_urlsafe(40))')"
+export MAHJONG_ENVIRONMENT=local
+export MAHJONG_WORKERS=1
+.venv/bin/python -m scripts.init_db
+.venv/bin/python -m scripts.run_backend
+```
+
+Open [Home](http://127.0.0.1:8000/), [Game](http://127.0.0.1:8000/game), [History](http://127.0.0.1:8000/history), [Contact](http://127.0.0.1:8000/contact), [Swagger](http://127.0.0.1:8000/docs) or [ReDoc](http://127.0.0.1:8000/redoc). Documentation UI assets use jsDelivr; the game, pages and JSON API use local assets. The database runs on its private Unix socket in `.local/phase3-postgres`; the helper does not modify global PostgreSQL services. Explicit schema initialization creates the missing table and validates it; startup never migrates or drops existing data.
+
+Keep the same signing secret privately across restarts to retain access with the same signed cookie. Environment variables override a local ignored `.env`; `.env.example` lists names with invalid placeholders. Generate your own secret. Production mode requires HTTPS Secure cookies. Active games are in memory and disappear on restart; PostgreSQL history persists. Run **one worker**. Active games expire after one hour idle by default; finished games retain the existing 30-second cleanup policy.
+
+Contact remains unverified and empty. Copy `config/contact_members.example.json` to `MAHJONG_CONTACT_MEMBERS_PATH` and supply approved members with `name` and optional `student_id`, `role`, `email`. Set `verified: true` only after approval. Until then the page explicitly says its content is incomplete. The polished board, final UAS PDF and video remain later work.
+
+## Phase 3 API and verification
+
+Initialize with `GET /api/session`, retaining the HttpOnly `mahjong_visitor` cookie and returned `csrf_token`. Send `X-CSRF-Token` on every JSON mutation and use the same origin. Swagger exposes both inputs: initialize the session, then copy its token into the mutation header field. Create a game with `{"human_seat":1,"seed":42}`. Read its current legal actions and turn from `GET /api/games/{game_id}`. Submit `{"action_id":33,"expected_turn_number":4}` to its `/actions` path only if those values match that game.
+
+`POST /api/games/{game_id}/predict` accepts only `{"expected_turn_number":4}` and saves the server's observed input plus actual v3 output. It never executes an action. New committed records return 201; the same snapshot returns 200 with the same ID and `reused: true`. List owned history at `GET /api/predictions?limit=20&offset=0`, read `GET /api/predictions/{prediction_id}`, and delete on the detail path with `DELETE` (204, then 404). HTML history uses a CSRF-protected delete form.
+
+Missing identity is 401, CSRF 403, unknown/cross-owner/expired resources 404, stale turns or unavailable discard decisions 409, illegal actions 400, invalid input 422, oversized bodies 413, capacity 429, and required DB/inference failures 503. Scores imitate observed discard behavior; they are not winning probabilities.
+
+```sh
+export MAHJONG_TEST_DATABASE_URL="$(.venv/bin/python -m scripts.phase3_db url --database test)"
+.venv/bin/python -m pytest tests/test_phase3_*.py -q
+.venv/bin/python -m pytest -q --junitxml=docs/evidence/phase3/local_reproduction.xml
+.venv/bin/python -m scripts.demo_backend --output artifacts/phase3/my_round_demo.json
+.venv/bin/python -m scripts.phase3_db export --database dev --output artifacts/phase3/my_history_export.sql
+shasum -a 256 artifacts/phase3/my_history_export.sql
+.venv/bin/python -m scripts.phase3_db restore --input artifacts/phase3/my_history_export.sql
+```
+
+Choose new evidence/export filenames. Database tests require the dedicated `_test` database; admin drift/export tests additionally require the marker-protected cluster. Missing configuration causes explicit skips, not integration PASS. Full historical regressions also require the original corpus/artifacts and temporary space above the existing 1 GiB reserve.
+
+Restore accepts a nonempty export up to 64 MiB whose exact SHA-256 was registered by this cluster's export helper. Export is captured privately and published exclusively. Restore rejects unsafe psql/database commands and executes verified bytes transactionally into a **new** `mahjong_phase3_restore_*` database. It never selects an existing destination. Arbitrary or changed SQL is rejected. Preserve the SQL with a separately trusted checksum for transfer; cross-machine DB administration remains unverified. Dumps, cluster data, secrets and model weights remain Git-ignored. Stop only the private cluster with `.venv/bin/python -m scripts.phase3_db stop`.
+
+See [Phase 3 report](docs/phase3_implementation_report.md), [file inventory](docs/phase3_file_inventory.md), and [ledger](docs/phase3_execution_ledger.md) for exact results, review fixes, UAS mapping and Phase 4 handoff. Earlier sections below retain their historical scope.
 
 ## Setup
 
@@ -59,7 +106,7 @@ The selected training contract is **strict re-extraction**, not historical full 
 
 The complete suite includes a real localhost HTTP server, 20 concurrent threads, native scoring, 200 seeded rounds, CLI subprocesses and real corpus checks. Localhost bind permission is required for the HTTP tests. Missing downloaded corpus/reference files cause explicit dataset test skips, so inspect the skip count. The 50-match artifact check requires running the parity command first; it does not fabricate a report when absent.
 
-## Interfaces for later phases
+## Shared engine and model contracts
 
 - `EncodedTurnState`: `obs int8[38,4,9]` (flattened 1,368 inputs), `legal_mask bool[235]`, `legal_discard_mask bool[34]`, seat, turn, version `ijcai2026_mcr_v1_strict`.
 - Channel 0/1 = seat/prevalent wind; 2–5 = own hand unary counts; 6–21 = historical discards by relative seat; 22–37 = known meld tiles by relative seat. Honor-row columns 7/8 are padding. Relative seats are self/next/opposite/previous. Claimed tiles remain in discard history; physical conservation uses a separate river.

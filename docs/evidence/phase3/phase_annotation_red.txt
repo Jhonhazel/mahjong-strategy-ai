@@ -1,0 +1,31 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_post_meld_annotation_follows_real_accepted_human_claim __________
+
+    def test_post_meld_annotation_follows_real_accepted_human_claim():
+        import random
+        from app.services.bot_service import ShantenHeuristicBot
+        from app.web.games import OwnedGames
+        legacy=GameSessionService(session_ttl_seconds=float('inf'));games=OwnedGames(legacy)
+        owner=secrets.token_hex(32);helper=ShantenHeuristicBot();rng=random.Random(42)
+        try:
+            view=games.create(owner,seed=42,human_seat=1)
+            for _ in range(200):
+                if view.status=='FINISHED':break
+                if view.status=='WAITING_HUMAN_DISCARD':
+                    state=legacy.get_human_encoded_turn(view.game_id)
+                    chosen_id=helper.select_action(state,view.own_hand,view.seat_public_states[1].melds,rng)
+                    chosen=next(a for a in view.legal_actions if a.action_id==chosen_id)
+                else:
+                    choices=[a for a in view.legal_actions if a.action_type=='Hu'] or [a for a in view.legal_actions if a.action_type in ('Chi','Peng')] or list(view.legal_actions)
+                    chosen=choices[0]
+                view=games.action(owner,view.game_id,chosen.action_id,view.turn_number)
+                if chosen.action_type in ('Chi','Peng'):
+>                   with games.owned(owner,view.game_id) as entry:assert entry.turn_phase=='POST_MELD_DISCARD'
+                                                                         ^^^^^^^^^^^^^^^^
+E                   AttributeError: 'OwnedGame' object has no attribute 'turn_phase'
+
+tests/test_phase3_security.py:132: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_phase3_security.py::test_post_meld_annotation_follows_real_accepted_human_claim
+1 failed, 8 deselected in 0.19s

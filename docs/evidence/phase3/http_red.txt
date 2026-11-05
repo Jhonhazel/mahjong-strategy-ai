@@ -1,0 +1,118 @@
+EEEEEEEFF                                                                [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_http_startup_loads_v3_once_readiness_and_cookie_flags _
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    @pytest.fixture
+    def client(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:19: ModuleNotFoundError
+_ ERROR at setup of test_http_game_ownership_validation_csrf_and_readonly_get __
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    @pytest.fixture
+    def client(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:19: ModuleNotFoundError
+_ ERROR at setup of test_real_http_prediction_persists_exact_input_output_without_mutation _
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    @pytest.fixture
+    def client(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:19: ModuleNotFoundError
+__ ERROR at setup of test_http_history_owner_isolation_delete_and_invalid_id ___
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    @pytest.fixture
+    def client(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:19: ModuleNotFoundError
+_ ERROR at setup of test_http_action_stale_illegal_and_simultaneous_duplicate __
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    @pytest.fixture
+    def client(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:19: ModuleNotFoundError
+_ ERROR at setup of test_http_failed_database_commit_returns503_no_row_and_no_game_change _
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    @pytest.fixture
+    def client(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:19: ModuleNotFoundError
+_ ERROR at setup of test_readiness_failure_is_sanitized_and_liveness_remains_healthy _
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    @pytest.fixture
+    def client(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:19: ModuleNotFoundError
+=================================== FAILURES ===================================
+___ test_real_postgres_history_survives_web_restart_but_active_game_does_not ___
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    def test_real_postgres_history_survives_web_restart_but_active_game_does_not(web_settings,postgres_engine):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:149: ModuleNotFoundError
+_ test_missing_model_or_database_blocks_startup_without_leaking_private_paths __
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-106/test_missing_model_or_database0')
+
+    def test_missing_model_or_database_blocks_startup_without_leaking_private_paths(web_settings,postgres_engine,tmp_path):
+>       from app.main import create_app
+E       ModuleNotFoundError: No module named 'app.main'
+
+tests/test_phase3_http.py:161: ModuleNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase3_http.py::test_real_postgres_history_survives_web_restart_but_active_game_does_not
+FAILED tests/test_phase3_http.py::test_missing_model_or_database_blocks_startup_without_leaking_private_paths
+ERROR tests/test_phase3_http.py::test_http_startup_loads_v3_once_readiness_and_cookie_flags
+ERROR tests/test_phase3_http.py::test_http_game_ownership_validation_csrf_and_readonly_get
+ERROR tests/test_phase3_http.py::test_real_http_prediction_persists_exact_input_output_without_mutation
+ERROR tests/test_phase3_http.py::test_http_history_owner_isolation_delete_and_invalid_id
+ERROR tests/test_phase3_http.py::test_http_action_stale_illegal_and_simultaneous_duplicate
+ERROR tests/test_phase3_http.py::test_http_failed_database_commit_returns503_no_row_and_no_game_change
+ERROR tests/test_phase3_http.py::test_readiness_failure_is_sanitized_and_liveness_remains_healthy
+2 failed, 1 warning, 7 errors in 1.98s

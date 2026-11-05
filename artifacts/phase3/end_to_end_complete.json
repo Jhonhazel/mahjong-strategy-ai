@@ -1,0 +1,535 @@
+{
+  "status": "PASS",
+  "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "weights_before": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "weights_after": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "rounds": [
+    {
+      "seed": 42,
+      "game_id": "d9882aa4-dd74-4b90-9a69-c9f952760e31",
+      "actions": 11,
+      "predictions": [
+        {
+          "prediction_id": "5664fafe-abab-4abf-b891-f8b5b7bcbade",
+          "turn_number": 4,
+          "turn_phase": "SELF_TURN",
+          "recommended_tile": "J1",
+          "top3": [
+            {
+              "tile": "J1",
+              "class_index": 31,
+              "action_id": 33,
+              "score": 0.8203998804092407
+            },
+            {
+              "tile": "J2",
+              "class_index": 32,
+              "action_id": 34,
+              "score": 0.06920811533927917
+            },
+            {
+              "tile": "T1",
+              "class_index": 9,
+              "action_id": 11,
+              "score": 0.02715257927775383
+            }
+          ],
+          "input_sha256_before": "d83c12888d281cf96bea2b99ea60f9a4253a1a65d34a3e0c9532d01b00bc0d8a",
+          "input_sha256_after": "d83c12888d281cf96bea2b99ea60f9a4253a1a65d34a3e0c9532d01b00bc0d8a",
+          "persisted_state_digest": "78839d83ce0146777ef6944db86a073777b5c22eeacf2c9f59c416206fc055fd",
+          "created_at": "2026-11-05T04:11:52.508601+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        },
+        {
+          "prediction_id": "e3eae519-1fe5-44e5-ad00-6cd697562e6b",
+          "turn_number": 20,
+          "turn_phase": "POST_MELD_DISCARD",
+          "recommended_tile": "T1",
+          "top3": [
+            {
+              "tile": "T1",
+              "class_index": 9,
+              "action_id": 11,
+              "score": 0.6899568438529968
+            },
+            {
+              "tile": "J1",
+              "class_index": 31,
+              "action_id": 33,
+              "score": 0.19104927778244019
+            },
+            {
+              "tile": "W5",
+              "class_index": 4,
+              "action_id": 6,
+              "score": 0.040395040065050125
+            }
+          ],
+          "input_sha256_before": "33d25ffb8b16a496a18e4b48e605470f73bf3babd7f070ed821149b8d74f6cb2",
+          "input_sha256_after": "33d25ffb8b16a496a18e4b48e605470f73bf3babd7f070ed821149b8d74f6cb2",
+          "persisted_state_digest": "77a891620a77c015cd911717c59d54cf2871e5ba3aeb885efd9d293e9b86d4c3",
+          "created_at": "2026-11-05T04:11:52.532859+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        }
+      ],
+      "final_view": {
+        "game_id": "d9882aa4-dd74-4b90-9a69-c9f952760e31",
+        "status": "FINISHED",
+        "human_seat": 1,
+        "prevalent_wind": 0,
+        "active_seat": 0,
+        "turn_number": 132,
+        "wall_tiles_remaining": 55,
+        "own_hand": [
+          "W5",
+          "T8",
+          "B7",
+          "B9"
+        ],
+        "own_flowers": [],
+        "seat_public_states": [
+          {
+            "seat": 0,
+            "concealed_count": 13,
+            "melds": [],
+            "flowers": [],
+            "discards": [
+              "F2",
+              "T4",
+              "W9",
+              "W2",
+              "F1",
+              "B1",
+              "B5",
+              "B6",
+              "B7"
+            ],
+            "wall_remaining": 12
+          },
+          {
+            "seat": 1,
+            "concealed_count": 4,
+            "melds": [
+              {
+                "pack_type": "CHI",
+                "tile": "T3",
+                "offer": 3
+              },
+              {
+                "pack_type": "CHI",
+                "tile": "B5",
+                "offer": 2
+              },
+              {
+                "pack_type": "CHI",
+                "tile": "B6",
+                "offer": 2
+              }
+            ],
+            "flowers": [],
+            "discards": [
+              "T2",
+              "J1",
+              "T2",
+              "F3",
+              "W9",
+              "J2",
+              "T1",
+              "B2"
+            ],
+            "wall_remaining": 16
+          },
+          {
+            "seat": 2,
+            "concealed_count": 11,
+            "melds": [
+              {
+                "pack_type": "PENG",
+                "tile": "J1",
+                "offer": 1
+              }
+            ],
+            "flowers": [],
+            "discards": [
+              "W4",
+              "W9",
+              "W2",
+              "T2",
+              "T9",
+              "W4",
+              "T3",
+              "T3"
+            ],
+            "wall_remaining": 14
+          },
+          {
+            "seat": 3,
+            "concealed_count": 13,
+            "melds": [],
+            "flowers": [],
+            "discards": [
+              "W2",
+              "F1",
+              "T9",
+              "J1",
+              "T9",
+              "W7",
+              "B5",
+              "B2"
+            ],
+            "wall_remaining": 13
+          }
+        ],
+        "legal_actions": [],
+        "can_request_ai_prediction": false,
+        "round_result": {
+          "ending": "ron",
+          "outcome_type": "HU",
+          "winner_seat": 2,
+          "discarder_seat": 0,
+          "qianggang": false,
+          "win_tile": "B7",
+          "total_fan": 9,
+          "fans": [
+            {
+              "fan_points": 6,
+              "count": 1,
+              "fan_name_zh": "五门齐",
+              "fan_name_en": "All Types"
+            },
+            {
+              "fan_points": 2,
+              "count": 1,
+              "fan_name_zh": "箭刻",
+              "fan_name_en": "Dragon Pung"
+            },
+            {
+              "fan_points": 1,
+              "count": 1,
+              "fan_name_zh": "独听・嵌张",
+              "fan_name_en": "Closed Wait"
+            }
+          ],
+          "score_deltas": [
+            -17,
+            -8,
+            33,
+            -8
+          ]
+        }
+      },
+      "deleted_prediction_id": "5664fafe-abab-4abf-b891-f8b5b7bcbade",
+      "deleted_prediction_status": 404,
+      "history_after_restart": 1,
+      "game_after_restart_status": 404,
+      "claim_prediction_unavailable_checked": true
+    },
+    {
+      "seed": 43,
+      "game_id": "e5351e0f-81b6-4bbe-a404-b6dc706dbd50",
+      "actions": 26,
+      "predictions": [
+        {
+          "prediction_id": "fac934de-03f3-4ea4-9554-66e66b02a975",
+          "turn_number": 4,
+          "turn_phase": "SELF_TURN",
+          "recommended_tile": "F4",
+          "top3": [
+            {
+              "tile": "F4",
+              "class_index": 30,
+              "action_id": 32,
+              "score": 0.8518426418304443
+            },
+            {
+              "tile": "W8",
+              "class_index": 7,
+              "action_id": 9,
+              "score": 0.03548278287053108
+            },
+            {
+              "tile": "B4",
+              "class_index": 21,
+              "action_id": 23,
+              "score": 0.03373042121529579
+            }
+          ],
+          "input_sha256_before": "76fdb512fb27f78e46dc8cfb496b88a24b7853688a7878dea94b2e8a5b358f72",
+          "input_sha256_after": "76fdb512fb27f78e46dc8cfb496b88a24b7853688a7878dea94b2e8a5b358f72",
+          "persisted_state_digest": "3fdde609dd5b4c43823853550b5de79d5d929d79a574dadf3d0429497c8ef3d8",
+          "created_at": "2026-11-05T04:11:52.757616+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        },
+        {
+          "prediction_id": "7e88b7dd-7477-4dd2-a1c7-7ca713a1c9e0",
+          "turn_number": 20,
+          "turn_phase": "SELF_TURN",
+          "recommended_tile": "F4",
+          "top3": [
+            {
+              "tile": "F4",
+              "class_index": 30,
+              "action_id": 32,
+              "score": 0.48179566860198975
+            },
+            {
+              "tile": "T1",
+              "class_index": 9,
+              "action_id": 11,
+              "score": 0.08193202316761017
+            },
+            {
+              "tile": "W8",
+              "class_index": 7,
+              "action_id": 9,
+              "score": 0.0649387463927269
+            }
+          ],
+          "input_sha256_before": "eea7c104949b96ffd3859824a6ba815abc17d7bf719931585b3517a0d5fff3be",
+          "input_sha256_after": "eea7c104949b96ffd3859824a6ba815abc17d7bf719931585b3517a0d5fff3be",
+          "persisted_state_digest": "64e2ddc1a22cf0453da588ec90b79821b3b0c74825344531f563544a8002e562",
+          "created_at": "2026-11-05T04:11:52.775020+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        },
+        {
+          "prediction_id": "b0fb57b2-5f93-4731-8544-aa1a55d9b9c2",
+          "turn_number": 52,
+          "turn_phase": "POST_MELD_DISCARD",
+          "recommended_tile": "F4",
+          "top3": [
+            {
+              "tile": "F4",
+              "class_index": 30,
+              "action_id": 32,
+              "score": 0.8758319616317749
+            },
+            {
+              "tile": "W1",
+              "class_index": 0,
+              "action_id": 2,
+              "score": 0.045713603496551514
+            },
+            {
+              "tile": "B8",
+              "class_index": 25,
+              "action_id": 27,
+              "score": 0.02112899348139763
+            }
+          ],
+          "input_sha256_before": "c3615523523e3e967cf4e14cf03a03894edc79eee13be8bcfff8b4c7a05c7fbb",
+          "input_sha256_after": "c3615523523e3e967cf4e14cf03a03894edc79eee13be8bcfff8b4c7a05c7fbb",
+          "persisted_state_digest": "e278c15b64e49e08d744145053f40392019f04c9b5285668123b702a12a8fdb7",
+          "created_at": "2026-11-05T04:11:52.799796+00:00",
+          "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+        }
+      ],
+      "final_view": {
+        "game_id": "e5351e0f-81b6-4bbe-a404-b6dc706dbd50",
+        "status": "FINISHED",
+        "human_seat": 1,
+        "prevalent_wind": 0,
+        "active_seat": 2,
+        "turn_number": 344,
+        "wall_tiles_remaining": 6,
+        "own_hand": [
+          "F3"
+        ],
+        "own_flowers": [],
+        "seat_public_states": [
+          {
+            "seat": 0,
+            "concealed_count": 7,
+            "melds": [
+              {
+                "pack_type": "CHI",
+                "tile": "T8",
+                "offer": 2
+              },
+              {
+                "pack_type": "CHI",
+                "tile": "W4",
+                "offer": 2
+              }
+            ],
+            "flowers": [],
+            "discards": [
+              "T5",
+              "F1",
+              "T5",
+              "B3",
+              "J2",
+              "F4",
+              "W1",
+              "W1",
+              "B6",
+              "T1",
+              "W5",
+              "W9",
+              "T2",
+              "B3",
+              "J2",
+              "W7",
+              "W9",
+              "B9",
+              "B1",
+              "B1",
+              "T4",
+              "T5"
+            ],
+            "wall_remaining": 1
+          },
+          {
+            "seat": 1,
+            "concealed_count": 1,
+            "melds": [
+              {
+                "pack_type": "CHI",
+                "tile": "B4",
+                "offer": 1
+              },
+              {
+                "pack_type": "CHI",
+                "tile": "T2",
+                "offer": 1
+              },
+              {
+                "pack_type": "PENG",
+                "tile": "W7",
+                "offer": 1
+              },
+              {
+                "pack_type": "CHI",
+                "tile": "T6",
+                "offer": 1
+              }
+            ],
+            "flowers": [],
+            "discards": [
+              "W8",
+              "W8",
+              "F1",
+              "T3",
+              "B4",
+              "F4",
+              "W1",
+              "J2",
+              "F2",
+              "T1",
+              "J2",
+              "B8",
+              "B9",
+              "J3",
+              "B8",
+              "W2",
+              "T9",
+              "T9",
+              "B3",
+              "W4",
+              "W8",
+              "B4"
+            ],
+            "wall_remaining": 3
+          },
+          {
+            "seat": 2,
+            "concealed_count": 13,
+            "melds": [],
+            "flowers": [],
+            "discards": [
+              "W6",
+              "B1",
+              "W9",
+              "J3",
+              "T8",
+              "F4",
+              "T8",
+              "F2",
+              "B5",
+              "B6",
+              "B9",
+              "T2",
+              "B2",
+              "T8",
+              "W2",
+              "B5",
+              "T6",
+              "W3",
+              "T2",
+              "B6",
+              "B8"
+            ],
+            "wall_remaining": 0
+          },
+          {
+            "seat": 3,
+            "concealed_count": 7,
+            "melds": [
+              {
+                "pack_type": "CHI",
+                "tile": "B6",
+                "offer": 1
+              },
+              {
+                "pack_type": "CHI",
+                "tile": "T3",
+                "offer": 1
+              }
+            ],
+            "flowers": [],
+            "discards": [
+              "T5",
+              "F1",
+              "J1",
+              "J3",
+              "B1",
+              "J1",
+              "F2",
+              "T8",
+              "T9",
+              "T1",
+              "F1",
+              "W2",
+              "B2",
+              "B9",
+              "W4",
+              "T4",
+              "W7",
+              "W4",
+              "W2",
+              "J1",
+              "T7"
+            ],
+            "wall_remaining": 2
+          }
+        ],
+        "legal_actions": [],
+        "can_request_ai_prediction": false,
+        "round_result": {
+          "ending": "draw",
+          "outcome_type": "HUANGZHUANG",
+          "winner_seat": null,
+          "discarder_seat": null,
+          "qianggang": false,
+          "win_tile": null,
+          "total_fan": 0,
+          "fans": [],
+          "score_deltas": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "deleted_prediction_id": "fac934de-03f3-4ea4-9554-66e66b02a975",
+      "deleted_prediction_status": 404,
+      "history_after_restart": 2,
+      "game_after_restart_status": 404,
+      "claim_prediction_unavailable_checked": true
+    }
+  ],
+  "database": "Real PostgreSQL",
+  "transport": "FastAPI TestClient ASGI HTTP",
+  "policy": "Deterministic independent human-side test policy; model suggestions never auto-executed; no win-rate claim"
+}
