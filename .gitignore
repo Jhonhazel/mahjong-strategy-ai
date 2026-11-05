@@ -32,3 +32,13 @@ artifacts/transfer/
 .local/
 artifacts/phase3/*.sql
 !.env.example
+
+.DS_Store
+
+/app/services.zip
+
+/app/static.zip
+
+/app/templates.zip
+
+/app/web.zip
