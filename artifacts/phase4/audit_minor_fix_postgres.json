@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "version": "14.19 (Homebrew)",
+  "development_rows": 11,
+  "canonical_rows_sha256": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+  "individual_hashes_unchanged": true,
+  "schema_status": "PASS",
+  "schema_sha256": "d1e9017ff889721d8d8dae74a292eb622a9f89a6c9e5750294789ac9d9675767",
+  "test_schema_unchanged": true,
+  "utc_read_only": true,
+  "project_cluster_remains_running": true,
+  "timing": "After full399-case regression and browser smoke"
+}

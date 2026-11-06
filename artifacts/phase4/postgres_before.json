@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "initially_running": true,
+  "server_version": "14.19 (Homebrew)",
+  "development_rows": 11,
+  "canonical_rows_sha256": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+  "individual_row_hashes": {
+    "3ca4009f-55c3-45d4-9bb0-dac519afc97b": "5dbcf5aa246069145f3ae0eda994d36a71440966056eec0934a0c6c8e958828f",
+    "44013ab6-f546-4e78-9444-8dfd4b8ce786": "d31ad82c4ba5dec6880d28979d6543f8d84c35a20464b11bdc5b12f44d188069",
+    "48510ced-8545-4217-9dac-2ed99b14b814": "cc2520221d4b05717c329ae845df7ac30976649b075d732ae60739d01aaf2bdc",
+    "7e88b7dd-7477-4dd2-a1c7-7ca713a1c9e0": "0eb86d21cc32215ca2e000a0afb34b373e32e9019c6d4cdef5eeba3560915506",
+    "8a07653f-77f9-45c6-a0db-69e713a3c642": "640db54fafa5d96641b829ad2cda2617f51ef9649a7a706e124ca6d61ed70ea5",
+    "9adaceb9-501e-41cf-b823-aa0543106c33": "e5b089098ed8db7fb63c79e0ce9560e3354e4964aacc110e43d0f0003090345d",
+    "af7a30cc-5e82-4e7a-a13a-33eb5fcf5642": "b27a8d9db42cc8b4fcf0367045e2f084b9ddf5fcb6bc07bf0ea83e2e0cf9cb67",
+    "b0fb57b2-5f93-4731-8544-aa1a55d9b9c2": "035064b2a5cde5ad324d64018f808805a193973932f46b1b37457cadd3245ed3",
+    "e3eae519-1fe5-44e5-ad00-6cd697562e6b": "9ba5124491edcb5c047358899b048e10c858b13eb669ceea2377398b47ce18be",
+    "eee539a9-d87f-449a-b7a3-e6bd887686c3": "fde227dd0778606b85db1f480f979fc9966009c7386e3c22fcf8150684d8daf2",
+    "ff8ef299-bc80-4a41-9363-f2a104926951": "dd162e7fa54ecc8719a0bdeab2c422689cf2f70527eb74d5334a3390bb3b2878"
+  },
+  "scope": "Read-only development snapshot; integration/browser work uses mahjong_phase3_test"
+}

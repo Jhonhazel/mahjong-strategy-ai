@@ -1,0 +1,555 @@
+✖ duplicate hand tiles select one actual server action and submit current turn (0.6725ms)
+✖ only supplied action ids can be selected, including all claim and Kong types (0.1295ms)
+✖ busy mutation guard prevents duplicate submissions and optimistic hand removal (0.108625ms)
+✖ old GET responses cannot overwrite newer authoritative state (0.092583ms)
+✖ an old GET completion cannot clear the busy guard of a newer pending GET (0.104834ms)
+✖ 409 refreshes state and requires new selection without retrying action (0.084458ms)
+✖ uncertain action outcome reconciles GET and never blindly resubmits (0.082708ms)
+✖ prediction is explicit, uses current turn, preserves Top3 order and never executes action (0.092916ms)
+✖ another tab advancing before prediction verification leaves a saved historical notice only (0.253625ms)
+✖ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.124375ms)
+✖ failed prediction saving503 never produces a saved-success notice (0.083083ms)
+✖ changing turn clears old prediction and selection; changing game clears saved context (0.197416ms)
+✖ 404 and401 clear active controls without fabricating a replacement identity (0.151667ms)
+✖ reused predictions preserve saved identity and server reused flag (0.088042ms)
+✖ mutations send JSON, current CSRF and same-origin cookies with exact turn (0.848541ms)
+✖ session bootstrap updates in-memory token and no mutation executes without it (0.117584ms)
+✖ all required HTTP errors become safe Indonesian messages without backend details (0.385541ms)
+✖ delete accepts a confirmed204 without JSON and preserves request safety (0.087167ms)
+✖ network and malformed-success responses fail safely without leaking payload (0.091125ms)
+✖ human seat 0 stays bottom with right/top/left relative opponents (0.622916ms)
+✖ human seat 1 stays bottom with right/top/left relative opponents (0.085458ms)
+✖ human seat 2 stays bottom with right/top/left relative opponents (0.066833ms)
+✖ human seat 3 stays bottom with right/top/left relative opponents (0.067375ms)
+✖ projection shows only human faces and public rivers/melds, hiding opponent AnGang (0.096667ms)
+✖ meld projection follows public middle tile and preserves unknown concealment (0.081667ms)
+✖ discard selection uses a supplied Play option rather than a hand index (0.068875ms)
+✖ settings accept exact safe seed boundary and null random seed (0.07325ms)
+✖ settings reject out of range seats and nonboolean flower options (0.078792ms)
+✖ round presentation handles draws, seat zero and actual score deltas without scoring (0.126375ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 0
+ℹ fail 29
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 66.776583
+
+✖ failing tests:
+
+test at tests/frontend/controller.test.mjs:12:1
+✖ duplicate hand tiles select one actual server action and submit current turn (0.6725ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:13:37)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.start (node:internal/test_runner/test:959:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:21:1
+✖ only supplied action ids can be selected, including all claim and Kong types (0.1295ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:23:112)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:27:1
+✖ busy mutation guard prevents duplicate submissions and optimistic hand removal (0.108625ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:28:90)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:36:1
+✖ old GET responses cannot overwrite newer authoritative state (0.092583ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:38:91)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:44:1
+✖ an old GET completion cannot clear the busy guard of a newer pending GET (0.104834ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:46:91)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:51:1
+✖ 409 refreshes state and requires new selection without retrying action (0.084458ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:52:106)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:58:1
+✖ uncertain action outcome reconciles GET and never blindly resubmits (0.082708ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:59:123)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:65:1
+✖ prediction is explicit, uses current turn, preserves Top3 order and never executes action (0.092916ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:66:37)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:75:1
+✖ another tab advancing before prediction verification leaves a saved historical notice only (0.253625ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:76:73)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:81:1
+✖ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.124375ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:82:72)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:86:1
+✖ failed prediction saving503 never produces a saved-success notice (0.083083ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:87:72)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:91:1
+✖ changing turn clears old prediction and selection; changing game clears saved context (0.197416ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:92:100)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:99:1
+✖ 404 and401 clear active controls without fabricating a replacement identity (0.151667ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:101:70)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/controller.test.mjs:107:1
+✖ reused predictions preserve saved identity and server reused flag (0.088042ms)
+  AssertionError [ERR_ASSERTION]: The guarded game controller feature is missing
+      at controller (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:108:76)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/http.test.mjs:10:1
+✖ mutations send JSON, current CSRF and same-origin cookies with exact turn (0.848541ms)
+  AssertionError [ERR_ASSERTION]: The same-origin HTTP client feature is missing
+      at client (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:6:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:11:38)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.start (node:internal/test_runner/test:959:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/http.test.mjs:21:1
+✖ session bootstrap updates in-memory token and no mutation executes without it (0.117584ms)
+  AssertionError [ERR_ASSERTION]: The same-origin HTTP client feature is missing
+      at client (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:6:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:22:38)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/http.test.mjs:29:1
+✖ all required HTTP errors become safe Indonesian messages without backend details (0.385541ms)
+  AssertionError [ERR_ASSERTION]: The same-origin HTTP client feature is missing
+      at client (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:6:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:30:38)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/http.test.mjs:37:1
+✖ delete accepts a confirmed204 without JSON and preserves request safety (0.087167ms)
+  AssertionError [ERR_ASSERTION]: The same-origin HTTP client feature is missing
+      at client (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:6:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:38:38)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/http.test.mjs:44:1
+✖ network and malformed-success responses fail safely without leaking payload (0.091125ms)
+  AssertionError [ERR_ASSERTION]: The same-origin HTTP client feature is missing
+      at client (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:6:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:45:38)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:11:3
+✖ human seat 0 stays bottom with right/top/left relative opponents (0.622916ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:12:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.start (node:internal/test_runner/test:959:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:11:3
+✖ human seat 1 stays bottom with right/top/left relative opponents (0.085458ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:12:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:11:3
+✖ human seat 2 stays bottom with right/top/left relative opponents (0.066833ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:12:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:11:3
+✖ human seat 3 stays bottom with right/top/left relative opponents (0.067375ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:12:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:19:1
+✖ projection shows only human faces and public rivers/melds, hiding opponent AnGang (0.096667ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:20:34)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:34:1
+✖ meld projection follows public middle tile and preserves unknown concealment (0.081667ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:35:31)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:42:1
+✖ discard selection uses a supplied Play option rather than a hand index (0.068875ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:43:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:50:1
+✖ settings accept exact safe seed boundary and null random seed (0.07325ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:51:35)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:59:1
+✖ settings reject out of range seats and nonboolean flower options (0.078792ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:60:35)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/model.test.mjs:65:1
+✖ round presentation handles draws, seat zero and actual score deltas without scoring (0.126375ms)
+  AssertionError [ERR_ASSERTION]: The board/selection projection feature is missing
+      at model (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:7:10)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/model.test.mjs:66:39)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }

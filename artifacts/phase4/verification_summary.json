@@ -1,0 +1,612 @@
+{
+  "verdict": "PHASE 4 GO WITH CAVEATS \u2014 FUNCTIONAL BUT LIMITED",
+  "implementation_scope": "COMPLETE",
+  "generated_at_utc": "2026-11-06T00:08:18.578276+00:00",
+  "repository": "/Users/jhonhazel/mahjong-strategy-ai",
+  "tests": {
+    "historical_baseline": 370,
+    "original_phase1_to_2_2": 279,
+    "baseline_seconds": 59.98,
+    "pytest_passed": 399,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "new_pytest_cases": 29,
+    "node_cases": 66,
+    "node_wrappers_in_pytest": 6,
+    "node_counting_note": "66 Node cases executed within six of the399 pytest cases; do not add them twice",
+    "stdout_seconds": 63.78,
+    "junit_seconds": 63.77,
+    "node_standalone_ms": 87.00025,
+    "warnings": [
+      "Existing Starlette TestClient/httpx deprecation warning"
+    ],
+    "junit": "docs/evidence/phase4/regression_final.xml",
+    "identity_verification": "artifacts/phase4/test_identity_verification.json"
+  },
+  "model": {
+    "checkpoint": "artifacts/models/mahjong_discard_mlp_v3.pt",
+    "sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+    "encoder_version": "ijcai2026_mcr_v1_strict",
+    "architecture": [
+      1368,
+      256,
+      128,
+      34
+    ],
+    "runtime_weights_unchanged": true,
+    "inference": "Real CPU v3 through unchanged FastAPI service"
+  },
+  "acceptance": {
+    "tcp": "artifacts/phase4/controller_acceptance_final.json",
+    "tcp_rounds": 2,
+    "tcp_rounds_summary": [
+      {
+        "seed": 42,
+        "actions": 23,
+        "claims": {
+          "Play": 20,
+          "Chi": 3
+        },
+        "ending": "zimo",
+        "fan": 25,
+        "scores": [
+          99,
+          -33,
+          -33,
+          -33
+        ]
+      },
+      {
+        "seed": 43,
+        "actions": 23,
+        "claims": {
+          "Play": 21,
+          "Chi": 1,
+          "Peng": 1
+        },
+        "ending": "draw",
+        "fan": 0,
+        "scores": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "browser": "artifacts/phase4/browser_verification.json",
+    "browser_review": "artifacts/phase4/browser_review_verification.json",
+    "browser_completed_rounds": 3,
+    "browser_page_width_checks": 30,
+    "post_fix_full_hand_widths": [
+      705,
+      768
+    ],
+    "browser_tab_cleanup": true,
+    "temporary_preview_stopped": true
+  },
+  "preservation": {
+    "status": "PASS",
+    "protected_files": 1999,
+    "mismatches": [],
+    "duration_seconds": 2.903,
+    "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "scope": "After final regression; previous tests/evidence/model/encoder/engine/datasets unchanged; ten authorized presentation/README files excluded"
+  },
+  "postgres": {
+    "status": "PASS",
+    "server_version": "14.19 (Homebrew)",
+    "development_rows": 11,
+    "canonical_rows_sha256": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+    "all_original_row_hashes_unchanged": true,
+    "individual_rows_checked": 11,
+    "serialization": "Read-only transaction; timezone UTC; row_to_json ORDER BY id; sorted compact Python JSON",
+    "project_postgres_still_running": true,
+    "timing": "After final399-case regression and idempotent helper handoff checks",
+    "scope": "All writes used project test/restore namespaces; no dev records changed"
+  },
+  "postgres_integration_evidence": "artifacts/phase4/postgres_integration_evidence.json",
+  "independent_review": {
+    "performed": true,
+    "reviewer": "/root/phase4_final_review",
+    "model": "gpt-6-astra/high",
+    "initial_assessment": "Changes requested",
+    "initial_critical": 0,
+    "initial_important": 4,
+    "initial_minor": 2,
+    "author_regraded_minor_to_important": 2,
+    "all_six_findings_fixed_with_regressions": true,
+    "author_unresolved_critical_or_important": 0,
+    "deferred_minors": [],
+    "post_fix_independent_re_review": false,
+    "evidence": "docs/evidence/phase4/independent_review.md"
+  },
+  "performance": "artifacts/phase4/performance_final.json",
+  "source_manifest": "artifacts/phase4/source_manifest.json",
+  "git": {
+    "branch": "main",
+    "head": "263fd88c83df417de53051d6ab0127c9a544a8c4",
+    "modified_files": 10,
+    "untracked_files": 103,
+    "staged_files": 0,
+    "working_tree_clean": false,
+    "commit_performed": false,
+    "push_performed": false,
+    "deployment_performed": false,
+    "mutating_git_operations_performed": false,
+    "paths": [
+      {
+        "status": " M",
+        "path": "README.md"
+      },
+      {
+        "status": " M",
+        "path": "app/static/phase3.css"
+      },
+      {
+        "status": " M",
+        "path": "app/static/phase3.js"
+      },
+      {
+        "status": " M",
+        "path": "app/templates/base.html"
+      },
+      {
+        "status": " M",
+        "path": "app/templates/contact.html"
+      },
+      {
+        "status": " M",
+        "path": "app/templates/game.html"
+      },
+      {
+        "status": " M",
+        "path": "app/templates/history.html"
+      },
+      {
+        "status": " M",
+        "path": "app/templates/history_detail.html"
+      },
+      {
+        "status": " M",
+        "path": "app/templates/home.html"
+      },
+      {
+        "status": " M",
+        "path": "app/web/pages.py"
+      },
+      {
+        "status": "??",
+        "path": "app/static/phase4/catalog.mjs"
+      },
+      {
+        "status": "??",
+        "path": "app/static/phase4/controller.mjs"
+      },
+      {
+        "status": "??",
+        "path": "app/static/phase4/deletion.mjs"
+      },
+      {
+        "status": "??",
+        "path": "app/static/phase4/http.mjs"
+      },
+      {
+        "status": "??",
+        "path": "app/static/phase4/model.mjs"
+      },
+      {
+        "status": "??",
+        "path": "app/static/phase4/tiles.mjs"
+      },
+      {
+        "status": "??",
+        "path": "app/static/phase4/view.mjs"
+      },
+      {
+        "status": "??",
+        "path": "app/static/tiles.svg"
+      },
+      {
+        "status": "??",
+        "path": "app/templates/components/tiles.html"
+      },
+      {
+        "status": "??",
+        "path": "app/web/tile_catalog.py"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/baseline_verification.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/browser_review_verification.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/browser_verification.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/contrast_verification.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/controller_acceptance_final.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/controller_acceptance_summary.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/environment_checks.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/performance_final.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/performance_observations.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/postgres_after.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/postgres_before.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/postgres_final.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/postgres_integration_evidence.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/preflight.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/preservation_after.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/preservation_before.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/preservation_final.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/source_manifest.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/static_syntax_verification.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/test_identity_verification.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/uas_reference_verification.json"
+      },
+      {
+        "status": "??",
+        "path": "artifacts/phase4/verification_summary.json"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/baseline.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/baseline.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/contact-390.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/contracts.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/controller_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/controller_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/controller_tcp.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/controller_tcp.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/form_labels_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/form_labels_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/frontend_focused.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/game-1440-before-advice.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/game-360.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/game-advice-1440.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/game-tablet-768.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/history-1440.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/history-360.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/history-detail-360.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/home-1440.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/home-390.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/independent_review.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/local_postgres_start.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/local_schema_check.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/pages_final.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/pages_final.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/presentation_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/presentation_green.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/presentation_node_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/presentation_node_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/presentation_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/reconciliation_delete_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/reconciliation_delete_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/regression_final.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/regression_final.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/regression_pre_review.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/regression_pre_review.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/review_advice_protocol_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/review_advice_protocol_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/review_focused.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/review_focused.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/review_node_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/review_presentation_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/review_view_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/round-result-1440.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/round-result-360.jpg"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/tiles_green.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/tiles_green.xml"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/tiles_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/evidence/phase4/uas_table_red.txt"
+      },
+      {
+        "status": "??",
+        "path": "docs/phase4_design_spec.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/phase4_execution_ledger.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/phase4_file_inventory.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/phase4_implementation_report.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/phase4_test_matrix.md"
+      },
+      {
+        "status": "??",
+        "path": "docs/superpowers/plans/2026-11-06-mahjong-phase4.md"
+      },
+      {
+        "status": "??",
+        "path": "scripts/build_tile_assets.py"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/controller.test.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/deletion.test.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/dom_fixture.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/fixtures.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/http.test.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/live_driver.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/model.test.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/tiles.test.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/frontend/view.test.mjs"
+      },
+      {
+        "status": "??",
+        "path": "tests/phase4_support.py"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_phase4_assets.py"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_phase4_contracts.py"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_phase4_game_ui.py"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_phase4_live.py"
+      },
+      {
+        "status": "??",
+        "path": "tests/test_phase4_pages.py"
+      }
+    ]
+  },
+  "limitations": [
+    "Anonymous session identity; same private signing key needed across normal restarts",
+    "One worker; active games in memory, no active-game recovery after restart",
+    "Contact roster and group roles not verified",
+    "Final UAS PDF, demo video and submission packaging not produced",
+    "Clean installation/other OS/browser/physical devices not tested",
+    "Actual200% zoom not verified: IAB shortcut had no measurable effect",
+    "Reduced-motion rule tested; runtime emulation unavailable, host preference false",
+    "No formal complete WCAG audit or Lighthouse/production performance claim"
+  ],
+  "handoff": [
+    "Verify approved roster/NIM/roles and configure Contact",
+    "Manually validate target installation/browser/zoom/motion/accessibility",
+    "Prepare final UAS PDF/video/source+checksum-verified SQL package",
+    "Obtain separate explicit authorization for any future Git mutation or deployment"
+  ]
+}

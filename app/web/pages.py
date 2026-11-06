@@ -10,9 +10,11 @@ from app.web.api import current_visitor, resources
 from app.web.errors import WebError
 from app.web.security import COOKIE_NAME
 from app.web.views import history_summary, history_detail
+from app.web.tile_catalog import TILE_CATALOG, WIND_NAMES
 
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory=ROOT/'app/templates')
+templates.env.globals.update(tile_catalog=TILE_CATALOG, wind_names=WIND_NAMES)
 
 
 def page_visitor(request):

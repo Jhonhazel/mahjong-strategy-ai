@@ -1,0 +1,11 @@
+{
+  "command": ".venv/bin/python -m scripts.run_backend",
+  "port": 8875,
+  "status": 200,
+  "ready": {
+    "status": "ready",
+    "model": "ready",
+    "database": "ready"
+  },
+  "owned_server_stopped": true
+}

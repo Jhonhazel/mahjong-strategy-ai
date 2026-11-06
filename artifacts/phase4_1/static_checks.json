@@ -1,0 +1,20 @@
+{
+  "pip_check": "PASS; no broken requirements (cache disabled warning only)",
+  "node_check": [
+    "app/static/phase4/playback.mjs",
+    "app/static/phase4/controller.mjs",
+    "app/static/phase4/view.mjs",
+    "app/static/phase3.js"
+  ],
+  "node_check_result": "4 passed",
+  "py_compile": [
+    "main.py",
+    "tests/test_phase4_1.py",
+    "app/settings.py"
+  ],
+  "py_compile_result": "PASS",
+  "git_diff_check": "PASS",
+  "report_append_only": true,
+  "cli_preview_stopped": "Graceful application shutdown and reloader stopped, session8495 exit0",
+  "legacy_preview_stopped": true
+}

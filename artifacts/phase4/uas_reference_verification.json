@@ -1,0 +1,18 @@
+{
+  "status": "READ",
+  "sha256": "41b044b9e95ee7b8b7237abf53e1e74c8722960b3cd85b60d1f68f35bd871682",
+  "pages": 2,
+  "page2": "blank",
+  "method": "Rendered and visually inspected both pages on2026-11-06 using local Poppler/fonts",
+  "requirements": [
+    "Group project",
+    "Complete source + SQL export + final PDF",
+    "FastAPI + AI + PostgreSQL/MySQL in health/business/entertainment",
+    "AI preprocessing/training/testing/evaluation/saved model",
+    "FastAPI/Jinja2/CSS/JS website, descriptive Home and group Contact",
+    "At least one connected AI-result table",
+    "Create input+output, Read saved results, Delete through website",
+    "Final PDF: problem/dataset/algorithm rationale, project/database captures, demo-video link, group task division"
+  ],
+  "contact_roster": "Unverified, remains empty"
+}

@@ -1,0 +1,133 @@
+{
+  "status": "PASS",
+  "database": "Isolated project mahjong_phase3_test; semantic-drift/restore tests use new marker-owned mahjong_phase3_restore_* databases",
+  "cases": [
+    {
+      "case": "tests.test_phase3_database_tools::test_real_postgres_sql_export_restore_preserves_schema_and_records",
+      "seconds": 0.314,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_missing_schema_blocks_startup_and_partial_resources_are_closed",
+      "seconds": 0.046,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_incompatible_postgres_column_type_is_rejected_before_readiness",
+      "seconds": 0.064,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz]",
+      "seconds": 0.058,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)]",
+      "seconds": 0.058,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)]",
+      "seconds": 0.056,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)]",
+      "seconds": 0.058,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED]",
+      "seconds": 0.06,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ADD COLUMN source TEXT NOT NULL]",
+      "seconds": 0.062,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_rejects_unverified_or_connection_changing_input_before_execution[\\\\connect mahjong_phase3_dev\\nSELECT 1;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_rejects_unverified_or_connection_changing_input_before_execution[CREATE DATABASE outside_project;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_rejects_unverified_or_connection_changing_input_before_execution[DROP DATABASE mahjong_phase3_dev;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_rejects_unverified_or_connection_changing_input_before_execution[ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_rejects_tampered_project_export",
+      "seconds": 0.064,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_input_size_is_bounded_before_read_or_database_execution[0]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_input_size_is_bounded_before_read_or_database_execution[2049]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[KEEP existing file]",
+      "seconds": 0.061,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[SELECT 1 \\\\connect mahjong_phase3_dev]",
+      "seconds": 0.062,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\\\connect mahjong_phase3_dev]",
+      "seconds": 0.0,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\\\gexec]",
+      "seconds": 0.0,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\\\! whoami]",
+      "seconds": 0.0,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_read_only_postgres_connection_is_not_ready",
+      "seconds": 0.065,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_database_tools::test_postgres_role_requires_real_insert_delete_and_row_lock_privileges",
+      "seconds": 0.067,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase3_end_to_end::test_real_two_round_web_model_postgres_workflow_and_restart",
+      "seconds": 0.537,
+      "status": "PASS"
+    },
+    {
+      "case": "tests.test_phase4_live::test_phase4_real_controller_two_rounds_v3_postgres_tcp",
+      "seconds": 0.605,
+      "status": "PASS"
+    }
+  ],
+  "source": "docs/evidence/phase4/regression_final.xml",
+  "sql_dump_scope": "Existing real export/registered-checksum/restore workflow executed by unchanged tests; no manual development export, overwrite or SQL backup contents copied into Phase4 evidence"
+}

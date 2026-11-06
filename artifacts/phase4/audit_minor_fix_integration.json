@@ -1,0 +1,616 @@
+{
+  "status": "PASS",
+  "source": "Same full pytest run, not a separate independent completion",
+  "case": "test_phase4_real_controller_two_rounds_v3_postgres_tcp",
+  "case_seconds": 0.611,
+  "acceptance": {
+    "rounds": [
+      {
+        "seed": 42,
+        "actions": 23,
+        "action_kinds": {
+          "Play": 20,
+          "Chi": 3
+        },
+        "offered_claims": [
+          "Pass",
+          "Chi"
+        ],
+        "predictions": [
+          {
+            "prediction_id": "3be99755-dd90-44cc-bd06-9fcaea6bef55",
+            "turn_number": 4,
+            "turn_phase": "SELF_TURN",
+            "recommended_tile": "J1",
+            "top3": [
+              {
+                "tile": "J1",
+                "class_index": 31,
+                "action_id": 33,
+                "score": 0.8203998804092407
+              },
+              {
+                "tile": "J2",
+                "class_index": 32,
+                "action_id": 34,
+                "score": 0.06920811533927917
+              },
+              {
+                "tile": "T1",
+                "class_index": 9,
+                "action_id": 11,
+                "score": 0.02715257927775383
+              }
+            ],
+            "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+            "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+            "reused_verified": true
+          },
+          {
+            "prediction_id": "235322be-c14d-4b90-8dd5-f3f3d59b6e4a",
+            "turn_number": 20,
+            "turn_phase": "POST_MELD_DISCARD",
+            "recommended_tile": "J1",
+            "top3": [
+              {
+                "tile": "J1",
+                "class_index": 31,
+                "action_id": 33,
+                "score": 0.6013191938400269
+              },
+              {
+                "tile": "T1",
+                "class_index": 9,
+                "action_id": 11,
+                "score": 0.10786256194114685
+              },
+              {
+                "tile": "J2",
+                "class_index": 32,
+                "action_id": 34,
+                "score": 0.09383819997310638
+              }
+            ],
+            "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+            "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+            "reused_verified": true
+          }
+        ],
+        "final_view": {
+          "game_id": "288a0704-bd30-4992-925b-f32afef1a291",
+          "status": "FINISHED",
+          "human_seat": 1,
+          "prevalent_wind": 0,
+          "active_seat": 0,
+          "turn_number": 329,
+          "wall_tiles_remaining": 6,
+          "own_hand": [
+            "F3",
+            "F4",
+            "J1",
+            "J2"
+          ],
+          "own_flowers": [],
+          "seat_public_states": [
+            {
+              "seat": 0,
+              "concealed_count": 14,
+              "melds": [],
+              "flowers": [],
+              "discards": [
+                "F2",
+                "T4",
+                "W9",
+                "W5",
+                "F1",
+                "W2",
+                "T8",
+                "B5",
+                "B6",
+                "B7",
+                "J3",
+                "B8",
+                "B4",
+                "B1",
+                "B1",
+                "W5",
+                "W1",
+                "J2",
+                "J3",
+                "W3"
+              ],
+              "wall_remaining": 0
+            },
+            {
+              "seat": 1,
+              "concealed_count": 4,
+              "melds": [
+                {
+                  "pack_type": "CHI",
+                  "tile": "T3",
+                  "offer": 3
+                },
+                {
+                  "pack_type": "CHI",
+                  "tile": "B5",
+                  "offer": 2
+                },
+                {
+                  "pack_type": "CHI",
+                  "tile": "B6",
+                  "offer": 2
+                }
+              ],
+              "flowers": [],
+              "discards": [
+                "W5",
+                "T1",
+                "T2",
+                "T2",
+                "W9",
+                "T8",
+                "B2",
+                "B4",
+                "B7",
+                "T5",
+                "B3",
+                "B2",
+                "T6",
+                "B9",
+                "T8",
+                "W4",
+                "F2",
+                "F3",
+                "T7",
+                "W1"
+              ],
+              "wall_remaining": 4
+            },
+            {
+              "seat": 2,
+              "concealed_count": 7,
+              "melds": [
+                {
+                  "pack_type": "CHI",
+                  "tile": "T2",
+                  "offer": 1
+                },
+                {
+                  "pack_type": "PENG",
+                  "tile": "J1",
+                  "offer": 3
+                }
+              ],
+              "flowers": [],
+              "discards": [
+                "W4",
+                "W9",
+                "W5",
+                "T3",
+                "B8",
+                "T9",
+                "W2",
+                "B6",
+                "W4",
+                "J3",
+                "T1",
+                "B2",
+                "T3",
+                "B1",
+                "W7",
+                "W4",
+                "B4",
+                "F4",
+                "B3",
+                "B3",
+                "B8"
+              ],
+              "wall_remaining": 2
+            },
+            {
+              "seat": 3,
+              "concealed_count": 13,
+              "melds": [],
+              "flowers": [],
+              "discards": [
+                "W2",
+                "F1",
+                "T9",
+                "J1",
+                "T9",
+                "W7",
+                "B2",
+                "B5",
+                "B5",
+                "T9",
+                "T8",
+                "J3",
+                "B3",
+                "B1",
+                "W9",
+                "B8",
+                "W1",
+                "B7",
+                "B9",
+                "W2",
+                "F2"
+              ],
+              "wall_remaining": 0
+            }
+          ],
+          "legal_actions": [],
+          "can_request_ai_prediction": false,
+          "round_result": {
+            "ending": "zimo",
+            "outcome_type": "HU",
+            "winner_seat": 0,
+            "discarder_seat": null,
+            "qianggang": false,
+            "win_tile": "W6",
+            "total_fan": 25,
+            "fans": [
+              {
+                "fan_points": 24,
+                "count": 1,
+                "fan_name_zh": "\u4e03\u5bf9",
+                "fan_name_en": "Seven Pairs"
+              },
+              {
+                "fan_points": 1,
+                "count": 1,
+                "fan_name_zh": "\u81ea\u6478",
+                "fan_name_en": "Self-Drawn"
+              }
+            ],
+            "score_deltas": [
+              99,
+              -33,
+              -33,
+              -33
+            ]
+          }
+        },
+        "deletion_verified": true
+      },
+      {
+        "seed": 43,
+        "actions": 23,
+        "action_kinds": {
+          "Play": 21,
+          "Chi": 1,
+          "Peng": 1
+        },
+        "offered_claims": [
+          "Pass",
+          "Chi",
+          "Peng"
+        ],
+        "predictions": [
+          {
+            "prediction_id": "95faa3b3-7719-44ad-904e-ab98a30b8f07",
+            "turn_number": 4,
+            "turn_phase": "SELF_TURN",
+            "recommended_tile": "F1",
+            "top3": [
+              {
+                "tile": "F1",
+                "class_index": 27,
+                "action_id": 29,
+                "score": 0.9603171944618225
+              },
+              {
+                "tile": "J2",
+                "class_index": 32,
+                "action_id": 34,
+                "score": 0.031520742923021317
+              },
+              {
+                "tile": "W6",
+                "class_index": 5,
+                "action_id": 7,
+                "score": 0.0033400903921574354
+              }
+            ],
+            "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+            "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+            "reused_verified": true
+          },
+          {
+            "prediction_id": "091673bb-4629-429b-8c44-af159421c4c7",
+            "turn_number": 20,
+            "turn_phase": "SELF_TURN",
+            "recommended_tile": "F1",
+            "top3": [
+              {
+                "tile": "F1",
+                "class_index": 27,
+                "action_id": 29,
+                "score": 0.36141902208328247
+              },
+              {
+                "tile": "J3",
+                "class_index": 33,
+                "action_id": 35,
+                "score": 0.15927375853061676
+              },
+              {
+                "tile": "B3",
+                "class_index": 20,
+                "action_id": 22,
+                "score": 0.13529250025749207
+              }
+            ],
+            "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+            "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+            "reused_verified": true
+          },
+          {
+            "prediction_id": "72d0dca3-b6b3-4f99-9188-f504dbc7ce05",
+            "turn_number": 36,
+            "turn_phase": "SELF_TURN",
+            "recommended_tile": "F1",
+            "top3": [
+              {
+                "tile": "F1",
+                "class_index": 27,
+                "action_id": 29,
+                "score": 0.20841093361377716
+              },
+              {
+                "tile": "B3",
+                "class_index": 20,
+                "action_id": 22,
+                "score": 0.18830083310604095
+              },
+              {
+                "tile": "J3",
+                "class_index": 33,
+                "action_id": 35,
+                "score": 0.16711664199829102
+              }
+            ],
+            "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+            "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+            "reused_verified": true
+          },
+          {
+            "prediction_id": "cce9d45d-e0eb-4ee7-a778-19583a4f103f",
+            "turn_number": 52,
+            "turn_phase": "POST_MELD_DISCARD",
+            "recommended_tile": "J3",
+            "top3": [
+              {
+                "tile": "J3",
+                "class_index": 33,
+                "action_id": 35,
+                "score": 0.35754430294036865
+              },
+              {
+                "tile": "F1",
+                "class_index": 27,
+                "action_id": 29,
+                "score": 0.16367144882678986
+              },
+              {
+                "tile": "B4",
+                "class_index": 21,
+                "action_id": 23,
+                "score": 0.10895557701587677
+              }
+            ],
+            "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+            "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+            "reused_verified": true
+          }
+        ],
+        "final_view": {
+          "game_id": "db131ed7-60c9-4425-82f1-b2c46a05fa06",
+          "status": "FINISHED",
+          "human_seat": 1,
+          "prevalent_wind": 1,
+          "active_seat": 1,
+          "turn_number": 332,
+          "wall_tiles_remaining": 6,
+          "own_hand": [
+            "B8",
+            "F1",
+            "F2",
+            "F4",
+            "F4",
+            "J2",
+            "J3"
+          ],
+          "own_flowers": [
+            "H5",
+            "H2",
+            "H6",
+            "H1"
+          ],
+          "seat_public_states": [
+            {
+              "seat": 0,
+              "concealed_count": 10,
+              "melds": [
+                {
+                  "pack_type": "CHI",
+                  "tile": "W6",
+                  "offer": 2
+                }
+              ],
+              "flowers": [
+                "H3"
+              ],
+              "discards": [
+                "W8",
+                "B1",
+                "J3",
+                "T1",
+                "W8",
+                "W9",
+                "T9",
+                "T6",
+                "T2",
+                "F1",
+                "F4",
+                "J1",
+                "W1",
+                "J2",
+                "T7",
+                "T5",
+                "J2",
+                "B2",
+                "T9",
+                "B3",
+                "B7"
+              ],
+              "wall_remaining": 2
+            },
+            {
+              "seat": 1,
+              "concealed_count": 7,
+              "melds": [
+                {
+                  "pack_type": "CHI",
+                  "tile": "T2",
+                  "offer": 1
+                },
+                {
+                  "pack_type": "PENG",
+                  "tile": "F2",
+                  "offer": 3
+                }
+              ],
+              "flowers": [
+                "H5",
+                "H2",
+                "H6",
+                "H1"
+              ],
+              "discards": [
+                "W2",
+                "W6",
+                "T1",
+                "T4",
+                "T5",
+                "T5",
+                "T3",
+                "T7",
+                "W8",
+                "T9",
+                "W1",
+                "B2",
+                "W1",
+                "B3",
+                "B4",
+                "T7",
+                "W1",
+                "B4",
+                "B4",
+                "B5",
+                "B5"
+              ],
+              "wall_remaining": 0
+            },
+            {
+              "seat": 2,
+              "concealed_count": 7,
+              "melds": [
+                {
+                  "pack_type": "PENG",
+                  "tile": "W2",
+                  "offer": 1
+                },
+                {
+                  "pack_type": "CHI",
+                  "tile": "T7",
+                  "offer": 2
+                }
+              ],
+              "flowers": [
+                "H8",
+                "H4"
+              ],
+              "discards": [
+                "F3",
+                "B1",
+                "J3",
+                "T1",
+                "F4",
+                "W9",
+                "W6",
+                "B3",
+                "T2",
+                "B9",
+                "T8",
+                "T6",
+                "B8",
+                "F3",
+                "W4",
+                "T2",
+                "B9",
+                "B1",
+                "F2",
+                "T3",
+                "J1"
+              ],
+              "wall_remaining": 2
+            },
+            {
+              "seat": 3,
+              "concealed_count": 13,
+              "melds": [],
+              "flowers": [
+                "H7"
+              ],
+              "discards": [
+                "W2",
+                "B1",
+                "T1",
+                "T3",
+                "J1",
+                "J2",
+                "T4",
+                "B9",
+                "W4",
+                "W6",
+                "T8",
+                "B9",
+                "T7",
+                "B8",
+                "B7",
+                "T4",
+                "B2",
+                "T8",
+                "W9",
+                "W6"
+              ],
+              "wall_remaining": 2
+            }
+          ],
+          "legal_actions": [],
+          "can_request_ai_prediction": false,
+          "round_result": {
+            "ending": "draw",
+            "outcome_type": "HUANGZHUANG",
+            "winner_seat": null,
+            "discarder_seat": null,
+            "qianggang": false,
+            "win_tile": null,
+            "total_fan": 0,
+            "fans": [],
+            "score_deltas": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "deletion_verified": true
+      }
+    ],
+    "duration_ms": 277.609,
+    "weights_before": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+    "weights_after": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92"
+  }
+}

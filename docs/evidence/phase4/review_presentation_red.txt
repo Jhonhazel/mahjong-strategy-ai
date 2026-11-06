@@ -1,0 +1,40 @@
+......F...........F                                                      [100%]
+=================================== FAILURES ===================================
+___ test_phase4_history_tiles_confirmed_delete_and_folded_complete_snapshots ___
+
+phase4_client = <starlette.testclient.TestClient object at 0x112b3f470>
+
+    def test_phase4_history_tiles_confirmed_delete_and_folded_complete_snapshots(phase4_client):
+        headers = csrf(phase4_client)
+        view = game(phase4_client, headers)
+        saved = phase4_client.post('/api/games/' + view['game_id'] + '/predict',
+                                  json={'expected_turn_number': view['turn_number']}, headers=headers).json()
+        listing = phase4_client.get('/history?limit=1')
+        assert saved['prediction_id'] in listing.text
+        assert '/static/tiles.svg#tile-' + saved['recommended_tile'] in listing.text
+>       assert 'history-top3-summary' in listing.text
+E       assert 'history-top3-summary' in '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...mp; Learn</span><span>Hiburan &amp; pembelajaran. Setiap langkah tetap pilihan Anda.</span></footer>\n</body>\n</html>'
+E        +  where '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...mp; Learn</span><span>Hiburan &amp; pembelajaran. Setiap langkah tetap pilihan Anda.</span></footer>\n</body>\n</html>' = <Response [200 OK]>.text
+
+tests/test_phase4_pages.py:67: AssertionError
+___________ test_scrollable_hand_never_uses_unsafe_center_alignment ____________
+
+    def test_scrollable_hand_never_uses_unsafe_center_alignment():
+        css = (ROOT/'app/static/phase3.css').read_text()
+        rules = re.findall(r'\.human-hand\s*\{([^}]+)\}', css)
+        assert rules
+>       assert not any(re.search(r'justify-content:\s*center\s*;', rule) for rule in rules)
+E       assert not True
+E        +  where True = any(<generator object test_scrollable_hand_never_uses_unsafe_center_alignment.<locals>.<genexpr> at 0x112d5d380>)
+
+tests/test_phase4_contracts.py:51: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase4_pages.py::test_phase4_history_tiles_confirmed_delete_and_folded_complete_snapshots
+FAILED tests/test_phase4_contracts.py::test_scrollable_hand_never_uses_unsafe_center_alignment
+2 failed, 17 passed, 1 warning in 2.15s

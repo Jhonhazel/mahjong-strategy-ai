@@ -1,0 +1,82 @@
+✔ all 42 canonical tiles have the verified symbol and accessible label (2.569458ms)
+✔ invalid tile codes use a fixed harmless unknown symbol (0.341208ms)
+✔ selectable tiles use real buttons with stable index and exact server action id (0.203084ms)
+✔ concealed backs do not carry a hidden face or action (0.109167ms)
+✔ noninteractive and pending tiles cannot submit an action (0.092834ms)
+✔ seat renderer gives opponents only backs and human exact legal buttons with duplicate indices (2.935833ms)
+✔ advisor preserves exact Top3 order and uses score preference explanation with no automatic action (0.311125ms)
+✔ historical saved prediction shows identity without displaying stale Top3 tile advice (0.091416ms)
+✔ round renderer shows real seat zero, exact score deltas and null draw result safely (0.216458ms)
+✖ expired finished view clears round result, game identity and public summary (4.452875ms)
+✖ meld label never misrepresents Chi offer position as a source seat (0.947083ms)
+✖ advisor exposes exact saved prediction identity and model provenance as text (4.19075ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 9
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.828041
+
+✖ failing tests:
+
+test at tests/frontend/view.test.mjs:60:1
+✖ expired finished view clears round result, game identity and public summary (4.452875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/view.test.mjs:68:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/view.test.mjs:74:1
+✖ meld label never misrepresents Chi offer position as a source seat (0.947083ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /sumber|seat|relatif/. Input:
+  
+  'CHI · sumber relatif 2'
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/view.test.mjs:78:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'CHI · sumber relatif 2',
+    expected: /sumber|seat|relatif/,
+    operator: 'doesNotMatch'
+  }
+
+test at tests/frontend/view.test.mjs:81:1
+✖ advisor exposes exact saved prediction identity and model provenance as text (4.19075ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(node.textContent.includes(result.prediction_id))
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/view.test.mjs:83:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }

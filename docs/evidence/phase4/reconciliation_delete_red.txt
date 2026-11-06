@@ -1,0 +1,183 @@
+✔ duplicate hand tiles select one actual server action and submit current turn (3.671417ms)
+✔ only supplied action ids can be selected, including all claim and Kong types (0.215375ms)
+✔ busy mutation guard prevents duplicate submissions and optimistic hand removal (0.619584ms)
+✔ old GET responses cannot overwrite newer authoritative state (0.198042ms)
+✔ an old GET completion cannot clear the busy guard of a newer pending GET (0.206333ms)
+✔ 409 refreshes state and requires new selection without retrying action (0.526ms)
+✔ uncertain action outcome reconciles GET and never blindly resubmits (0.232292ms)
+✔ prediction is explicit, uses current turn, preserves Top3 order and never executes action (0.234417ms)
+✔ another tab advancing before prediction verification leaves a saved historical notice only (0.138875ms)
+✔ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.172375ms)
+✔ failed prediction saving503 never produces a saved-success notice (0.106667ms)
+✔ changing turn clears old prediction and selection; changing game clears saved context (0.152125ms)
+✔ 404 and401 clear active controls without fabricating a replacement identity (0.1335ms)
+✔ reused predictions preserve saved identity and server reused flag (0.110542ms)
+✖ prediction409 reconciles current server turn and never retries prediction (0.394459ms)
+✖ confirmed history deletion waits for server success and ignores double submission (1.074875ms)
+✖ history deletion failure 0 never reports or navigates as success (0.12175ms)
+✖ history deletion failure 401 never reports or navigates as success (0.080833ms)
+✖ history deletion failure 403 never reports or navigates as success (0.065667ms)
+✖ history deletion failure 404 never reports or navigates as success (0.071709ms)
+✖ history deletion failure 503 never reports or navigates as success (0.068958ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 14
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57.170125
+
+✖ failing tests:
+
+test at tests/frontend/controller.test.mjs:111:1
+✖ prediction409 reconciles current server turn and never retries prediction (0.394459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 20
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:115:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 20,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/deletion.test.mjs:10:1
+✖ confirmed history deletion waits for server success and ignores double submission (1.074875ms)
+  AssertionError [ERR_ASSERTION]: missing guarded history deletion
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at factory (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:8:37)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:12:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.start (node:internal/test_runner/test:959:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/deletion.test.mjs:21:47
+✖ history deletion failure 0 never reports or navigates as success (0.12175ms)
+  AssertionError [ERR_ASSERTION]: missing guarded history deletion
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at factory (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:8:37)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:23:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/deletion.test.mjs:21:47
+✖ history deletion failure 401 never reports or navigates as success (0.080833ms)
+  AssertionError [ERR_ASSERTION]: missing guarded history deletion
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at factory (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:8:37)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:23:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/deletion.test.mjs:21:47
+✖ history deletion failure 403 never reports or navigates as success (0.065667ms)
+  AssertionError [ERR_ASSERTION]: missing guarded history deletion
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at factory (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:8:37)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:23:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/deletion.test.mjs:21:47
+✖ history deletion failure 404 never reports or navigates as success (0.071709ms)
+  AssertionError [ERR_ASSERTION]: missing guarded history deletion
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at factory (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:8:37)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:23:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/deletion.test.mjs:21:47
+✖ history deletion failure 503 never reports or navigates as success (0.068958ms)
+  AssertionError [ERR_ASSERTION]: missing guarded history deletion
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at factory (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:8:37)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/deletion.test.mjs:23:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }

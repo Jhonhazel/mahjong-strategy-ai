@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "node_version": "v24.4.1",
+  "historical_cases": 66,
+  "historical_names_preserved": true,
+  "new_cases": [
+    "P4-A01 rejects cross-game action success and reconciles only the original game",
+    "P4-A01 rejects regressed turn action success and reconciles only the original game",
+    "P4-A01 rejects missing object action success and reconciles only the original game",
+    "P4-A01 rejects noninteger turn action success and reconciles only the original game",
+    "P4-A01 rejects invalid structure action success and reconciles only the original game",
+    "P4-A01 failed reconciliation keeps the original action outcome uncertain and blocks another mutation",
+    "P4-A01 accepts valid advancing response without action retry or reconciliation GET",
+    "P4-A01 accepts valid same turn response without action retry or reconciliation GET",
+    "P4-A01 accepts valid finished response without action retry or reconciliation GET",
+    "P4-A01 accepts valid claim transition response without action retry or reconciliation GET",
+    "P4-A02 rejects ascending Top3 without sorting, trusting a save, or playing",
+    "P4-A02 rejects incorrect action/class mapping without sorting, trusting a save, or playing",
+    "P4-A02 accepts valid descending Top3 unchanged",
+    "P4-A02 accepts equal adjacent scores unchanged"
+  ],
+  "counts": {
+    "tests": 80,
+    "pass": 80,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "duration_ms": 81.622709,
+  "evidence": "docs/evidence/phase4/audit_minor_fix_node_full.txt"
+}

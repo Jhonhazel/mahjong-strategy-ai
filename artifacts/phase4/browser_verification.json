@@ -1,0 +1,591 @@
+{
+  "source": "Actual CUA browser interaction with localhost8874 and the isolated test DB; no cookies or tokens retained",
+  "twoTab": {
+    "gameURL": "http://127.0.0.1:8874/game?game_id=c6531184-cd88-446f-8f56-6410b7f555ee",
+    "staleTurn": 4,
+    "currentTurn": 17,
+    "oldHighlightsAfter409": 0,
+    "savedPredictionRetained": true
+  },
+  "actions": [
+    {
+      "type": "Play",
+      "tile": "W5",
+      "fromTurn": 4,
+      "toTurn": 17,
+      "tab": 2
+    },
+    {
+      "type": "Chi",
+      "meld": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "fromTurn": 17,
+      "toTurn": 20,
+      "keyboard": true
+    }
+  ],
+  "checks": [
+    {
+      "advisorTop": -137.9453125,
+      "documentWidth": 1440,
+      "handClient": 972,
+      "handScroll": 972,
+      "height": 900,
+      "minTileWidth": 44.6328125,
+      "page": "game",
+      "tableBottom": 721.328125,
+      "width": 1440,
+      "requestedWidth": 1440
+    },
+    {
+      "advisorTop": -137.9453125,
+      "documentWidth": 1280,
+      "handClient": 812,
+      "handScroll": 812,
+      "height": 800,
+      "minTileWidth": 44,
+      "page": "game",
+      "tableBottom": 721.328125,
+      "width": 1280,
+      "requestedWidth": 1280
+    },
+    {
+      "advisorTop": -137.9453125,
+      "documentWidth": 1024,
+      "handClient": 616,
+      "handScroll": 616,
+      "height": 768,
+      "minTileWidth": 44,
+      "page": "game",
+      "tableBottom": 687.328125,
+      "width": 1024,
+      "requestedWidth": 1024
+    },
+    {
+      "advisorTop": 737.328125,
+      "documentWidth": 768,
+      "handClient": 666,
+      "handScroll": 666,
+      "height": 1024,
+      "minTileWidth": 44,
+      "page": "game",
+      "tableBottom": 721.328125,
+      "width": 768,
+      "requestedWidth": 768
+    },
+    {
+      "advisorTop": 715.9609375,
+      "documentWidth": 390,
+      "handClient": 340,
+      "handScroll": 544,
+      "height": 844,
+      "minTileWidth": 44,
+      "page": "game",
+      "tableBottom": 699.9609375,
+      "width": 390,
+      "requestedWidth": 390
+    },
+    {
+      "advisorTop": 771.9609375,
+      "documentWidth": 360,
+      "handClient": 310,
+      "handScroll": 544,
+      "height": 800,
+      "minTileWidth": 44,
+      "page": "game",
+      "tableBottom": 755.9609375,
+      "width": 360,
+      "requestedWidth": 360
+    },
+    {
+      "documentWidth": 1440,
+      "height": 900,
+      "page": "detail",
+      "width": 1440
+    },
+    {
+      "documentWidth": 1280,
+      "height": 800,
+      "page": "detail",
+      "width": 1280
+    },
+    {
+      "documentWidth": 1024,
+      "height": 768,
+      "page": "detail",
+      "width": 1024
+    },
+    {
+      "documentWidth": 768,
+      "height": 1024,
+      "page": "detail",
+      "width": 768
+    },
+    {
+      "documentWidth": 390,
+      "height": 844,
+      "page": "detail",
+      "width": 390
+    },
+    {
+      "documentWidth": 360,
+      "height": 800,
+      "page": "detail",
+      "width": 360
+    },
+    {
+      "documentWidth": 1440,
+      "height": 900,
+      "width": 1440,
+      "page": "history"
+    },
+    {
+      "documentWidth": 1280,
+      "height": 800,
+      "width": 1280,
+      "page": "history"
+    },
+    {
+      "documentWidth": 1024,
+      "height": 768,
+      "width": 1024,
+      "page": "history"
+    },
+    {
+      "documentWidth": 768,
+      "height": 1024,
+      "width": 768,
+      "page": "history"
+    },
+    {
+      "documentWidth": 390,
+      "height": 844,
+      "width": 390,
+      "page": "history"
+    },
+    {
+      "documentWidth": 360,
+      "height": 800,
+      "width": 360,
+      "page": "history"
+    },
+    {
+      "documentWidth": 1440,
+      "height": 900,
+      "width": 1440,
+      "page": "contact"
+    },
+    {
+      "documentWidth": 1280,
+      "height": 800,
+      "width": 1280,
+      "page": "contact"
+    },
+    {
+      "documentWidth": 1024,
+      "height": 768,
+      "width": 1024,
+      "page": "contact"
+    },
+    {
+      "documentWidth": 768,
+      "height": 1024,
+      "width": 768,
+      "page": "contact"
+    },
+    {
+      "documentWidth": 390,
+      "height": 844,
+      "width": 390,
+      "page": "contact"
+    },
+    {
+      "documentWidth": 360,
+      "height": 800,
+      "width": 360,
+      "page": "contact"
+    },
+    {
+      "documentWidth": 1440,
+      "height": 900,
+      "width": 1440,
+      "page": "home"
+    },
+    {
+      "documentWidth": 1280,
+      "height": 800,
+      "width": 1280,
+      "page": "home"
+    },
+    {
+      "documentWidth": 1024,
+      "height": 768,
+      "width": 1024,
+      "page": "home"
+    },
+    {
+      "documentWidth": 768,
+      "height": 1024,
+      "width": 768,
+      "page": "home"
+    },
+    {
+      "documentWidth": 390,
+      "height": 844,
+      "width": 390,
+      "page": "home"
+    },
+    {
+      "documentWidth": 360,
+      "height": 800,
+      "width": 360,
+      "page": "home"
+    }
+  ],
+  "mobileKeyboard": {
+    "activeLabel": "Naga Hijau (J2), pilihan Anda, rekomendasi AI 2",
+    "documentWidth": 360,
+    "focusOutline": "solid",
+    "handScrollLeft": 229,
+    "selected": [
+      {
+        "code": "J2",
+        "index": "10"
+      }
+    ],
+    "width": 360
+  },
+  "reload": {
+    "turn": "Turn 20",
+    "highlights": 0,
+    "selected": 0
+  },
+  "browserRound": {
+    "gameURL": "http://127.0.0.1:8874/game?game_id=c6531184-cd88-446f-8f56-6410b7f555ee",
+    "actions": [
+      {
+        "id": "11",
+        "label": "Buang · Bambu 1",
+        "turn": "Turn 36"
+      },
+      {
+        "id": "12",
+        "label": "Buang · Bambu 2",
+        "turn": "Turn 52"
+      },
+      {
+        "id": "12",
+        "label": "Buang · Bambu 2",
+        "turn": "Turn 76"
+      },
+      {
+        "id": "10",
+        "label": "Buang · Karakter 9",
+        "turn": "Turn 92"
+      },
+      {
+        "id": "18",
+        "label": "Buang · Bambu 8",
+        "turn": "Turn 108"
+      },
+      {
+        "id": "21",
+        "label": "Buang · Lingkaran 2",
+        "turn": "Turn 121"
+      },
+      {
+        "id": "88",
+        "label": "Chi · Lingkaran 5 (B4 · B5 · B6)",
+        "turn": "Turn 124"
+      },
+      {
+        "id": "23",
+        "label": "Buang · Lingkaran 4",
+        "turn": "Turn 137"
+      },
+      {
+        "id": "91",
+        "label": "Chi · Lingkaran 6 (B5 · B6 · B7)",
+        "turn": "Turn 140"
+      },
+      {
+        "id": "26",
+        "label": "Buang · Lingkaran 7",
+        "turn": "Turn 156"
+      },
+      {
+        "id": "15",
+        "label": "Buang · Bambu 5",
+        "turn": "Turn 172"
+      },
+      {
+        "id": "22",
+        "label": "Buang · Lingkaran 3",
+        "turn": "Turn 188"
+      },
+      {
+        "id": "21",
+        "label": "Buang · Lingkaran 2",
+        "turn": "Turn 204"
+      },
+      {
+        "id": "16",
+        "label": "Buang · Bambu 6",
+        "turn": "Turn 220"
+      },
+      {
+        "id": "28",
+        "label": "Buang · Lingkaran 9",
+        "turn": "Turn 236"
+      },
+      {
+        "id": "18",
+        "label": "Buang · Bambu 8",
+        "turn": "Turn 252"
+      },
+      {
+        "id": "5",
+        "label": "Buang · Karakter 4",
+        "turn": "Turn 268"
+      },
+      {
+        "id": "30",
+        "label": "Buang · Angin Selatan",
+        "turn": "Turn 284"
+      },
+      {
+        "id": "31",
+        "label": "Buang · Angin Barat",
+        "turn": "Turn 300"
+      },
+      {
+        "id": "17",
+        "label": "Buang · Bambu 7",
+        "turn": "Turn 316"
+      },
+      {
+        "id": "2",
+        "label": "Buang · Karakter 1",
+        "turn": "Turn 329"
+      }
+    ],
+    "result": "ROUND SELESAI\n\nBot Timur menang\n\nTarikan sendiri · Zimo\n\n25 total fan\nSeven Pairs · 七对 — 24 × 1\nSelf-Drawn · 自摸 — 1 × 1\nTimur\n+99\nAnda · Selatan\n-33\nBarat\n-33\nUtara\n-33\n\nHasil, fan, dan perubahan skor dilaporkan oleh engine permainan.\n\nAtur round berikutnya ↗",
+    "finished": true
+  },
+  "secondRoundSettings": {
+    "seed": 43,
+    "humanSeat": 3,
+    "wind": 1,
+    "flowers": [
+      "H5",
+      "H2",
+      "H8",
+      "H4",
+      "H3"
+    ],
+    "url": "http://127.0.0.1:8874/game?game_id=cae3bc36-b04c-4ffb-9ccb-1bea63e69382",
+    "initialSeats": [
+      {
+        "player": "Bot SelatanSeat 1 · 13 tile",
+        "position": "seat-slot seat-slot--top"
+      },
+      {
+        "player": "Bot BaratSeat 2 · 13 tile",
+        "position": "seat-slot seat-slot--left"
+      },
+      {
+        "player": "Bot TimurSeat 0 · 13 tile",
+        "position": "seat-slot seat-slot--right"
+      },
+      {
+        "player": "AndaSeat 3 · 14 tile",
+        "position": "seat-slot seat-slot--bottom"
+      }
+    ]
+  },
+  "browserRound2": {
+    "url": "http://127.0.0.1:8874/game?game_id=cae3bc36-b04c-4ffb-9ccb-1bea63e69382",
+    "actions": [
+      {
+        "id": "3",
+        "label": "Buang · Karakter 2",
+        "turn": "Turn 20"
+      },
+      {
+        "id": "4",
+        "label": "Buang · Karakter 3",
+        "turn": "Turn 36"
+      },
+      {
+        "id": "5",
+        "label": "Buang · Karakter 4",
+        "turn": "Turn 52"
+      },
+      {
+        "id": "8",
+        "label": "Buang · Karakter 7",
+        "turn": "Turn 68"
+      },
+      {
+        "id": "8",
+        "label": "Buang · Karakter 7",
+        "turn": "Turn 84"
+      },
+      {
+        "id": "5",
+        "label": "Buang · Karakter 4",
+        "turn": "Turn 93"
+      },
+      {
+        "id": "126",
+        "label": "Peng · Angin Timur",
+        "turn": "Turn 96"
+      },
+      {
+        "id": "11",
+        "label": "Buang · Bambu 1",
+        "turn": "Turn 112"
+      },
+      {
+        "id": "13",
+        "label": "Buang · Bambu 3",
+        "turn": "Turn 125"
+      },
+      {
+        "id": "128",
+        "label": "Peng · Angin Barat",
+        "turn": "Turn 128"
+      },
+      {
+        "id": "14",
+        "label": "Buang · Bambu 4",
+        "turn": "Turn 144"
+      },
+      {
+        "id": "6",
+        "label": "Buang · Karakter 5",
+        "turn": "Turn 160"
+      },
+      {
+        "id": "5",
+        "label": "Buang · Karakter 4",
+        "turn": "Turn 176"
+      },
+      {
+        "id": "7",
+        "label": "Buang · Karakter 6",
+        "turn": "Turn 192"
+      },
+      {
+        "id": "18",
+        "label": "Buang · Bambu 8",
+        "turn": "Turn 200"
+      },
+      {
+        "id": "20",
+        "label": "Buang · Lingkaran 1",
+        "turn": "Turn 216"
+      },
+      {
+        "id": "17",
+        "label": "Buang · Bambu 7",
+        "turn": "Turn 232"
+      },
+      {
+        "id": "6",
+        "label": "Buang · Karakter 5",
+        "turn": "Turn 248"
+      },
+      {
+        "id": "25",
+        "label": "Buang · Lingkaran 6",
+        "turn": "Turn 261"
+      },
+      {
+        "id": "98",
+        "label": "Chi · Lingkaran 9 (B7 · B8 · B9)",
+        "turn": "Turn 264"
+      },
+      {
+        "id": "25",
+        "label": "Buang · Lingkaran 6",
+        "turn": "Turn 280"
+      },
+      {
+        "id": "14",
+        "label": "Buang · Bambu 4",
+        "turn": "Turn 296"
+      },
+      {
+        "id": "21",
+        "label": "Buang · Lingkaran 2",
+        "turn": "Turn 312"
+      },
+      {
+        "id": "18",
+        "label": "Buang · Bambu 8",
+        "turn": "Turn 328"
+      },
+      {
+        "id": "10",
+        "label": "Buang · Karakter 9",
+        "turn": "Turn 344"
+      },
+      {
+        "id": "7",
+        "label": "Buang · Karakter 6",
+        "turn": "Turn 349"
+      }
+    ],
+    "result": "ROUND SELESAI\n\nBot Timur menang\n\nTarikan sendiri · Zimo\n\n11 total fan\nLast Tile Draw · 妙手回春 — 8 × 1\nPure Double Chow · 一般高 — 1 × 1\nClosed Wait · 独听・嵌张 — 1 × 1\nFlower Tiles · 花牌 — 1 × 1\nTimur\n+57\nSelatan\n-19\nBarat\n-19\nAnda · Utara\n-19\n\nHasil, fan, dan perubahan skor dilaporkan oleh engine permainan.\n\nAtur round berikutnya ↗",
+    "finished": true
+  },
+  "history": {
+    "firstPage": "1–1 dari 3\nBerikutnya →",
+    "cards": 1,
+    "secondPage": "2–2 dari 3\n← Sebelumnya\nBerikutnya →",
+    "detailURL": "http://127.0.0.1:8874/history/276991ca-00cc-4e59-be6e-c014491dcd1b",
+    "snapshotsClosed": true,
+    "semanticResultTable": 1,
+    "completeInputAvailable": true,
+    "deletedOnlyAfterConfirmation": true,
+    "afterDelete": "REVISIT YOUR DECISIONS\n\nPrediction History.\n\n2 prediksi tersimpan untuk identitas browser ini.\n\nKembali ke meja\n↗"
+  },
+  "zoom": {
+    "before": {
+      "dpr": 1,
+      "height": 800,
+      "width": 1280
+    },
+    "after": {
+      "documentWidth": 1280,
+      "dpr": 1,
+      "height": 800,
+      "width": 1280
+    }
+  },
+  "expiredGame": {
+    "message": "Round atau prediksi tidak tersedia. Round dapat kedaluwarsa atau hilang setelah server dimulai ulang.",
+    "gameHidden": true,
+    "predictDisabled": true
+  },
+  "sessionBeforeRestart": {
+    "gameURL": "http://127.0.0.1:8874/game?game_id=14346e91-a151-4e43-9275-3d745b36b3a0",
+    "message": "Round dimulai. Pilih keputusan Anda."
+  },
+  "reducedMotion": {
+    "preference": false,
+    "rulePresent": true
+  },
+  "invalidSession": {
+    "mechanism": "Restarted only the task-owned test preview with a fresh ephemeral signing key; old signed browser identity became invalid",
+    "message": "Sesi browser tidak tersedia atau kedaluwarsa. Muat ulang untuk memulai sesi baru.",
+    "gameHidden": true,
+    "predictDisabled": true,
+    "submitDisabled": true
+  },
+  "consoleErrors": []
+}

@@ -1,0 +1,102 @@
+{
+  "scope": "One actual warm localhost GET per resource; no browser performance score or throttled-network claim",
+  "http": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 7741,
+      "elapsed_ms": 14.431,
+      "content_type": "text/html; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/game",
+      "status": 200,
+      "bytes": 7903,
+      "elapsed_ms": 4.235,
+      "content_type": "text/html; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase3.css",
+      "status": 200,
+      "bytes": 35987,
+      "elapsed_ms": 1.329,
+      "content_type": "text/css; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase3.js",
+      "status": 200,
+      "bytes": 3581,
+      "elapsed_ms": 1.018,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/tiles.svg",
+      "status": 200,
+      "bytes": 42208,
+      "elapsed_ms": 1.01,
+      "content_type": "image/svg+xml",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase4/catalog.mjs",
+      "status": 200,
+      "bytes": 5658,
+      "elapsed_ms": 0.831,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase4/controller.mjs",
+      "status": 200,
+      "bytes": 8279,
+      "elapsed_ms": 0.787,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase4/deletion.mjs",
+      "status": 200,
+      "bytes": 513,
+      "elapsed_ms": 0.952,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase4/http.mjs",
+      "status": 200,
+      "bytes": 3523,
+      "elapsed_ms": 0.734,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase4/model.mjs",
+      "status": 200,
+      "bytes": 3009,
+      "elapsed_ms": 0.821,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase4/tiles.mjs",
+      "status": 200,
+      "bytes": 2150,
+      "elapsed_ms": 0.826,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    },
+    {
+      "path": "/static/phase4/view.mjs",
+      "status": 200,
+      "bytes": 13701,
+      "elapsed_ms": 0.735,
+      "content_type": "text/javascript; charset=utf-8",
+      "cache_control": "no-store"
+    }
+  ],
+  "static_total_bytes": 118609
+}

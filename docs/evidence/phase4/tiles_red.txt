@@ -1,0 +1,167 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+______ test_local_svg_contains_every_canonical_face_back_and_safe_unknown ______
+
+phase4_client = <starlette.testclient.TestClient object at 0x10f1cf050>
+
+    def test_local_svg_contains_every_canonical_face_back_and_safe_unknown(phase4_client):
+        response=phase4_client.get('/static/tiles.svg')
+>       assert response.status_code==200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_phase4_assets.py:13: AssertionError
+_______ test_visual_catalog_distinguishes_bamboo_dots_winds_and_flowers ________
+
+phase4_client = <starlette.testclient.TestClient object at 0x10f221fa0>
+
+    def test_visual_catalog_distinguishes_bamboo_dots_winds_and_flowers(phase4_client):
+>       response=phase4_client.get('/static/tiles.svg');assert response.status_code==200
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_phase4_assets.py:29: AssertionError
+_______ test_local_tile_module_and_catalog_are_served_under_existing_csp _______
+
+phase4_client = <starlette.testclient.TestClient object at 0x10f1e50a0>
+
+    def test_local_tile_module_and_catalog_are_served_under_existing_csp(phase4_client):
+        for path in ('phase4/catalog.mjs','phase4/tiles.mjs'):
+            response=phase4_client.get('/static/'+path)
+>           assert response.status_code==200
+E           assert 404 == 200
+E            +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_phase4_assets.py:44: AssertionError
+__________________ test_phase4_node_frontend_contracts[tiles] __________________
+
+suite = 'tiles'
+
+    @pytest.mark.parametrize('suite',['tiles'])
+    def test_phase4_node_frontend_contracts(suite):
+        node=shutil.which('node')
+        assert node, 'Phase4 Node tests NOT RUN: install the documented Node runtime'
+        result=subprocess.run([node,'--test',str(ROOT/'tests/frontend'/f'{suite}.test.mjs')],
+                              capture_output=True,text=True,timeout=30,cwd=ROOT)
+>       assert result.returncode==0,result.stdout+result.stderr
+E       AssertionError: ✖ all 42 canonical tiles have the verified symbol and accessible label (1.119708ms)
+E         ✖ invalid tile codes use a fixed harmless unknown symbol (0.516167ms)
+E         ✖ selectable tiles use real buttons with stable index and exact server action id (0.084208ms)
+E         ✖ concealed backs do not carry a hidden face or action (0.084334ms)
+E         ✖ noninteractive and pending tiles cannot submit an action (0.082166ms)
+E         ℹ tests 5
+E         ℹ suites 0
+E         ℹ pass 0
+E         ℹ fail 5
+E         ℹ cancelled 0
+E         ℹ skipped 0
+E         ℹ todo 0
+E         ℹ duration_ms 54.672041
+E         
+E         ✖ failing tests:
+E         
+E         test at tests/frontend/tiles.test.mjs:11:1
+E         ✖ all 42 canonical tiles have the verified symbol and accessible label (1.119708ms)
+E           AssertionError [ERR_ASSERTION]: The local tile renderer feature is missing
+E               at renderer (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:8:10)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:12:30)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.start (node:internal/test_runner/test:959:17)
+E               at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: false,
+E             expected: true,
+E             operator: '=='
+E           }
+E         
+E         test at tests/frontend/tiles.test.mjs:24:1
+E         ✖ invalid tile codes use a fixed harmless unknown symbol (0.516167ms)
+E           AssertionError [ERR_ASSERTION]: The local tile renderer feature is missing
+E               at renderer (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:8:10)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:25:42)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: false,
+E             expected: true,
+E             operator: '=='
+E           }
+E         
+E         test at tests/frontend/tiles.test.mjs:35:1
+E         ✖ selectable tiles use real buttons with stable index and exact server action id (0.084208ms)
+E           AssertionError [ERR_ASSERTION]: The local tile renderer feature is missing
+E               at renderer (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:8:10)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:36:32)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: false,
+E             expected: true,
+E             operator: '=='
+E           }
+E         
+E         test at tests/frontend/tiles.test.mjs:50:1
+E         ✖ concealed backs do not carry a hidden face or action (0.084334ms)
+E           AssertionError [ERR_ASSERTION]: The local tile renderer feature is missing
+E               at renderer (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:8:10)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:51:32)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: false,
+E             expected: true,
+E             operator: '=='
+E           }
+E         
+E         test at tests/frontend/tiles.test.mjs:58:1
+E         ✖ noninteractive and pending tiles cannot submit an action (0.082166ms)
+E           AssertionError [ERR_ASSERTION]: The local tile renderer feature is missing
+E               at renderer (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:8:10)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/tiles.test.mjs:59:32)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: false,
+E             expected: true,
+E             operator: '=='
+E           }
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/jhonhazel/.nvm/versions/node/v24.4.1/bin/node', '--test', '/Users/jhonhazel/mahjong-str...ge: false,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '=='\n  }\n", stderr='').returncode
+
+tests/test_phase4_game_ui.py:16: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase4_assets.py::test_local_svg_contains_every_canonical_face_back_and_safe_unknown
+FAILED tests/test_phase4_assets.py::test_visual_catalog_distinguishes_bamboo_dots_winds_and_flowers
+FAILED tests/test_phase4_assets.py::test_local_tile_module_and_catalog_are_served_under_existing_csp
+FAILED tests/test_phase4_game_ui.py::test_phase4_node_frontend_contracts[tiles]
+4 failed, 1 warning in 1.81s

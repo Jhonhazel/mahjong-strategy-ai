@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "protected_files": 1999,
+  "mismatches": [],
+  "duration_seconds": 2.903,
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+  "scope": "After final regression; previous tests/evidence/model/encoder/engine/datasets unchanged; ten authorized presentation/README files excluded"
+}

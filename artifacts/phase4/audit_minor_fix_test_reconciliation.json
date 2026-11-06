@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "python_version": "3.12.10",
+  "historical_cases": 399,
+  "preserved_historical_identities": 399,
+  "missing": [],
+  "new_collected_cases": [],
+  "duplicates": [],
+  "counts": {
+    "tests": 399,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "stdout_seconds": 64.64,
+  "junit_seconds": 64.635,
+  "node_wrapper_cases": 6,
+  "old_junit": "docs/evidence/phase4/regression_final.xml",
+  "new_junit": "docs/evidence/phase4/audit_minor_fix_regression.xml"
+}

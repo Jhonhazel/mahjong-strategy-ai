@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "python_version": "3.12.10",
+  "python_compile_paths": [
+    "app/web/tile_catalog.py",
+    "app/web/pages.py",
+    "scripts/build_tile_assets.py",
+    "tests/phase4_support.py",
+    "tests/test_phase4_assets.py",
+    "tests/test_phase4_contracts.py",
+    "tests/test_phase4_game_ui.py",
+    "tests/test_phase4_live.py",
+    "tests/test_phase4_pages.py"
+  ],
+  "compile_exit_code": 0,
+  "pip_check": {
+    "command": ".venv/bin/python -m pip check",
+    "exit_code": 0,
+    "observed_stdout": "No broken requirements found.",
+    "observed_warning": "Host pip cache directory not writable; cache disabled, no dependency failure"
+  },
+  "javascript": "artifacts/phase4/static_syntax_verification.json",
+  "git_diff_check_exit_code": 0,
+  "dependency_changes": false,
+  "new_install_performed": false,
+  "documentation_validation": {
+    "status": "PASS",
+    "report_sections": 25,
+    "documentation_files_checked": 6,
+    "broken_local_links": [],
+    "json_artifacts_parsed": 22,
+    "final_source_hashes_verified": 36,
+    "git_paths_match_summary": true
+  }
+}

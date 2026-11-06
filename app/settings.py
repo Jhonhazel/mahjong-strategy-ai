@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     model_checkpoint_path: Path = ROOT / 'artifacts/models/mahjong_discard_mlp_v3.pt'
     model_metadata_path: Path = ROOT / 'artifacts/models/mahjong_discard_mlp_v3.metadata.json'
     dataset_contract_path: Path = ROOT / 'datasets/expanded_strict_v2/data_contract.json'
-    contact_members_path: Path = ROOT / 'config/contact_members.json'
+    contact_members_path: Path = ROOT / 'config/contact_members.public.json'
     max_active_games: int = Field(default=128, ge=1, le=1024)
     game_ttl_seconds: float = Field(default=3600, gt=0, le=86400)
     session_ttl_seconds: int = Field(default=86400, ge=1, le=2592000)

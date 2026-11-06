@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "server_version": "14.19 (Homebrew)",
+  "development_rows": 11,
+  "canonical_rows_sha256": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+  "all_original_row_hashes_unchanged": true,
+  "individual_rows_checked": 11,
+  "serialization": "Read-only transaction, SET LOCAL TIME ZONE UTC, row_to_json ORDER BY id, Python json.dumps(sort_keys=True,separators=(comma,colon))",
+  "project_postgres_still_running": true,
+  "test_scope": "All Phase4 writes used isolated mahjong_phase3_test; no schema/dev-data writes"
+}

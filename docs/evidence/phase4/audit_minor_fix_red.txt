@@ -1,0 +1,134 @@
+✔ duplicate hand tiles select one actual server action and submit current turn (3.944ms)
+✔ only supplied action ids can be selected, including all claim and Kong types (0.166083ms)
+✔ busy mutation guard prevents duplicate submissions and optimistic hand removal (0.187209ms)
+✔ old GET responses cannot overwrite newer authoritative state (0.175583ms)
+✔ an old GET completion cannot clear the busy guard of a newer pending GET (0.1545ms)
+✔ 409 refreshes state and requires new selection without retrying action (0.21275ms)
+✔ uncertain action outcome reconciles GET and never blindly resubmits (0.24575ms)
+✔ prediction is explicit, uses current turn, preserves Top3 order and never executes action (0.690708ms)
+✔ another tab advancing before prediction verification leaves a saved historical notice only (0.204375ms)
+✔ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.183833ms)
+✔ failed prediction saving503 never produces a saved-success notice (0.105708ms)
+✔ changing turn clears old prediction and selection; changing game clears saved context (0.1885ms)
+✔ 404 and401 clear active controls without fabricating a replacement identity (0.147083ms)
+✔ reused predictions preserve saved identity and server reused flag (0.108125ms)
+✔ prediction409 reconciles current server turn and never retries prediction (0.10075ms)
+✔ manual refresh clears current advice immediately and keeps saved identity on503 (0.113625ms)
+✔ repeat prediction does not leave rendered old advice during delayed state confirmation (0.133875ms)
+✔ malformed prediction success empty cannot claim saved identity or display advice (0.106875ms)
+✔ malformed prediction success missing identity cannot claim saved identity or display advice (0.063ms)
+✔ malformed prediction success unsafe identity cannot claim saved identity or display advice (0.057334ms)
+✔ malformed prediction success wrong game cannot claim saved identity or display advice (0.054958ms)
+✔ malformed prediction success wrong turn cannot claim saved identity or display advice (0.057167ms)
+✔ malformed prediction success wrong seat cannot claim saved identity or display advice (0.0525ms)
+✔ malformed prediction success missing model cannot claim saved identity or display advice (0.057ms)
+✔ malformed prediction success missing phase cannot claim saved identity or display advice (0.047167ms)
+✔ malformed prediction success illegal recommended action cannot claim saved identity or display advice (0.0535ms)
+✔ malformed prediction success empty Top3 cannot claim saved identity or display advice (0.064125ms)
+✔ malformed prediction success invalid score cannot claim saved identity or display advice (0.060041ms)
+✔ malformed prediction success mismatched Top3 cannot claim saved identity or display advice (0.3265ms)
+✔ malformed prediction success missing scores cannot claim saved identity or display advice (0.055792ms)
+✖ P4-A01 rejects cross-game action success and reconciles only the original game (0.605041ms)
+✖ P4-A01 rejects regressed turn action success and reconciles only the original game (0.141708ms)
+✔ P4-A01 rejects missing object action success and reconciles only the original game (0.17225ms)
+✔ P4-A01 rejects noninteger turn action success and reconciles only the original game (0.200459ms)
+✔ P4-A01 rejects invalid structure action success and reconciles only the original game (0.174958ms)
+✖ P4-A01 failed reconciliation keeps the original action outcome uncertain and blocks another mutation (0.115625ms)
+✔ P4-A01 accepts valid advancing response without action retry or reconciliation GET (0.125167ms)
+✔ P4-A01 accepts valid same turn response without action retry or reconciliation GET (0.090042ms)
+✔ P4-A01 accepts valid finished response without action retry or reconciliation GET (0.091917ms)
+✔ P4-A01 accepts valid claim transition response without action retry or reconciliation GET (0.655667ms)
+✖ P4-A02 rejects ascending Top3 without sorting, trusting a save, or playing (0.186167ms)
+✖ P4-A02 rejects incorrect action/class mapping without sorting, trusting a save, or playing (0.12775ms)
+✔ P4-A02 accepts valid descending Top3 unchanged (0.106625ms)
+✔ P4-A02 accepts equal adjacent scores unchanged (0.087917ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 39
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 89.506709
+
+✖ failing tests:
+
+test at tests/frontend/controller.test.mjs:155:3
+✖ P4-A01 rejects cross-game action success and reconciles only the original game (0.605041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:160:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:155:3
+✖ P4-A01 rejects regressed turn action success and reconciles only the original game (0.141708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:160:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:171:1
+✖ P4-A01 failed reconciliation keeps the original action outcome uncertain and blocks another mutation (0.115625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:174:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:201:72
+✖ P4-A02 rejects ascending Top3 without sorting, trusting a save, or playing (0.186167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:219:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:201:72
+✖ P4-A02 rejects incorrect action/class mapping without sorting, trusting a save, or playing (0.12775ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:219:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }

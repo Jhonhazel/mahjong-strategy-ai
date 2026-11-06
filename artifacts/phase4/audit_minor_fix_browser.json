@@ -1,0 +1,33 @@
+{
+  "source": "Actual CUA smoke after P4-A01/A02; real localhost v3/PostgreSQL test infrastructure",
+  "gameURL": "http://127.0.0.1:8874/game?game_id=8a2fba9e-b2b3-4255-83af-31a74f8934d5",
+  "initialTurn": "Turn 4",
+  "initialAdvice": "Top 3 · Turn 4 · Giliran sendiri\n\n01\nNaga Merah\nJ1\n82.04\n% bobot\n02\nNaga Hijau\nJ2\n6.92\n% bobot\n03\nBambu 1\nT1\n2.72\n% bobot\n\nIni bobot rekomendasi discard, bukan probabilitas menang. Tidak ada aksi yang dijalankan otomatis.\n\nPrediksi tersimpan di History.\n\nBuka detail tersimpan ↗\nIdentitas prediksi",
+  "savedLink": "/history/dd460551-4b79-44bc-9366-772f1e0f77bf",
+  "afterAction": {
+    "url": "http://127.0.0.1:8874/game?game_id=8a2fba9e-b2b3-4255-83af-31a74f8934d5",
+    "turn": "Turn 17",
+    "message": "Langkah diterima. State meja sudah diperbarui.",
+    "oldHighlights": 0,
+    "options": [
+      "Pilih tile atau aksi…",
+      "Lewati claim",
+      "Chi · Bambu 4 (T2 · T3 · T4)"
+    ]
+  },
+  "afterClaim": {
+    "url": "http://127.0.0.1:8874/game?game_id=8a2fba9e-b2b3-4255-83af-31a74f8934d5",
+    "turn": "Turn 20",
+    "meldCodes": [
+      "T2",
+      "T3",
+      "T4"
+    ]
+  },
+  "postMeldAdvice": "Top 3 · Turn 20 · Setelah meld\n\n01\nNaga Merah\nJ1\n60.13\n% bobot\n02\nBambu 1\nT1\n10.79\n% bobot\n03\nNaga Hijau\nJ2\n9.38\n% bobot\n\nIni bobot rekomendasi discard, bukan probabilitas menang. Tidak ada aksi yang dijalankan otomatis.\n\nPrediksi tersimpan di History.\n\nBuka detail tersimpan ↗\nIdentitas prediksi",
+  "detail": {
+    "url": "http://127.0.0.1:8874/history/48ccff2e-0452-4bb8-8fff-9c6fa0a04a08",
+    "tableCount": 1,
+    "closedSnapshots": 2
+  }
+}

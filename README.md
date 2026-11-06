@@ -1,8 +1,38 @@
-# Mahjong Strategy AI — Phases 1–3
+# Mahjong Strategy AI — Phases 1–4.1
 
-Playable Botzone Chinese Standard Mahjong (MCR), one human and three local shanten bots. Phase 1 includes the referee, scoring, private-seat encoder and CLI. Phases 2–2.2 add the verified Behavior Cloning models. Phase 3 connects the unchanged engine and promoted v3 model to FastAPI, PostgreSQL history and functional Jinja2 pages.
+Playable Botzone Chinese Standard Mahjong (MCR), one human and three local shanten bots. Phase 1 includes the referee, scoring, private-seat encoder and CLI. Phases 2–2.2 add the verified Behavior Cloning models. Phase 3 connects the unchanged engine and promoted v3 model to FastAPI and PostgreSQL. Phase 4 adds the responsive Play, Predict & Learn interface: original local tile art, a four-seat board, exact legal-action controls, an explicit AI advisor and visual prediction history.
 
-## Run the Phase 3 web app locally
+## Lecturer startup — Phase 4.1
+
+After the one-time preparation below, activate `.venv`, enter this repository,
+and run exactly:
+
+```sh
+fastapi dev main.py
+```
+
+The root entry reuses the existing application factory. Database/model loading
+occurs in the application lifespan; import does not create or migrate tables.
+The existing `.venv/bin/python -m scripts.run_backend` entry remains supported.
+The FastAPI CLI defaults to localhost port 8000; `MAHJONG_PORT` configures the
+legacy runner, not this CLI command. Ensure port 8000 is available.
+
+One-time preparation: install CPython 3.12 and PostgreSQL tools, create the venv
+(`python3.12 -m venv .venv` if absent), install the lock below, restore the frozen
+v3 inference assets using the checksum procedure, start the project database,
+and explicitly initialize its schema. Configure `MAHJONG_DATABASE_URL` and a
+strong private `MAHJONG_SESSION_SECRET` in your environment or ignored local
+`.env` (restrict its permissions to the owner). Preserve that secret across
+restarts. Never commit it or use the invalid example placeholders. Activate
+the environment with `source .venv/bin/activate` before the lecturer command.
+No automatic bootstrap, model download or training is performed.
+
+This exact command was verified on the prepared macOS host with Python 3.12.10,
+FastAPI 0.162.0 and FastAPI CLI 0.0.32. It is a development reloader: source
+changes/restarts clear in-memory games; persistent history remains in PostgreSQL.
+Clean-machine setup, Windows/Linux and production operation were not verified.
+
+## Prepare and run the web app locally
 
 Use CPython 3.12 and PostgreSQL 14 tools (`initdb`, `pg_ctl`, `pg_dump`, `psql`) on the tested macOS host. Installation in the existing environment used the previous lock as a constraint; a clean installation and Windows/Linux operation have not been repeated. Restore inference assets separately using [the checksum-verified procedure](docs/ml_artifact_transfer.md). The runtime needs only the v3 checkpoint, metadata and small expanded data contract; it does not read training shards or raw archives.
 
@@ -23,7 +53,41 @@ Open [Home](http://127.0.0.1:8000/), [Game](http://127.0.0.1:8000/game), [Histor
 
 Keep the same signing secret privately across restarts to retain access with the same signed cookie. Environment variables override a local ignored `.env`; `.env.example` lists names with invalid placeholders. Generate your own secret. Production mode requires HTTPS Secure cookies. Active games are in memory and disappear on restart; PostgreSQL history persists. Run **one worker**. Active games expire after one hour idle by default; finished games retain the existing 30-second cleanup policy.
 
-Contact remains unverified and empty. Copy `config/contact_members.example.json` to `MAHJONG_CONTACT_MEMBERS_PATH` and supply approved members with `name` and optional `student_id`, `role`, `email`. Set `verified: true` only after approval. Until then the page explicitly says its content is incomplete. The polished board, final UAS PDF and video remain later work.
+Contact defaults to the five approved identities in `config/contact_members.public.json`.
+Their task roles and contributions remain unconfirmed and are explicitly labeled
+as such. To override the roster, set `MAHJONG_CONTACT_MEMBERS_PATH` to an approved
+file following `config/contact_members.example.json`; missing/unverified data
+still shows the incomplete-content fallback. The final UAS PDF, video, verified
+group roles and submission packaging remain final-submission work.
+
+## Phase 4 interface and verification
+
+At `/game`, choose seat, round wind, an optional integer seed (0–9007199254740991), and flowers. The human stays at the bottom. Select a legal tile or claim and confirm with **Jalankan pilihan**; the advisor never executes a move. **Minta prediksi & simpan** saves the actual v3 result, verifies the current turn, and displays the server's Top 3. Scores describe discard preference, not winning probability. Open **Identitas prediksi** for its actual saved ID/model/encoder. History supports paging, Top 3 summaries, a semantic result table, complete folded JSON and explicit delete confirmation.
+
+The browser uses local SVG, CSS and ES modules with no build step, external font, UI dependency or browser model download. The existing `phase3.js`/`phase3.css` filenames remain compatibility entry points. Use keyboard Tab/Enter/Space; the mobile hand scrolls within its own region. Unknown/expired games and uncertain requests require a fresh server view; actions are never retried automatically. Keep the same private signing secret across normal app restarts to retain history access.
+
+Phase 4.1 highlights factual public snapshot changes after a successful action:
+600 ms per seat group in Normal, 180 ms in Cepat, at most four groups (2.4 s).
+Skip ends presentation immediately. Reduced motion and a hidden page bypass it;
+new game, refresh, expiry and page lifecycle changes cancel stale playback.
+These highlights do not reconstruct the bots' original action order. The final
+server state is already authoritative while actions/predictions are locked.
+See the [Phase 4.1 report](docs/phase4_1_implementation_report.md) and
+[test matrix](docs/phase4_1_test_matrix.md) for current evidence (405 Python,
+91 Node cases), Contact assertion migrations and remaining limitations.
+
+Node v24.4.1 was used for the built-in frontend tests; Node is a **test** prerequisite, not a web-app runtime dependency. From this repository in the existing Python environment:
+
+```sh
+export MAHJONG_TEST_DATABASE_URL="$(.venv/bin/python -m scripts.phase3_db url --database test)"
+node --test tests/frontend/*.test.mjs
+.venv/bin/python -m pytest tests/test_phase4_*.py -q --junitxml=docs/evidence/phase4/local_focused.xml
+.venv/bin/python -m pytest -q --junitxml=docs/evidence/phase4/local_reproduction.xml
+```
+
+Choose new evidence filenames to retain previous runs. Real PostgreSQL/localhost access and the frozen inference assets are required. Missing Node fails explicitly; missing PostgreSQL configuration produces explicit integration skips and cannot establish PASS. The original 370 regression identities remain intact. Regenerate the original tile sprite/catalog only when intentionally editing the art: `.venv/bin/python -m scripts.build_tile_assets` (determinism is tested).
+
+See the [Phase 4 report](docs/phase4_implementation_report.md), [design](docs/phase4_design_spec.md), [test matrix](docs/phase4_test_matrix.md), [inventory](docs/phase4_file_inventory.md), [ledger](docs/phase4_execution_ledger.md), and [verification summary](artifacts/phase4/verification_summary.json). Browser evidence includes real desktop/mobile rounds and all five pages at six widths. Actual 200% zoom, runtime reduced-motion emulation, a clean installation and other platforms remain unverified. No Phase 4 Git commit or deployment is part of this implementation.
 
 ## Phase 3 API and verification
 

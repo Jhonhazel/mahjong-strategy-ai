@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "passed": 370,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 59.98,
+  "junit": "docs/evidence/phase4/baseline.xml",
+  "sha256": "6cfa80d17839ad8fd93902b0f2c0127808f6f4674881dd6522a9860c12e6fa77",
+  "warning": "Existing Starlette/httpx TestClient deprecation"
+}

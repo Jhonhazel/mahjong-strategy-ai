@@ -1,0 +1,29 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_phase4_game_labels_have_explicit_control_associations __________
+
+phase4_client = <starlette.testclient.TestClient object at 0x10f252de0>
+
+    def test_phase4_game_labels_have_explicit_control_associations(phase4_client):
+        tags = Markup(phase4_client.get('/game').text).tags
+        labels = {attrs.get('for') for tag, attrs in tags if tag == 'label'}
+>       assert {'human-seat', 'prevalent-wind', 'game-seed', 'include-flowers', 'legal-action'} <= labels
+E       AssertionError: assert {'game-seed',...evalent-wind'} <= {None}
+E         
+E         Extra items in the left set:
+E         'human-seat'
+E         'prevalent-wind'
+E         'legal-action'
+E         'game-seed'
+E         'include-flowers'
+
+tests/test_phase4_pages.py:88: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase4_pages.py::test_phase4_game_labels_have_explicit_control_associations
+1 failed, 8 deselected, 1 warning in 1.12s

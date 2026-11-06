@@ -1,0 +1,38 @@
+F..................                                                      [100%]
+=================================== FAILURES ===================================
+_______ test_lecturer_entry_reuses_factory_without_startup_side_effects ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10a31ed20>
+
+    def test_lecturer_entry_reuses_factory_without_startup_side_effects(monkeypatch):
+        import app.db
+        import app.main
+        import app.web.runtime
+        def forbidden(*args, **kwargs):
+            pytest.fail('Root import must not initialize DB or model')
+        monkeypatch.setattr(app.db, 'create_db_engine', forbidden)
+        monkeypatch.setattr(app.web.runtime, 'load_runtime_model', forbidden)
+        monkeypatch.setattr(app.main, 'load_runtime_model', forbidden)
+        monkeypatch.setenv('MAHJONG_DATABASE_URL', 'postgresql+psycopg://test@localhost/mahjong_test')
+        monkeypatch.setenv('MAHJONG_SESSION_SECRET', secrets.token_urlsafe(40))
+        entry = ROOT/'main.py'
+        assert entry.is_file(), 'Missing lecturer main.py entry point'
+        spec = importlib.util.spec_from_file_location('lecturer_test_entry', entry)
+        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+        assert isinstance(module.app, FastAPI)
+        assert module.app.state.resources is None and not module.app.state.initializing
+>       paths = [route.path for route in module.app.routes]
+                 ^^^^^^^^^^
+E       AttributeError: '_IncludedRouter' object has no attribute 'path'
+
+tests/test_phase4_1.py:41: AttributeError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/phase4_1/focused_green.xml -
+=========================== short test summary info ============================
+FAILED tests/test_phase4_1.py::test_lecturer_entry_reuses_factory_without_startup_side_effects
+1 failed, 18 passed, 1 warning in 2.97s

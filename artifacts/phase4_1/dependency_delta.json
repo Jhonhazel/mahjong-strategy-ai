@@ -1,0 +1,17 @@
+{
+  "added": {
+    "shellingham": "1.5.4",
+    "watchfiles": "1.3.0",
+    "fastapi-cli": "0.0.32",
+    "rich-toolkit": "0.20.6",
+    "uvloop": "0.23.0",
+    "websockets": "17.4",
+    "httptools": "0.9.0",
+    "rich": "15.0.0",
+    "mdurl": "0.1.2",
+    "pyyaml": "6.0.3",
+    "typer": "0.27.3",
+    "markdown-it-py": "4.2.0"
+  },
+  "changed_existing": {}
+}

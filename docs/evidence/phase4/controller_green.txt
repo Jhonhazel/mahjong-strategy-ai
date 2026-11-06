@@ -1,0 +1,37 @@
+✔ duplicate hand tiles select one actual server action and submit current turn (2.974375ms)
+✔ only supplied action ids can be selected, including all claim and Kong types (0.206875ms)
+✔ busy mutation guard prevents duplicate submissions and optimistic hand removal (1.067708ms)
+✔ old GET responses cannot overwrite newer authoritative state (0.406083ms)
+✔ an old GET completion cannot clear the busy guard of a newer pending GET (0.531792ms)
+✔ 409 refreshes state and requires new selection without retrying action (0.271709ms)
+✔ uncertain action outcome reconciles GET and never blindly resubmits (0.270583ms)
+✔ prediction is explicit, uses current turn, preserves Top3 order and never executes action (0.443375ms)
+✔ another tab advancing before prediction verification leaves a saved historical notice only (0.403625ms)
+✔ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.206083ms)
+✔ failed prediction saving503 never produces a saved-success notice (0.112708ms)
+✔ changing turn clears old prediction and selection; changing game clears saved context (0.170042ms)
+✔ 404 and401 clear active controls without fabricating a replacement identity (0.140958ms)
+✔ reused predictions preserve saved identity and server reused flag (0.126292ms)
+✔ mutations send JSON, current CSRF and same-origin cookies with exact turn (30.758208ms)
+✔ session bootstrap updates in-memory token and no mutation executes without it (0.608292ms)
+✔ all required HTTP errors become safe Indonesian messages without backend details (0.657208ms)
+✔ delete accepts a confirmed204 without JSON and preserves request safety (0.124667ms)
+✔ network and malformed-success responses fail safely without leaking payload (0.228333ms)
+✔ human seat 0 stays bottom with right/top/left relative opponents (2.779375ms)
+✔ human seat 1 stays bottom with right/top/left relative opponents (0.28975ms)
+✔ human seat 2 stays bottom with right/top/left relative opponents (0.385542ms)
+✔ human seat 3 stays bottom with right/top/left relative opponents (0.134667ms)
+✔ projection shows only human faces and public rivers/melds, hiding opponent AnGang (0.671ms)
+✔ meld projection follows public middle tile and preserves unknown concealment (1.293917ms)
+✔ discard selection uses a supplied Play option rather than a hand index (0.339917ms)
+✔ settings accept exact safe seed boundary and null random seed (0.521042ms)
+✔ settings reject out of range seats and nonboolean flower options (0.142292ms)
+✔ round presentation handles draws, seat zero and actual score deltas without scoring (0.283834ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.192125

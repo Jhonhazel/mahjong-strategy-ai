@@ -1,0 +1,12 @@
+✔ seat renderer gives opponents only backs and human exact legal buttons with duplicate indices (1.957583ms)
+✔ advisor preserves exact Top3 order and uses score preference explanation with no automatic action (0.719042ms)
+✔ historical saved prediction shows identity without displaying stale Top3 tile advice (0.095666ms)
+✔ round renderer shows real seat zero, exact score deltas and null draw result safely (0.206917ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 58.442583

@@ -1,0 +1,16 @@
+{% macro tile(code, extra='') -%}
+{% set face = tile_catalog.get(code, tile_catalog['unknown']) -%}
+<span class="mahjong-tile tile--{{ face.kind }} {{ extra }}" role="img" aria-label="{{ face.label }}{% if face.rank %} ({{ face.code }}){% endif %}" data-code="{{ face.code }}"><svg class="tile-art" viewBox="0 0 60 84" aria-hidden="true"><use href="/static/tiles.svg#{{ face.symbol }}"></use></svg></span>
+{%- endmacro %}
+
+{% macro delete_confirmation(record, csrf_token) -%}
+<details class="delete-confirmation">
+  <summary>Hapus prediksi</summary>
+  <form method="post" action="/history/{{ record.prediction_id }}/delete" data-delete-id="{{ record.prediction_id }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <p>Hapus prediksi ini? Riwayat yang dihapus tidak dapat dikembalikan. Game tetap berjalan.</p>
+    <button type="submit" class="button button--danger">Ya, hapus prediksi</button>
+    <p class="delete-message" role="status" aria-live="polite"></p>
+  </form>
+</details>
+{%- endmacro %}

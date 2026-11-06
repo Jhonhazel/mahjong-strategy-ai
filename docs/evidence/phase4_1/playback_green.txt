@@ -1,0 +1,26 @@
+✔ unchanged, missing, or different-game snapshots have no invented playback (1.325375ms)
+✔ public discard and meld deltas are grouped by relative seat with no chronology claim (0.432875ms)
+✔ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (0.123625ms)
+✔ normal playback is bounded, cancellable, and resolves skip (0.849041ms)
+✔ fast playback is bounded, cancellable, and resolves skip (0.088208ms)
+✔ reduced motion or hidden page bypasses all waits (0.133792ms)
+✔ normal completion clears presentation and old scheduled work cannot update a new playback (0.146834ms)
+✔ accepted authoritative state stays current while playback blocks duplicate/stale decisions (1.06575ms)
+✔ playback cancels safely for create (0.178833ms)
+✔ playback cancels safely for refresh (0.19525ms)
+✔ playback cancels safely for expired (0.176167ms)
+✔ seat renderer gives opponents only backs and human exact legal buttons with duplicate indices (1.747791ms)
+✔ advisor preserves exact Top3 order and uses score preference explanation with no automatic action (0.32575ms)
+✔ historical saved prediction shows identity without displaying stale Top3 tile advice (0.10025ms)
+✔ round renderer shows real seat zero, exact score deltas and null draw result safely (0.228583ms)
+✔ expired finished view clears round result, game identity and public summary (6.444584ms)
+✔ meld label never misrepresents Chi offer position as a source seat (0.785208ms)
+✔ advisor exposes exact saved prediction identity and model provenance as text (0.145375ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 84.0405

@@ -1,0 +1,46 @@
+✔ duplicate hand tiles select one actual server action and submit current turn (4.470583ms)
+✔ only supplied action ids can be selected, including all claim and Kong types (0.197042ms)
+✔ busy mutation guard prevents duplicate submissions and optimistic hand removal (0.194208ms)
+✔ old GET responses cannot overwrite newer authoritative state (0.197959ms)
+✔ an old GET completion cannot clear the busy guard of a newer pending GET (0.166333ms)
+✔ 409 refreshes state and requires new selection without retrying action (0.218084ms)
+✔ uncertain action outcome reconciles GET and never blindly resubmits (0.189458ms)
+✔ prediction is explicit, uses current turn, preserves Top3 order and never executes action (1.825208ms)
+✔ another tab advancing before prediction verification leaves a saved historical notice only (0.21675ms)
+✔ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.192208ms)
+✔ failed prediction saving503 never produces a saved-success notice (0.104125ms)
+✔ changing turn clears old prediction and selection; changing game clears saved context (0.158125ms)
+✔ 404 and401 clear active controls without fabricating a replacement identity (0.159792ms)
+✔ reused predictions preserve saved identity and server reused flag (0.111542ms)
+✔ prediction409 reconciles current server turn and never retries prediction (0.102708ms)
+✔ manual refresh clears current advice immediately and keeps saved identity on503 (0.118ms)
+✔ repeat prediction does not leave rendered old advice during delayed state confirmation (0.135209ms)
+✔ malformed prediction success empty cannot claim saved identity or display advice (0.360708ms)
+✔ malformed prediction success missing identity cannot claim saved identity or display advice (0.059125ms)
+✔ malformed prediction success unsafe identity cannot claim saved identity or display advice (0.065792ms)
+✔ malformed prediction success wrong game cannot claim saved identity or display advice (0.054041ms)
+✔ malformed prediction success wrong turn cannot claim saved identity or display advice (0.055334ms)
+✔ malformed prediction success wrong seat cannot claim saved identity or display advice (0.052084ms)
+✔ malformed prediction success missing model cannot claim saved identity or display advice (0.052167ms)
+✔ malformed prediction success missing phase cannot claim saved identity or display advice (0.045583ms)
+✔ malformed prediction success illegal recommended action cannot claim saved identity or display advice (0.052917ms)
+✔ malformed prediction success empty Top3 cannot claim saved identity or display advice (0.05525ms)
+✔ malformed prediction success invalid score cannot claim saved identity or display advice (0.055166ms)
+✔ malformed prediction success mismatched Top3 cannot claim saved identity or display advice (0.053833ms)
+✔ malformed prediction success missing scores cannot claim saved identity or display advice (0.066667ms)
+✔ mutations send JSON, current CSRF and same-origin cookies with exact turn (28.119541ms)
+✔ session bootstrap updates in-memory token and no mutation executes without it (0.624084ms)
+✔ all required HTTP errors become safe Indonesian messages without backend details (0.646084ms)
+✔ delete accepts a confirmed204 without JSON and preserves request safety (0.131ms)
+✔ network and malformed-success responses fail safely without leaking payload (0.196ms)
+✔ delete success 200 is not a confirmed204 and must fail safely (0.129459ms)
+✔ delete success 201 is not a confirmed204 and must fail safely (0.086541ms)
+✔ delete success 202 is not a confirmed204 and must fail safely (0.084875ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.116083

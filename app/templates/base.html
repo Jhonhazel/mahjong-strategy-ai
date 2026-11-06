@@ -4,14 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token }}">
+  <meta name="theme-color" content="#102f2b">
+  <meta name="description" content="Main Mahjong, bandingkan saran AI, dan pelajari keputusan Anda. Play, Predict & Learn.">
   <title>{% block title %}Mahjong Strategy AI{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', path='phase3.css') }}">
+  <script type="module" src="{{ url_for('static', path='phase3.js') }}"></script>
 </head>
 <body>
-  <header><a href="/">Mahjong Strategy AI</a>
-    <nav aria-label="Navigasi utama"><a href="/game">Game</a><a href="/history">History</a><a href="/contact">Contact Us</a></nav>
+  <a class="skip-link" href="#main-content">Lewati ke konten</a>
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="Mahjong Strategy AI · Home"><span class="brand-mark" aria-hidden="true">中</span><span>Mahjong<span class="brand-subtitle">STRATEGY AI</span></span></a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      {% for path, label in [('/', 'Home'), ('/game', 'Game with AI'), ('/history', 'History'), ('/contact', 'Contact Us')] %}
+      <a href="{{ path }}"{% if request.url.path == path or (path == '/history' and request.url.path.startswith('/history/')) %} aria-current="page"{% endif %}>{{ label }}</a>
+      {% endfor %}
+    </nav>
   </header>
-  <main>{% block content %}{% endblock %}</main>
-  <footer>Play, Predict &amp; Learn · Hiburan · Saran AI tidak menjalankan aksi otomatis.</footer>
+  <main id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
+  <footer class="site-footer"><span>Mahjong Strategy AI <span class="footer-dot">·</span> Play, Predict &amp; Learn</span><span>Hiburan &amp; pembelajaran. Setiap langkah tetap pilihan Anda.</span></footer>
 </body>
 </html>

@@ -1,0 +1,334 @@
+F.F..F                                                                   [100%]
+=================================== FAILURES ===================================
+_______ test_lecturer_entry_reuses_factory_without_startup_side_effects ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1083b5f40>
+
+    def test_lecturer_entry_reuses_factory_without_startup_side_effects(monkeypatch):
+        import app.db
+        import app.web.runtime
+        def forbidden(*args, **kwargs):
+            pytest.fail('Root import must not initialize DB or model')
+        monkeypatch.setattr(app.db, 'create_db_engine', forbidden)
+        monkeypatch.setattr(app.web.runtime, 'load_runtime_model', forbidden)
+        monkeypatch.setenv('MAHJONG_DATABASE_URL', 'postgresql+psycopg://test@localhost/mahjong_test')
+        monkeypatch.setenv('MAHJONG_SESSION_SECRET', secrets.token_urlsafe(40))
+        entry = ROOT/'main.py'
+>       assert entry.is_file(), 'Missing lecturer main.py entry point'
+E       AssertionError: Missing lecturer main.py entry point
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/main.py').is_file
+
+tests/test_phase4_1.py:34: AssertionError
+_________ test_official_roster_is_reproducible_exact_and_has_no_roles __________
+
+web_settings = Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='test', model_check...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5)
+postgres_engine = Engine(postgresql+psycopg://mahjong_phase3@/mahjong_phase3_test?host=%2FUsers%2Fjhonhazel%2Fmahjong-strategy-ai%2F.local%2Fphase3-postgres%2Fsocket&port=55437)
+
+    def test_official_roster_is_reproducible_exact_and_has_no_roles(web_settings, postgres_engine):
+        from app.main import create_app
+        from app.web.contact import ContactRoster
+>       assert web_settings.contact_members_path.name == 'contact_members.public.json'
+E       AssertionError: assert 'contact_members.json' == 'contact_members.public.json'
+E         
+E         - contact_members.public.json
+E         ?                 -------
+E         + contact_members.json
+
+tests/test_phase4_1.py:57: AssertionError
+____________________ test_phase4_1_animation_node_contracts ____________________
+
+    def test_phase4_1_animation_node_contracts():
+        node = shutil.which('node'); assert node, 'Node is required for presentation tests'
+        result = subprocess.run([node, '--test', 'tests/frontend/playback.test.mjs'], cwd=ROOT,
+                                text=True, capture_output=True, timeout=30)
+>       assert result.returncode == 0, result.stdout + result.stderr
+E       AssertionError: ✖ unchanged, missing, or different-game snapshots have no invented playback (0.914875ms)
+E         ✖ public discard and meld deltas are grouped by relative seat with no chronology claim (0.295ms)
+E         ✖ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (0.11225ms)
+E         ✖ normal playback is bounded, cancellable, and resolves skip (0.117791ms)
+E         ✖ fast playback is bounded, cancellable, and resolves skip (0.073708ms)
+E         ✖ reduced motion or hidden page bypasses all waits (0.085375ms)
+E         ✖ normal completion clears presentation and old scheduled work cannot update a new playback (0.4565ms)
+E         ✖ accepted authoritative state stays current while playback blocks duplicate/stale decisions (0.102542ms)
+E         ✖ playback cancels safely for create (0.099417ms)
+E         ✖ playback cancels safely for refresh (0.10125ms)
+E         ✖ playback cancels safely for expired (0.070791ms)
+E         ℹ tests 11
+E         ℹ suites 0
+E         ℹ pass 0
+E         ℹ fail 11
+E         ℹ cancelled 0
+E         ℹ skipped 0
+E         ℹ todo 0
+E         ℹ duration_ms 55.11625
+E         
+E         ✖ failing tests:
+E         
+E         test at tests/frontend/playback.test.mjs:16:1
+E         ✖ unchanged, missing, or different-game snapshots have no invented playback (0.914875ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation publicUpdates
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:17:15)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.start (node:internal/test_runner/test:959:17)
+E               at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:20:1
+E         ✖ public discard and meld deltas are grouped by relative seat with no chronology claim (0.295ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation publicUpdates
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:22:16)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:29:1
+E         ✖ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (0.11225ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation publicUpdates
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:33:16)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:37:38
+E         ✖ normal playback is bounded, cancellable, and resolves skip (0.117791ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:38:46)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:37:38
+E         ✖ fast playback is bounded, cancellable, and resolves skip (0.073708ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:38:46)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:43:1
+E         ✖ reduced motion or hidden page bypasses all waits (0.085375ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:45:38)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:50:1
+E         ✖ normal completion clears presentation and old scheduled work cannot update a new playback (0.4565ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:51:46)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:57:1
+E         ✖ accepted authoritative state stays current while playback blocks duplicate/stale decisions (0.102542ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:58:36)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:66:55
+E         ✖ playback cancels safely for create (0.099417ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:67:36)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:66:55
+E         ✖ playback cancels safely for refresh (0.10125ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:67:36)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E         test at tests/frontend/playback.test.mjs:66:55
+E         ✖ playback cancels safely for expired (0.070791ms)
+E           AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+E           + actual - expected
+E           
+E           + 'undefined'
+E           - 'function'
+E           
+E               at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+E               at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:67:36)
+E               at Test.runInAsyncScope (node:async_hooks:214:14)
+E               at Test.run (node:internal/test_runner/test:1062:25)
+E               at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E               at Test.postRun (node:internal/test_runner/test:1191:19)
+E               at Test.run (node:internal/test_runner/test:1119:12)
+E               at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+E             generatedMessage: false,
+E             code: 'ERR_ASSERTION',
+E             actual: 'undefined',
+E             expected: 'function',
+E             operator: 'strictEqual'
+E           }
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/jhonhazel/.nvm/versions/node/v24.4.1/bin/node', '--test', 'tests/frontend/playback.test... 'ERR_ASSERTION',\n    actual: 'undefined',\n    expected: 'function',\n    operator: 'strictEqual'\n  }\n", stderr='').returncode
+
+tests/test_phase4_1.py:88: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase4_1.py::test_lecturer_entry_reuses_factory_without_startup_side_effects
+FAILED tests/test_phase4_1.py::test_official_roster_is_reproducible_exact_and_has_no_roles
+FAILED tests/test_phase4_1.py::test_phase4_1_animation_node_contracts - Asser...
+3 failed, 3 passed, 1 warning in 1.44s

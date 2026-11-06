@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Contact Us · Mahjong Strategy AI{% endblock %}
 {% block content %}
-<h1>Contact Us</h1>
+<div class="section-shell contact-page"><div class="page-heading"><div><p class="eyebrow">THE PEOPLE BEHIND THE PROJECT</p><h1>Contact Us<span class="heading-dot">.</span></h1><p>Mahjong Strategy AI · Play, Predict &amp; Learn</p></div><span class="contact-emblem" aria-hidden="true">中</span></div>
 {% if not verified or not members %}
-<p class="notice">Data anggota kelompok dan pembagian tugas belum diverifikasi. Konten Contact Us belum lengkap.</p>
+  <section class="contact-incomplete"><span class="status-pill">Informasi belum lengkap</span><h2>Proyeknya dapat dicoba.<br>Timnya sedang dikonfirmasi.</h2><p>Data anggota kelompok dan pembagian tugas belum diverifikasi. Konten Contact Us belum lengkap.</p><p>Nama, NIM, peran, dan kontak akan ditampilkan setelah daftar kelompok resmi tersedia.</p></section>
 {% else %}
-<ul>{% for member in members %}<li><strong>{{ member.name }}</strong>
-{% if member.student_id %}<p>NIM: {{ member.student_id }}</p>{% endif %}
-{% if member.role %}<p>Peran: {{ member.role }}</p>{% endif %}
-{% if member.email %}<p>Email: {{ member.email }}</p>{% endif %}
-</li>{% endfor %}</ul>
+  <p class="notice">Identitas anggota telah dikonfirmasi. Rincian pembagian tugas dan kontribusi belum dikonfirmasi.</p>
+  <div class="member-grid">{% for member in members %}<article class="member-card"><span class="member-number" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span><h2>{{ member.name }}</h2><dl>{% if member.student_id %}<dt>NIM</dt><dd>{{ member.student_id }}</dd>{% endif %}{% if member.role %}<dt>Peran</dt><dd>{{ member.role }}</dd>{% endif %}{% if member.email %}<dt>Email</dt><dd>{{ member.email }}</dd>{% endif %}</dl></article>{% endfor %}</div>
 {% endif %}
+  <section class="contact-about"><p class="eyebrow">TENTANG PROYEK</p><h2>Hiburan yang mengajak berpikir.</h2><p>Eksplorasi Mahjong Competition Rules, pembelajaran mesin, dan aplikasi web. Model memberi sudut pandang tambahan; pemain memegang keputusan.</p><a class="text-link" href="/game">Jelajahi permainan <span aria-hidden="true">↗</span></a></section>
+</div>
 {% endblock %}

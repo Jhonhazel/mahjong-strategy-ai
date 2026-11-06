@@ -1,0 +1,83 @@
+{
+  "before_files": 2130,
+  "unchanged": 2116,
+  "allowed_changes": [
+    ".env.example",
+    "README.md",
+    "app/settings.py",
+    "app/static/phase3.css",
+    "app/static/phase3.js",
+    "app/static/phase4/controller.mjs",
+    "app/static/phase4/view.mjs",
+    "app/templates/contact.html",
+    "app/templates/game.html",
+    "docs/phase4_implementation_report.md",
+    "requirements-lock.txt",
+    "requirements.txt",
+    "tests/test_phase3_pages.py",
+    "tests/test_phase4_pages.py"
+  ],
+  "unexpected_changes": [],
+  "historical_manifests": {
+    "artifacts/phase3/preservation_manifest.json": {
+      "total": 1868,
+      "changed": []
+    },
+    "artifacts/phase2_2/preservation_manifest.json": {
+      "total": 1624,
+      "changed": []
+    }
+  },
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+  "python": {
+    "baseline": 399,
+    "final": 405,
+    "removed": [],
+    "added": [
+      [
+        "tests.test_phase4_1",
+        "test_lecturer_entry_reuses_factory_without_startup_side_effects"
+      ],
+      [
+        "tests.test_phase4_1",
+        "test_legacy_runner_still_uses_factory"
+      ],
+      [
+        "tests.test_phase4_1",
+        "test_official_roster_is_reproducible_exact_and_has_no_roles"
+      ],
+      [
+        "tests.test_phase4_1",
+        "test_explicit_missing_or_unverified_contact_still_has_fallback[True]"
+      ],
+      [
+        "tests.test_phase4_1",
+        "test_explicit_missing_or_unverified_contact_still_has_fallback[False]"
+      ],
+      [
+        "tests.test_phase4_1",
+        "test_phase4_1_animation_node_contracts"
+      ]
+    ],
+    "duplicate_identities": []
+  },
+  "node": {
+    "baseline": 80,
+    "final": 91,
+    "removed": [],
+    "added": [
+      "unchanged, missing, or different-game snapshots have no invented playback",
+      "public discard and meld deltas are grouped by relative seat with no chronology claim",
+      "claimed/changed rivers do not invent an append sequence or expose hidden AnGang",
+      "normal playback is bounded, cancellable, and resolves skip",
+      "fast playback is bounded, cancellable, and resolves skip",
+      "reduced motion or hidden page bypasses all waits",
+      "normal completion clears presentation and old scheduled work cannot update a new playback",
+      "accepted authoritative state stays current while playback blocks duplicate/stale decisions",
+      "playback cancels safely for create",
+      "playback cancels safely for refresh",
+      "playback cancels safely for expired"
+    ]
+  }
+}

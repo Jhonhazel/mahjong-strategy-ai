@@ -1,0 +1,272 @@
+✖ unchanged, missing, or different-game snapshots have no invented playback (0.699042ms)
+✖ public discard and meld deltas are grouped by relative seat with no chronology claim (0.151208ms)
+✖ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (0.099292ms)
+✖ normal playback is bounded, cancellable, and resolves skip (0.108041ms)
+✖ fast playback is bounded, cancellable, and resolves skip (0.069708ms)
+✖ reduced motion or hidden page bypasses all waits (0.080625ms)
+✖ normal completion clears presentation and old scheduled work cannot update a new playback (0.425166ms)
+✖ accepted authoritative state stays current while playback blocks duplicate/stale decisions (0.094ms)
+✖ playback cancels safely for create (0.108834ms)
+✖ playback cancels safely for refresh (0.092542ms)
+✖ playback cancels safely for expired (0.061416ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 0
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 40.435167
+
+✖ failing tests:
+
+test at tests/frontend/playback.test.mjs:16:1
+✖ unchanged, missing, or different-game snapshots have no invented playback (0.699042ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation publicUpdates
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:17:15)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.start (node:internal/test_runner/test:959:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:20:1
+✖ public discard and meld deltas are grouped by relative seat with no chronology claim (0.151208ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation publicUpdates
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:22:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:29:1
+✖ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (0.099292ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation publicUpdates
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:33:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:37:38
+✖ normal playback is bounded, cancellable, and resolves skip (0.108041ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:38:46)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:37:38
+✖ fast playback is bounded, cancellable, and resolves skip (0.069708ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:38:46)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:43:1
+✖ reduced motion or hidden page bypasses all waits (0.080625ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:45:38)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:50:1
+✖ normal completion clears presentation and old scheduled work cannot update a new playback (0.425166ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:51:46)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:57:1
+✖ accepted authoritative state stays current while playback blocks duplicate/stale decisions (0.094ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:58:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:66:55
+✖ playback cancels safely for create (0.108834ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:67:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:66:55
+✖ playback cancels safely for refresh (0.092542ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:67:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/playback.test.mjs:66:55
+✖ playback cancels safely for expired (0.061416ms)
+  AssertionError [ERR_ASSERTION]: Missing public presentation PublicPlayback
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at feature (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:8:34)
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:67:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual'
+  }

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "dialect": "postgresql",
+  "table": "prediction_results",
+  "columns": [
+    "checkpoint_sha256",
+    "created_at",
+    "encoder_version",
+    "game_id",
+    "id",
+    "input_snapshot",
+    "model_version",
+    "output_snapshot",
+    "owner_key",
+    "state_digest",
+    "turn_number",
+    "turn_phase"
+  ],
+  "jsonb": [
+    "input_snapshot",
+    "output_snapshot"
+  ],
+  "unique_constraint": "uq_prediction_snapshot",
+  "indexes": [
+    "ix_prediction_owner_created",
+    "uq_prediction_snapshot"
+  ]
+}

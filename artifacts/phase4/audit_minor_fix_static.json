@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "node_syntax": [
+    {
+      "path": "app/static/phase3.js",
+      "exit_code": 0
+    },
+    {
+      "path": "app/static/phase4/catalog.mjs",
+      "exit_code": 0
+    },
+    {
+      "path": "app/static/phase4/controller.mjs",
+      "exit_code": 0
+    },
+    {
+      "path": "app/static/phase4/deletion.mjs",
+      "exit_code": 0
+    },
+    {
+      "path": "app/static/phase4/http.mjs",
+      "exit_code": 0
+    },
+    {
+      "path": "app/static/phase4/model.mjs",
+      "exit_code": 0
+    },
+    {
+      "path": "app/static/phase4/tiles.mjs",
+      "exit_code": 0
+    },
+    {
+      "path": "app/static/phase4/view.mjs",
+      "exit_code": 0
+    },
+    {
+      "path": "tests/frontend/controller.test.mjs",
+      "exit_code": 0
+    }
+  ],
+  "python_compile_exit": 0,
+  "pip_check_exit": 0,
+  "pip_output": "WARNING: The directory '/Users/jhonhazel/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\nNo broken requirements found.\n"
+}

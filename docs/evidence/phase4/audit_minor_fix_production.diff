@@ -1,0 +1,27 @@
+--- pre-remediation/app/static/phase4/controller.mjs
++++ post-remediation/app/static/phase4/controller.mjs
+@@ -14,6 +14,7 @@
+   const score = value => typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 1;
+   const classIndex = value => Number.isInteger(value) && value >= 0 && value < 34;
+   const legal = suggestion => suggestion && classIndex(suggestion.class_index) && score(suggestion.score)
++    && suggestion.action_id === suggestion.class_index + 2
+     && view.legal_actions.some(action => action.action_type === 'Play'
+       && action.action_id === suggestion.action_id && action.tile === suggestion.tile);
+   if (!result || !uuid(result.prediction_id) || result.game_id !== view.game_id
+@@ -24,6 +25,7 @@
+       || result.scores.length !== 34 || !result.scores.every(score)
+       || !Array.isArray(result.top3) || result.top3.length < 1 || result.top3.length > 3
+       || !result.top3.every(legal)
++      || !result.top3.every((item, index) => index === 0 || result.top3[index - 1].score >= item.score)
+       || new Set(result.top3.map(item => item.tile)).size !== result.top3.length
+       || !result.top3.every(item => item.score === result.scores[item.class_index])
+       || result.top3[0].tile !== result.recommended_tile
+@@ -145,6 +147,8 @@
+     ++this.readSequence;
+     try {
+       const updated = await this.api.action(view.game_id, { action_id: action.action_id, expected_turn_number: view.turn_number });
++      if (!updated || typeof updated !== 'object' || updated.game_id !== view.game_id
++          || !Number.isInteger(updated.turn_number) || updated.turn_number < view.turn_number) throw new HttpError(0);
+       ++this.readSequence; this.setView(updated); this.clearSelection();
+       this.state.prediction = null; this.state.savedNotice = null;
+       this.state.message = 'Langkah diterima. State meja sudah diperbarui.'; this.state.tone = 'success'; return true;

@@ -16,7 +16,9 @@ def test_foundation_pages_show_real_model_and_incomplete_contact(client):
     assert 'retrospektif' in home.text.lower() and 'menang' in home.text.lower()
     assert '256' in home.text and '128' in home.text
     contact=client.get('/contact');assert contact.status_code==200
-    assert 'belum diverifikasi' in contact.text.lower() and 'belum lengkap' in contact.text.lower()
+    assert contact.text.count('class="member-card"')==5
+    assert 'Jhonhazel Lionel Tjokahn' in contact.text and '32240016' in contact.text
+    assert 'pembagian tugas' in contact.text and 'belum dikonfirmasi' in contact.text
     page=client.get('/game');assert page.status_code==200
     assert '/static/phase3.js' in page.text and 'legal-action' in page.text
     assert client.get('/static/phase3.js').status_code==200

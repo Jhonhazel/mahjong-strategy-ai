@@ -1,0 +1,43 @@
+{
+  "command": "fastapi dev main.py",
+  "python": "3.12.10",
+  "fastapi": "0.162.0",
+  "cli": "0.0.32",
+  "port": 8000,
+  "host": "127.0.0.1",
+  "database": "mahjong_phase3_test",
+  "responses": [
+    {
+      "path": "/health/ready",
+      "status": 200,
+      "bytes": 53
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 7741
+    },
+    {
+      "path": "/game",
+      "status": 200,
+      "bytes": 8306
+    },
+    {
+      "path": "/history",
+      "status": 200,
+      "bytes": 3067
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "bytes": 3338
+    },
+    {
+      "path": "/openapi.json",
+      "status": 200,
+      "bytes": 21382
+    }
+  ],
+  "preparation": "Activated existing venv, pinned CLI added; passwordless private PG test socket and in-memory generated secret via env; no automatic bootstrap or .env overwrite",
+  "prior_port": "PID2696 already exited when authorized termination attempted"
+}

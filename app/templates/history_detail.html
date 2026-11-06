@@ -1,11 +1,24 @@
 {% extends "base.html" %}
+{% from 'components/tiles.html' import tile, delete_confirmation with context %}
 {% block title %}Prediction Detail · Mahjong Strategy AI{% endblock %}
 {% block content %}
-<h1>Prediction Detail</h1><p>{{ record.prediction_id }} · {{ record.created_at }} UTC</p>
-<p>Game {{ record.game_id }} · turn {{ record.turn_number }} · {{ record.turn_phase }}</p>
-<p>Model {{ record.model_version }} · encoder {{ record.encoder_version }}</p>
-<h2>Input yang terlihat oleh pemain</h2><pre>{{ snapshot|tojson(indent=2) }}</pre>
-<h2>Hasil tersimpan</h2><pre>{{ output|tojson(indent=2) }}</pre>
-<form method="post" action="/history/{{ record.prediction_id }}/delete"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">Hapus prediksi ini</button></form>
-<p><a href="/history">Kembali ke history</a></p>
+<div class="section-shell detail-page"><a class="text-link breadcrumb" href="/history">← Kembali ke History</a>
+  <div class="page-heading"><div><p class="eyebrow">A MOMENT TO LEARN</p><h1>Satu giliran.<br><em>Tiga sudut pandang.</em></h1><p>Prediction Detail · Turn {{ record.turn_number }} · {{ 'Setelah meld' if record.turn_phase == 'POST_MELD_DISCARD' else 'Giliran sendiri' }}</p></div><time datetime="{{ record.created_at.isoformat() }}">{{ record.created_at.strftime('%d %b %Y · %H:%M') }} UTC</time></div>
+  <div class="detail-layout"><section class="detail-advice">
+    <p class="eyebrow">PREDIKSI TERSIMPAN</p><h2>Top 3 rekomendasi discard</h2>
+    <p>Urutan dan bobot rekomendasi di bawah adalah keluaran model pada giliran ini.</p>
+    <table class="history-top3">
+      <caption class="sr-only">Tabel hasil prediksi AI untuk turn {{ record.turn_number }}</caption>
+      <thead><tr><th scope="col">Rank</th><th scope="col">Tile</th><th scope="col">Rekomendasi</th><th scope="col">Bobot</th></tr></thead>
+      <tbody>{% for suggestion in record.top3 %}<tr>
+        <td><span class="advice-rank">0{{ loop.index }}</span></td><td>{{ tile(suggestion.tile) }}</td>
+        <td><strong>{{ tile_catalog.get(suggestion.tile, tile_catalog['unknown']).label }}</strong><span class="tile-code">{{ suggestion.tile }}</span></td>
+        <td class="advice-score">{{ '%.2f'|format(suggestion.score*100) }}<small>% bobot</small></td>
+      </tr>{% endfor %}</tbody>
+    </table>
+    <p class="fine-print">Nilai dinormalisasi di antara discard legal. Ini bobot rekomendasi model, bukan probabilitas menang. Tidak ada aksi game yang dijalankan oleh prediksi ini.</p>
+  </section>
+  <aside class="detail-provenance"><h2>Konteks prediksi</h2><dl class="technical-list"><dt>Prediction ID</dt><dd><code>{{ record.prediction_id }}</code></dd><dt>Game</dt><dd><code>{{ record.game_id }}</code></dd><dt>Turn &amp; fase</dt><dd>{{ record.turn_number }} · {{ record.turn_phase }}</dd><dt>Model</dt><dd><code>{{ record.model_version }}</code></dd><dt>Encoder</dt><dd><code>{{ record.encoder_version }}</code></dd></dl><p class="fine-print">Catatan historis ini tidak menunjukkan state game saat ini.</p>{{ delete_confirmation(record, csrf_token) }}</aside></div>
+  <section class="snapshot-section"><p class="eyebrow">UNTUK PENELUSURAN</p><h2>Input &amp; output lengkap</h2><p>Input menyimpan encoding informasi yang terlihat oleh pemain dan mask discard legal. Isi tangan tersembunyi lawan tidak disertakan.</p><details class="snapshot-details"><summary>Input yang terlihat oleh pemain · JSON</summary><pre>{{ snapshot|tojson(indent=2) }}</pre></details><details class="snapshot-details"><summary>Hasil tersimpan · JSON</summary><pre>{{ output|tojson(indent=2) }}</pre></details><details class="provenance-details"><summary>Checksum &amp; provenance</summary><dl class="technical-list"><dt>Checkpoint SHA-256</dt><dd><code>{{ record.checkpoint_sha256 }}</code></dd><dt>State digest</dt><dd><code>{{ record.state_digest }}</code></dd></dl></details></section>
+</div>
 {% endblock %}

@@ -1,0 +1,68 @@
+git status --short
+ M .env.example
+ M README.md
+ M app/settings.py
+ M app/static/phase3.css
+ M app/static/phase3.js
+ M app/templates/base.html
+ M app/templates/contact.html
+ M app/templates/game.html
+ M app/templates/history.html
+ M app/templates/history_detail.html
+ M app/templates/home.html
+ M app/web/pages.py
+ M requirements-lock.txt
+ M requirements.txt
+ M tests/test_phase3_pages.py
+?? app/static/phase4/
+?? app/static/tiles.svg
+?? app/templates/components/
+?? app/web/tile_catalog.py
+?? artifacts/phase4/
+?? artifacts/phase4_1/
+?? config/contact_members.public.json
+?? docs/evidence/phase4/
+?? docs/evidence/phase4_1/
+?? docs/phase4_1_implementation_report.md
+?? docs/phase4_1_test_matrix.md
+?? docs/phase4_design_spec.md
+?? docs/phase4_execution_ledger.md
+?? docs/phase4_file_inventory.md
+?? docs/phase4_implementation_report.md
+?? docs/phase4_test_matrix.md
+?? docs/superpowers/plans/2026-11-06-mahjong-phase4.md
+?? main.py
+?? scripts/build_tile_assets.py
+?? tests/frontend/
+?? tests/phase4_support.py
+?? tests/test_phase4_1.py
+?? tests/test_phase4_assets.py
+?? tests/test_phase4_contracts.py
+?? tests/test_phase4_game_ui.py
+?? tests/test_phase4_live.py
+?? tests/test_phase4_pages.py
+
+git diff --stat
+ .env.example                      |   2 +-
+ README.md                         |  72 +++++-
+ app/settings.py                   |   2 +-
+ app/static/phase3.css             | 506 +++++++++++++++++++++++++++++++++++++-
+ app/static/phase3.js              | 123 ++++-----
+ app/templates/base.html           |  17 +-
+ app/templates/contact.html        |  13 +-
+ app/templates/game.html           |  59 +++--
+ app/templates/history.html        |  26 +-
+ app/templates/history_detail.html |  27 +-
+ app/templates/home.html           |  44 ++--
+ app/web/pages.py                  |   2 +
+ requirements-lock.txt             |  14 ++
+ requirements.txt                  |   4 +
+ tests/test_phase3_pages.py        |   4 +-
+ 15 files changed, 777 insertions(+), 138 deletions(-)
+
+git diff --check
+
+git diff --cached --stat
+
+git rev-parse HEAD
+263fd88c83df417de53051d6ab0127c9a544a8c4

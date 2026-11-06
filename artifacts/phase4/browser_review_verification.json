@@ -1,0 +1,158 @@
+{
+  "source": "Actual post-fix CUA regression verification; test-only PostgreSQL and v3",
+  "tablet": [
+    {
+      "alignment": "safe center",
+      "documentWidth": 705,
+      "firstLeft": 56,
+      "firstRight": 100,
+      "handLeft": 51,
+      "handRight": 654,
+      "scrollLeft": 0,
+      "selected": "true",
+      "tileCount": 14,
+      "width": 705,
+      "last": {
+        "handRight": 654,
+        "lastLeft": 610,
+        "lastRight": 654,
+        "scrollLeft": 83,
+        "selected": "true"
+      }
+    },
+    {
+      "alignment": "safe center",
+      "documentWidth": 768,
+      "firstLeft": 51,
+      "firstRight": 95,
+      "handLeft": 51,
+      "handRight": 717,
+      "scrollLeft": 5,
+      "selected": "true",
+      "tileCount": 14,
+      "width": 768,
+      "last": {
+        "handRight": 717,
+        "lastLeft": 673,
+        "lastRight": 717,
+        "scrollLeft": 20,
+        "selected": "true"
+      }
+    }
+  ],
+  "provenance": "Identitas prediksi\nPREDICTION ID\naad5aff2-86cb-4e7a-97b2-1367c50ac0b7\nMODEL\ndiscard_mlp_flexible_v1:ad05a5b2ce37\nENCODER\nijcai2026_mcr_v1_strict",
+  "actions": [
+    {
+      "id": "6",
+      "label": "Buang · Karakter 5"
+    },
+    {
+      "id": "62",
+      "label": "Chi · Bambu 4 (T2 · T3 · T4)"
+    },
+    {
+      "id": "11",
+      "label": "Buang · Bambu 1"
+    },
+    {
+      "id": "12",
+      "label": "Buang · Bambu 2"
+    },
+    {
+      "id": "12",
+      "label": "Buang · Bambu 2"
+    },
+    {
+      "id": "10",
+      "label": "Buang · Karakter 9"
+    },
+    {
+      "id": "18",
+      "label": "Buang · Bambu 8"
+    },
+    {
+      "id": "21",
+      "label": "Buang · Lingkaran 2"
+    },
+    {
+      "id": "88",
+      "label": "Chi · Lingkaran 5 (B4 · B5 · B6)"
+    },
+    {
+      "id": "23",
+      "label": "Buang · Lingkaran 4"
+    },
+    {
+      "id": "91",
+      "label": "Chi · Lingkaran 6 (B5 · B6 · B7)"
+    },
+    {
+      "id": "26",
+      "label": "Buang · Lingkaran 7"
+    },
+    {
+      "id": "15",
+      "label": "Buang · Bambu 5"
+    },
+    {
+      "id": "22",
+      "label": "Buang · Lingkaran 3"
+    },
+    {
+      "id": "21",
+      "label": "Buang · Lingkaran 2"
+    },
+    {
+      "id": "16",
+      "label": "Buang · Bambu 6"
+    },
+    {
+      "id": "28",
+      "label": "Buang · Lingkaran 9"
+    },
+    {
+      "id": "18",
+      "label": "Buang · Bambu 8"
+    },
+    {
+      "id": "5",
+      "label": "Buang · Karakter 4"
+    },
+    {
+      "id": "30",
+      "label": "Buang · Angin Selatan"
+    },
+    {
+      "id": "31",
+      "label": "Buang · Angin Barat"
+    },
+    {
+      "id": "17",
+      "label": "Buang · Bambu 7"
+    },
+    {
+      "id": "2",
+      "label": "Buang · Karakter 1"
+    }
+  ],
+  "completed": {
+    "actions": 23,
+    "gameURL": "http://127.0.0.1:8874/game?game_id=94f8e0a6-30e2-419f-835c-25c9a33ff583",
+    "result": "ROUND SELESAI\n\nBot Timur menang\n\nTarikan sendiri · Zimo\n\n25 total fan\nSeven Pairs · 七对 — 24 × 1\nSelf-Drawn · 自摸 — 1 × 1\nTimur\n+99\nAnda · Selatan\n-33\nBarat\n-33\nUtara\n-33\n\nHasil, fan, dan perubahan skor dilaporkan oleh engine permainan.\n\nAtur round berikutnya ↗",
+    "finishedAt": 1793923016214
+  },
+  "history": {
+    "width": 360,
+    "documentWidth": 360,
+    "top3Visible": 3,
+    "summary": "Top 3 · bobot rekomendasi\n01\n82.04%\n02\n6.92%\n03\n2.72%"
+  },
+  "expiredResult": {
+    "message": "Round atau prediksi tidak tersedia. Round dapat kedaluwarsa atau hilang setelah server dimulai ulang.",
+    "resultHidden": true,
+    "resultText": "",
+    "gameIdText": "",
+    "publicText": "",
+    "remainingHand": 0
+  }
+}

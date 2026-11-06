@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "scope": "Seven normal-text design token pairs, not a formal complete WCAG audit",
+  "pairs": [
+    {
+      "foreground": "#243b38",
+      "background": "#f7f3e8",
+      "ratio": 10.776
+    },
+    {
+      "foreground": "#586b63",
+      "background": "#fffcf5",
+      "ratio": 5.542
+    },
+    {
+      "foreground": "#175448",
+      "background": "#f7f3e8",
+      "ratio": 7.898
+    },
+    {
+      "foreground": "#fffcf5",
+      "background": "#175448",
+      "ratio": 8.546
+    },
+    {
+      "foreground": "#796035",
+      "background": "#f7f3e8",
+      "ratio": 5.354
+    },
+    {
+      "foreground": "#102f2b",
+      "background": "#c6a66b",
+      "ratio": 6.196
+    },
+    {
+      "foreground": "#913d30",
+      "background": "#f7f3e8",
+      "ratio": 6.499
+    }
+  ]
+}

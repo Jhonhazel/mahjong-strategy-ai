@@ -1,0 +1,532 @@
+✔ duplicate hand tiles select one actual server action and submit current turn (3.89275ms)
+✔ only supplied action ids can be selected, including all claim and Kong types (0.249291ms)
+✔ busy mutation guard prevents duplicate submissions and optimistic hand removal (0.210709ms)
+✔ old GET responses cannot overwrite newer authoritative state (0.211166ms)
+✔ an old GET completion cannot clear the busy guard of a newer pending GET (0.178042ms)
+✔ 409 refreshes state and requires new selection without retrying action (0.202208ms)
+✔ uncertain action outcome reconciles GET and never blindly resubmits (0.20825ms)
+✔ prediction is explicit, uses current turn, preserves Top3 order and never executes action (0.324ms)
+✔ another tab advancing before prediction verification leaves a saved historical notice only (0.196958ms)
+✔ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.192292ms)
+✔ failed prediction saving503 never produces a saved-success notice (0.117667ms)
+✔ changing turn clears old prediction and selection; changing game clears saved context (0.150541ms)
+✔ 404 and401 clear active controls without fabricating a replacement identity (0.16175ms)
+✔ reused predictions preserve saved identity and server reused flag (0.10975ms)
+✔ prediction409 reconciles current server turn and never retries prediction (0.105ms)
+✖ manual refresh clears current advice immediately and keeps saved identity on503 (0.961084ms)
+✖ repeat prediction does not leave rendered old advice during delayed state confirmation (0.428583ms)
+✖ malformed prediction success empty cannot claim saved identity or display advice (0.161ms)
+✖ malformed prediction success missing identity cannot claim saved identity or display advice (0.110292ms)
+✖ malformed prediction success unsafe identity cannot claim saved identity or display advice (0.091292ms)
+✖ malformed prediction success wrong game cannot claim saved identity or display advice (0.088ms)
+✖ malformed prediction success wrong turn cannot claim saved identity or display advice (0.084667ms)
+✖ malformed prediction success wrong seat cannot claim saved identity or display advice (0.095375ms)
+✖ malformed prediction success missing model cannot claim saved identity or display advice (0.100042ms)
+✖ malformed prediction success missing phase cannot claim saved identity or display advice (0.10025ms)
+✖ malformed prediction success illegal recommended action cannot claim saved identity or display advice (0.087958ms)
+✖ malformed prediction success empty Top3 cannot claim saved identity or display advice (0.39975ms)
+✖ malformed prediction success invalid score cannot claim saved identity or display advice (0.084625ms)
+✖ malformed prediction success mismatched Top3 cannot claim saved identity or display advice (0.077917ms)
+✖ malformed prediction success missing scores cannot claim saved identity or display advice (0.075375ms)
+✔ mutations send JSON, current CSRF and same-origin cookies with exact turn (19.614167ms)
+✔ session bootstrap updates in-memory token and no mutation executes without it (0.702375ms)
+✔ all required HTTP errors become safe Indonesian messages without backend details (0.675375ms)
+✔ delete accepts a confirmed204 without JSON and preserves request safety (0.136417ms)
+✔ network and malformed-success responses fail safely without leaking payload (0.225625ms)
+✖ delete success 200 is not a confirmed204 and must fail safely (0.346459ms)
+✖ delete success 201 is not a confirmed204 and must fail safely (0.150792ms)
+✖ delete success 202 is not a confirmed204 and must fail safely (0.129875ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 20
+ℹ fail 18
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.320292
+
+✖ failing tests:
+
+test at tests/frontend/controller.test.mjs:119:1
+✖ manual refresh clears current advice immediately and keeps saved identity on503 (0.961084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   encoder_version: 'ijcai2026_mcr_v1_strict',
+  +   game_id: 'c7a448a0-6ade-4c7d-ae12-8e604bd72abe',
+  +   model_version: 'discard_mlp_flexible_v1:ad05a5b2ce37',
+  +   prediction_id: 'abef5b55-830c-42a8-8b3f-9f1bfecdee9d',
+  +   recommended_action_id: 33,
+  +   recommended_class_index: 31,
+  +   recommended_tile: 'J1',
+  +   reused: false,
+  +   score_meaning: 'Masked model scores for observed discard behavior; uncalibrated, not winning chances',
+  +   scores: [
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.025762448087334633,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.02715257927775383,
+  +     0.01578454300761223,
+  +     0.014847083017230034,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.011088499799370766,
+  +     0,
+  +     0.0007184110581874847,
+  +     0.0002914249780587852,
+  +     0.00096237997058779,
+  +     0.003283260390162468,
+  +     0,
+  +     0.010501324199140072,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.8203998804092407,
+  +     0.06920811533927917,
+  +     0
+  +   ],
+  +   seat: 1,
+  +   top3: [
+  +     {
+  +       action_id: 33,
+  +       class_index: 31,
+  +       score: 0.8203998804092407,
+  +       tile: 'J1'
+  +     },
+  +     {
+  +       action_id: 34,
+  +       class_index: 32,
+  +       score: 0.06920811533927917,
+  +       tile: 'J2'
+  +     },
+  +     {
+  +       action_id: 11,
+  +       class_index: 9,
+  +       score: 0.02715257927775383,
+  +       tile: 'T1'
+  +     }
+  +   ],
+  +   turn_number: 4,
+  +   turn_phase: 'SELF_TURN'
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:124:50)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      recommended_tile: 'J1',
+      recommended_class_index: 31,
+      recommended_action_id: 33,
+      top3: [ [Object], [Object], [Object] ],
+      scores: [
+                            0,                     0,
+                            0,                     0,
+         0.025762448087334633,                     0,
+                            0,                     0,
+                            0,   0.02715257927775383,
+          0.01578454300761223,  0.014847083017230034,
+                            0,                     0,
+                            0,                     0,
+                            0,                     0,
+                            0,  0.011088499799370766,
+                            0, 0.0007184110581874847,
+        0.0002914249780587852,   0.00096237997058779,
+         0.003283260390162468,                     0,
+         0.010501324199140072,                     0,
+                            0,                     0,
+                            0,    0.8203998804092407,
+          0.06920811533927917,                     0
+      ],
+      model_version: 'discard_mlp_flexible_v1:ad05a5b2ce37',
+      encoder_version: 'ijcai2026_mcr_v1_strict',
+      seat: 1,
+      turn_number: 4,
+      score_meaning: 'Masked model scores for observed discard behavior; uncalibrated, not winning chances',
+      prediction_id: 'abef5b55-830c-42a8-8b3f-9f1bfecdee9d',
+      game_id: 'c7a448a0-6ade-4c7d-ae12-8e604bd72abe',
+      turn_phase: 'SELF_TURN',
+      reused: false
+    },
+    expected: null,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:127:1
+✖ repeat prediction does not leave rendered old advice during delayed state confirmation (0.428583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   encoder_version: 'ijcai2026_mcr_v1_strict',
+  +   game_id: 'c7a448a0-6ade-4c7d-ae12-8e604bd72abe',
+  +   model_version: 'discard_mlp_flexible_v1:ad05a5b2ce37',
+  +   prediction_id: 'abef5b55-830c-42a8-8b3f-9f1bfecdee9d',
+  +   recommended_action_id: 33,
+  +   recommended_class_index: 31,
+  +   recommended_tile: 'J1',
+  +   reused: false,
+  +   score_meaning: 'Masked model scores for observed discard behavior; uncalibrated, not winning chances',
+  +   scores: [
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.025762448087334633,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.02715257927775383,
+  +     0.01578454300761223,
+  +     0.014847083017230034,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.011088499799370766,
+  +     0,
+  +     0.0007184110581874847,
+  +     0.0002914249780587852,
+  +     0.00096237997058779,
+  +     0.003283260390162468,
+  +     0,
+  +     0.010501324199140072,
+  +     0,
+  +     0,
+  +     0,
+  +     0,
+  +     0.8203998804092407,
+  +     0.06920811533927917,
+  +     0
+  +   ],
+  +   seat: 1,
+  +   top3: [
+  +     {
+  +       action_id: 33,
+  +       class_index: 31,
+  +       score: 0.8203998804092407,
+  +       tile: 'J1'
+  +     },
+  +     {
+  +       action_id: 34,
+  +       class_index: 32,
+  +       score: 0.06920811533927917,
+  +       tile: 'J2'
+  +     },
+  +     {
+  +       action_id: 11,
+  +       class_index: 9,
+  +       score: 0.02715257927775383,
+  +       tile: 'T1'
+  +     }
+  +   ],
+  +   turn_number: 4,
+  +   turn_phase: 'SELF_TURN'
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:132:50)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      recommended_tile: 'J1',
+      recommended_class_index: 31,
+      recommended_action_id: 33,
+      top3: [ [Object], [Object], [Object] ],
+      scores: [
+                            0,                     0,
+                            0,                     0,
+         0.025762448087334633,                     0,
+                            0,                     0,
+                            0,   0.02715257927775383,
+          0.01578454300761223,  0.014847083017230034,
+                            0,                     0,
+                            0,                     0,
+                            0,                     0,
+                            0,  0.011088499799370766,
+                            0, 0.0007184110581874847,
+        0.0002914249780587852,   0.00096237997058779,
+         0.003283260390162468,                     0,
+         0.010501324199140072,                     0,
+                            0,                     0,
+                            0,    0.8203998804092407,
+          0.06920811533927917,                     0
+      ],
+      model_version: 'discard_mlp_flexible_v1:ad05a5b2ce37',
+      encoder_version: 'ijcai2026_mcr_v1_strict',
+      seat: 1,
+      turn_number: 4,
+      score_meaning: 'Masked model scores for observed discard behavior; uncalibrated, not winning chances',
+      prediction_id: 'abef5b55-830c-42a8-8b3f-9f1bfecdee9d',
+      game_id: 'c7a448a0-6ade-4c7d-ae12-8e604bd72abe',
+      turn_phase: 'SELF_TURN',
+      reused: false
+    },
+    expected: null,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success empty cannot claim saved identity or display advice (0.161ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success missing identity cannot claim saved identity or display advice (0.110292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success unsafe identity cannot claim saved identity or display advice (0.091292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success wrong game cannot claim saved identity or display advice (0.088ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success wrong turn cannot claim saved identity or display advice (0.084667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success wrong seat cannot claim saved identity or display advice (0.095375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success missing model cannot claim saved identity or display advice (0.100042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success missing phase cannot claim saved identity or display advice (0.10025ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success illegal recommended action cannot claim saved identity or display advice (0.087958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success empty Top3 cannot claim saved identity or display advice (0.39975ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success invalid score cannot claim saved identity or display advice (0.084625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success mismatched Top3 cannot claim saved identity or display advice (0.077917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/controller.test.mjs:143:3
+✖ malformed prediction success missing scores cannot claim saved identity or display advice (0.075375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:145:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/http.test.mjs:52:35
+✖ delete success 200 is not a confirmed204 and must fail safely (0.346459ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:55:3)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects'
+  }
+
+test at tests/frontend/http.test.mjs:52:35
+✖ delete success 201 is not a confirmed204 and must fail safely (0.150792ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:55:3)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects'
+  }
+
+test at tests/frontend/http.test.mjs:52:35
+✖ delete success 202 is not a confirmed204 and must fail safely (0.129875ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/http.test.mjs:55:3)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects'
+  }

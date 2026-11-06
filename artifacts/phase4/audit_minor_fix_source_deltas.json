@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "intentional_changes_to_existing_files": [
+    {
+      "path": "app/static/phase4/controller.mjs",
+      "before_sha256": "43d89bc994b0b3959d93bec5ce1b95402cc91d5a1ae24c64f67fdca1dd075969",
+      "after_sha256": "8475818babff4142736c74f6ece189a4e0ed2ab1fffa16e4cb3f0ba37993a1da"
+    },
+    {
+      "path": "docs/phase4_execution_ledger.md",
+      "before_sha256": "75626d01f0ee8a809c5566ae219da1f8cd9594dffe6d893efb71c67a74b4cb64",
+      "after_sha256": "07e6ae22d8df1592f8238188a59ac55c792d4a6b10f70dedd3f506bd8227d660"
+    },
+    {
+      "path": "docs/phase4_file_inventory.md",
+      "before_sha256": "f3dc75ad7debfa0d6d26581aa02065e66d087593de815abbc2f8baab27d044bd",
+      "after_sha256": "7c608a100bab27e4de589f7631dd34a964e4af8394a42329cc04582930d1b84a"
+    },
+    {
+      "path": "docs/phase4_implementation_report.md",
+      "before_sha256": "b261a5a38fc8d156973114bd379b2569abe9e828580aa0f562eeef0aef8ef485",
+      "after_sha256": "8f21cdea49831f2ee42715c4007ebbf5d856c586d31ad660077e89423f78cd47"
+    },
+    {
+      "path": "docs/phase4_test_matrix.md",
+      "before_sha256": "d2c78522b444aae82dd275970b0a434bc870a01e6b130378a74d3acf1c26fbad",
+      "after_sha256": "f041224b46471e5109758406e9dc3d3fcf1a41e9ff7b7d21bcb490b039b9c52d"
+    },
+    {
+      "path": "tests/frontend/controller.test.mjs",
+      "before_sha256": "25dfd82549c80ae6ec25b5400aba200e34e801ea9c2084ec91770b21bfda116b",
+      "after_sha256": "8cca870e492c042930613ba161be3aa0a27e0a632546db86a4abf2e18a01843e"
+    }
+  ],
+  "unexpected_existing_changes": [],
+  "old_files_checked": 2112,
+  "unchanged_old_files": 2106,
+  "historical_protected_files": 1999,
+  "historical_protected_mismatches": 0,
+  "historical_source_manifest_files": 36,
+  "historical_source_manifest_unchanged": 34,
+  "historical_source_manifest_intentional_changes": [
+    "app/static/phase4/controller.mjs",
+    "tests/frontend/controller.test.mjs"
+  ],
+  "append_only_checks": {
+    "tests/frontend/controller.test.mjs": true,
+    "docs/phase4_execution_ledger.md": true,
+    "docs/phase4_file_inventory.md": true,
+    "docs/phase4_implementation_report.md": true,
+    "docs/phase4_test_matrix.md": true
+  },
+  "new_evidence_paths": [
+    "artifacts/phase4/audit_minor_fix_browser.json",
+    "artifacts/phase4/audit_minor_fix_integration.json",
+    "artifacts/phase4/audit_minor_fix_node_summary.json",
+    "artifacts/phase4/audit_minor_fix_postgres.json",
+    "artifacts/phase4/audit_minor_fix_preflight.json",
+    "artifacts/phase4/audit_minor_fix_source_deltas.json",
+    "artifacts/phase4/audit_minor_fix_static.json",
+    "artifacts/phase4/audit_minor_fix_test_reconciliation.json",
+    "artifacts/phase4/audit_minor_fix_verification.json",
+    "docs/evidence/phase4/audit_minor_fix_browser.jpg",
+    "docs/evidence/phase4/audit_minor_fix_dependencies.txt",
+    "docs/evidence/phase4/audit_minor_fix_green.txt",
+    "docs/evidence/phase4/audit_minor_fix_node_full.txt",
+    "docs/evidence/phase4/audit_minor_fix_production.diff",
+    "docs/evidence/phase4/audit_minor_fix_red.txt",
+    "docs/evidence/phase4/audit_minor_fix_regression.txt",
+    "docs/evidence/phase4/audit_minor_fix_regression.xml",
+    "docs/evidence/phase4/audit_minor_fix_review.md"
+  ],
+  "sha256_check_seconds": 2.827,
+  "production_diff": "docs/evidence/phase4/audit_minor_fix_production.diff"
+}

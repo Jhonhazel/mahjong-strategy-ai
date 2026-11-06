@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "server_version": "14.19 (Homebrew)",
+  "development_rows": 11,
+  "canonical_rows_sha256": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+  "all_original_row_hashes_unchanged": true,
+  "individual_rows_checked": 11,
+  "serialization": "Read-only transaction; timezone UTC; row_to_json ORDER BY id; sorted compact Python JSON",
+  "project_postgres_still_running": true,
+  "timing": "After final399-case regression and idempotent helper handoff checks",
+  "scope": "All writes used project test/restore namespaces; no dev records changed"
+}

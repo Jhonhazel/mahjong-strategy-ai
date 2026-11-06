@@ -1,59 +1,70 @@
-'use strict';
-(() => {
-  const section = document.getElementById('game-state');
-  if (!section) return;
-  const message = document.getElementById('game-message');
-  const csrf = document.querySelector('meta[name="csrf-token"]').content;
-  const choices = document.getElementById('legal-action');
-  let current = null;
-  let pending = false;
-  async function api(path, method = 'GET', payload) {
-    const headers = { 'X-CSRF-Token': csrf };
-    if (payload !== undefined) headers['Content-Type'] = 'application/json';
-    const response = await fetch(path, { method, headers, credentials: 'same-origin', body: payload === undefined ? undefined : JSON.stringify(payload) });
-    const data = response.status === 204 ? null : await response.json();
-    if (!response.ok) throw new Error(data?.detail?.message || `Request gagal (${response.status})`);
-    return data;
-  }
-  function render(view) {
-    if (current && (current.game_id !== view.game_id || current.turn_number !== view.turn_number)) {
-      document.getElementById('prediction').textContent = '';
-    }
-    current = view; section.hidden = false;
-    document.getElementById('game-status').textContent = `${view.status} · turn ${view.turn_number}`;
-    document.getElementById('game-id').textContent = `Game ${view.game_id} · seat Anda ${view.human_seat}`;
-    document.getElementById('own-hand').textContent = `Hand Anda: ${view.own_hand.join(' ')}`;
-    document.getElementById('public-state').textContent = JSON.stringify(view.seat_public_states, null, 2);
-    document.getElementById('round-result').textContent = view.round_result ? JSON.stringify(view.round_result, null, 2) : 'Round belum selesai.';
-    choices.replaceChildren();
-    for (const action of view.legal_actions) {
-      const option = document.createElement('option'); option.value = action.action_id; option.textContent = `${action.action_id}: ${action.label}`; choices.append(option);
-    }
-    document.getElementById('predict-button').disabled = !view.can_request_ai_prediction;
-    document.getElementById('submit-action').disabled = view.legal_actions.length === 0;
-    const url = new URL(window.location.href); url.searchParams.set('game_id', view.game_id); window.history.replaceState(null, '', url);
-  }
-  async function run(operation) {
-    if (pending) return; pending = true; message.textContent = 'Memproses…';
-    try { await operation(); message.textContent = 'Selesai.'; }
-    catch (error) { message.textContent = error.message + ' Refresh halaman jika sesi sudah kedaluwarsa.'; }
-    finally { pending = false; }
-  }
-  document.getElementById('new-game').addEventListener('submit', event => {
-    event.preventDefault(); run(async () => {
-      const seed = document.getElementById('game-seed').value;
-      render(await api('/api/games', 'POST', { human_seat: Number(document.getElementById('human-seat').value), seed: seed === '' ? null : Number(seed) }));
-      document.getElementById('prediction').textContent = '';
-    });
+import { createHttpClient } from './phase4/http.mjs';
+import { GameController } from './phase4/controller.mjs';
+import { parseSettings } from './phase4/model.mjs';
+import { createGameRenderer } from './phase4/view.mjs';
+import { createDeletion } from './phase4/deletion.mjs';
+import { PublicPlayback } from './phase4/playback.mjs';
+
+const api = createHttpClient({ csrfToken: document.querySelector('meta[name="csrf-token"]')?.content ?? '' });
+const get = id => document.getElementById(id);
+
+for (const form of document.querySelectorAll('form[data-delete-id]')) {
+  const button = form.querySelector('button'), message = form.querySelector('.delete-message');
+  const remove = createDeletion({ api,
+    onPending: pending => { button.disabled = pending; form.setAttribute('aria-busy', String(pending)); if (pending) message.textContent = 'Menghapus…'; },
+    onSuccess: () => { message.textContent = 'Prediksi dihapus.'; window.location.assign('/history'); },
+    onError: text => { message.textContent = text; },
   });
-  document.getElementById('action-form').addEventListener('submit', event => {
-    event.preventDefault(); if (!current || !choices.value) return;
-    run(async () => { render(await api(`/api/games/${current.game_id}/actions`, 'POST', { action_id: Number(choices.value), expected_turn_number: current.turn_number })); document.getElementById('prediction').textContent = ''; });
+  form.addEventListener('submit', event => { event.preventDefault(); void remove(form.dataset.deleteId); });
+}
+
+if (get('game-state')) {
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const presentation = new PublicPlayback({ reducedMotion: () => motion.matches, hidden: () => document.hidden });
+  const renderGame = createGameRenderer(document);
+  const controller = new GameController({ api, presentation, render: state => {
+    renderGame(state);
+    get('skip-animation').disabled = state.busy !== 'PRESENTING';
+    get('refresh-button').disabled = Boolean(state.busy && state.busy !== 'PRESENTING') || !state.view;
+  },
+    onGame: id => { const url = new URL(window.location.href); url.searchParams.set('game_id', id); window.history.replaceState(null, '', url); },
   });
-  document.getElementById('predict-button').addEventListener('click', () => {
-    if (!current) return;
-    run(async () => { const result = await api(`/api/games/${current.game_id}/predict`, 'POST', { expected_turn_number: current.turn_number }); document.getElementById('prediction').textContent = `Tersimpan: ${result.prediction_id}${result.reused ? ' (dipakai ulang)' : ''}\nRekomendasi: ${result.recommended_tile}\n` + result.top3.map(item => `${item.tile}: ${item.score.toFixed(6)}`).join('\n') + '\n' + result.score_meaning; });
+  const focusHand = () => {
+    if (document.hidden) return;
+    if (controller.state.view?.status === 'FINISHED') get('round-result').focus({ preventScroll: false });
+    else (get('human-hand').querySelector('button:not(:disabled)') ?? get('claim-actions').querySelector('button:not(:disabled)') ?? get('refresh-button')).focus({ preventScroll: true });
+  };
+  get('new-game').addEventListener('submit', async event => {
+    event.preventDefault();
+    let settings;
+    try { settings = parseSettings({ humanSeat: get('human-seat').value, wind: get('prevalent-wind').value, seed: get('game-seed').value, flowers: get('include-flowers').checked }); }
+    catch (error) { get('game-message').textContent = error.message; get('game-message').className = 'game-message message--error'; get('game-seed').focus(); return; }
+    if (await controller.create(settings)) { get('game-setup').open = false; focusHand(); }
   });
-  document.getElementById('refresh-button').addEventListener('click', () => { if (current) run(async () => render(await api(`/api/games/${current.game_id}`))); });
-  if (section.dataset.gameId) run(async () => render(await api(`/api/games/${encodeURIComponent(section.dataset.gameId)}`)));
-})();
+  get('human-hand').addEventListener('click', event => {
+    const tile = event.target.closest('button[data-tile-index]');
+    if (tile && get('human-hand').contains(tile)) controller.selectTile(Number(tile.dataset.tileIndex));
+  });
+  get('claim-actions').addEventListener('click', event => {
+    const action = event.target.closest('button[data-claim-id]');
+    if (action && get('claim-actions').contains(action)) controller.selectAction(Number(action.dataset.claimId));
+  });
+  get('legal-action').addEventListener('change', event => {
+    if (event.target.value !== '') controller.selectAction(Number(event.target.value));
+    else { controller.clearSelection(); controller.emit(); }
+  });
+  get('action-form').addEventListener('submit', async event => { event.preventDefault(); if (await controller.submit()) focusHand(); });
+  get('predict-button').addEventListener('click', () => { void controller.predict(); });
+  get('refresh-button').addEventListener('click', () => { void controller.refresh(); });
+  get('playback-speed').addEventListener('change', event => { presentation.speed = event.target.value === 'fast' ? 'fast' : 'normal'; });
+  get('skip-animation').addEventListener('click', () => controller.skipAnimation());
+  document.addEventListener('visibilitychange', () => { if (document.hidden) controller.skipAnimation(); });
+  window.addEventListener('pagehide', () => controller.skipAnimation());
+  motion.addEventListener('change', event => { if (event.matches) controller.skipAnimation(); });
+  get('round-result').addEventListener('click', event => { if (event.target.closest('a[href="#game-setup"]')) { get('game-setup').open = true; get('human-seat').focus(); } });
+  controller.emit();
+  if (get('game-state').dataset.gameId) {
+    get('game-setup').open = false;
+    void controller.refresh(get('game-state').dataset.gameId);
+  }
+}

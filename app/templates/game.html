@@ -1,21 +1,44 @@
 {% extends "base.html" %}
-{% block title %}Game · Mahjong Strategy AI{% endblock %}
+{% from 'components/tiles.html' import tile with context %}
+{% block title %}Game with AI · Mahjong Strategy AI{% endblock %}
 {% block content %}
-<h1>Mahjong Game</h1>
-<p>Mulai round, pilih aksi legal, dan bandingkan saran AI tanpa menjalankan aksi secara otomatis.</p>
-<form id="new-game"><fieldset><legend>Game baru</legend>
-<label>Seat Anda <select id="human-seat"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-<label>Seed opsional <input id="game-seed" type="number" min="0" max="9007199254740991" placeholder="Acak"></label>
-<button type="submit">Mulai game</button></fieldset></form>
-<p id="game-message" role="status" aria-live="polite"></p>
-<section id="game-state" data-game-id="{{ game_id }}" hidden>
-<h2 id="game-status">State game</h2><p id="game-id"></p><p id="own-hand"></p>
-<form id="action-form"><label>Aksi legal <select id="legal-action"></select></label><button id="submit-action" type="submit">Jalankan aksi yang dipilih</button></form>
-<button id="predict-button" type="button">Minta prediksi dan simpan</button><button id="refresh-button" type="button">Refresh state</button>
-<p>Prediksi tidak membuang tile secara otomatis. Skor menunjukkan perilaku discard, bukan peluang menang.</p>
-<pre id="prediction" aria-live="polite"></pre>
-<h3>Informasi publik</h3><pre id="public-state"></pre><h3>Hasil round</h3><pre id="round-result"></pre>
-</section>
-<noscript>JavaScript diperlukan untuk kontrol game ini. History dan Contact tetap tersedia melalui halaman biasa.</noscript>
-<script src="{{ url_for('static', path='phase3.js') }}" defer></script>
+<div class="game-page section-shell">
+  <div class="page-heading game-heading"><div><p class="eyebrow">PLAY AT YOUR OWN PACE</p><h1>Meja permainan<span class="heading-dot">.</span></h1></div><a class="text-link" href="/history">Prediction History <span aria-hidden="true">↗</span></a></div>
+  <details class="setup-panel" id="game-setup" open><summary><span>Round baru</span><span class="setup-hint">Atur meja Anda</span></summary>
+    <form id="new-game" class="setup-form"><fieldset><legend class="sr-only">Pengaturan round baru</legend>
+      <div class="form-field"><label for="human-seat">Seat Anda</label><select id="human-seat" name="human_seat">{% for wind in wind_names %}<option value="{{ loop.index0 }}">{{ wind }} · {{ loop.index0 }}</option>{% endfor %}</select></div>
+      <div class="form-field"><label for="prevalent-wind">Angin round</label><select id="prevalent-wind" name="prevalent_wind">{% for wind in wind_names %}<option value="{{ loop.index0 }}">{{ wind }}</option>{% endfor %}</select></div>
+      <div class="form-field"><label for="game-seed">Seed <span class="label-optional">opsional</span></label><input id="game-seed" name="seed" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="16" placeholder="Acak" aria-describedby="seed-help"></div>
+      <label class="checkbox-label" for="include-flowers"><input id="include-flowers" type="checkbox" name="include_flowers"><span>Sertakan tile bunga</span></label>
+      <button type="submit" id="create-game-button" class="button">Mulai round <span aria-hidden="true">↗</span></button>
+    </fieldset><p id="seed-help" class="fine-print">Seed kosong untuk susunan acak. Batas seed 0–9007199254740991. Anda selalu duduk di sisi bawah layar.</p></form>
+  </details>
+  <p id="game-message" class="game-message" role="status" aria-live="polite">Pilih pengaturan, lalu mulai round Anda.</p>
+  <div class="playback-controls"><label for="playback-speed">Kecepatan sorotan</label><select id="playback-speed"><option value="normal">Normal</option><option value="fast">Cepat</option></select><button type="button" id="skip-animation" class="button button--outline" disabled>Lewati animasi</button><p>Aktivitas pemain setelah langkah Anda: sorotan perubahan publik, bukan urutan aksi asli.</p></div>
+  <div class="game-layout">
+    <section class="table-panel" aria-label="Meja Mahjong empat pemain">
+      <div class="table-toolbar"><span class="table-label"><span class="live-dot" aria-hidden="true"></span> MAHJONG COMPETITION RULES</span><button id="refresh-button" class="button button--quiet" type="button" disabled>Perbarui state <span aria-hidden="true">↻</span></button></div>
+      <div id="empty-table" class="empty-table"><div class="empty-tiles" aria-hidden="true">{{ tile('W1') }}{{ tile('T1') }}{{ tile('B1') }}</div><h2>Tempat Anda sudah siap.</h2><p>Mulai round untuk membuka tangan pertama Anda.<br>Amati meja, pilih tile, dan mainkan langkah Anda.</p><span class="table-decoration" aria-hidden="true">東 南 西 北</span></div>
+      <div id="game-state" data-game-id="{{ game_id }}" hidden>
+        <div id="mahjong-table" class="mahjong-table"><div id="table-center" class="table-center"></div><div id="seat-top" class="seat-slot seat-slot--top"></div><div id="seat-left" class="seat-slot seat-slot--left"></div><div id="seat-right" class="seat-slot seat-slot--right"></div><div id="seat-bottom" class="seat-slot seat-slot--bottom"></div></div>
+        <div class="human-zone"><div class="human-zone-heading"><h2>Tangan Anda</h2><p id="hand-hint">Pilih tile legal, lalu konfirmasi langkah.</p></div><div id="human-hand" class="human-hand" role="group" aria-label="Tile tangan Anda"></div>
+          <div id="claim-actions" class="claim-actions" role="group" aria-label="Pilihan aksi selain discard"></div>
+          <form id="action-form" class="action-form"><div class="form-field"><label for="legal-action">Aksi legal</label><select id="legal-action"><option value="">Pilih tile atau aksi…</option></select></div><button id="submit-action" class="button button--gold" type="submit" disabled>Jalankan pilihan <span aria-hidden="true">→</span></button></form>
+          <p class="fine-print">Hanya pilihan legal dari server yang dapat dijalankan. Saran AI tidak membuang tile secara otomatis.</p>
+        </div>
+      </div>
+      <div id="round-result" class="round-result" hidden tabindex="-1"></div>
+    </section>
+    <aside class="advisor-panel" aria-labelledby="advisor-title"><div class="advisor-heading"><span class="advisor-symbol" aria-hidden="true">✦</span><div><p class="eyebrow">A SECOND PERSPECTIVE</p><h2 id="advisor-title">AI Advisor</h2></div><span class="model-badge">v3</span></div>
+      <p class="advisor-intro">Bandingkan pilihan Anda dengan saran model. Keputusan tetap di tangan Anda.</p>
+      <button id="predict-button" class="button button--outline" type="button" disabled><span aria-hidden="true">✧</span> Minta prediksi &amp; simpan</button>
+      <p id="advisor-availability" class="fine-print">Mulai round untuk mengaktifkan advisor.</p>
+      <div id="prediction" class="prediction-content" aria-live="polite"><div class="advisor-empty"><span aria-hidden="true">01 · 02 · 03</span><p>Top 3 rekomendasi akan muncul di sini setelah Anda meminta prediksi.</p></div></div>
+      <div class="advisor-footnote"><span aria-hidden="true">ⓘ</span><p>Bobot rekomendasi menunjukkan preferensi discard model, bukan probabilitas menang.</p></div>
+      <details class="table-guide"><summary>Panduan singkat</summary><p>Pilih tile di tangan untuk discard, atau gunakan aksi claim yang tersedia. Anda harus mengonfirmasi langkah dengan tombol Jalankan pilihan.</p><p>Tile lawan tertutup. Meld, bunga, dan buangan merupakan informasi publik. Setiap permintaan prediksi yang berhasil disimpan dapat ditinjau melalui History.</p></details>
+    </aside>
+  </div>
+  <details class="state-details"><summary>Identitas &amp; ringkasan meja</summary><p id="game-id" class="mono"></p><p id="public-state"></p></details>
+  <noscript><p class="notice">JavaScript diperlukan untuk kontrol game ini. History dan Contact tetap tersedia melalui halaman biasa.</p></noscript>
+</div>
 {% endblock %}

@@ -1,0 +1,273 @@
+{
+  "verdict": "PASS \u2014 BOTH MINOR FINDINGS CLOSED",
+  "generated_at_utc": "2026-11-06T02:10:47.055574+00:00",
+  "findings": [
+    "P4-A01",
+    "P4-A02"
+  ],
+  "production_files_changed_this_remediation": [
+    "app/static/phase4/controller.mjs"
+  ],
+  "production_lines_added": 4,
+  "production_lines_removed": 0,
+  "test_files_changed": [
+    "tests/frontend/controller.test.mjs"
+  ],
+  "tdd": {
+    "red": {
+      "tests": 44,
+      "passed": 39,
+      "failed": 5
+    },
+    "green": {
+      "tests": 44,
+      "passed": 44,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 112.903542
+    }
+  },
+  "node": {
+    "status": "PASS",
+    "node_version": "v24.4.1",
+    "historical_cases": 66,
+    "historical_names_preserved": true,
+    "new_cases": [
+      "P4-A01 rejects cross-game action success and reconciles only the original game",
+      "P4-A01 rejects regressed turn action success and reconciles only the original game",
+      "P4-A01 rejects missing object action success and reconciles only the original game",
+      "P4-A01 rejects noninteger turn action success and reconciles only the original game",
+      "P4-A01 rejects invalid structure action success and reconciles only the original game",
+      "P4-A01 failed reconciliation keeps the original action outcome uncertain and blocks another mutation",
+      "P4-A01 accepts valid advancing response without action retry or reconciliation GET",
+      "P4-A01 accepts valid same turn response without action retry or reconciliation GET",
+      "P4-A01 accepts valid finished response without action retry or reconciliation GET",
+      "P4-A01 accepts valid claim transition response without action retry or reconciliation GET",
+      "P4-A02 rejects ascending Top3 without sorting, trusting a save, or playing",
+      "P4-A02 rejects incorrect action/class mapping without sorting, trusting a save, or playing",
+      "P4-A02 accepts valid descending Top3 unchanged",
+      "P4-A02 accepts equal adjacent scores unchanged"
+    ],
+    "counts": {
+      "tests": 80,
+      "pass": 80,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "duration_ms": 81.622709,
+    "evidence": "docs/evidence/phase4/audit_minor_fix_node_full.txt"
+  },
+  "pytest": {
+    "status": "PASS",
+    "python_version": "3.12.10",
+    "historical_cases": 399,
+    "preserved_historical_identities": 399,
+    "missing": [],
+    "new_collected_cases": [],
+    "duplicates": [],
+    "counts": {
+      "tests": 399,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "stdout_seconds": 64.64,
+    "junit_seconds": 64.635,
+    "node_wrapper_cases": 6,
+    "old_junit": "docs/evidence/phase4/regression_final.xml",
+    "new_junit": "docs/evidence/phase4/audit_minor_fix_regression.xml"
+  },
+  "real_model": {
+    "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "metadata_sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "runtime_model_version": "discard_mlp_flexible_v1:ad05a5b2ce37"
+  },
+  "postgres": {
+    "status": "PASS",
+    "version": "14.19 (Homebrew)",
+    "development_rows": 11,
+    "canonical_rows_sha256": "d153bfcc7c9e9695d9ce1c71f933aae7133ce6577cd315beaed5bfdfff5028b7",
+    "individual_hashes_unchanged": true,
+    "schema_status": "PASS",
+    "schema_sha256": "d1e9017ff889721d8d8dae74a292eb622a9f89a6c9e5750294789ac9d9675767",
+    "test_schema_unchanged": true,
+    "utc_read_only": true,
+    "project_cluster_remains_running": true,
+    "timing": "After full399-case regression and browser smoke"
+  },
+  "real_integration": "artifacts/phase4/audit_minor_fix_integration.json",
+  "browser_smoke": "artifacts/phase4/audit_minor_fix_browser.json",
+  "browser_preview_stopped": true,
+  "source_integrity": {
+    "status": "PASS",
+    "intentional_changes_to_existing_files": [
+      {
+        "path": "app/static/phase4/controller.mjs",
+        "before_sha256": "43d89bc994b0b3959d93bec5ce1b95402cc91d5a1ae24c64f67fdca1dd075969",
+        "after_sha256": "8475818babff4142736c74f6ece189a4e0ed2ab1fffa16e4cb3f0ba37993a1da"
+      },
+      {
+        "path": "docs/phase4_execution_ledger.md",
+        "before_sha256": "75626d01f0ee8a809c5566ae219da1f8cd9594dffe6d893efb71c67a74b4cb64",
+        "after_sha256": "07e6ae22d8df1592f8238188a59ac55c792d4a6b10f70dedd3f506bd8227d660"
+      },
+      {
+        "path": "docs/phase4_file_inventory.md",
+        "before_sha256": "f3dc75ad7debfa0d6d26581aa02065e66d087593de815abbc2f8baab27d044bd",
+        "after_sha256": "7c608a100bab27e4de589f7631dd34a964e4af8394a42329cc04582930d1b84a"
+      },
+      {
+        "path": "docs/phase4_implementation_report.md",
+        "before_sha256": "b261a5a38fc8d156973114bd379b2569abe9e828580aa0f562eeef0aef8ef485",
+        "after_sha256": "8f21cdea49831f2ee42715c4007ebbf5d856c586d31ad660077e89423f78cd47"
+      },
+      {
+        "path": "docs/phase4_test_matrix.md",
+        "before_sha256": "d2c78522b444aae82dd275970b0a434bc870a01e6b130378a74d3acf1c26fbad",
+        "after_sha256": "f041224b46471e5109758406e9dc3d3fcf1a41e9ff7b7d21bcb490b039b9c52d"
+      },
+      {
+        "path": "tests/frontend/controller.test.mjs",
+        "before_sha256": "25dfd82549c80ae6ec25b5400aba200e34e801ea9c2084ec91770b21bfda116b",
+        "after_sha256": "8cca870e492c042930613ba161be3aa0a27e0a632546db86a4abf2e18a01843e"
+      }
+    ],
+    "unexpected_existing_changes": [],
+    "old_files_checked": 2112,
+    "unchanged_old_files": 2106,
+    "historical_protected_files": 1999,
+    "historical_protected_mismatches": 0,
+    "historical_source_manifest_files": 36,
+    "historical_source_manifest_unchanged": 34,
+    "historical_source_manifest_intentional_changes": [
+      "app/static/phase4/controller.mjs",
+      "tests/frontend/controller.test.mjs"
+    ],
+    "append_only_checks": {
+      "tests/frontend/controller.test.mjs": true,
+      "docs/phase4_execution_ledger.md": true,
+      "docs/phase4_file_inventory.md": true,
+      "docs/phase4_implementation_report.md": true,
+      "docs/phase4_test_matrix.md": true
+    },
+    "new_evidence_paths": [
+      "artifacts/phase4/audit_minor_fix_browser.json",
+      "artifacts/phase4/audit_minor_fix_integration.json",
+      "artifacts/phase4/audit_minor_fix_node_summary.json",
+      "artifacts/phase4/audit_minor_fix_postgres.json",
+      "artifacts/phase4/audit_minor_fix_preflight.json",
+      "artifacts/phase4/audit_minor_fix_source_deltas.json",
+      "artifacts/phase4/audit_minor_fix_static.json",
+      "artifacts/phase4/audit_minor_fix_test_reconciliation.json",
+      "artifacts/phase4/audit_minor_fix_verification.json",
+      "docs/evidence/phase4/audit_minor_fix_browser.jpg",
+      "docs/evidence/phase4/audit_minor_fix_dependencies.txt",
+      "docs/evidence/phase4/audit_minor_fix_green.txt",
+      "docs/evidence/phase4/audit_minor_fix_node_full.txt",
+      "docs/evidence/phase4/audit_minor_fix_production.diff",
+      "docs/evidence/phase4/audit_minor_fix_red.txt",
+      "docs/evidence/phase4/audit_minor_fix_regression.txt",
+      "docs/evidence/phase4/audit_minor_fix_regression.xml",
+      "docs/evidence/phase4/audit_minor_fix_review.md"
+    ],
+    "sha256_check_seconds": 2.827,
+    "production_diff": "docs/evidence/phase4/audit_minor_fix_production.diff"
+  },
+  "static": {
+    "status": "PASS",
+    "node_syntax": [
+      {
+        "path": "app/static/phase3.js",
+        "exit_code": 0
+      },
+      {
+        "path": "app/static/phase4/catalog.mjs",
+        "exit_code": 0
+      },
+      {
+        "path": "app/static/phase4/controller.mjs",
+        "exit_code": 0
+      },
+      {
+        "path": "app/static/phase4/deletion.mjs",
+        "exit_code": 0
+      },
+      {
+        "path": "app/static/phase4/http.mjs",
+        "exit_code": 0
+      },
+      {
+        "path": "app/static/phase4/model.mjs",
+        "exit_code": 0
+      },
+      {
+        "path": "app/static/phase4/tiles.mjs",
+        "exit_code": 0
+      },
+      {
+        "path": "app/static/phase4/view.mjs",
+        "exit_code": 0
+      },
+      {
+        "path": "tests/frontend/controller.test.mjs",
+        "exit_code": 0
+      }
+    ],
+    "python_compile_exit": 0,
+    "pip_check_exit": 0,
+    "pip_output": "WARNING: The directory '/Users/jhonhazel/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\nNo broken requirements found.\n"
+  },
+  "independent_review": {
+    "performed": true,
+    "reviewer": "/root/phase4_minor_audit_review",
+    "scope": "Exact four-line controller diff and14new cases; not a fresh whole-backend/browser/full-suite audit",
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "independently_executed_controller_tests": 44,
+    "closure": "Ready to close within narrow scope",
+    "evidence": "docs/evidence/phase4/audit_minor_fix_review.md"
+  },
+  "git": {
+    "branch": "main",
+    "head": "263fd88c83df417de53051d6ab0127c9a544a8c4",
+    "modified_tracked": 10,
+    "untracked": 121,
+    "staged": 0,
+    "clean": false,
+    "mutating_git_operations_performed": false,
+    "commit_performed": false,
+    "push_performed": false,
+    "deployment_performed": false
+  },
+  "remaining_caveats": [
+    "Unverified Contact roster",
+    "Final UAS PDF and demo video not produced",
+    "Clean installation/platform/browser and physical-device coverage limited",
+    "Actual200%zoom and reduced-motion runtime not verified",
+    "No formal full accessibility audit",
+    "Anonymous in-memory active games, single-worker architecture"
+  ],
+  "recommendation": "Proceed to post-fix audit and separately authorized local Phase4 commit; final UAS package still incomplete",
+  "evidence_sha256": {
+    "artifacts/phase4/audit_minor_fix_browser.json": "d44484ec0c4f5f52bd5644560005f1b4db4a0d47d542a4b0fd81fa8619bba8c2",
+    "artifacts/phase4/audit_minor_fix_integration.json": "ec9eb3b7b1647de0a139864d809c0a187ed8559b592c65a7931cc7debad7eed5",
+    "artifacts/phase4/audit_minor_fix_node_summary.json": "1ab51d32c1cdc51ba322da2cf13c51219cb474fe5bc7e95b209eaa3eb5e40d9f",
+    "artifacts/phase4/audit_minor_fix_postgres.json": "eaeb3ae58aa480bdbcd50888987204f2bf01d54b93039ef109674bd96fd9bfb8",
+    "artifacts/phase4/audit_minor_fix_preflight.json": "5343c54fc60753e88c1bc72c4efd7e6bc494688e440f05bf62d6c5b92dd38a74",
+    "artifacts/phase4/audit_minor_fix_source_deltas.json": "6155714ddce39ea0942f3ecbb05e2018edf081306bcfdd894f0fa33282d8c484",
+    "artifacts/phase4/audit_minor_fix_static.json": "67b8466bb11dc14f0b6c163057bd65565aa8c3294fe27f94fd10b02fe034c82d",
+    "artifacts/phase4/audit_minor_fix_test_reconciliation.json": "d30b6ed0c99aef41df779ec6adc9c190ffcedf682cba7c4007b39a5b3dc1fc4f",
+    "docs/evidence/phase4/audit_minor_fix_browser.jpg": "4485f15a86bcb1f656826cd6845d8b039a3863106d3b57684622a72194ffb9e4",
+    "docs/evidence/phase4/audit_minor_fix_dependencies.txt": "537c6a8332e14118993a382d875e2b562f099dec5254cb5c294bd34f752ee4f4",
+    "docs/evidence/phase4/audit_minor_fix_green.txt": "09c4d420fe1361d74519c80f4d5d12afe54d091b0f9983ea9fe553665c4fdf87",
+    "docs/evidence/phase4/audit_minor_fix_node_full.txt": "340227e9aff4360f77f73d92a270e40c0e4bdf3f2286d1c7e61765c8dfef986d",
+    "docs/evidence/phase4/audit_minor_fix_production.diff": "c2d7c9603ce6574fa98a2fdf0c054cac347d9524a57c296ed0c94c794687c305",
+    "docs/evidence/phase4/audit_minor_fix_red.txt": "6d2a50009190f79fdb24dd0db78532dce633b0400e4e133e6867720c5c4d4702",
+    "docs/evidence/phase4/audit_minor_fix_regression.txt": "75eecb0fce8fa6e72d0eec50ba75ae7a0ec12158482a35b018249ac67f2dcce8",
+    "docs/evidence/phase4/audit_minor_fix_regression.xml": "9cefe3a524cb4a383645bf838f2c0fa9a951906a3e5299f7b26fe2dce499813e",
+    "docs/evidence/phase4/audit_minor_fix_review.md": "623fad975a87062d5da565e34ac4e299884ee3f87651e3a23486120aeb7c286a"
+  }
+}

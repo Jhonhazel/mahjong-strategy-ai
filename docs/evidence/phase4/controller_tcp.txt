@@ -1,0 +1,9 @@
+.                                                                        [100%]
+=============================== warnings summary ===============================
+tests/test_phase4_live.py::test_phase4_real_controller_two_rounds_v3_postgres_tcp
+  tests/test_phase4_live.py:19: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_phase4_real_controller_two_rounds_v3_postgres_tcp(web_settings, postgres_engine, tmp_path, record_property):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/phase4/controller_tcp.xml -
+1 passed, 1 warning in 1.80s

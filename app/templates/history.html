@@ -1,16 +1,18 @@
 {% extends "base.html" %}
+{% from 'components/tiles.html' import tile, delete_confirmation with context %}
 {% block title %}Prediction History · Mahjong Strategy AI{% endblock %}
 {% block content %}
-<h1>Prediction History</h1><p>{{ total }} prediksi tersimpan untuk identitas browser ini.</p>
-{% if records %}
-<div class="table-wrap"><table><thead><tr><th>Waktu UTC</th><th>Turn</th><th>Saran</th><th>Detail</th><th>Hapus</th></tr></thead><tbody>
-{% for record in records %}<tr><td>{{ record.created_at }}</td><td>{{ record.turn_number }} · {{ record.turn_phase }}</td><td>{{ record.recommended_tile }}</td>
-<td><a href="/history/{{ record.prediction_id }}">{{ record.prediction_id }}</a></td>
-<td><form method="post" action="/history/{{ record.prediction_id }}/delete"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">Hapus prediksi</button></form></td></tr>{% endfor %}
-</tbody></table></div>
-{% else %}<p>Belum ada prediksi. Mulai game dan pilih “Minta prediksi”.</p>{% endif %}
-<nav aria-label="Halaman history">
-{% if offset > 0 %}<a href="/history?limit={{ limit }}&amp;offset={{ [0, offset-limit]|max }}">Sebelumnya</a>{% endif %}
-{% if offset+limit < total %}<a href="/history?limit={{ limit }}&amp;offset={{ offset+limit }}">Berikutnya</a>{% endif %}
-</nav>
+<div class="section-shell history-page">
+  <div class="page-heading"><div><p class="eyebrow">REVISIT YOUR DECISIONS</p><h1>Prediction History<span class="heading-dot">.</span></h1><p>{{ total }} prediksi tersimpan untuk identitas browser ini.</p></div><a class="button" href="/game">Kembali ke meja <span aria-hidden="true">↗</span></a></div>
+  <p class="history-privacy">Riwayat ini terhubung dengan sesi anonim browser Anda. Perubahan atau kedaluwarsa identitas browser dapat membuat riwayat lama tidak dapat diakses.</p>
+  {% if records %}<div class="history-list">
+    {% for record in records %}<article class="history-card"><div class="history-time"><span class="eyebrow">TURN {{ record.turn_number }}</span><time datetime="{{ record.created_at.isoformat() }}">{{ record.created_at.strftime('%d %b %Y · %H:%M') }} UTC</time><span class="phase-badge">{{ 'Setelah meld' if record.turn_phase == 'POST_MELD_DISCARD' else 'Giliran sendiri' }}</span></div>
+      <div class="history-suggestion"><span class="fine-print">Saran utama</span>{{ tile(record.recommended_tile) }}<strong>{{ tile_catalog.get(record.recommended_tile, tile_catalog['unknown']).label }}</strong></div>
+      <div class="history-context"><span class="fine-print">Game</span><code>{{ record.game_id }}</code><a class="text-link" href="/history/{{ record.prediction_id }}">Lihat detail &amp; Top 3 <span aria-hidden="true">↗</span><span class="sr-only"> prediksi {{ record.prediction_id }}</span></a><small class="record-id">{{ record.prediction_id }}</small></div>
+      <div class="history-top3-block"><span class="fine-print">Top 3 · bobot rekomendasi</span><ol class="history-top3-summary" aria-label="Top 3 rekomendasi tersimpan">{% for suggestion in record.top3 %}<li><span class="history-mini-rank">0{{ loop.index }}</span>{{ tile(suggestion.tile) }}<span>{{ '%.2f'|format(suggestion.score*100) }}%</span></li>{% endfor %}</ol></div>
+      {{ delete_confirmation(record, csrf_token) }}
+    </article>{% endfor %}
+  </div>{% else %}<section class="empty-state"><div class="empty-tiles" aria-hidden="true">{{ tile('T2') }}{{ tile('T3') }}{{ tile('T4') }}</div><h2>Setiap keputusan punya cerita.</h2><p>Belum ada prediksi. Mulai game dan pilih “Minta prediksi”.<br>Saran tersimpan akan menjadi catatan belajar Anda di sini.</p><a class="button" href="/game">Main &amp; minta prediksi <span aria-hidden="true">↗</span></a></section>{% endif %}
+  <nav class="pagination" aria-label="Halaman history"><span>{{ offset + 1 if records else 0 }}–{{ [offset+limit, total]|min if records else 0 }} dari {{ total }}</span><div>{% if offset > 0 %}<a class="button button--outline" href="/history?limit={{ limit }}&amp;offset={{ [0, offset-limit]|max }}">← Sebelumnya</a>{% endif %}{% if offset+limit < total %}<a class="button button--outline" href="/history?limit={{ limit }}&amp;offset={{ offset+limit }}">Berikutnya →</a>{% endif %}</div></nav>
+</div>
 {% endblock %}

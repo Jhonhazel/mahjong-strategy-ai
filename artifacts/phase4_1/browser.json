@@ -1,0 +1,186 @@
+{
+  "command": "fastapi dev main.py",
+  "base": "http://127.0.0.1:8000",
+  "initialURL": "http://127.0.0.1:8000/game?game_id=f00b89fd-7b89-4547-bb17-42b024c07f38",
+  "predictionBefore": "Top 3 · Turn 4 · Giliran sendiri\n\n01\nNaga Merah\nJ1\n82.04\n% bobot\n02\nNaga Hijau\nJ2\n6.92\n% bobot\n03\nBambu 1\nT1\n2.72\n% bobot\n\nIni bobot rekomendasi discard, bukan probabilitas menang. Tidak ada aksi yang dijalankan otomatis.\n\nPrediksi tersimpan di History.\n\nBuka detail tersimpan ↗\nIdentitas prediksi",
+  "checks": [
+    {
+      "documentWidth": 1440,
+      "handScroll": 972,
+      "handWidth": 972,
+      "page": "game",
+      "width": 1440
+    },
+    {
+      "documentWidth": 1024,
+      "handScroll": 616,
+      "handWidth": 616,
+      "page": "game",
+      "width": 1024
+    },
+    {
+      "documentWidth": 768,
+      "handScroll": 666,
+      "handWidth": 666,
+      "page": "game",
+      "width": 768
+    },
+    {
+      "documentWidth": 390,
+      "handScroll": 544,
+      "handWidth": 340,
+      "page": "game",
+      "width": 390
+    },
+    {
+      "documentWidth": 360,
+      "handScroll": 544,
+      "handWidth": 310,
+      "page": "game",
+      "width": 360
+    },
+    {
+      "cards": 5,
+      "documentWidth": 1440,
+      "page": "contact",
+      "width": 1440
+    },
+    {
+      "cards": 5,
+      "documentWidth": 1024,
+      "page": "contact",
+      "width": 1024
+    },
+    {
+      "cards": 5,
+      "documentWidth": 768,
+      "page": "contact",
+      "width": 768
+    },
+    {
+      "cards": 5,
+      "documentWidth": 390,
+      "page": "contact",
+      "width": 390
+    },
+    {
+      "cards": 5,
+      "documentWidth": 360,
+      "page": "contact",
+      "width": 360
+    }
+  ],
+  "normal": {
+    "actionDisabled": true,
+    "arriving": 1,
+    "busy": "true",
+    "highlighted": 1,
+    "message": "Bot Timur: perubahan publik pada buangan.",
+    "predictDisabled": true
+  },
+  "skipped": true,
+  "postMeld": "Top 3 · Turn 20 · Setelah meld\n\n01\nNaga Merah\nJ1\n60.13\n% bobot\n02\nBambu 1\nT1\n10.79\n% bobot\n03\nNaga Hijau\nJ2\n9.38\n% bobot\n\nIni bobot rekomendasi discard, bukan probabilitas menang. Tidak ada aksi yang dijalankan otomatis.\n\nPrediksi tersimpan di History.\n\nBuka detail tersimpan ↗\nIdentitas prediksi",
+  "actions": [
+    {
+      "id": "11",
+      "label": "Buang · Bambu 1"
+    },
+    {
+      "id": "12",
+      "label": "Buang · Bambu 2"
+    },
+    {
+      "id": "12",
+      "label": "Buang · Bambu 2"
+    },
+    {
+      "id": "10",
+      "label": "Buang · Karakter 9"
+    },
+    {
+      "id": "18",
+      "label": "Buang · Bambu 8"
+    },
+    {
+      "id": "21",
+      "label": "Buang · Lingkaran 2"
+    },
+    {
+      "id": "88",
+      "label": "Chi · Lingkaran 5 (B4 · B5 · B6)"
+    },
+    {
+      "id": "23",
+      "label": "Buang · Lingkaran 4"
+    },
+    {
+      "id": "91",
+      "label": "Chi · Lingkaran 6 (B5 · B6 · B7)"
+    },
+    {
+      "id": "26",
+      "label": "Buang · Lingkaran 7"
+    },
+    {
+      "id": "15",
+      "label": "Buang · Bambu 5"
+    },
+    {
+      "id": "22",
+      "label": "Buang · Lingkaran 3"
+    },
+    {
+      "id": "21",
+      "label": "Buang · Lingkaran 2"
+    },
+    {
+      "id": "16",
+      "label": "Buang · Bambu 6"
+    },
+    {
+      "id": "28",
+      "label": "Buang · Lingkaran 9"
+    },
+    {
+      "id": "18",
+      "label": "Buang · Bambu 8"
+    },
+    {
+      "id": "5",
+      "label": "Buang · Karakter 4"
+    },
+    {
+      "id": "30",
+      "label": "Buang · Angin Selatan"
+    },
+    {
+      "id": "31",
+      "label": "Buang · Angin Barat"
+    },
+    {
+      "id": "17",
+      "label": "Buang · Bambu 7"
+    },
+    {
+      "id": "2",
+      "label": "Buang · Karakter 1"
+    }
+  ],
+  "round": {
+    "finished": true,
+    "result": "ROUND SELESAI\n\nBot Timur menang\n\nTarikan sendiri · Zimo\n\n25 total fan\nSeven Pairs · 七对 — 24 × 1\nSelf-Drawn · 自摸 — 1 × 1\nTimur\n+99\nAnda · Selatan\n-33\nBarat\n-33\nUtara\n-33\n\nHasil, fan, dan perubahan skor dilaporkan oleh engine permainan.\n\nAtur round berikutnya ↗",
+    "actions": 23
+  },
+  "history": {
+    "cards": 2,
+    "detailTable": 1
+  },
+  "contact": [
+    "01Mishael Julindra PutraNIM32240013Emails32240013@student.ubm.ac.id",
+    "02Efraim Emanuelle JosrinNIM32240015Emails32240015@student.ubm.ac.id",
+    "03Jhonhazel Lionel TjokahnNIM32240016Emails32240016@student.ubm.ac.id",
+    "04Roberto AriyadhammaNIM32240027Emails32240027@student.ubm.ac.id",
+    "05Michael KurniawanNIM32240033Emails32240033@student.ubm.ac.id"
+  ],
+  "homeLoaded": "Play, Predict\n& Learn."
+}

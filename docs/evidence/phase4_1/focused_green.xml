@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="19" time="2.967" timestamp="2026-11-06T12:24:53.527987+07:00" hostname="Jhonhazels-MacBook-Air.local"><testcase classname="tests.test_phase4_1" name="test_lecturer_entry_reuses_factory_without_startup_side_effects" time="0.165"><failure message="AttributeError: '_IncludedRouter' object has no attribute 'path'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x10a31ed20&gt;
+
+    def test_lecturer_entry_reuses_factory_without_startup_side_effects(monkeypatch):
+        import app.db
+        import app.main
+        import app.web.runtime
+        def forbidden(*args, **kwargs):
+            pytest.fail('Root import must not initialize DB or model')
+        monkeypatch.setattr(app.db, 'create_db_engine', forbidden)
+        monkeypatch.setattr(app.web.runtime, 'load_runtime_model', forbidden)
+        monkeypatch.setattr(app.main, 'load_runtime_model', forbidden)
+        monkeypatch.setenv('MAHJONG_DATABASE_URL', 'postgresql+psycopg://test@localhost/mahjong_test')
+        monkeypatch.setenv('MAHJONG_SESSION_SECRET', secrets.token_urlsafe(40))
+        entry = ROOT/'main.py'
+        assert entry.is_file(), 'Missing lecturer main.py entry point'
+        spec = importlib.util.spec_from_file_location('lecturer_test_entry', entry)
+        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+        assert isinstance(module.app, FastAPI)
+        assert module.app.state.resources is None and not module.app.state.initializing
+&gt;       paths = [route.path for route in module.app.routes]
+                 ^^^^^^^^^^
+E       AttributeError: '_IncludedRouter' object has no attribute 'path'
+
+tests/test_phase4_1.py:41: AttributeError</failure></testcase><testcase classname="tests.test_phase4_1" name="test_legacy_runner_still_uses_factory" time="0.015" /><testcase classname="tests.test_phase4_1" name="test_official_roster_is_reproducible_exact_and_has_no_roles" time="0.175" /><testcase classname="tests.test_phase4_1" name="test_explicit_missing_or_unverified_contact_still_has_fallback[True]" time="0.075" /><testcase classname="tests.test_phase4_1" name="test_explicit_missing_or_unverified_contact_still_has_fallback[False]" time="0.071" /><testcase classname="tests.test_phase4_1" name="test_phase4_1_animation_node_contracts" time="0.208" /><testcase classname="tests.test_phase3_pages" name="test_foundation_pages_show_real_model_and_incomplete_contact" time="0.143" /><testcase classname="tests.test_phase3_pages" name="test_history_pages_read_actual_postgres_and_protect_delete_form" time="0.105" /><testcase classname="tests.test_phase3_pages" name="test_verified_contact_configuration_escapes_text_and_does_not_invent_fields" time="0.071" /><testcase classname="tests.test_phase3_pages" name="test_html_expired_or_forged_identity_cannot_delete_owned_history" time="0.082" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/]" time="0.085" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/game]" time="0.071" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/history]" time="0.074" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/contact]" time="0.071" /><testcase classname="tests.test_phase4_pages" name="test_phase4_home_model_metrics_and_original_art_are_honest" time="0.071" /><testcase classname="tests.test_phase4_pages" name="test_phase4_game_settings_and_stable_accessible_controls" time="0.073" /><testcase classname="tests.test_phase4_pages" name="test_phase4_history_tiles_confirmed_delete_and_folded_complete_snapshots" time="0.089" /><testcase classname="tests.test_phase4_pages" name="test_phase4_contact_keeps_unverified_group_explicit" time="0.072" /><testcase classname="tests.test_phase4_pages" name="test_phase4_game_labels_have_explicit_control_associations" time="0.120" /></testsuite></testsuites>
