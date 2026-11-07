@@ -1,0 +1,9 @@
+{
+  "deploy/Caddyfile": "deploy/Caddyfile",
+  "deploy/Caddyfile.local": "deploy/Caddyfile.local",
+  "deploy/compose.https.yaml": "deploy/compose.https.yaml",
+  "deploy/compose.local-tls.yaml": "deploy/compose.local-tls.yaml",
+  "deploy/settings.example": "deploy/settings.example",
+  "deploy/README.md": "deploy/README.md",
+  "scripts/smoke_online.py": "scripts/smoke_online.py"
+}

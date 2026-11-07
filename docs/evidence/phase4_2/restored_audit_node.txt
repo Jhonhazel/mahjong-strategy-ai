@@ -1,0 +1,465 @@
+TAP version 13
+# Subtest: duplicate hand tiles select one actual server action and submit current turn
+ok 1 - duplicate hand tiles select one actual server action and submit current turn
+  ---
+  duration_ms: 14.776417
+  ...
+# Subtest: only supplied action ids can be selected, including all claim and Kong types
+ok 2 - only supplied action ids can be selected, including all claim and Kong types
+  ---
+  duration_ms: 0.668834
+  ...
+# Subtest: busy mutation guard prevents duplicate submissions and optimistic hand removal
+ok 3 - busy mutation guard prevents duplicate submissions and optimistic hand removal
+  ---
+  duration_ms: 0.467791
+  ...
+# Subtest: old GET responses cannot overwrite newer authoritative state
+ok 4 - old GET responses cannot overwrite newer authoritative state
+  ---
+  duration_ms: 0.627833
+  ...
+# Subtest: an old GET completion cannot clear the busy guard of a newer pending GET
+ok 5 - an old GET completion cannot clear the busy guard of a newer pending GET
+  ---
+  duration_ms: 0.838208
+  ...
+# Subtest: 409 refreshes state and requires new selection without retrying action
+ok 6 - 409 refreshes state and requires new selection without retrying action
+  ---
+  duration_ms: 0.483791
+  ...
+# Subtest: uncertain action outcome reconciles GET and never blindly resubmits
+ok 7 - uncertain action outcome reconciles GET and never blindly resubmits
+  ---
+  duration_ms: 0.579208
+  ...
+# Subtest: prediction is explicit, uses current turn, preserves Top3 order and never executes action
+ok 8 - prediction is explicit, uses current turn, preserves Top3 order and never executes action
+  ---
+  duration_ms: 0.972334
+  ...
+# Subtest: another tab advancing before prediction verification leaves a saved historical notice only
+ok 9 - another tab advancing before prediction verification leaves a saved historical notice only
+  ---
+  duration_ms: 0.933916
+  ...
+# Subtest: committed prediction followed by failed GET is never falsely labelled unsaved or highlighted
+ok 10 - committed prediction followed by failed GET is never falsely labelled unsaved or highlighted
+  ---
+  duration_ms: 0.650125
+  ...
+# Subtest: failed prediction saving503 never produces a saved-success notice
+ok 11 - failed prediction saving503 never produces a saved-success notice
+  ---
+  duration_ms: 0.329459
+  ...
+# Subtest: changing turn clears old prediction and selection; changing game clears saved context
+ok 12 - changing turn clears old prediction and selection; changing game clears saved context
+  ---
+  duration_ms: 0.620041
+  ...
+# Subtest: 404 and401 clear active controls without fabricating a replacement identity
+ok 13 - 404 and401 clear active controls without fabricating a replacement identity
+  ---
+  duration_ms: 0.534042
+  ...
+# Subtest: reused predictions preserve saved identity and server reused flag
+ok 14 - reused predictions preserve saved identity and server reused flag
+  ---
+  duration_ms: 0.318208
+  ...
+# Subtest: prediction409 reconciles current server turn and never retries prediction
+ok 15 - prediction409 reconciles current server turn and never retries prediction
+  ---
+  duration_ms: 0.511167
+  ...
+# Subtest: manual refresh clears current advice immediately and keeps saved identity on503
+ok 16 - manual refresh clears current advice immediately and keeps saved identity on503
+  ---
+  duration_ms: 0.414459
+  ...
+# Subtest: repeat prediction does not leave rendered old advice during delayed state confirmation
+ok 17 - repeat prediction does not leave rendered old advice during delayed state confirmation
+  ---
+  duration_ms: 0.435333
+  ...
+# Subtest: malformed prediction success empty cannot claim saved identity or display advice
+ok 18 - malformed prediction success empty cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.17525
+  ...
+# Subtest: malformed prediction success missing identity cannot claim saved identity or display advice
+ok 19 - malformed prediction success missing identity cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.101292
+  ...
+# Subtest: malformed prediction success unsafe identity cannot claim saved identity or display advice
+ok 20 - malformed prediction success unsafe identity cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.124458
+  ...
+# Subtest: malformed prediction success wrong game cannot claim saved identity or display advice
+ok 21 - malformed prediction success wrong game cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.4275
+  ...
+# Subtest: malformed prediction success wrong turn cannot claim saved identity or display advice
+ok 22 - malformed prediction success wrong turn cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.445375
+  ...
+# Subtest: malformed prediction success wrong seat cannot claim saved identity or display advice
+ok 23 - malformed prediction success wrong seat cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.402542
+  ...
+# Subtest: malformed prediction success missing model cannot claim saved identity or display advice
+ok 24 - malformed prediction success missing model cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.17525
+  ...
+# Subtest: malformed prediction success missing phase cannot claim saved identity or display advice
+ok 25 - malformed prediction success missing phase cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.370375
+  ...
+# Subtest: malformed prediction success illegal recommended action cannot claim saved identity or display advice
+ok 26 - malformed prediction success illegal recommended action cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.345875
+  ...
+# Subtest: malformed prediction success empty Top3 cannot claim saved identity or display advice
+ok 27 - malformed prediction success empty Top3 cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.228458
+  ...
+# Subtest: malformed prediction success invalid score cannot claim saved identity or display advice
+ok 28 - malformed prediction success invalid score cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.170458
+  ...
+# Subtest: malformed prediction success mismatched Top3 cannot claim saved identity or display advice
+ok 29 - malformed prediction success mismatched Top3 cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.866125
+  ...
+# Subtest: malformed prediction success missing scores cannot claim saved identity or display advice
+ok 30 - malformed prediction success missing scores cannot claim saved identity or display advice
+  ---
+  duration_ms: 0.284917
+  ...
+# Subtest: P4-A01 rejects cross-game action success and reconciles only the original game
+ok 31 - P4-A01 rejects cross-game action success and reconciles only the original game
+  ---
+  duration_ms: 0.826375
+  ...
+# Subtest: P4-A01 rejects regressed turn action success and reconciles only the original game
+ok 32 - P4-A01 rejects regressed turn action success and reconciles only the original game
+  ---
+  duration_ms: 0.449208
+  ...
+# Subtest: P4-A01 rejects missing object action success and reconciles only the original game
+ok 33 - P4-A01 rejects missing object action success and reconciles only the original game
+  ---
+  duration_ms: 0.382666
+  ...
+# Subtest: P4-A01 rejects noninteger turn action success and reconciles only the original game
+ok 34 - P4-A01 rejects noninteger turn action success and reconciles only the original game
+  ---
+  duration_ms: 0.414625
+  ...
+# Subtest: P4-A01 rejects invalid structure action success and reconciles only the original game
+ok 35 - P4-A01 rejects invalid structure action success and reconciles only the original game
+  ---
+  duration_ms: 0.718041
+  ...
+# Subtest: P4-A01 failed reconciliation keeps the original action outcome uncertain and blocks another mutation
+ok 36 - P4-A01 failed reconciliation keeps the original action outcome uncertain and blocks another mutation
+  ---
+  duration_ms: 0.39425
+  ...
+# Subtest: P4-A01 accepts valid advancing response without action retry or reconciliation GET
+ok 37 - P4-A01 accepts valid advancing response without action retry or reconciliation GET
+  ---
+  duration_ms: 0.410458
+  ...
+# Subtest: P4-A01 accepts valid same turn response without action retry or reconciliation GET
+ok 38 - P4-A01 accepts valid same turn response without action retry or reconciliation GET
+  ---
+  duration_ms: 0.1485
+  ...
+# Subtest: P4-A01 accepts valid finished response without action retry or reconciliation GET
+ok 39 - P4-A01 accepts valid finished response without action retry or reconciliation GET
+  ---
+  duration_ms: 0.132292
+  ...
+# Subtest: P4-A01 accepts valid claim transition response without action retry or reconciliation GET
+ok 40 - P4-A01 accepts valid claim transition response without action retry or reconciliation GET
+  ---
+  duration_ms: 0.094375
+  ...
+# Subtest: P4-A02 rejects ascending Top3 without sorting, trusting a save, or playing
+ok 41 - P4-A02 rejects ascending Top3 without sorting, trusting a save, or playing
+  ---
+  duration_ms: 0.724209
+  ...
+# Subtest: P4-A02 rejects incorrect action/class mapping without sorting, trusting a save, or playing
+ok 42 - P4-A02 rejects incorrect action/class mapping without sorting, trusting a save, or playing
+  ---
+  duration_ms: 0.44725
+  ...
+# Subtest: P4-A02 accepts valid descending Top3 unchanged
+ok 43 - P4-A02 accepts valid descending Top3 unchanged
+  ---
+  duration_ms: 0.254625
+  ...
+# Subtest: P4-A02 accepts equal adjacent scores unchanged
+ok 44 - P4-A02 accepts equal adjacent scores unchanged
+  ---
+  duration_ms: 0.117083
+  ...
+# Subtest: confirmed history deletion waits for server success and ignores double submission
+ok 45 - confirmed history deletion waits for server success and ignores double submission
+  ---
+  duration_ms: 2.221125
+  ...
+# Subtest: history deletion failure 0 never reports or navigates as success
+ok 46 - history deletion failure 0 never reports or navigates as success
+  ---
+  duration_ms: 0.303
+  ...
+# Subtest: history deletion failure 401 never reports or navigates as success
+ok 47 - history deletion failure 401 never reports or navigates as success
+  ---
+  duration_ms: 0.291333
+  ...
+# Subtest: history deletion failure 403 never reports or navigates as success
+ok 48 - history deletion failure 403 never reports or navigates as success
+  ---
+  duration_ms: 0.081667
+  ...
+# Subtest: history deletion failure 404 never reports or navigates as success
+ok 49 - history deletion failure 404 never reports or navigates as success
+  ---
+  duration_ms: 0.098292
+  ...
+# Subtest: history deletion failure 503 never reports or navigates as success
+ok 50 - history deletion failure 503 never reports or navigates as success
+  ---
+  duration_ms: 0.529542
+  ...
+# Subtest: mutations send JSON, current CSRF and same-origin cookies with exact turn
+ok 51 - mutations send JSON, current CSRF and same-origin cookies with exact turn
+  ---
+  duration_ms: 38.472833
+  ...
+# Subtest: session bootstrap updates in-memory token and no mutation executes without it
+ok 52 - session bootstrap updates in-memory token and no mutation executes without it
+  ---
+  duration_ms: 0.984083
+  ...
+# Subtest: all required HTTP errors become safe Indonesian messages without backend details
+ok 53 - all required HTTP errors become safe Indonesian messages without backend details
+  ---
+  duration_ms: 2.358667
+  ...
+# Subtest: delete accepts a confirmed204 without JSON and preserves request safety
+ok 54 - delete accepts a confirmed204 without JSON and preserves request safety
+  ---
+  duration_ms: 0.489083
+  ...
+# Subtest: network and malformed-success responses fail safely without leaking payload
+ok 55 - network and malformed-success responses fail safely without leaking payload
+  ---
+  duration_ms: 0.5795
+  ...
+# Subtest: delete success 200 is not a confirmed204 and must fail safely
+ok 56 - delete success 200 is not a confirmed204 and must fail safely
+  ---
+  duration_ms: 0.324209
+  ...
+# Subtest: delete success 201 is not a confirmed204 and must fail safely
+ok 57 - delete success 201 is not a confirmed204 and must fail safely
+  ---
+  duration_ms: 0.339708
+  ...
+# Subtest: delete success 202 is not a confirmed204 and must fail safely
+ok 58 - delete success 202 is not a confirmed204 and must fail safely
+  ---
+  duration_ms: 0.54175
+  ...
+# Subtest: human seat 0 stays bottom with right/top/left relative opponents
+ok 59 - human seat 0 stays bottom with right/top/left relative opponents
+  ---
+  duration_ms: 8.420083
+  ...
+# Subtest: human seat 1 stays bottom with right/top/left relative opponents
+ok 60 - human seat 1 stays bottom with right/top/left relative opponents
+  ---
+  duration_ms: 0.262416
+  ...
+# Subtest: human seat 2 stays bottom with right/top/left relative opponents
+ok 61 - human seat 2 stays bottom with right/top/left relative opponents
+  ---
+  duration_ms: 0.110833
+  ...
+# Subtest: human seat 3 stays bottom with right/top/left relative opponents
+ok 62 - human seat 3 stays bottom with right/top/left relative opponents
+  ---
+  duration_ms: 0.082375
+  ...
+# Subtest: projection shows only human faces and public rivers/melds, hiding opponent AnGang
+ok 63 - projection shows only human faces and public rivers/melds, hiding opponent AnGang
+  ---
+  duration_ms: 1.001875
+  ...
+# Subtest: meld projection follows public middle tile and preserves unknown concealment
+ok 64 - meld projection follows public middle tile and preserves unknown concealment
+  ---
+  duration_ms: 0.159125
+  ...
+# Subtest: discard selection uses a supplied Play option rather than a hand index
+ok 65 - discard selection uses a supplied Play option rather than a hand index
+  ---
+  duration_ms: 0.392084
+  ...
+# Subtest: settings accept exact safe seed boundary and null random seed
+ok 66 - settings accept exact safe seed boundary and null random seed
+  ---
+  duration_ms: 0.725625
+  ...
+# Subtest: settings reject out of range seats and nonboolean flower options
+ok 67 - settings reject out of range seats and nonboolean flower options
+  ---
+  duration_ms: 0.838209
+  ...
+# Subtest: round presentation handles draws, seat zero and actual score deltas without scoring
+ok 68 - round presentation handles draws, seat zero and actual score deltas without scoring
+  ---
+  duration_ms: 0.868
+  ...
+# Subtest: unchanged, missing, or different-game snapshots have no invented playback
+ok 69 - unchanged, missing, or different-game snapshots have no invented playback
+  ---
+  duration_ms: 1.180458
+  ...
+# Subtest: public discard and meld deltas are grouped by relative seat with no chronology claim
+ok 70 - public discard and meld deltas are grouped by relative seat with no chronology claim
+  ---
+  duration_ms: 0.819708
+  ...
+# Subtest: claimed/changed rivers do not invent an append sequence or expose hidden AnGang
+ok 71 - claimed/changed rivers do not invent an append sequence or expose hidden AnGang
+  ---
+  duration_ms: 0.96575
+  ...
+# Subtest: normal playback is bounded, cancellable, and resolves skip
+ok 72 - normal playback is bounded, cancellable, and resolves skip
+  ---
+  duration_ms: 0.449083
+  ...
+# Subtest: fast playback is bounded, cancellable, and resolves skip
+ok 73 - fast playback is bounded, cancellable, and resolves skip
+  ---
+  duration_ms: 0.345917
+  ...
+# Subtest: reduced motion or hidden page bypasses all waits
+ok 74 - reduced motion or hidden page bypasses all waits
+  ---
+  duration_ms: 0.416375
+  ...
+# Subtest: normal completion clears presentation and old scheduled work cannot update a new playback
+ok 75 - normal completion clears presentation and old scheduled work cannot update a new playback
+  ---
+  duration_ms: 0.27425
+  ...
+# Subtest: accepted authoritative state stays current while playback blocks duplicate/stale decisions
+ok 76 - accepted authoritative state stays current while playback blocks duplicate/stale decisions
+  ---
+  duration_ms: 1.260416
+  ...
+# Subtest: playback cancels safely for create
+ok 77 - playback cancels safely for create
+  ---
+  duration_ms: 1.102792
+  ...
+# Subtest: playback cancels safely for refresh
+ok 78 - playback cancels safely for refresh
+  ---
+  duration_ms: 0.901083
+  ...
+# Subtest: playback cancels safely for expired
+ok 79 - playback cancels safely for expired
+  ---
+  duration_ms: 0.314041
+  ...
+# Subtest: all 42 canonical tiles have the verified symbol and accessible label
+ok 80 - all 42 canonical tiles have the verified symbol and accessible label
+  ---
+  duration_ms: 6.316791
+  ...
+# Subtest: invalid tile codes use a fixed harmless unknown symbol
+ok 81 - invalid tile codes use a fixed harmless unknown symbol
+  ---
+  duration_ms: 1.243625
+  ...
+# Subtest: selectable tiles use real buttons with stable index and exact server action id
+ok 82 - selectable tiles use real buttons with stable index and exact server action id
+  ---
+  duration_ms: 0.805458
+  ...
+# Subtest: concealed backs do not carry a hidden face or action
+ok 83 - concealed backs do not carry a hidden face or action
+  ---
+  duration_ms: 0.377292
+  ...
+# Subtest: noninteractive and pending tiles cannot submit an action
+ok 84 - noninteractive and pending tiles cannot submit an action
+  ---
+  duration_ms: 0.30375
+  ...
+# Subtest: seat renderer gives opponents only backs and human exact legal buttons with duplicate indices
+ok 85 - seat renderer gives opponents only backs and human exact legal buttons with duplicate indices
+  ---
+  duration_ms: 3.048083
+  ...
+# Subtest: advisor preserves exact Top3 order and uses score preference explanation with no automatic action
+ok 86 - advisor preserves exact Top3 order and uses score preference explanation with no automatic action
+  ---
+  duration_ms: 1.00575
+  ...
+# Subtest: historical saved prediction shows identity without displaying stale Top3 tile advice
+ok 87 - historical saved prediction shows identity without displaying stale Top3 tile advice
+  ---
+  duration_ms: 0.185917
+  ...
+# Subtest: round renderer shows real seat zero, exact score deltas and null draw result safely
+ok 88 - round renderer shows real seat zero, exact score deltas and null draw result safely
+  ---
+  duration_ms: 0.231458
+  ...
+# Subtest: expired finished view clears round result, game identity and public summary
+ok 89 - expired finished view clears round result, game identity and public summary
+  ---
+  duration_ms: 5.804084
+  ...
+# Subtest: meld label never misrepresents Chi offer position as a source seat
+ok 90 - meld label never misrepresents Chi offer position as a source seat
+  ---
+  duration_ms: 1.170584
+  ...
+# Subtest: advisor exposes exact saved prediction identity and model provenance as text
+ok 91 - advisor exposes exact saved prediction identity and model provenance as text
+  ---
+  duration_ms: 0.295042
+  ...
+1..91
+# tests 91
+# suites 0
+# pass 91
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 163.848292

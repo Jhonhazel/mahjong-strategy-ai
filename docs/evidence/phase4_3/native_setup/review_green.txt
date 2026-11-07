@@ -1,0 +1,10 @@
+........................................................................ [ 71%]
+.............................                                            [100%]
+=============================== warnings summary ===============================
+tests/test_native_windows_setup.py::test_real_first_setup_and_repeated_setup_preserve_model_prediction_history
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/phase4_3/native_setup/review_green.xml -
+101 passed, 1 warning in 5.57s

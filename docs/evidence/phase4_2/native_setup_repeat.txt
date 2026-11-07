@@ -1,0 +1,4 @@
+No broken requirements found.
+Setup native PASS: real PostgreSQL schema and v3 lifespan ready. Run the launcher; open http://127.0.0.1:8000/
+Setup elapsed: 1.47s
+Setup elapsed: 1.98s

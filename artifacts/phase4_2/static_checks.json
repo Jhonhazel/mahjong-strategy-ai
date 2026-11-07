@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "commands": [
+    "sh -n setup-macos.sh run-macos.sh packaging/postgres_init.sh",
+    ".venv/bin/python -m py_compile scripts/build_lecturer_release.py scripts/lecturer_assets.py scripts/lecturer_setup.py",
+    ".venv/bin/python -m pip check",
+    "git diff --check"
+  ],
+  "warning": "pip cache unavailable; no broken requirements",
+  "restored_python_identities_equal": true,
+  "restored_node_names_equal": true
+}

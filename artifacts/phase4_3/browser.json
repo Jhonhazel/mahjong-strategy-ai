@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "HTTP loopback rendering and interactions only; HTTPS separately verified with explicit local CA by the TLS client. No external browser HTTPS claim.",
+  "desktop": {
+    "documentWidth": 1440,
+    "width": 1440
+  },
+  "mobile": {
+    "documentWidth": 390,
+    "width": 390
+  },
+  "normalPlayback": {
+    "arriving": 1,
+    "busy": "true",
+    "disabled": true,
+    "highlighted": 1
+  },
+  "refresh": {
+    "turnRetained": true,
+    "predictionCleared": true
+  },
+  "postMeldPrediction": "Top 3 · Turn 20 · Setelah meld\n\n01\nNaga Merah\nJ1\n60.13\n% bobot\n02\nBambu 1\nT1\n10.79\n% bobot\n03\nNaga Hijau\nJ2\n9.38\n% bobot\n\nIni bobot rekomendasi discard, bukan probabilitas menang. Tidak ada aksi yang dijalankan otomatis.\n\nPrediksi tersimpan di History.\n\nBuka detail tersimpan ↗\nIdentitas prediksi",
+  "initialPrediction": "Top 3 · Turn 4 · Giliran sendiri\n\n01\nNaga Merah\nJ1\n82.04\n% bobot\n02\nNaga Hijau\nJ2\n6.92\n% bobot\n03\nBambu 1\nT1\n2.72\n% bobot\n\nIni bobot rekomendasi discard, bukan probabilitas menang. Tidak ada aksi yang dijalankan otomatis.\n\nPrediksi tersimpan di History.\n\nBuka detail tersimpan ↗\nIdentitas prediksi",
+  "historyDetailTable": "Tabel hasil prediksi AI untuk turn 20\nRank\tTile\tRekomendasi\tBobot\n01\t\n\tNaga Merah\nJ1\n\t60.13\n% bobot\n\n02\t\n\tBambu 1\nT1\n\t10.79\n% bobot\n\n03\t\n\tNaga Hijau\nJ2\n\t9.38\n% bobot",
+  "contact": {
+    "cards": 5,
+    "rolesIncomplete": true,
+    "documentWidth": 390,
+    "width": 390
+  },
+  "homeVerified": true
+}

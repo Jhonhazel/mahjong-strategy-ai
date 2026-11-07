@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "channel": "source/deployment and Windows build inputs; NOT a Windows offline binary",
+  "package": "delivery/phase4_3/mahjong-strategy-ai-lecturer-portable.zip",
+  "sha256": "84c78841ccacad63d657a86bb3f61cc5d1b407ca1af2e05ed0b76ebfcabea749",
+  "zip_bytes": 1919823,
+  "source_bytes": 3665316,
+  "extracted_bytes_including_manifest": 3684575,
+  "source_files": 102,
+  "archive_members": 103,
+  "all_member_hashes_match": true,
+  "all_sources_identical": true,
+  "all_assets_match_pins": true,
+  "duplicate_or_unsafe_members": false,
+  "no_executable_or_secret_dataset_venv_inclusions": true,
+  "staged_runtime_matches_final_application_files": 63,
+  "audit_rearchived": false
+}

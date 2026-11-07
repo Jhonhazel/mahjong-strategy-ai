@@ -1,0 +1,765 @@
+{
+  "verdict": "GO WITH CAVEATS",
+  "generated_at_utc": "2026-11-06T13:23:53.239542+00:00",
+  "scope": "Local portable runtime/audit export; original engineering checkout retained; no publishing",
+  "baseline": {
+    "python_passed": 405,
+    "node_passed": 91,
+    "python_seconds": 65.45,
+    "node_ms": 118.331166
+  },
+  "engineering_final": {
+    "python_passed": 437,
+    "new_python": 32,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "python_seconds": 69.91,
+    "node_passed": 91,
+    "node_failed": 0,
+    "node_skipped": 0,
+    "node_cancelled": 0,
+    "node_ms": 121.295375,
+    "warnings": 1
+  },
+  "restored_audit": {
+    "python_passed": 437,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "python_seconds": 73.61,
+    "node_passed": 91,
+    "node_ms": 163.848292,
+    "case_identities_equal": true,
+    "test_tools": "Existing engineering venv; restored source/data and new own PG"
+  },
+  "tdd": {
+    "initial_red_failed": 18,
+    "initial_green_passed": 18,
+    "additional_asset_map_copy_race_port": "RED to GREEN",
+    "review_red_failed": 10,
+    "review_red_passed": 21,
+    "reserved_manifest_red_failed": 1,
+    "focused_final_passed": 32
+  },
+  "runtime": {
+    "files": 79,
+    "source_bytes": 3591024,
+    "zip_bytes": 1878971,
+    "sha256": "2d57ce03d6cc34d5c4103d3f75b95a8384f26e35aa96df25b43c3fa2d6da996b"
+  },
+  "release_directory": "delivery/phase4_2",
+  "authoritative_final_archive_sizes_and_hashes": "delivery/phase4_2/release_manifest.json",
+  "post_build_archive_verification": "delivery/phase4_2/release_verification.json",
+  "platforms": {
+    "macos_arm64_native": "PASS fresh extraction/new runtime-only venv/own PG/fullHTTP/restart",
+    "docker_desktop_macos_linux_aarch64": "PASS fresh official build/CPUv3/own PG/fullHTTP/restart",
+    "windows_x64_native": "NOT YET VERIFIED; CMD static review/wheel availability only",
+    "windows_docker_desktop": "NOT YET VERIFIED",
+    "macos_intel_linux_amd64": "NOT RUN"
+  },
+  "versions": {
+    "native_python": "3.12.10",
+    "native_torch": "2.15.0",
+    "fastapi": "0.162.0",
+    "fastapi_cli": "0.0.32",
+    "PyMahjongGB": "1.4.0",
+    "numpy": "2.5.4",
+    "PostgreSQL": "14.19",
+    "Node_test_only": "24.4.1",
+    "Docker_Desktop": "4.43.2",
+    "Docker_Engine": "28.3.2",
+    "Compose": "2.38.2"
+  },
+  "native_http": {
+    "status": "PASS",
+    "base": "http://127.0.0.1:8000",
+    "pages": {
+      "/": 200,
+      "/game": 200,
+      "/contact": 200,
+      "/history": 200,
+      "/docs": 200,
+      "/redoc": 200,
+      "/openapi.json": 200,
+      "/static/tiles.svg": 200,
+      "/static/phase4/playback.mjs": 200
+    },
+    "csrf_403": true,
+    "foreign_game_and_prediction_404": true,
+    "real_v3": true,
+    "prediction_does_not_mutate_view": true,
+    "idempotency": true,
+    "actions": 23,
+    "action_kinds": {
+      "Play": 20,
+      "Chi": 3
+    },
+    "saved_predictions": 2,
+    "history_detail_table": true,
+    "deletion_204_then_404": true,
+    "finished": {
+      "ending": "zimo",
+      "outcome_type": "HU",
+      "winner_seat": 0,
+      "discarder_seat": null,
+      "qianggang": false,
+      "win_tile": "W6",
+      "total_fan": 25,
+      "fans": [
+        {
+          "fan_points": 24,
+          "count": 1,
+          "fan_name_zh": "七对",
+          "fan_name_en": "Seven Pairs"
+        },
+        {
+          "fan_points": 1,
+          "count": 1,
+          "fan_name_zh": "自摸",
+          "fan_name_en": "Self-Drawn"
+        }
+      ],
+      "score_deltas": [
+        99,
+        -33,
+        -33,
+        -33
+      ]
+    },
+    "remaining_prediction": "70da8d10-8246-474e-b807-70f1d41d52ce"
+  },
+  "final_compose_http": {
+    "status": "PASS",
+    "base": "http://127.0.0.1:8880",
+    "pages": {
+      "/": 200,
+      "/game": 200,
+      "/contact": 200,
+      "/history": 200,
+      "/docs": 200,
+      "/redoc": 200,
+      "/openapi.json": 200,
+      "/static/tiles.svg": 200,
+      "/static/phase4/playback.mjs": 200
+    },
+    "csrf_403": true,
+    "foreign_game_and_prediction_404": true,
+    "real_v3": true,
+    "prediction_does_not_mutate_view": true,
+    "idempotency": true,
+    "actions": 23,
+    "action_kinds": {
+      "Play": 20,
+      "Chi": 3
+    },
+    "saved_predictions": 2,
+    "history_detail_table": true,
+    "deletion_204_then_404": true,
+    "finished": {
+      "ending": "zimo",
+      "outcome_type": "HU",
+      "winner_seat": 0,
+      "discarder_seat": null,
+      "qianggang": false,
+      "win_tile": "W6",
+      "total_fan": 25,
+      "fans": [
+        {
+          "fan_points": 24,
+          "count": 1,
+          "fan_name_zh": "七对",
+          "fan_name_en": "Seven Pairs"
+        },
+        {
+          "fan_points": 1,
+          "count": 1,
+          "fan_name_zh": "自摸",
+          "fan_name_en": "Self-Drawn"
+        }
+      ],
+      "score_deltas": [
+        99,
+        -33,
+        -33,
+        -33
+      ]
+    },
+    "remaining_prediction": "b81b1313-c664-401b-8195-c6d44ea445f8"
+  },
+  "native_independence": {
+    "status": "PASS",
+    "root": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai",
+    "python": "3.12.10",
+    "os": "Darwin",
+    "arch": "arm64",
+    "local_modules": {
+      "app": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/__init__.py",
+      "app.settings": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/settings.py",
+      "app.db": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/db.py",
+      "app.domain": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/domain/__init__.py",
+      "app.domain.exceptions": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/domain/exceptions.py",
+      "app.domain.predictions": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/domain/predictions.py",
+      "app.services": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/services/__init__.py",
+      "app.domain.tiles": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/domain/tiles.py",
+      "app.domain.actions": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/domain/actions.py",
+      "app.engine": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/engine/__init__.py",
+      "app.domain.models": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/domain/models.py",
+      "app.engine.fan_calculator": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/engine/fan_calculator.py",
+      "app.engine.feature_encoder": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/engine/feature_encoder.py",
+      "app.engine.mcr_referee": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/engine/mcr_referee.py",
+      "app.services.bot_service": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/services/bot_service.py",
+      "app.services.game_service": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/services/game_service.py",
+      "app.mlp": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/mlp.py",
+      "app.model_checkpoint": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/model_checkpoint.py",
+      "app.services.ai_prediction_service": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/services/ai_prediction_service.py",
+      "app.services.prediction_history_service": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/services/prediction_history_service.py",
+      "app.services.web_prediction_service": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/services/web_prediction_service.py",
+      "app.web": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/__init__.py",
+      "app.web.errors": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/errors.py",
+      "app.web.schemas": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/schemas.py",
+      "app.web.security": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/security.py",
+      "app.web.views": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/views.py",
+      "app.web.api": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/api.py",
+      "app.web.games": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/games.py",
+      "training": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/training/__init__.py",
+      "training.dataset_loader": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/training/dataset_loader.py",
+      "app.web.runtime": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/runtime.py",
+      "app.web.contact": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/contact.py",
+      "app.web.tile_catalog": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/tile_catalog.py",
+      "app.web.pages": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/pages.py",
+      "app.web.documentation": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/web/documentation.py",
+      "app.main": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/app/main.py"
+    },
+    "model_path": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai/artifacts/models/mahjong_discard_mlp_v3.pt",
+    "model_device": "cpu",
+    "pytest_installed": false,
+    "versions": {
+      "torch": "2.15.0",
+      "numpy": "2.5.4",
+      "PyMahjongGB": "1.4.0",
+      "fastapi": "0.162.0",
+      "fastapi-cli": "0.0.32",
+      "psycopg": "3.3.8"
+    }
+  },
+  "final_native_persistence": {
+    "status": "PASS",
+    "normal_command": "sh run-macos.sh --native",
+    "native_start_seconds": 2.7155230000062147,
+    "restart_seconds": 1.6991659169871127,
+    "repeat_setup_exit": 0,
+    "repeat_setup_reinstalls": false,
+    "private_env_bytes_unchanged": true,
+    "same_cookie_history_survives_restart": true,
+    "owned_servers_stopped": true
+  },
+  "compose_persistence": {
+    "status": "PASS",
+    "repeat_setup_exit": 0,
+    "secrets_unchanged": true,
+    "same_cookie_history_after_db_web_stop_start": true,
+    "normal_startup_command": "docker compose up -d --wait",
+    "restart_to_healthy_seconds": 8.303862375003519,
+    "role": "mahjong_app|f|f|f",
+    "project": "mahjong_phase42_final",
+    "host_web_port": 8880,
+    "public_database_port": false
+  },
+  "container_environment": {
+    "status": "PASS",
+    "uid": 10001,
+    "os": "Linux",
+    "arch": "aarch64",
+    "python": "3.12.10",
+    "torch": "2.15.0+cpu",
+    "cuda": null,
+    "pytest_installed": false,
+    "assets": {
+      "status": "PASS",
+      "sha256": {
+        "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+        "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+        "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+      }
+    },
+    "image_has_no_private_env_or_secret_mount": true
+  },
+  "browser": {
+    "status": "PASS",
+    "base": "http://127.0.0.1:8878",
+    "source": "Fresh second extraction; isolated real Compose Linuxarm64, CPU v3 and PostgreSQL",
+    "created_game": true,
+    "seed": 42,
+    "human_seat": 1,
+    "prediction_before": [
+      "J1 82.04%",
+      "J2 6.92%",
+      "T1 2.72%"
+    ],
+    "real_discard": "W5",
+    "fast_control_selected_and_action_completed": true,
+    "real_claim": "Chi T2/T3/T4",
+    "post_meld_prediction": [
+      "J1 60.13%",
+      "T1 10.79%",
+      "J2 9.38%"
+    ],
+    "normal_after_following_discard": {
+      "busy": true,
+      "highlighted": 1,
+      "arriving": 1,
+      "skip_enabled": true,
+      "action_disabled": true
+    },
+    "skip_clicked": true,
+    "history_cards": 2,
+    "history_detail_table": true,
+    "contact_members": 5,
+    "contact_roles_notice": "Unconfirmed; no invented roles",
+    "screenshot": "docs/evidence/phase4_2/compose-game.png",
+    "full_round": "Completed through separate real HTTP acceptance; browser smoke covered selected interactions only",
+    "limitations": [
+      "No new full responsive/a11y matrix; source UI unchanged",
+      "No actual Windows browser/host"
+    ]
+  },
+  "preservation": {
+    "original_files": 2177,
+    "unchanged": 2175,
+    "intentional_changes": [
+      "README.md",
+      ".gitignore"
+    ],
+    "unexpected_changes": [],
+    "assets": {
+      "status": "PASS",
+      "sha256": {
+        "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+        "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+        "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+      }
+    },
+    "dev_records_after": {
+      "count": 44,
+      "sha256": "c0e91bdd962286726de3bb7d4f05d93adb1a455486500de022db04d5f0cc4380",
+      "rows": {
+        "01e7dc80-cdee-4200-b6a3-7d2480112be9": "55cf4ee5f21bdd6e54fc96b1dc13f95ffd8aee1f17ca2113d90a59dbd2fe0a20",
+        "029a9fc6-22f4-459b-bdc1-06afd2cb6c2c": "47b707cd00dcdabeb2e2dafd83ccef1a224d3e5becfc7e8b7bbca3832682c6f4",
+        "0568e00e-d410-4e72-8f04-b6d29ab02f16": "899866b0d9285c756005dc71c71b18821ec778ad568b8b1ec010f4b8194abd16",
+        "0a770e6b-0d1e-4b78-ae58-4cb677b7be83": "6d292a42c1ca5f7bd9ba811d45d8ec88faccb5e0910646903bb2a0cbb9e6b78f",
+        "0b4c37d8-767b-4df2-bee2-1511bc16b492": "29bc448479aa3af9027e173dbf59bd51d334658ed3551bb7c93fb5d1574d2071",
+        "1490f07e-1cfa-401b-9610-de8b05f1f6ac": "f17cb7fc09cd54049fb9fe8ac107250273a01d37bce06cd6d32431c09f5678b8",
+        "182af4c8-1bdc-4c9a-b18c-b7392ca877f8": "6207898c273094e3e83b672a3fda035a4ce870f2d9cb97242f54146b280644dc",
+        "1b93673d-b4f2-4c95-b338-305589b3fecc": "8796526176b9caee1e6862b7963c6fcf00f5ca10f15a8f959d79831660045579",
+        "1ed91564-6386-4afd-9c4e-f975ffd3697b": "72bcb353552ed57bf50a87be6b7aa8377aece69347b29fc54053dab343959454",
+        "2219b987-01ba-4c17-83a3-f7357fdfa443": "0a7563440327ce8d20e04d9e5b77ef47d0cfead5f582408a4924e51b8df43f0a",
+        "25e8f7a6-a0d5-44e7-82ad-0abf439886fc": "ab7aa7ed010894049e47bd02c67dc50dfcff70f75cd6acd56091d413f9f9ef9d",
+        "3ca4009f-55c3-45d4-9bb0-dac519afc97b": "5dbcf5aa246069145f3ae0eda994d36a71440966056eec0934a0c6c8e958828f",
+        "3d3fdebd-0598-44dd-9020-9521a8ecb0fb": "eeb4b0dddcc128a7a51fae15eff27e8cf41312cebff4eaec2e62f58d97f43602",
+        "406378d8-15c4-491c-8e21-a47843d20837": "a93cf0f8eb2ae246e086784f7c60969e8c66b6a24312b57ccccc16cfb01a6f62",
+        "44013ab6-f546-4e78-9444-8dfd4b8ce786": "d31ad82c4ba5dec6880d28979d6543f8d84c35a20464b11bdc5b12f44d188069",
+        "48510ced-8545-4217-9dac-2ed99b14b814": "cc2520221d4b05717c329ae845df7ac30976649b075d732ae60739d01aaf2bdc",
+        "4f8a1f62-85be-483a-a8f0-f861eb614ec9": "f4945a2865e95896d94fa0fbd7e9a5df522ae2f29154a54428b2f69ff3841de2",
+        "5479dd40-eae9-4b32-83cf-59ca57a2dc66": "0cb705dc3171e3dc5256123ffb844fb319bc3289c343926fc37d56b0971b3996",
+        "56cda573-f224-4dba-98e0-c82fdb4abd39": "c609b99c00c74c4668888f971f4a0a14553500a9f51454bb2488bc586e5e67c0",
+        "67dffd4c-e2ce-453d-b673-56a4ae185298": "9381856217e413cd2e358891afe22bed82401af4da2596513de04465569e0c07",
+        "68511d43-12d9-4a81-a143-80b619ca0e01": "f6052e0307fcaa69c5d009657e81249a21872c7cf53d8a4c854ea83cd78ac9b0",
+        "6d373ce4-58f3-4691-8d64-e1af25794b58": "fefe288b4014a57a8bdfc494c786b86ef88bfaec76578ad24090ff4c997f030c",
+        "7be8b6e2-09b0-4097-bed3-893a64cdb5c7": "775b356240b387dc50e4722de43f12e6030f2f316f086c40ec37edb32369e0c1",
+        "7cad01a4-2fab-425c-a586-b548571a8c3f": "4d7e943397a0938d8e0d28f1660fed9f3b2ad00d7082873c1b2e8ae559360f04",
+        "7e88b7dd-7477-4dd2-a1c7-7ca713a1c9e0": "0eb86d21cc32215ca2e000a0afb34b373e32e9019c6d4cdef5eeba3560915506",
+        "8a07653f-77f9-45c6-a0db-69e713a3c642": "640db54fafa5d96641b829ad2cda2617f51ef9649a7a706e124ca6d61ed70ea5",
+        "95d7dfdd-65ca-4293-b3f2-86b8899312bf": "96bbe1ff979300bc62c7fde4c5b2005782bb3b0a44dd8e6bcc160270de659ad6",
+        "9adaceb9-501e-41cf-b823-aa0543106c33": "e5b089098ed8db7fb63c79e0ce9560e3354e4964aacc110e43d0f0003090345d",
+        "a20c9a74-0748-4eb2-ae36-8b8231ad4f4d": "7fdf35ac8df42be8578ba4b1f5d89c06341b7c48a807a20b87d385a43e1fdacf",
+        "a7a2149d-44ba-41be-bf15-ab4d1ef39616": "b8e49b89bf164e46bd324085e2ed3d546ffa8aafc5b115b453b64935f7d0a97a",
+        "a9815d56-0751-4b4c-9a58-b8cdb69f1b4d": "2e24e0ff9d312cb9aeef520ea0927b83e5d9aad41625cefed679a546d8e1d6d2",
+        "af7a30cc-5e82-4e7a-a13a-33eb5fcf5642": "b27a8d9db42cc8b4fcf0367045e2f084b9ddf5fcb6bc07bf0ea83e2e0cf9cb67",
+        "afcbe353-3c00-4eb3-9f59-5278082caeba": "4f304741c5957a3795096ee21040fa71d0968d1a4a0b38f6b4b3bd7a502e1f01",
+        "b0fb57b2-5f93-4731-8544-aa1a55d9b9c2": "035064b2a5cde5ad324d64018f808805a193973932f46b1b37457cadd3245ed3",
+        "b453d659-0035-4018-b074-739ceb591d5d": "71aaa277d1173795a13426f6c57b3cc04a0fe274187ea3e7802174b5497c1d23",
+        "c405d7e1-1051-492f-aa52-9d22416211f2": "022cfa3617d76f000364e645f1416a9d968311a6faba4de54d9794476c8e26bc",
+        "da5c63a1-5ed2-4fca-8023-5af1cba9d698": "4732a156a3a712e7fb32700cd620e9b26f6c49ac162c2d385cbd460c5fb5bb68",
+        "e096f835-964c-4ef6-b527-652dd9fbe902": "4ea5f87a538f0640c6d2e1497acd7cc4f3b5d66ad408faa12c58b9a1612f1da0",
+        "e3eae519-1fe5-44e5-ad00-6cd697562e6b": "9ba5124491edcb5c047358899b048e10c858b13eb669ceea2377398b47ce18be",
+        "e5e6e0cb-90a5-41fb-9073-2f1c494e00ab": "accca39cc2c58cb5f044e9eab6906e8057eaa131f05f32c9b815969c71dfa1cb",
+        "eee539a9-d87f-449a-b7a3-e6bd887686c3": "fde227dd0778606b85db1f480f979fc9966009c7386e3c22fcf8150684d8daf2",
+        "f386c4ac-e768-41d4-b7e1-91b28ea95cbc": "4547199ec408b5e31ef9d3eb3c83490e97cfb0b13301fd04a2f00c8c502c5ff8",
+        "f6a21697-9812-4d04-bf4c-09b1cad973e4": "65e6ba4cdc32910a4306e34ba41af4f415fecc15143a7dc65f62d3ebcc3a2966",
+        "ff8ef299-bc80-4a41-9363-f2a104926951": "dd162e7fa54ecc8719a0bdeab2c422689cf2f70527eb74d5334a3390bb3b2878"
+      }
+    },
+    "dev_records_unchanged": true,
+    "original_cluster_still_running": true,
+    "python_baseline": 405,
+    "python_final": 437,
+    "removed_python_identities": [],
+    "new_python_identities": [
+      [
+        "tests.test_phase4_2",
+        "test_release_is_deterministic_and_separates_audit_without_copying_secrets"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_unsafe_source_or_destination_paths[../outside.py]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_unsafe_source_or_destination_paths[/absolute.py]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_unsafe_source_or_destination_paths[C:/escape.py]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_unsafe_source_or_destination_paths[a\\\\escape.py]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_unsafe_source_or_destination_paths[.env]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_symlink_even_to_a_file_inside_the_root"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_missing_local_runtime_import"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_refuses_existing_output_without_modifying_it"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_detects_source_changes_between_manifest_and_archive_copy"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_refuses_tampered_required_model_before_output"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_release_rejects_mapping_correct_host_model_to_wrong_package_destination"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_asset_restore_verifies_all_members_and_preserves_identical_files"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_asset_restore_rejects_tampered_bundle_without_extracting"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_config_is_private_persistent_and_does_not_rotate_secret"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_config_rejects_nonlocal_or_unsafe_database_urls[sqlite:///local.db]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_config_rejects_nonlocal_or_unsafe_database_urls[postgresql://u:p@remote.example/db]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_config_rejects_nonlocal_or_unsafe_database_urls[postgresql://u:p@127.0.0.1/db\\nEVIL=x]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_config_never_follows_a_symlink"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_compose_secrets_are_generated_once_without_secret_output"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_macos_launcher_reports_the_selected_host_port"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[backup.dump]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[docs/backup.sql.gz]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[artifacts/credentials.json]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[private-notes.txt]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_audit_rejects_credential_values_hidden_in_an_innocent_json_name"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_prior_release_manifest_is_preserved_without_duplicate_zip_names"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_runtime_mapping_cannot_overwrite_the_generated_manifest"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_setup_rejects_effective_connection_host_overrides[host=remote.example]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_setup_rejects_effective_connection_host_overrides[hostaddr=203.0.113.2]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_setup_rejects_effective_connection_host_overrides[service=remote]"
+      ],
+      [
+        "tests.test_phase4_2",
+        "test_native_setup_rejects_effective_connection_host_overrides[host=127.0.0.1&host=remote.example]"
+      ]
+    ],
+    "node_baseline": 91,
+    "node_final": 91,
+    "node_names_unchanged": true,
+    "head": "28623736f6ce9d90eeb86dea98908b182631aad1"
+  },
+  "security": {
+    "native_config": "Owner0600, exclusive creation, stable secret; effective local DB validation",
+    "compose": "Private0700 parent, secret mounts; web UID10001; separate non-superuser app role; PG unpublished",
+    "image_has_private_env_secrets": false,
+    "no_public_upload": true,
+    "native_mac_legacy_admin_role": "Documented retained limitation"
+  },
+  "independent_review": {
+    "reviewer": "/root/phase42_review",
+    "critical": 0,
+    "important_found": 3,
+    "important_fixed_with_red_green": 3,
+    "focused_independently_run": 21,
+    "no_independent_rereview": true,
+    "windows_execution": false,
+    "final_full_cli_docker_browser": "Implementer-run"
+  },
+  "sizes": {
+    "preflight_allocated_checkout_kib": 3602644,
+    "eligible_original_files": 2177,
+    "eligible_original_bytes": 918556528,
+    "inference_asset_bytes": 3257270,
+    "fresh_native_venv_kib": 887584,
+    "web_image_bytes_docker_inspect": 319708252,
+    "postgres_image_bytes_docker_inspect": 149851434
+  },
+  "timing": {
+    "native_setup_seconds_warm_pip_cache": 35.75,
+    "native_startup_seconds": 2.715523,
+    "native_restart_seconds": 1.699166,
+    "initial_docker_build_seconds_log_birth_to_last_write": 102.987596,
+    "final_cached_compose_setup_seconds_log_birth_to_last_write": 12.582255,
+    "compose_restart_to_healthy_seconds": 8.303862
+  },
+  "cleanup": {
+    "status": "PASS",
+    "owned_resources": [
+      {
+        "project": "mahjong_phase42_acceptance",
+        "stopped": true,
+        "volumes_deleted": false
+      },
+      {
+        "project": "mahjong_phase42_verified",
+        "stopped": true,
+        "volumes_deleted": false
+      },
+      {
+        "project": "mahjong_phase42_final",
+        "stopped": true,
+        "volumes_deleted": false
+      },
+      {
+        "native_cluster_root": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai",
+        "stopped": true,
+        "data_deleted": false
+      },
+      {
+        "native_cluster_root": "/private/tmp/mj42f-1ozo7prc/mahjong-strategy-ai",
+        "stopped": true,
+        "data_deleted": false
+      },
+      {
+        "native_cluster_root": "/private/tmp/mj42a-bvm0r6ea/a",
+        "stopped": true,
+        "data_deleted": false
+      }
+    ],
+    "remaining_running_container_names": [
+      "core-sgdr-medical-1",
+      "core-mongodb-1",
+      "seedr_nest_postgres"
+    ],
+    "original_developer_cluster": "Not stopped; separately verified running",
+    "original_cli_preview": "Graceful shutdown; reloader/server stopped",
+    "unrelated_services_stopped": false
+  },
+  "static": {
+    "status": "PASS",
+    "commands": [
+      "sh -n setup-macos.sh run-macos.sh packaging/postgres_init.sh",
+      ".venv/bin/python -m py_compile scripts/build_lecturer_release.py scripts/lecturer_assets.py scripts/lecturer_setup.py",
+      ".venv/bin/python -m pip check",
+      "git diff --check"
+    ],
+    "warning": "pip cache unavailable; no broken requirements",
+    "restored_python_identities_equal": true,
+    "restored_node_names_equal": true
+  },
+  "git": {
+    "branch": "main",
+    "head": "28623736f6ce9d90eeb86dea98908b182631aad1",
+    "tracked_modified": 2,
+    "untracked_files": 80,
+    "staged_files": 0,
+    "tracked_paths": [
+      ".gitignore",
+      "README.md"
+    ],
+    "untracked_paths": [
+      ".dockerignore",
+      "Dockerfile",
+      "README_AUDIT.md",
+      "README_START_HERE.md",
+      "artifacts/phase4_2/browser.json",
+      "artifacts/phase4_2/cleanup.json",
+      "artifacts/phase4_2/compose_fresh_path.json",
+      "artifacts/phase4_2/compose_http.json",
+      "artifacts/phase4_2/compose_persistence.json",
+      "artifacts/phase4_2/container_environment.json",
+      "artifacts/phase4_2/cpu_wheel_index.json",
+      "artifacts/phase4_2/file_inventory.json",
+      "artifacts/phase4_2/final_compose_http.json",
+      "artifacts/phase4_2/final_fresh_path.json",
+      "artifacts/phase4_2/final_native_persistence.json",
+      "artifacts/phase4_2/fresh_path.json",
+      "artifacts/phase4_2/git_final.json",
+      "artifacts/phase4_2/integrity.json",
+      "artifacts/phase4_2/native_http.json",
+      "artifacts/phase4_2/native_independence.json",
+      "artifacts/phase4_2/native_persistence.json",
+      "artifacts/phase4_2/preflight.json",
+      "artifacts/phase4_2/restored_audit_path.json",
+      "artifacts/phase4_2/schema.json",
+      "artifacts/phase4_2/static_checks.json",
+      "artifacts/phase4_2/verification_summary.json",
+      "artifacts/phase4_2/wheel_availability.json",
+      "compose.yaml",
+      "docs/evidence/phase4_2/asset_mapping_red.txt",
+      "docs/evidence/phase4_2/baseline.txt",
+      "docs/evidence/phase4_2/baseline.xml",
+      "docs/evidence/phase4_2/build_candidate.txt",
+      "docs/evidence/phase4_2/compose-game.png",
+      "docs/evidence/phase4_2/compose_red.txt",
+      "docs/evidence/phase4_2/compose_setup_green.txt",
+      "docs/evidence/phase4_2/copy_race_red.txt",
+      "docs/evidence/phase4_2/docker_bootstrap.txt",
+      "docs/evidence/phase4_2/docker_build.txt",
+      "docs/evidence/phase4_2/docker_up.txt",
+      "docs/evidence/phase4_2/final_compose_setup.txt",
+      "docs/evidence/phase4_2/final_native_setup.txt",
+      "docs/evidence/phase4_2/focused_final.txt",
+      "docs/evidence/phase4_2/focused_final.xml",
+      "docs/evidence/phase4_2/focused_final_v2.txt",
+      "docs/evidence/phase4_2/focused_final_v2.xml",
+      "docs/evidence/phase4_2/focused_green.txt",
+      "docs/evidence/phase4_2/focused_green.xml",
+      "docs/evidence/phase4_2/full_regression_final.txt",
+      "docs/evidence/phase4_2/full_regression_final.xml",
+      "docs/evidence/phase4_2/git_final.txt",
+      "docs/evidence/phase4_2/green_initial.txt",
+      "docs/evidence/phase4_2/independent_review.md",
+      "docs/evidence/phase4_2/launcher_port_red.txt",
+      "docs/evidence/phase4_2/native_install.txt",
+      "docs/evidence/phase4_2/native_setup_repeat.txt",
+      "docs/evidence/phase4_2/node_baseline.txt",
+      "docs/evidence/phase4_2/node_final.txt",
+      "docs/evidence/phase4_2/red.txt",
+      "docs/evidence/phase4_2/restored_audit_full.txt",
+      "docs/evidence/phase4_2/restored_audit_full.xml",
+      "docs/evidence/phase4_2/restored_audit_node.txt",
+      "docs/evidence/phase4_2/review_green.txt",
+      "docs/evidence/phase4_2/review_green.xml",
+      "docs/evidence/phase4_2/review_manifest_red.txt",
+      "docs/evidence/phase4_2/review_red.txt",
+      "docs/phase4_2_implementation_report.md",
+      "docs/phase4_2_plan.md",
+      "docs/phase4_2_test_matrix.md",
+      "packaging/Dockerfile.postgres",
+      "packaging/postgres_init.sh",
+      "packaging/runtime_allowlist.json",
+      "requirements-runtime.txt",
+      "run-macos.sh",
+      "run-windows.cmd",
+      "scripts/build_lecturer_release.py",
+      "scripts/lecturer_assets.py",
+      "scripts/lecturer_setup.py",
+      "setup-macos.sh",
+      "setup-windows.cmd",
+      "tests/test_phase4_2.py"
+    ],
+    "staged_paths": [],
+    "working_tree_clean": false,
+    "git_mutations_performed": [],
+    "push_commit_deployment": false
+  },
+  "remaining": [
+    "Windows native/Docker execution and ACL/toolchain behavior not verified",
+    "macOSIntel/Linuxamd64 not run",
+    "Internet/Docker Desktop/disk or native toolchain prerequisites",
+    "Full new accessibility/physical device/zoom audit not run",
+    "UAS roles/contributions, final PDF/video/sourceSQL submission approval remain outstanding"
+  ],
+  "evidence_sha256": {
+    "docs/evidence/phase4_2/asset_mapping_red.txt": "a363eac8563c6c93a61ee7e449ebe9426081cc4a58ab3ab3794a3b073ef24257",
+    "docs/evidence/phase4_2/baseline.txt": "3532ade3d07f92a993161772e87a3ebaf80fed93ec4aef35c015135d23aa3ab5",
+    "docs/evidence/phase4_2/baseline.xml": "e6ab9bcc5736f613353f0657f04b1cbaffe4b4ca22ba8acc22231e7a50cc99c0",
+    "docs/evidence/phase4_2/build_candidate.txt": "a8da02c8013619f0535aa04ac3df9094a963be480f3b4adfbc40225b658d842c",
+    "docs/evidence/phase4_2/compose-game.png": "0045b9d0bd2e5de60e83a0367449335669cebb80d18277b692456483beeea590",
+    "docs/evidence/phase4_2/compose_red.txt": "e174709276c49becdee7293ffca69fe559dbd28cc03d82c09acc777d3eca1b57",
+    "docs/evidence/phase4_2/compose_setup_green.txt": "2c99b13b64934a95840353f2ece4a745494d7c83146f2cc96433070059a6dbfe",
+    "docs/evidence/phase4_2/copy_race_red.txt": "bac18dce5981f3000f54e7ededbb61021c8de880d4755e75e206394e0884ee38",
+    "docs/evidence/phase4_2/docker_bootstrap.txt": "4848139ec543fe4fa5eaed1052ad6826fbbe94a824770c9c1b4cab3510968c39",
+    "docs/evidence/phase4_2/docker_build.txt": "9197f0c84ddb6fc865483c90c8ea0129a215b5e2b76c1a5c68928d8dffb88c98",
+    "docs/evidence/phase4_2/docker_up.txt": "2f4bed61cafb632144af78c80e9ffb9140e13df93ac06a75f8e3a2ac81ff8cb5",
+    "docs/evidence/phase4_2/final_compose_setup.txt": "f3adc0efe27da227a6e8755f98e306626f9e3b9be4a015b594685bf8d8ba5a78",
+    "docs/evidence/phase4_2/final_native_setup.txt": "586c9f122059adf8d6be26f9a73b323cfc8c73404a5e83f373e1c93d38051123",
+    "docs/evidence/phase4_2/focused_final.txt": "8c24e931b9da9e210ac07564c27c8358cd5be260f318b1ef9a024c15d1017c98",
+    "docs/evidence/phase4_2/focused_final.xml": "6e61caf5ace37eff29409c9972a49028cd36d014b98ca012bdf32fb6f319e283",
+    "docs/evidence/phase4_2/focused_final_v2.txt": "0e1ef0ccd64c86f59925f6578730255dae7830fcd8b85c80af77bb66fa9fef6a",
+    "docs/evidence/phase4_2/focused_final_v2.xml": "8d9403f9975e4d1ca6445f49ea0b46c962ac6cb0ca09fe4eea7e58f7149c4b2e",
+    "docs/evidence/phase4_2/focused_green.txt": "ed197dfbdad7e4836f9091631577bf067a426c15ea22f5772c361975530fc128",
+    "docs/evidence/phase4_2/focused_green.xml": "1b30d66bd104fd5f46a4e02ee97d1b590155c10be3789d1fa35cd2086fea7517",
+    "docs/evidence/phase4_2/full_regression_final.txt": "9988511f2c6aec832f795da72ed282539737cfa8ac68a1e22b042f21850ca263",
+    "docs/evidence/phase4_2/full_regression_final.xml": "12670a14ff4af20451823fc3b39b7b1a0296e8b31a7f43879917cfc95337ac66",
+    "docs/evidence/phase4_2/git_final.txt": "e3e72349bb92833f22f0c3b750c2c80716be794c430a21829c8184185003ef9c",
+    "docs/evidence/phase4_2/green_initial.txt": "bcf90c38b8f06841524d35285acb47f7aed3489961bfce3db8a78803833308e3",
+    "docs/evidence/phase4_2/independent_review.md": "5b8292abbc3d53833884130019fcaf85678834086ceeccda870ace6db3b5a9cb",
+    "docs/evidence/phase4_2/launcher_port_red.txt": "9c5ef4400119e63835c71f228ccef24d7fe27bbb5b89150030f1beede7d8c770",
+    "docs/evidence/phase4_2/native_install.txt": "3c88802722f57c0d7de9752a96fc0b007f85fefb83aa3dde7912eb898526da11",
+    "docs/evidence/phase4_2/native_setup_repeat.txt": "a5c38ff0c23b497a7ba5d0aa4ba01d855529d023b839cfa2673c770979bdc5c0",
+    "docs/evidence/phase4_2/node_baseline.txt": "ccd54fbbd50c74362b494c7a3c69c4c9d283f35ffb623ee69a7100c57d0cd0a9",
+    "docs/evidence/phase4_2/node_final.txt": "42b691958b01432c62d3231decf0f1ec9321b45f6d8d752d203c8907649a65f5",
+    "docs/evidence/phase4_2/red.txt": "05c6677fc373dd2903ffee9e20561f245bb0b338afa6731ddb096504dee71313",
+    "docs/evidence/phase4_2/restored_audit_full.txt": "5d0425441c27d339a0a9372598c1621095bf256db7002f77afa8b4f47bd5bc03",
+    "docs/evidence/phase4_2/restored_audit_full.xml": "9ddfb47c4a70e0c86af28fec2d656eccff4f28de869e80ad5cde57ba9c1a932b",
+    "docs/evidence/phase4_2/restored_audit_node.txt": "7d4a90c0198d59b098a72477e15535522e5daa0df263acda63906e328f4534be",
+    "docs/evidence/phase4_2/review_green.txt": "970e7d27913d66fdca794ca60666028c7d223b6d9029708e6a4e237a3e334366",
+    "docs/evidence/phase4_2/review_green.xml": "ed1fb6f394dbb1cc6e0d21629b4efa4ec8a6b92108de8627025c07312150cafc",
+    "docs/evidence/phase4_2/review_manifest_red.txt": "fb0b4da28d9e2be2b16c50fb6100e3cb938a318c438de64066f39293459102df",
+    "docs/evidence/phase4_2/review_red.txt": "d8a96953ffe4358e3679519ecbd72497b0f76cd6fdc338ecb23fd10931627b28"
+  }
+}

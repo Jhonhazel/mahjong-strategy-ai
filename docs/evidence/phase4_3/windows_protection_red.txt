@@ -1,0 +1,31 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_____ test_private_profile_is_protected_before_any_secret_file_is_written ______
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-39/test_private_profile_is_protec0')
+
+    def test_private_profile_is_protected_before_any_secret_file_is_written(tmp_path):
+        module=launcher();root=tmp_path/'profile';seen=[]
+        def protect(path):
+            assert path==root and not (root/'state.json').exists();seen.append(path)
+>       module.prepare_state(root,protect=protect)
+E       TypeError: prepare_state() got an unexpected keyword argument 'protect'
+
+tests/test_phase4_3_windows.py:139: TypeError
+_________ test_pg_archive_never_extracts_traversal_or_symlink_members __________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-39/test_pg_archive_never_extracts0')
+
+    def test_pg_archive_never_extracts_traversal_or_symlink_members(tmp_path):
+>       assert importlib.util.find_spec('scripts.build_windows_package'),'Missing Windows packaging safety checks'
+E       AssertionError: Missing Windows packaging safety checks
+E       assert None
+E        +  where None = <function find_spec at 0x104d78f40>('scripts.build_windows_package')
+E        +    where <function find_spec at 0x104d78f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:144: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_windows.py::test_private_profile_is_protected_before_any_secret_file_is_written
+FAILED tests/test_phase4_3_windows.py::test_pg_archive_never_extracts_traversal_or_symlink_members
+2 failed in 0.05s

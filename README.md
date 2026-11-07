@@ -1,4 +1,28 @@
-# Mahjong Strategy AI — Phases 1–4.1
+# Mahjong Strategy AI — Phases 1–4.3
+
+Phase4.3 menambahkan handoff deploymentHTTPS dengan proxytrust eksplisit dan
+workflow buildWindows offline. **Belum ada URL publik atau executableWindows
+terverifikasi.** Lihat [status jalur pengguna](README_START_HERE.md),
+[deployment](deploy/README.md), dan [buildWindows](windows/README_BUILD.md).
+Paket/arsip Phase4.2 tetap utuh; metode macOS/Docker di bawah tetap tersedia.
+
+## Dosen / anggota kelompok: mulai dari paket bersih
+
+Gunakan [README_START_HERE.md](README_START_HERE.md): prasyarat Docker Desktop,
+setup sekali (`setup-windows.cmd` / `./setup-macos.sh`), startup berikutnya
+(`run-windows.cmd` / `./run-macos.sh`), lalu buka http://127.0.0.1:8000/.
+Node bukan prasyarat website. Alternatif native CPython3.12 juga dijelaskan;
+prepared environment tetap dapat memakai `fastapi dev main.py`.
+
+Pemilik membuat ZIP runtime dan audit terpisah dengan
+`.venv/bin/python -m scripts.build_lecturer_release --output delivery/new-release`.
+ZIP runtime menyertakan aset v3 checksum-verified; clone GitHub biasa tetap tidak
+menyertakan checkpoint yang di-ignore. Tidak ada Release/upload otomatis.
+Checkout engineering ini sengaja tetap lengkap. Panduan audit:
+[README_AUDIT.md](README_AUDIT.md). Hasil platform aktual dan batas verifikasi
+dicatat di [laporan Phase4.2](docs/phase4_2_implementation_report.md).
+
+Bagian historis/pengembangan di bawah tetap tersedia untuk reproduksi.
 
 Playable Botzone Chinese Standard Mahjong (MCR), one human and three local shanten bots. Phase 1 includes the referee, scoring, private-seat encoder and CLI. Phases 2–2.2 add the verified Behavior Cloning models. Phase 3 connects the unchanged engine and promoted v3 model to FastAPI and PostgreSQL. Phase 4 adds the responsive Play, Predict & Learn interface: original local tile art, a four-seat board, exact legal-action controls, an explicit AI advisor and visual prediction history.
 

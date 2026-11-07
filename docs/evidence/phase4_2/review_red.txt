@@ -1,0 +1,173 @@
+.....................FFFFFFFFFF                                          [100%]
+=================================== FAILURES ===================================
+_ test_audit_does_not_admit_backups_credentials_or_unknown_root_files[backup.dump] _
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back0')
+name = 'backup.dump'
+
+    @pytest.mark.parametrize('name',['backup.dump','docs/backup.sql.gz','artifacts/credentials.json','private-notes.txt'])
+    def test_audit_does_not_admit_backups_credentials_or_unknown_root_files(release_source,tmp_path,name):
+        root,runtime=release_source;path=root/name;path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text('{"MAHJONG_SESSION_SECRET":"synthetic-private-value"}')
+        module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+        with zipfile.ZipFile(tmp_path/'out'/'mahjong-strategy-ai-audit.zip') as archive:
+>           assert 'mahjong-strategy-ai-audit/'+name not in archive.namelist()
+E           AssertionError: assert ('mahjong-strategy-ai-audit/' + 'backup.dump') not in ['mahjong-strategy-ai-audit/backup.dump', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json']
+E            +  where ['mahjong-strategy-ai-audit/backup.dump', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'] = namelist()
+E            +    where namelist = <zipfile.ZipFile filename='/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back0/out/mahjong-strategy-ai-audit.zip' mode='r'>.namelist
+
+tests/test_phase4_2.py:183: AssertionError
+_ test_audit_does_not_admit_backups_credentials_or_unknown_root_files[docs/backup.sql.gz] _
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back1')
+name = 'docs/backup.sql.gz'
+
+    @pytest.mark.parametrize('name',['backup.dump','docs/backup.sql.gz','artifacts/credentials.json','private-notes.txt'])
+    def test_audit_does_not_admit_backups_credentials_or_unknown_root_files(release_source,tmp_path,name):
+        root,runtime=release_source;path=root/name;path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text('{"MAHJONG_SESSION_SECRET":"synthetic-private-value"}')
+        module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+        with zipfile.ZipFile(tmp_path/'out'/'mahjong-strategy-ai-audit.zip') as archive:
+>           assert 'mahjong-strategy-ai-audit/'+name not in archive.namelist()
+E           AssertionError: assert ('mahjong-strategy-ai-audit/' + 'docs/backup.sql.gz') not in ['mahjong-strategy-ai-audit/docs/backup.sql.gz', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json']
+E            +  where ['mahjong-strategy-ai-audit/docs/backup.sql.gz', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'] = namelist()
+E            +    where namelist = <zipfile.ZipFile filename='/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back1/out/mahjong-strategy-ai-audit.zip' mode='r'>.namelist
+
+tests/test_phase4_2.py:183: AssertionError
+_ test_audit_does_not_admit_backups_credentials_or_unknown_root_files[artifacts/credentials.json] _
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back2')
+name = 'artifacts/credentials.json'
+
+    @pytest.mark.parametrize('name',['backup.dump','docs/backup.sql.gz','artifacts/credentials.json','private-notes.txt'])
+    def test_audit_does_not_admit_backups_credentials_or_unknown_root_files(release_source,tmp_path,name):
+        root,runtime=release_source;path=root/name;path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text('{"MAHJONG_SESSION_SECRET":"synthetic-private-value"}')
+        module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+        with zipfile.ZipFile(tmp_path/'out'/'mahjong-strategy-ai-audit.zip') as archive:
+>           assert 'mahjong-strategy-ai-audit/'+name not in archive.namelist()
+E           AssertionError: assert ('mahjong-strategy-ai-audit/' + 'artifacts/credentials.json') not in ['mahjong-strategy-ai-audit/artifacts/credentials.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json']
+E            +  where ['mahjong-strategy-ai-audit/artifacts/credentials.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'] = namelist()
+E            +    where namelist = <zipfile.ZipFile filename='/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back2/out/mahjong-strategy-ai-audit.zip' mode='r'>.namelist
+
+tests/test_phase4_2.py:183: AssertionError
+_ test_audit_does_not_admit_backups_credentials_or_unknown_root_files[private-notes.txt] _
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back3')
+name = 'private-notes.txt'
+
+    @pytest.mark.parametrize('name',['backup.dump','docs/backup.sql.gz','artifacts/credentials.json','private-notes.txt'])
+    def test_audit_does_not_admit_backups_credentials_or_unknown_root_files(release_source,tmp_path,name):
+        root,runtime=release_source;path=root/name;path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text('{"MAHJONG_SESSION_SECRET":"synthetic-private-value"}')
+        module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+        with zipfile.ZipFile(tmp_path/'out'/'mahjong-strategy-ai-audit.zip') as archive:
+>           assert 'mahjong-strategy-ai-audit/'+name not in archive.namelist()
+E           AssertionError: assert ('mahjong-strategy-ai-audit/' + 'private-notes.txt') not in ['mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/private-notes.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json']
+E            +  where ['mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/private-notes.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'] = namelist()
+E            +    where namelist = <zipfile.ZipFile filename='/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_does_not_admit_back3/out/mahjong-strategy-ai-audit.zip' mode='r'>.namelist
+
+tests/test_phase4_2.py:183: AssertionError
+_____ test_audit_rejects_credential_values_hidden_in_an_innocent_json_name _____
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_rejects_...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_audit_rejects_credential_0')
+
+    def test_audit_rejects_credential_values_hidden_in_an_innocent_json_name(release_source,tmp_path):
+        root,runtime=release_source;path=root/'docs/ordinary.json'
+        path.write_text('{"config":{"MAHJONG_SESSION_SECRET":"synthetic-private-value"}}')
+>       with pytest.raises(ValueError,match='secret'):module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:190: Failed
+_____ test_prior_release_manifest_is_preserved_without_duplicate_zip_names _____
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_prior_release_...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_prior_release_manifest_is0')
+
+    def test_prior_release_manifest_is_preserved_without_duplicate_zip_names(release_source,tmp_path):
+        root,runtime=release_source;(root/'RELEASE_MANIFEST.json').write_text('{"original":"preserve"}')
+        module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+        with zipfile.ZipFile(tmp_path/'out'/'mahjong-strategy-ai-audit.zip') as archive:
+>           assert len(archive.namelist())==len(set(archive.namelist()))
+E           AssertionError: assert 4 == 3
+E            +  where 4 = len(['mahjong-strategy-ai-audit/RELEASE_MANIFEST.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'])
+E            +    where ['mahjong-strategy-ai-audit/RELEASE_MANIFEST.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'] = namelist()
+E            +      where namelist = <zipfile.ZipFile filename='/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_prior_release_manifest_is0/out/mahjong-strategy-ai-audit.zip' mode='r'>.namelist
+E            +  and   3 = len({'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py'})
+E            +    where {'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py'} = set(['mahjong-strategy-ai-audit/RELEASE_MANIFEST.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'])
+E            +      where ['mahjong-strategy-ai-audit/RELEASE_MANIFEST.json', 'mahjong-strategy-ai-audit/docs/evidence/old.txt', 'mahjong-strategy-ai-audit/tests/old_test.py', 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'] = namelist()
+E            +        where namelist = <zipfile.ZipFile filename='/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_prior_release_manifest_is0/out/mahjong-strategy-ai-audit.zip' mode='r'>.namelist
+
+tests/test_phase4_2.py:198: AssertionError
+_ test_native_setup_rejects_effective_connection_host_overrides[host=remote.example] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_native_setup_rejects_effe0')
+query = 'host=remote.example'
+
+    @pytest.mark.parametrize('query',['host=remote.example','hostaddr=203.0.113.2','service=remote','host=127.0.0.1&host=remote.example'])
+    def test_native_setup_rejects_effective_connection_host_overrides(tmp_path,query):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:204: Failed
+_ test_native_setup_rejects_effective_connection_host_overrides[hostaddr=203.0.113.2] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_native_setup_rejects_effe1')
+query = 'hostaddr=203.0.113.2'
+
+    @pytest.mark.parametrize('query',['host=remote.example','hostaddr=203.0.113.2','service=remote','host=127.0.0.1&host=remote.example'])
+    def test_native_setup_rejects_effective_connection_host_overrides(tmp_path,query):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:204: Failed
+_ test_native_setup_rejects_effective_connection_host_overrides[service=remote] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_native_setup_rejects_effe2')
+query = 'service=remote'
+
+    @pytest.mark.parametrize('query',['host=remote.example','hostaddr=203.0.113.2','service=remote','host=127.0.0.1&host=remote.example'])
+    def test_native_setup_rejects_effective_connection_host_overrides(tmp_path,query):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:204: Failed
+_ test_native_setup_rejects_effective_connection_host_overrides[host=127.0.0.1&host=remote.example] _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-27/test_native_setup_rejects_effe3')
+query = 'host=127.0.0.1&host=remote.example'
+
+    @pytest.mark.parametrize('query',['host=remote.example','hostaddr=203.0.113.2','service=remote','host=127.0.0.1&host=remote.example'])
+    def test_native_setup_rejects_effective_connection_host_overrides(tmp_path,query):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:204: Failed
+=============================== warnings summary ===============================
+tests/test_phase4_2.py::test_prior_release_manifest_is_preserved_without_duplicate_zip_names
+  /opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/zipfile/__init__.py:1611: UserWarning: Duplicate name: 'mahjong-strategy-ai-audit/RELEASE_MANIFEST.json'
+    return self._open_to_write(zinfo, force_zip64=force_zip64)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase4_2.py::test_audit_does_not_admit_backups_credentials_or_unknown_root_files[backup.dump]
+FAILED tests/test_phase4_2.py::test_audit_does_not_admit_backups_credentials_or_unknown_root_files[docs/backup.sql.gz]
+FAILED tests/test_phase4_2.py::test_audit_does_not_admit_backups_credentials_or_unknown_root_files[artifacts/credentials.json]
+FAILED tests/test_phase4_2.py::test_audit_does_not_admit_backups_credentials_or_unknown_root_files[private-notes.txt]
+FAILED tests/test_phase4_2.py::test_audit_rejects_credential_values_hidden_in_an_innocent_json_name
+FAILED tests/test_phase4_2.py::test_prior_release_manifest_is_preserved_without_duplicate_zip_names
+FAILED tests/test_phase4_2.py::test_native_setup_rejects_effective_connection_host_overrides[host=remote.example]
+FAILED tests/test_phase4_2.py::test_native_setup_rejects_effective_connection_host_overrides[hostaddr=203.0.113.2]
+FAILED tests/test_phase4_2.py::test_native_setup_rejects_effective_connection_host_overrides[service=remote]
+FAILED tests/test_phase4_2.py::test_native_setup_rejects_effective_connection_host_overrides[host=127.0.0.1&host=remote.example]
+10 failed, 21 passed, 1 warning in 1.20s

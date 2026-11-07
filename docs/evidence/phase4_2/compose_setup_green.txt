@@ -1,0 +1,146 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 748B done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 1.40kB done
+#2 DONE 0.0s
+
+#3 [db internal] load build definition from Dockerfile.postgres
+#3 transferring dockerfile: 286B done
+#3 DONE 0.0s
+
+#4 [db internal] load metadata for docker.io/library/postgres:14.19-bookworm
+#4 DONE 0.0s
+
+#5 [db internal] load .dockerignore
+#5 transferring context: 778B done
+#5 DONE 0.0s
+
+#6 [db internal] load build context
+#6 transferring context: 372B done
+#6 DONE 0.0s
+
+#7 [db 1/3] FROM docker.io/library/postgres:14.19-bookworm@sha256:3842190055089307b21e428706add706b52815c6b3d55ca01d1d9a4299357b9f
+#7 resolve docker.io/library/postgres:14.19-bookworm@sha256:3842190055089307b21e428706add706b52815c6b3d55ca01d1d9a4299357b9f done
+#7 DONE 0.1s
+
+#8 [web internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm
+#8 ...
+
+#9 [db 2/3] COPY packaging/postgres_init.sh /docker-entrypoint-initdb.d/10-mahjong.sh
+#9 DONE 0.0s
+
+#10 [db 3/3] RUN chmod 644 /docker-entrypoint-initdb.d/10-mahjong.sh
+#10 DONE 0.1s
+
+#11 [db] exporting to image
+#11 exporting layers 0.0s done
+#11 exporting manifest sha256:aa084dec942ae18086fd3df2e3f3c32315a729e13d2d3656893228f80b602194 done
+#11 exporting config sha256:6c1de9b7536213a26a6256b8b95a0313565855d00274e1e00e52797cf320b8cc done
+#11 exporting attestation manifest sha256:76f76a3de9f8368c4b411cb3ff5b693cd97e0bb650b9f5739dee2dfb1c247d38 done
+#11 exporting manifest list sha256:f644cb43591b899c5b0b4b721cab9205cc3484f315681fee3317cd745cd5784f done
+#11 naming to docker.io/library/mahjong-strategy-ai-postgres:4.2 done
+#11 unpacking to docker.io/library/mahjong-strategy-ai-postgres:4.2 0.0s done
+#11 DONE 0.1s
+
+#8 [web internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm
+#8 ...
+
+#12 [db] resolving provenance for metadata file
+#12 DONE 0.0s
+
+#8 [web internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm
+#8 DONE 1.4s
+
+#5 [web internal] load .dockerignore
+#5 CACHED
+
+#13 [web mahjong-wheel 1/2] FROM docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#13 resolve docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db done
+#13 DONE 0.0s
+
+#14 [web internal] load build context
+#14 transferring context: 3.58MB 0.0s done
+#14 DONE 0.0s
+
+#15 [web stage-1 11/15] COPY docs/ml_artifact_bundle_manifest.json docs/ml_artifact_bundle_manifest.json
+#15 CACHED
+
+#16 [web stage-1  7/15] COPY app app
+#16 CACHED
+
+#17 [web stage-1 12/15] COPY artifacts/models/mahjong_discard_mlp_v3.pt artifacts/models/mahjong_discard_mlp_v3.pt
+#17 CACHED
+
+#18 [web stage-1  5/15] RUN pip install --no-cache-dir torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu     && pip install --no-cache-dir --find-links=/wheels -r requirements-runtime.txt     && pip check
+#18 CACHED
+
+#19 [web stage-1 14/15] COPY datasets/expanded_strict_v2/data_contract.json datasets/expanded_strict_v2/data_contract.json
+#19 CACHED
+
+#20 [web stage-1  4/15] COPY requirements-runtime.txt .
+#20 CACHED
+
+#21 [web stage-1  3/15] COPY --from=mahjong-wheel /wheels /wheels
+#21 CACHED
+
+#22 [web stage-1  8/15] COPY config/contact_members.public.json config/contact_members.public.json
+#22 CACHED
+
+#23 [web mahjong-wheel 2/2] RUN apt-get update && apt-get install -y --no-install-recommends g++     && pip wheel --no-deps PyMahjongGB==1.4.0 --wheel-dir /wheels
+#23 CACHED
+
+#24 [web stage-1  2/15] WORKDIR /app
+#24 CACHED
+
+#25 [web stage-1  9/15] COPY scripts scripts
+#25 CACHED
+
+#26 [web stage-1  6/15] COPY main.py .
+#26 CACHED
+
+#27 [web stage-1 13/15] COPY artifacts/models/mahjong_discard_mlp_v3.metadata.json artifacts/models/mahjong_discard_mlp_v3.metadata.json
+#27 CACHED
+
+#28 [web stage-1 10/15] COPY training training
+#28 CACHED
+
+#29 [web stage-1 15/15] RUN python -m scripts.lecturer_assets && useradd --uid 10001 --create-home mahjong
+#29 CACHED
+
+#30 [web] exporting to image
+#30 exporting layers done
+#30 exporting manifest sha256:3b4de3b60a65cf538d243ca8f8fad31331ebbe906a4144b25f946df60a2e5542 done
+#30 exporting config sha256:80b3062d914faebaa5172e5244d6cbf6deb7542c0a7601daa76b0884174db564 done
+#30 exporting attestation manifest sha256:273760a63bb4545f4507ae80b9c7bdeb9e607ee8af4f4ec8cd491b05eaef4eda done
+#30 exporting manifest list sha256:dbb9e4934c7cf7bc6216bb2cea556a30167ab473941dc74dd8b2ec49e8da0e62 done
+#30 naming to docker.io/library/mahjong-strategy-ai-lecturer:4.2 done
+#30 unpacking to docker.io/library/mahjong-strategy-ai-lecturer:4.2 done
+#30 DONE 0.0s
+
+#31 [web] resolving provenance for metadata file
+#31 DONE 0.0s
+ web  Built
+ db  Built
+ Network mahjong_phase42_verified_default  Creating
+ Network mahjong_phase42_verified_default  Created
+Private Compose secrets ready; existing values preserved
+ Volume "mahjong_phase42_verified_pgdata"  Creating
+ Volume "mahjong_phase42_verified_pgdata"  Created
+ Container mahjong_phase42_verified-db-1  Creating
+ Container mahjong_phase42_verified-db-1  Created
+ Container mahjong_phase42_verified-web-1  Creating
+ Container mahjong_phase42_verified-web-1  Created
+ Container mahjong_phase42_verified-db-1  Starting
+ Container mahjong_phase42_verified-db-1  Started
+ Container mahjong_phase42_verified-db-1  Waiting
+ Container mahjong_phase42_verified-db-1  Healthy
+ Container mahjong_phase42_verified-web-1  Starting
+ Container mahjong_phase42_verified-web-1  Started
+ Container mahjong_phase42_verified-db-1  Waiting
+ Container mahjong_phase42_verified-web-1  Waiting
+ Container mahjong_phase42_verified-db-1  Healthy
+ Container mahjong_phase42_verified-web-1  Healthy
+Setup OK. Open http://127.0.0.1:8000/ . Next time run ./run-macos.sh.

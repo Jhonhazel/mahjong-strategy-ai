@@ -1,0 +1,15 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_32_bit_python_is_rejected_before_installation ______________
+tests/test_native_windows_setup.py:330: in test_32_bit_python_is_rejected_before_installation
+    with pytest.raises(ValueError,match='64-bit'):setup.native_setup()
+                                                  ^^^^^^^^^^^^^^^^^^^^
+scripts/lecturer_setup.py:122: in native_setup
+    verify_assets(ROOT)
+tests/test_native_windows_setup.py:328: in unexpected
+    def unexpected(*args):pytest.fail('32-bit Python reached installation preparation')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: 32-bit Python reached installation preparation
+=========================== short test summary info ============================
+FAILED tests/test_native_windows_setup.py::test_32_bit_python_is_rejected_before_installation
+1 failed, 23 deselected in 0.11s

@@ -1,0 +1,22 @@
+{
+  "runtime": {
+    "files": 102,
+    "source_bytes": 3665316,
+    "zip_bytes": 1919823,
+    "sha256": "84c78841ccacad63d657a86bb3f61cc5d1b407ca1af2e05ed0b76ebfcabea749"
+  },
+  "excluded_directories": [
+    ".agents",
+    ".aws",
+    ".codex",
+    ".git",
+    ".local",
+    ".pytest_cache",
+    ".venv",
+    ".wheels_cache",
+    "__pycache__",
+    "delivery",
+    "node_modules"
+  ],
+  "policy": "Local owner-generated packages only; no upload; original checkout and Git history retained"
+}

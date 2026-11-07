@@ -1,0 +1,4 @@
+FROM postgres:14.19-bookworm
+# Bake init into the image: host Windows/macOS executable bits are irrelevant.
+COPY packaging/postgres_init.sh /docker-entrypoint-initdb.d/10-mahjong.sh
+RUN chmod 644 /docker-entrypoint-initdb.d/10-mahjong.sh

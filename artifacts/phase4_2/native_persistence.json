@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "normal_command": "sh run-macos.sh --native",
+  "native_start_seconds": 1.3938562080002157,
+  "restart_seconds": 1.173498959004064,
+  "repeat_setup_exit": 0,
+  "repeat_setup_reinstalls": false,
+  "private_env_bytes_unchanged": true,
+  "same_cookie_history_survives_restart": true,
+  "owned_servers_stopped": true
+}

@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_release_detects_source_changes_between_manifest_and_archive_copy _____
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-23/test_release_detect...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-23/test_release_detects_source_ch0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1067f3080>
+
+    def test_release_detects_source_changes_between_manifest_and_archive_copy(release_source,tmp_path,monkeypatch):
+        root,runtime=release_source;builder=module('scripts.build_lecturer_release')
+        original=builder.check_no_secret;calls=[]
+        def concurrent_edit(path):
+            original(path)
+            if path==root/'app/demo.py':
+                calls.append(path)
+                if len(calls)==2:path.write_text('answer=99\n')
+        monkeypatch.setattr(builder,'check_no_secret',concurrent_edit)
+>       with pytest.raises(ValueError,match='changed'):builder.build_release(root,tmp_path/'out',runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:93: Failed
+=========================== short test summary info ============================
+FAILED tests/test_phase4_2.py::test_release_detects_source_changes_between_manifest_and_archive_copy
+1 failed in 0.12s

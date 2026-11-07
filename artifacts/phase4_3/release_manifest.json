@@ -1,0 +1,535 @@
+{
+  "channel": "source/deployment and Windows build inputs; NOT a Windows offline binary",
+  "excluded_directories": [
+    ".agents",
+    ".aws",
+    ".codex",
+    ".git",
+    ".local",
+    ".pytest_cache",
+    ".venv",
+    ".wheels_cache",
+    "__pycache__",
+    "delivery",
+    "node_modules"
+  ],
+  "inventory": {
+    ".dockerignore": {
+      "bytes": 736,
+      "category": "runtime/setup",
+      "sha256": "bcb4f8383567a9b948f79b8b157ceea7a62c70dde86e597a360735ee411f2b36"
+    },
+    ".env.example": {
+      "bytes": 826,
+      "category": "runtime/setup",
+      "sha256": "3f5b0cdb28a98c85024a0c05175a02b5ee91996467f0d4a311878c4f958fe7da"
+    },
+    "Dockerfile": {
+      "bytes": 1358,
+      "category": "runtime/setup",
+      "sha256": "95fcc3c2dc4abc73b70e1ea47ca51c7e1980ea0e3ca294ec1b83c53d3f39e1af"
+    },
+    "README_START_HERE.md": {
+      "bytes": 8491,
+      "category": "runtime/setup",
+      "sha256": "4c150473e4168b89332911acf60bd44708058ea7be2c4dd043e3c4d11ae42ae6"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "bytes": 2151,
+      "category": "runtime/setup",
+      "sha256": "e820f50ed3c4f4a449d7ab302520e7b8385dafd2193236961cf7a0f4a4ecb9ef"
+    },
+    "app/__init__.py": {
+      "bytes": 0,
+      "category": "runtime/setup",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "app/db.py": {
+      "bytes": 8516,
+      "category": "runtime/setup",
+      "sha256": "46d25deda2705f9aa2fa18bb1c98becc5509f37fb8469e9816ec835191ab3ba3"
+    },
+    "app/domain/__init__.py": {
+      "bytes": 0,
+      "category": "runtime/setup",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "app/domain/actions.py": {
+      "bytes": 3516,
+      "category": "runtime/setup",
+      "sha256": "1c8dd59c47148936d1a4ad2d75cfc97b49b909831a17c3068cdf6da16c18a9f5"
+    },
+    "app/domain/exceptions.py": {
+      "bytes": 655,
+      "category": "runtime/setup",
+      "sha256": "12d86113a9c01d4e8e1b02ee2e65221fe18d33f60a91199979878db1f97a3634"
+    },
+    "app/domain/models.py": {
+      "bytes": 2714,
+      "category": "runtime/setup",
+      "sha256": "314dda319fc050740ccaf3741d2dbd5e39da61e69f42264b94cddf1e0a39a32e"
+    },
+    "app/domain/predictions.py": {
+      "bytes": 443,
+      "category": "runtime/setup",
+      "sha256": "e6573d857fd57e9efc1341c178861f7ffd54e7038ea0f3788f12070a715433d1"
+    },
+    "app/domain/tiles.py": {
+      "bytes": 1628,
+      "category": "runtime/setup",
+      "sha256": "65abb947df369b513d59c3969551065b4683fddd6c5954c01105e4ad8aca9398"
+    },
+    "app/engine/__init__.py": {
+      "bytes": 0,
+      "category": "runtime/setup",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "app/engine/fan_calculator.py": {
+      "bytes": 5270,
+      "category": "runtime/setup",
+      "sha256": "eb6684dd86ec5ac063aab219720316646990d8f4da845c89d31ae3707c06d28d"
+    },
+    "app/engine/feature_encoder.py": {
+      "bytes": 10852,
+      "category": "runtime/setup",
+      "sha256": "d757eaafa48ce5539a4575a6329eb1d3a5d3e794b66c6852da03485265f6f8fb"
+    },
+    "app/engine/mcr_referee.py": {
+      "bytes": 14295,
+      "category": "runtime/setup",
+      "sha256": "dc24943dc2883eac4383df10b3213cd3509fedd9c41d1f4820690ca7e9c2394b"
+    },
+    "app/main.py": {
+      "bytes": 6243,
+      "category": "runtime/setup",
+      "sha256": "ec37a18ec362980c05351c15c18c1a6a4bb673cd94d017bda21eaa8b3c2326c5"
+    },
+    "app/mlp.py": {
+      "bytes": 5755,
+      "category": "runtime/setup",
+      "sha256": "47c4227952a7cf89c22563706d9676512870e41a2d3588cdd5449661940bd470"
+    },
+    "app/model_checkpoint.py": {
+      "bytes": 15260,
+      "category": "runtime/setup",
+      "sha256": "2f08fe7f2e8572cf2ba07f75b685f546f34b070bc75e11c2b5fd776fc106bf14"
+    },
+    "app/services/__init__.py": {
+      "bytes": 0,
+      "category": "runtime/setup",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "app/services/ai_prediction_service.py": {
+      "bytes": 4008,
+      "category": "runtime/setup",
+      "sha256": "20e22b219ebdeff98ed3b8c374027697a5028df264dac6701139bfc08ac36c8f"
+    },
+    "app/services/bot_service.py": {
+      "bytes": 4192,
+      "category": "runtime/setup",
+      "sha256": "178cea27ac72af796b0064028c3b75a68ecda608a3509ce8516148aec80dbe04"
+    },
+    "app/services/game_service.py": {
+      "bytes": 7086,
+      "category": "runtime/setup",
+      "sha256": "3cbebdb2b1a6c879c992ba4a3b950c68d4416e976046bcc4805e8bc381cec254"
+    },
+    "app/services/prediction_history_service.py": {
+      "bytes": 4140,
+      "category": "runtime/setup",
+      "sha256": "a662546dff1831b76c230b97daa6487b8b21c40f560238bfcc5c403f6daf184c"
+    },
+    "app/services/web_prediction_service.py": {
+      "bytes": 4549,
+      "category": "runtime/setup",
+      "sha256": "696efa64c83229176143bbdfa1d07eb0342fc56737c0fe1ec6f7c8deed9c6f50"
+    },
+    "app/settings.py": {
+      "bytes": 3635,
+      "category": "runtime/setup",
+      "sha256": "8ae1dd26ef762c4b69cdb23c6f9765d24f67cc5a504efe6620471060ec25ac77"
+    },
+    "app/static/phase3.css": {
+      "bytes": 37129,
+      "category": "runtime/setup",
+      "sha256": "c034cc811762b95b3adc36d5aa9c7ccda0f8cb0f1b339a9b736c95a858c71054"
+    },
+    "app/static/phase3.js": {
+      "bytes": 4604,
+      "category": "runtime/setup",
+      "sha256": "988441e0dc73d6f82c112dc1c17b5d39058750423e35d32ac73febb894c81b92"
+    },
+    "app/static/phase4/catalog.mjs": {
+      "bytes": 5658,
+      "category": "runtime/setup",
+      "sha256": "c16a261ab017e736043ab680343a9891efa986ec6a2afc8a2e48cdfef1a7e6bd"
+    },
+    "app/static/phase4/controller.mjs": {
+      "bytes": 11618,
+      "category": "runtime/setup",
+      "sha256": "40fe84744b89b9267733b52267712af51b6dba21d9ff122b7b7f02b5ec50afed"
+    },
+    "app/static/phase4/deletion.mjs": {
+      "bytes": 513,
+      "category": "runtime/setup",
+      "sha256": "552e457b1376cda24e44878b99cf910c58113cdccce08a47a4361e73efa43cc5"
+    },
+    "app/static/phase4/http.mjs": {
+      "bytes": 3657,
+      "category": "runtime/setup",
+      "sha256": "4c2ef6b4f40db6b7cd5c90db4a7ae98f61c8cf67b33680a24af2f609a6c490cc"
+    },
+    "app/static/phase4/model.mjs": {
+      "bytes": 3009,
+      "category": "runtime/setup",
+      "sha256": "8c45fcac14ce671c6c38af390b439b6fcd8b535ee4747af24a4ba5792f48e91d"
+    },
+    "app/static/phase4/playback.mjs": {
+      "bytes": 2750,
+      "category": "runtime/setup",
+      "sha256": "bd94a6184037e0904797517f777d0abbd428ae42b2fc0ec62a3b91b508a9e801"
+    },
+    "app/static/phase4/tiles.mjs": {
+      "bytes": 2150,
+      "category": "runtime/setup",
+      "sha256": "e67b7e4332e86a4e40be3c4f0c061e8e8e2a299402b1e7e01866a8c2de683488"
+    },
+    "app/static/phase4/view.mjs": {
+      "bytes": 15451,
+      "category": "runtime/setup",
+      "sha256": "cd8dfde919cb9e68ffb617a9db54d04b89acccfd0768959fa4895fedf8d2d8d8"
+    },
+    "app/static/tiles.svg": {
+      "bytes": 42208,
+      "category": "runtime/setup",
+      "sha256": "509fee9400464adc4acf73d0c131f22add9c6b46472ec61fadb80c99e61649d3"
+    },
+    "app/templates/base.html": {
+      "bytes": 1600,
+      "category": "runtime/setup",
+      "sha256": "b20d4764590f2b489cb367a54f67d951d5355856a90cb081ba4daf29a5f092d2"
+    },
+    "app/templates/components/tiles.html": {
+      "bytes": 1026,
+      "category": "runtime/setup",
+      "sha256": "e26abe18b55067c3640d9a1621e4704f86d54b5141b22b0fc6ab3d6cc0d19aec"
+    },
+    "app/templates/contact.html": {
+      "bytes": 1794,
+      "category": "runtime/setup",
+      "sha256": "6702fb01c01e8e6c969b2515947ea395947d405caac9a2be8dbe4a2be4c62f06"
+    },
+    "app/templates/game.html": {
+      "bytes": 6388,
+      "category": "runtime/setup",
+      "sha256": "947e21c1ee2394e635a5945e2c21beb70b2a7aa7119e5ab2a89a4833b3361747"
+    },
+    "app/templates/history.html": {
+      "bytes": 3151,
+      "category": "runtime/setup",
+      "sha256": "3585c4a58c4cd8a4dcadd9503762db70a2d6263be5b6ad5184d60a744b1b7608"
+    },
+    "app/templates/history_detail.html": {
+      "bytes": 3276,
+      "category": "runtime/setup",
+      "sha256": "3e4b6364e8d96b299b9a5655a0b0e1bf0530e302e1303ef788b263951269c6a1"
+    },
+    "app/templates/home.html": {
+      "bytes": 4446,
+      "category": "runtime/setup",
+      "sha256": "4bc7280a0091173e70ccb24d5a43b1d07f9327d3cdfe9c2030951178dce4a4bf"
+    },
+    "app/web/__init__.py": {
+      "bytes": 83,
+      "category": "runtime/setup",
+      "sha256": "1c43a79a72a2c2d572f6505f5c0300095a04c8a3b393d0a1b2e5fda14d2e7622"
+    },
+    "app/web/api.py": {
+      "bytes": 6055,
+      "category": "runtime/setup",
+      "sha256": "b6a9729997cf8162499626e043c6a9f6f8c969b2da9ee93cfecb9a94fb0fa8ff"
+    },
+    "app/web/contact.py": {
+      "bytes": 961,
+      "category": "runtime/setup",
+      "sha256": "3cbd351fdc92d10a81f6fa2d95a3eba3112f1972fa8b63fe6548a0a139c96092"
+    },
+    "app/web/documentation.py": {
+      "bytes": 1268,
+      "category": "runtime/setup",
+      "sha256": "bf8d1118606b1f0687cb613cee07724ff642ac6c92af246cfe13c4c9d466b801"
+    },
+    "app/web/errors.py": {
+      "bytes": 207,
+      "category": "runtime/setup",
+      "sha256": "e2450d7a54027f5131072d7221afcc3a4dd04979351d17b23a7cc3b89c2566f2"
+    },
+    "app/web/games.py": {
+      "bytes": 4648,
+      "category": "runtime/setup",
+      "sha256": "83e25c51376cb4454c4e2f374da85d919bfd494a566baa733ddd7de1c24f7e3c"
+    },
+    "app/web/pages.py": {
+      "bytes": 4158,
+      "category": "runtime/setup",
+      "sha256": "858c738a511c913e9d10ca65449ddb4703e000cba675c902b0d9ed047699e734"
+    },
+    "app/web/runtime.py": {
+      "bytes": 1244,
+      "category": "runtime/setup",
+      "sha256": "b2a9c0dbead80ab39b074c1a2d613ddbc20a5189bef7ce42dbc335c7692c9dd3"
+    },
+    "app/web/schemas.py": {
+      "bytes": 3093,
+      "category": "runtime/setup",
+      "sha256": "5f95df4738f78b8449aba72bbbb7d5d0af446af1d3f25e593527c390fb08907a"
+    },
+    "app/web/security.py": {
+      "bytes": 5124,
+      "category": "runtime/setup",
+      "sha256": "cc1fd278fc4495875626e312f5bdd8c8986bbc246525aeb986d9884d75d70822"
+    },
+    "app/web/tile_catalog.py": {
+      "bytes": 1045,
+      "category": "runtime/setup",
+      "sha256": "d5ff2952c3083978edc3916b72e0008311b990f52158a8a4115cc50566cd2907"
+    },
+    "app/web/views.py": {
+      "bytes": 2603,
+      "category": "runtime/setup",
+      "sha256": "0771c7e38c4126bd436044f1db10b865ef2c68a5bf7dc535b787813bc3b11b6d"
+    },
+    "artifacts/models/mahjong_discard_mlp_v3.metadata.json": {
+      "bytes": 1514897,
+      "category": "runtime/setup",
+      "sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e"
+    },
+    "artifacts/models/mahjong_discard_mlp_v3.pt": {
+      "bytes": 1553925,
+      "category": "runtime/setup",
+      "sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720"
+    },
+    "compose.yaml": {
+      "bytes": 1625,
+      "category": "runtime/setup",
+      "sha256": "802fd45c230d6268b249197f133d229d748796d7940b34a005a0080a64792ca8"
+    },
+    "config/contact_members.public.json": {
+      "bytes": 567,
+      "category": "runtime/setup",
+      "sha256": "9a942f0e99861ad668b8fff20d7624570f345e229844df1bba0e9bda75af34ee"
+    },
+    "datasets/expanded_strict_v2/data_contract.json": {
+      "bytes": 188448,
+      "category": "runtime/setup",
+      "sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+    },
+    "deploy/Caddyfile": {
+      "bytes": 72,
+      "category": "runtime/setup",
+      "sha256": "56ea901759cdd13e78ed432c08f0312dd9702cd3b48a759216e7203c2adce80b"
+    },
+    "deploy/Caddyfile.local": {
+      "bytes": 76,
+      "category": "runtime/setup",
+      "sha256": "927bc2df9592473eafb084081b227f11d31a096641ec098de4389655e69ce5b2"
+    },
+    "deploy/README.md": {
+      "bytes": 4950,
+      "category": "runtime/setup",
+      "sha256": "a878fcc70de0c0d0f2f4979b58dc6b6c8d19479a7aeb29c7714327e05125d70f"
+    },
+    "deploy/compose.https.yaml": {
+      "bytes": 1643,
+      "category": "runtime/setup",
+      "sha256": "4dba1d8ebb2e31700874453ffb08ed801b366dca78959ea3abc1e51a22e82127"
+    },
+    "deploy/compose.local-tls.yaml": {
+      "bytes": 167,
+      "category": "runtime/setup",
+      "sha256": "85a4192db982d5257bbdb022ad6bc4fe8d9f0d9a450c12ccfe016fa68314eb31"
+    },
+    "deploy/runtime_allowlist.json": {
+      "bytes": 381,
+      "category": "runtime/setup",
+      "sha256": "0e4968a6dc50ee1a1a147e9ad78d28d23d8e97f8c8cba5781c06c4397f6fa255"
+    },
+    "deploy/settings.example": {
+      "bytes": 183,
+      "category": "runtime/setup",
+      "sha256": "634fb2e9497bf2234556b62f6fe8b1b1b860d722011cb9cd963763b3b8f6112b"
+    },
+    "docs/ml_artifact_bundle_manifest.json": {
+      "bytes": 881,
+      "category": "runtime/setup",
+      "sha256": "9600da15d2a8549871258d303c958a0b35c8951c8ce82bd7c5f8d539bc7c7028"
+    },
+    "docs/phase4_3_implementation_report.md": {
+      "bytes": 12296,
+      "category": "runtime/setup",
+      "sha256": "0131f1bac531d3cadce70c9a9946c8ea1e842ea1588d847f3ca79005e347a11c"
+    },
+    "docs/phase4_3_test_matrix.md": {
+      "bytes": 4438,
+      "category": "runtime/setup",
+      "sha256": "33dc1ba4f81966f42e1e247fe05ad60f7c2155551c5c6eeb4bf91f0850a4b7e1"
+    },
+    "main.py": {
+      "bytes": 135,
+      "category": "runtime/setup",
+      "sha256": "b33c430fcc218c1f5d97b76a87fa942077596f0289b92bd92dd7aba7846f5274"
+    },
+    "packaging/Dockerfile.postgres": {
+      "bytes": 238,
+      "category": "runtime/setup",
+      "sha256": "d312155f08171e6ac7e9561b5c26b5fbeb54793367a91a5f928b5f6aa1e0f6cd"
+    },
+    "packaging/phase4_3_allowlist.json": {
+      "bytes": 1447,
+      "category": "runtime/setup",
+      "sha256": "d8bece8a9a21c93a0077aeef79150b3669bb44626f7118b6d4e6a63ebd33934f"
+    },
+    "packaging/postgres_init.sh": {
+      "bytes": 284,
+      "category": "runtime/setup",
+      "sha256": "baba4757b4de7fd0f7ed94e084c77199b9f6329536e761122573dd95c2cde7b9"
+    },
+    "packaging/runtime_allowlist.json": {
+      "bytes": 4453,
+      "category": "runtime/setup",
+      "sha256": "a09897e1c7af1fd84d131256158cba7817968a226de5e50e0d1b84640df081be"
+    },
+    "requirements-runtime.txt": {
+      "bytes": 1097,
+      "category": "runtime/setup",
+      "sha256": "40ee9d3b99b51af6b75c5fd960325f573ec43055f269aca96f9a4c24f7ca8570"
+    },
+    "run-macos.sh": {
+      "bytes": 250,
+      "category": "runtime/setup",
+      "sha256": "8af4dea012e2b7e7c127af05c83fe3cc8dae93942078362a2a8a5071e498c875"
+    },
+    "run-windows.cmd": {
+      "bytes": 323,
+      "category": "runtime/setup",
+      "sha256": "9c45b08acc4446ff2d25fdb784bd7b5918f496382fd647a22ae1d5bf8573db22"
+    },
+    "scripts/__init__.py": {
+      "bytes": 0,
+      "category": "runtime/setup",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scripts/build_windows_package.py": {
+      "bytes": 8369,
+      "category": "runtime/setup",
+      "sha256": "c16d5be495288d199d361258a8b60ada27e29c962dc51c70fc7f6b39f271ba1c"
+    },
+    "scripts/init_db.py": {
+      "bytes": 386,
+      "category": "runtime/setup",
+      "sha256": "c4ee3b49cb230da8fc1032cb419f4dd8d0ad424ba0559086e273fa8807bd8b80"
+    },
+    "scripts/lecturer_assets.py": {
+      "bytes": 4311,
+      "category": "runtime/setup",
+      "sha256": "609b4f581565eb65a2e6fc57c2152b1b11577081262aafe1fe61deeb69783127"
+    },
+    "scripts/lecturer_setup.py": {
+      "bytes": 7254,
+      "category": "runtime/setup",
+      "sha256": "7e1c532944cbf3404067da6d65e12d86ad631ef60782804834f4448ad3100a41"
+    },
+    "scripts/phase3_db.py": {
+      "bytes": 10086,
+      "category": "runtime/setup",
+      "sha256": "b8f27849c066233eb473cc3f45a3bfa173baad0cdcf5af2039d3b317e282920c"
+    },
+    "scripts/run_backend.py": {
+      "bytes": 475,
+      "category": "runtime/setup",
+      "sha256": "1840da5431738644afa0efc9df427bc49e5af2cdacf0384521cc992bb77451f6"
+    },
+    "scripts/smoke_online.py": {
+      "bytes": 6755,
+      "category": "runtime/setup",
+      "sha256": "3d2c4b44f1e76febcc577831de37e175542f3fb1d5a13cc5ae185bf6e6fe6ab2"
+    },
+    "scripts/windows_launcher.py": {
+      "bytes": 14423,
+      "category": "runtime/setup",
+      "sha256": "03264b332e13a1bfc57838389537b6286bba299fc5f410f08b23176463c827bf"
+    },
+    "setup-macos.sh": {
+      "bytes": 672,
+      "category": "runtime/setup",
+      "sha256": "a1be4f253562b6c9893713f8dc9040f281c6d77012fbbc0360a4b06e0603ecd9"
+    },
+    "setup-windows.cmd": {
+      "bytes": 986,
+      "category": "runtime/setup",
+      "sha256": "8a96cd915e2ee0cf5109243416e6ba7640ca2b0bbfb5c26e46fd333e0ae0ae06"
+    },
+    "training/__init__.py": {
+      "bytes": 0,
+      "category": "runtime/setup",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "training/dataset_loader.py": {
+      "bytes": 8534,
+      "category": "runtime/setup",
+      "sha256": "c60f1ca57e605255654fa700d1ed24ce703c1d2dcfc97d475314749fdab6b612"
+    },
+    "windows/README_BUILD.md": {
+      "bytes": 7245,
+      "category": "runtime/setup",
+      "sha256": "3424c7781bd355007495b0e56fa20674c6dcbf28c865924ab607efaefd80e9ce"
+    },
+    "windows/README_START_HERE.txt": {
+      "bytes": 1366,
+      "category": "runtime/setup",
+      "sha256": "89b0fd8487cb5524de442888bb9f8b1efb9b3502815a34f6156f3eae36efd849"
+    },
+    "windows/Start Mahjong.bat": {
+      "bytes": 335,
+      "category": "runtime/setup",
+      "sha256": "14142a9fe8fcd74ef80fadc5a5a00dc80390ff7d7b5a07e5b1b3553921c343cd"
+    },
+    "windows/Stop Mahjong.bat": {
+      "bytes": 141,
+      "category": "runtime/setup",
+      "sha256": "65ad0cc8f100b4f232635384c7161a7bb54f1fef1446967c00d202eed71a6448"
+    },
+    "windows/build.ps1": {
+      "bytes": 1426,
+      "category": "runtime/setup",
+      "sha256": "abda5ee3523638af2ecc1d711ca5d39caade5be2dc638ea145b5b8604ec70f74"
+    },
+    "windows/entry.py": {
+      "bytes": 1270,
+      "category": "runtime/setup",
+      "sha256": "5f7f205144ad6ebc83747578808797681359cda8951d8882fb82abe312c26b2f"
+    },
+    "windows/postgres-provenance.example.json": {
+      "bytes": 409,
+      "category": "runtime/setup",
+      "sha256": "c11429c973a46cceae740a38e5f8e25d85f271e7e553bd501be9c356921931bd"
+    },
+    "windows/requirements-build.txt": {
+      "bytes": 158,
+      "category": "runtime/setup",
+      "sha256": "04e1caf6c873e0af2c0240b9fae4e603145c25076b29e10443b1b1244230ef30"
+    },
+    "windows/runtime_allowlist.json": {
+      "bytes": 703,
+      "category": "runtime/setup",
+      "sha256": "497973fb2a690d8899ffe6ce773cc6757e1f4e55c2f6d8a9fd62377a830c7428"
+    }
+  },
+  "policy": "Local owner-generated packages only; no upload; original checkout and Git history retained",
+  "runtime": {
+    "files": 102,
+    "sha256": "84c78841ccacad63d657a86bb3f61cc5d1b407ca1af2e05ed0b76ebfcabea749",
+    "source_bytes": 3665316,
+    "zip_bytes": 1919823
+  }
+}

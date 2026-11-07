@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "preflight_eligible_files": 2257,
+  "unchanged_original_files": 2252,
+  "intended_existing_files_changed": [
+    "README.md",
+    "README_START_HERE.md",
+    "app/settings.py",
+    "scripts/build_lecturer_release.py",
+    "scripts/run_backend.py"
+  ],
+  "missing_original_files": [],
+  "historical_phase4_2_delivery_checks": {
+    "delivery/phase4_2/mahjong-strategy-ai-audit.zip": true,
+    "delivery/phase4_2/release_manifest.json": true,
+    "delivery/phase4_2/release_verification.json": true,
+    "delivery/phase4_2/mahjong-strategy-ai-lecturer-portable.zip": true
+  },
+  "dev_record_count": 44,
+  "dev_per_record_hashes_unchanged": true,
+  "raw_rows_exported": false,
+  "frozen_assets": {
+    "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+  },
+  "head_unchanged": true,
+  "staged_files": 0,
+  "final_python": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "471",
+    "time": "69.026",
+    "timestamp": "2026-11-06T22:10:30.937837+07:00",
+    "hostname": "Jhonhazels-MacBook-Air.local"
+  },
+  "case_reconciliation": {
+    "docs/evidence/phase2_2/full_suite.xml": {
+      "cases": 279,
+      "missing": 0,
+      "all_passed_in_final": true
+    },
+    "docs/evidence/phase4_2/full_regression_final.xml": {
+      "cases": 437,
+      "missing": 0,
+      "all_passed_in_final": true
+    },
+    "docs/evidence/phase4_3/baseline.xml": {
+      "cases": 437,
+      "missing": 0,
+      "all_passed_in_final": true
+    }
+  }
+}

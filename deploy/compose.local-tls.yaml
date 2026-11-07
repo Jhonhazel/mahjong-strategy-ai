@@ -1,0 +1,5 @@
+# Private CA for local TLS clients only; never the public ACME configuration.
+services:
+  caddy:
+    volumes:
+      - ./deploy/Caddyfile.local:/etc/caddy/Caddyfile:ro

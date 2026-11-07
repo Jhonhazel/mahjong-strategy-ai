@@ -1,0 +1,89 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 725B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.40kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm
+#3 DONE 1.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 778B done
+#4 DONE 0.0s
+
+#5 [mahjong-wheel 1/2] FROM docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#5 resolve docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 3.58MB 0.1s done
+#6 DONE 0.1s
+
+#7 [stage-1  3/15] COPY --from=mahjong-wheel /wheels /wheels
+#7 CACHED
+
+#8 [stage-1  2/15] WORKDIR /app
+#8 CACHED
+
+#9 [stage-1  4/15] COPY requirements-runtime.txt .
+#9 CACHED
+
+#10 [stage-1  5/15] RUN pip install --no-cache-dir torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu     && pip install --no-cache-dir --find-links=/wheels -r requirements-runtime.txt     && pip check
+#10 CACHED
+
+#11 [mahjong-wheel 2/2] RUN apt-get update && apt-get install -y --no-install-recommends g++     && pip wheel --no-deps PyMahjongGB==1.4.0 --wheel-dir /wheels
+#11 CACHED
+
+#12 [stage-1  6/15] COPY main.py .
+#12 CACHED
+
+#13 [stage-1  7/15] COPY app app
+#13 DONE 0.0s
+
+#14 [stage-1  8/15] COPY config/contact_members.public.json config/contact_members.public.json
+#14 DONE 0.0s
+
+#15 [stage-1  9/15] COPY scripts scripts
+#15 DONE 0.0s
+
+#16 [stage-1 10/15] COPY training training
+#16 DONE 0.0s
+
+#17 [stage-1 11/15] COPY docs/ml_artifact_bundle_manifest.json docs/ml_artifact_bundle_manifest.json
+#17 DONE 0.0s
+
+#18 [stage-1 12/15] COPY artifacts/models/mahjong_discard_mlp_v3.pt artifacts/models/mahjong_discard_mlp_v3.pt
+#18 DONE 0.0s
+
+#19 [stage-1 13/15] COPY artifacts/models/mahjong_discard_mlp_v3.metadata.json artifacts/models/mahjong_discard_mlp_v3.metadata.json
+#19 DONE 0.0s
+
+#20 [stage-1 14/15] COPY datasets/expanded_strict_v2/data_contract.json datasets/expanded_strict_v2/data_contract.json
+#20 DONE 0.0s
+
+#21 [stage-1 15/15] RUN python -m scripts.lecturer_assets && useradd --uid 10001 --create-home mahjong
+#21 0.271 {
+#21 0.271   "status": "PASS",
+#21 0.271   "sha256": {
+#21 0.271     "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+#21 0.271     "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+#21 0.271     "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+#21 0.271   }
+#21 0.271 }
+#21 DONE 0.3s
+
+#22 exporting to image
+#22 exporting layers 0.1s done
+#22 exporting manifest sha256:e02b6f0eed458c0e474e010182dcd0108a52d9c36603aae2fce80fefc03f1c38 done
+#22 exporting config sha256:283eafd78a622d636d38d0b90aad98ca877f0bcd8d60e768b53c9206c1352727 done
+#22 exporting attestation manifest sha256:4b90b94e129df00fb376cf5a9a91d6cb8082283645ae10eedbc1620b7906a40c done
+#22 exporting manifest list sha256:266a3e3ddd573cf258631230e7d8b444d2690a7a3733ffeaa1de1f5f0e77921f done
+#22 naming to docker.io/library/mahjong-strategy-ai-web:4.3 done
+#22 unpacking to docker.io/library/mahjong-strategy-ai-web:4.3 0.1s done
+#22 DONE 0.2s
+
+#23 resolving provenance for metadata file
+#23 DONE 0.0s
+ web  Built

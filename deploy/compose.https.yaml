@@ -1,0 +1,55 @@
+# Use after compose.yaml; Compose2.24.4+ required. Default is LOCAL ONLY.
+services:
+  web:
+    image: mahjong-strategy-ai-web:4.3
+    ports: !reset []
+    environment:
+      MAHJONG_ENVIRONMENT: production
+      MAHJONG_COOKIE_SECURE: "true"
+      MAHJONG_ALLOWED_HOSTS: '["${MAHJONG_PUBLIC_HOST:?Set the approved hostname}"]'
+      MAHJONG_TRUSTED_PROXY_IPS: '["172.30.43.2"]'
+    networks:
+      front:
+        ipv4_address: 172.30.43.3
+      database: {}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import json,os,urllib.request; h=json.loads(os.environ['MAHJONG_ALLOWED_HOSTS'])[0]; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/health/ready',headers={'Host':h}),timeout=3)"]
+    mem_limit: 768m
+    cpus: 1.0
+    restart: unless-stopped
+  db:
+    networks:
+      - database
+    mem_limit: 256m
+    restart: unless-stopped
+  bootstrap:
+    image: mahjong-strategy-ai-web:4.3
+  caddy:
+    image: caddy:2.10.2-alpine
+    environment:
+      MAHJONG_PUBLIC_HOST: ${MAHJONG_PUBLIC_HOST:?Set the approved hostname}
+    ports:
+      - "${MAHJONG_BIND_ADDRESS:-127.0.0.1}:${MAHJONG_HTTP_PORT:-8080}:80"
+      - "${MAHJONG_BIND_ADDRESS:-127.0.0.1}:${MAHJONG_HTTPS_PORT:-8443}:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      front:
+        ipv4_address: 172.30.43.2
+    depends_on:
+      web:
+        condition: service_healthy
+    mem_limit: 96m
+    restart: unless-stopped
+networks:
+  front:
+    ipam:
+      config:
+        - subnet: 172.30.43.0/28
+  database:
+    internal: true
+volumes:
+  caddy_data:
+  caddy_config:

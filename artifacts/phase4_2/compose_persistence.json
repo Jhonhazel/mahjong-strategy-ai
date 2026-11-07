@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "repeat_setup_exit": 0,
+  "secrets_unchanged": true,
+  "same_cookie_history_after_db_web_stop_start": true,
+  "normal_startup_command": "docker compose up -d --wait",
+  "restart_to_healthy_seconds": 8.303862375003519,
+  "role": "mahjong_app|f|f|f",
+  "project": "mahjong_phase42_final",
+  "host_web_port": 8880,
+  "public_database_port": false
+}

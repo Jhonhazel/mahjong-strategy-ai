@@ -1,0 +1,285 @@
+FFFFFFFFFFFFFF                                                           [100%]
+=================================== FAILURES ===================================
+____ test_first_run_uses_owned_unicode_path_and_preserves_secrets_and_ports ____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_first_run_uses_owned_unic0')
+
+    def test_first_run_uses_owned_unicode_path_and_preserves_secrets_and_ports(tmp_path):
+>       module=launcher();root=tmp_path/'Mahjong 學生 space'
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+___________ test_first_run_never_claims_a_nonempty_foreign_directory ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_first_run_never_claims_a_0')
+
+    def test_first_run_never_claims_a_nonempty_foreign_directory(tmp_path):
+        root=tmp_path/'foreign';root.mkdir();(root/'history.txt').write_text('KEEP')
+>       module=launcher()
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+___________ test_profile_symlink_is_rejected_without_touching_target ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_profile_symlink_is_reject0')
+
+    def test_profile_symlink_is_rejected_without_touching_target(tmp_path):
+        target=tmp_path/'original';target.mkdir();root=tmp_path/'alias';root.symlink_to(target,target_is_directory=True)
+>       module=launcher()
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+____________ test_a_held_instance_lock_blocks_duplicate_controller _____________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_a_held_instance_lock_bloc0')
+
+    def test_a_held_instance_lock_blocks_duplicate_controller(tmp_path):
+>       module=launcher();root=tmp_path/'state';module.prepare_state(root)
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+________ test_port_collision_does_not_modify_or_kill_the_other_listener ________
+
+    def test_port_collision_does_not_modify_or_kill_the_other_listener():
+>       module=launcher()
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+______ test_browser_readiness_requires_model_and_database_and_owned_port _______
+
+    def test_browser_readiness_requires_model_and_database_and_owned_port():
+>       module=launcher();responses=iter([{'status':'ready','model':'loading','database':'ready'},
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+_ test_readiness_fails_bounded_when_child_exits_or_other_process_owns_port[None-False] _
+
+exited = None, owns = False
+
+    @pytest.mark.parametrize('exited,owns',[(None,False),(1,True)])
+    def test_readiness_fails_bounded_when_child_exits_or_other_process_owns_port(exited,owns):
+>       module=launcher();times=[0.]
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+_ test_readiness_fails_bounded_when_child_exits_or_other_process_owns_port[1-True] _
+
+exited = 1, owns = True
+
+    @pytest.mark.parametrize('exited,owns',[(None,False),(1,True)])
+    def test_readiness_fails_bounded_when_child_exits_or_other_process_owns_port(exited,owns):
+>       module=launcher();times=[0.]
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+______ test_database_provision_does_not_recreate_existing_owned_database _______
+
+    def test_database_provision_does_not_recreate_existing_owned_database():
+>       module=launcher();statements=[]
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:83: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+_____ test_database_provision_rejects_wrong_owner_without_destructive_sql ______
+
+    def test_database_provision_rejects_wrong_owner_without_destructive_sql():
+>       module=launcher();statements=[]
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+__________ test_private_diagnostics_redact_every_generated_credential __________
+
+    def test_private_diagnostics_redact_every_generated_credential():
+>       module=launcher();secrets=['synthetic_session','synthetic_admin','synthetic_app']
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+________ test_cleanup_stops_only_the_process_object_created_by_launcher ________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_cleanup_stops_only_the_pr0')
+
+    def test_cleanup_stops_only_the_process_object_created_by_launcher(tmp_path):
+>       module=launcher();marker=tmp_path/'stopped'
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+________ test_runtime_manifest_rejects_changed_executable_and_traversal ________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_runtime_manifest_rejects_0')
+
+    def test_runtime_manifest_rejects_changed_executable_and_traversal(tmp_path):
+>       module=launcher();(tmp_path/'runtime.exe').write_bytes(b'synthetic executable, not run')
+               ^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:115: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def launcher():
+>       assert importlib.util.find_spec('scripts.windows_launcher'),'Missing offline launcher implementation'
+E       AssertionError: Missing offline launcher implementation
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.windows_launcher')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:16: AssertionError
+_ test_pg_provenance_requires_trusted_origin_hash_and_explicit_license_review __
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-37/test_pg_provenance_requires_tr0')
+
+    def test_pg_provenance_requires_trusted_origin_hash_and_explicit_license_review(tmp_path):
+>       assert importlib.util.find_spec('scripts.build_windows_package'),'Missing native Windows build workflow'
+E       AssertionError: Missing native Windows build workflow
+E       assert None
+E        +  where None = <function find_spec at 0x1033f8f40>('scripts.build_windows_package')
+E        +    where <function find_spec at 0x1033f8f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:126: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_windows.py::test_first_run_uses_owned_unicode_path_and_preserves_secrets_and_ports
+FAILED tests/test_phase4_3_windows.py::test_first_run_never_claims_a_nonempty_foreign_directory
+FAILED tests/test_phase4_3_windows.py::test_profile_symlink_is_rejected_without_touching_target
+FAILED tests/test_phase4_3_windows.py::test_a_held_instance_lock_blocks_duplicate_controller
+FAILED tests/test_phase4_3_windows.py::test_port_collision_does_not_modify_or_kill_the_other_listener
+FAILED tests/test_phase4_3_windows.py::test_browser_readiness_requires_model_and_database_and_owned_port
+FAILED tests/test_phase4_3_windows.py::test_readiness_fails_bounded_when_child_exits_or_other_process_owns_port[None-False]
+FAILED tests/test_phase4_3_windows.py::test_readiness_fails_bounded_when_child_exits_or_other_process_owns_port[1-True]
+FAILED tests/test_phase4_3_windows.py::test_database_provision_does_not_recreate_existing_owned_database
+FAILED tests/test_phase4_3_windows.py::test_database_provision_rejects_wrong_owner_without_destructive_sql
+FAILED tests/test_phase4_3_windows.py::test_private_diagnostics_redact_every_generated_credential
+FAILED tests/test_phase4_3_windows.py::test_cleanup_stops_only_the_process_object_created_by_launcher
+FAILED tests/test_phase4_3_windows.py::test_runtime_manifest_rejects_changed_executable_and_traversal
+FAILED tests/test_phase4_3_windows.py::test_pg_provenance_requires_trusted_origin_hash_and_explicit_license_review
+14 failed in 0.07s

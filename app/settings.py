@@ -1,5 +1,6 @@
 """Small typed environment boundary; existing ML defaults are never implicit."""
 from pathlib import Path
+from ipaddress import ip_address
 from typing import Literal
 
 from pydantic import Field, SecretStr, field_validator, model_validator
@@ -29,6 +30,7 @@ class Settings(BaseSettings):
     host: str = '127.0.0.1'
     port: int = Field(default=8000, ge=1024, le=65535)
     allowed_hosts: list[str] = ['127.0.0.1', 'localhost', 'testserver']
+    trusted_proxy_ips: list[str] = []
     max_body_bytes: int = Field(default=16384, ge=1024, le=65536)
     database_timeout_seconds: int = Field(default=5, ge=1, le=30)
 
@@ -42,6 +44,17 @@ class Settings(BaseSettings):
             return SecretStr(url.set(drivername='postgresql+psycopg').render_as_string(hide_password=False))
         except Exception:
             raise ValueError('A valid PostgreSQL database URL is required') from None
+
+    @field_validator('trusted_proxy_ips')
+    @classmethod
+    def explicit_proxy_addresses(cls, values):
+        result=[]
+        for value in values:
+            address=ip_address(value)
+            if address.is_unspecified or address.is_multicast or '%' in value:
+                raise ValueError('Trust only explicit proxy host IP addresses')
+            if address.compressed not in result:result.append(address.compressed)
+        return result
 
     @field_validator('session_secret')
     @classmethod

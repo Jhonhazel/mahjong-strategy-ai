@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-07",
+  "verdict": "GO WITH CAVEATS",
+  "assessment": "Existing runtime already supports Option A; no production changes required",
+  "modified_existing_paths": [
+    "README_START_HERE.md"
+  ],
+  "new_evidence_paths": [
+    "docs/evidence/phase4_3/option_a/focused.txt",
+    "docs/evidence/phase4_3/option_a/focused.xml",
+    "docs/evidence/phase4_3/option_a/cli.json",
+    "docs/evidence/phase4_3/option_a/verification.json"
+  ],
+  "no_production_or_launcher_dependency_packaging_code_changes": true,
+  "focused": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "15",
+    "time": "2.260",
+    "timestamp": "2026-11-07T13:48:06.799871+07:00",
+    "hostname": "Jhonhazels-MacBook-Air.local"
+  },
+  "full_python_regression_rerun": false,
+  "node_regression_rerun": false,
+  "historical_baseline_only": {
+    "python": 521,
+    "node": 91,
+    "new_claim_of_full_suite_pass": false
+  },
+  "mac_cli": {
+    "status": "PASS",
+    "platform": "macOS arm64 ONLY; not Windows CMD acceptance",
+    "activation": "source .venv/bin/activate",
+    "resolution": {
+      "python": "/Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python",
+      "prefix": "/Users/jhonhazel/mahjong-strategy-ai/.venv",
+      "fastapi": "/Users/jhonhazel/mahjong-strategy-ai/.venv/bin/fastapi",
+      "version": "3.12.10"
+    },
+    "cli_runs": [
+      {
+        "command": "fastapi dev main.py",
+        "cwd": "/Users/jhonhazel/mahjong-strategy-ai",
+        "pages": {
+          "/": 200,
+          "/game": 200,
+          "/history": 200
+        },
+        "ready": {
+          "status": "ready",
+          "model": "ready",
+          "database": "ready"
+        },
+        "ready_seconds": 2.8039695420011412,
+        "ctrl_c_sigint_exit_code": 0,
+        "owned_port_closed": true
+      },
+      {
+        "command": "fastapi dev main.py",
+        "cwd": "/Users/jhonhazel/mahjong-strategy-ai",
+        "pages": {
+          "/": 200,
+          "/game": 200,
+          "/history": 200
+        },
+        "ready": {
+          "status": "ready",
+          "model": "ready",
+          "database": "ready"
+        },
+        "ready_seconds": 2.4321185419976246,
+        "ctrl_c_sigint_exit_code": 0,
+        "owned_port_closed": true
+      }
+    ],
+    "postgres_test_records_catalog_roles_and_databases_unchanged": true,
+    "runtime_config_files_written": false,
+    "provisioning_or_setup_run": false,
+    "windows_where_commands_executed": false,
+    "global_path_or_install_changed": false,
+    "full_python_node_regression_rerun": false
+  },
+  "windows_native_status": "NOT YET VERIFIED",
+  "windows_inventory": {
+    "host": "Darwin",
+    "architecture": "arm64",
+    "native_windows": false,
+    "vms": {
+      "exit_code": 0,
+      "count": 0
+    },
+    "runningvms": {
+      "exit_code": 0,
+      "count": 0
+    }
+  },
+  "official_activation_reference": "https://docs.python.org/3.12/library/venv.html",
+  "integrity": {
+    "original_files_checked": 876,
+    "unchanged_files": 875,
+    "unchanged_files_aggregate_sha256": "13b66b79109db766fd658c92159ce05d14ee9e1ee70e2de15b66fd814876d595",
+    "frozen_sha256": {
+      "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+      "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+      "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+    },
+    "dev_rows_unchanged": 44,
+    "dev_row_fingerprints_identical": true,
+    "original_runtime_and_provisioning_and_history_evidence_unchanged": true,
+    "historical_zip_bytes_unchanged": true
+  },
+  "release": {
+    "path": "delivery/phase4_3-native-windows-option-a-2026-11-07/mahjong-strategy-ai-lecturer-portable.zip",
+    "files": 105,
+    "sha256": "430a57b73d4f22ae0f992b653941f413592153287b138adf1811aed045221a6d",
+    "source_bytes": 3696631,
+    "zip_bytes": 1932356,
+    "changed_source_members": [
+      "README_START_HERE.md"
+    ],
+    "all_members_hashes_and_current_sources_match": true,
+    "evidence_secrets_venv_data_excluded": true,
+    "audit_rebuilt": false,
+    "historical_outputs_overwritten": false
+  },
+  "git": {
+    "branch": "main",
+    "head": "28623736f6ce9d90eeb86dea98908b182631aad1",
+    "tracked_modified": 4,
+    "untracked": 208,
+    "staged": 0,
+    "working_tree_clean": false,
+    "mutation": false,
+    "commit": false,
+    "push": false,
+    "deployment": false
+  },
+  "readme_diff": "--- before/README_START_HERE.md\n+++ after/README_START_HERE.md\n@@ -1,11 +1,11 @@\n # Mahjong Strategy AI \u2014 Lecturer Edition\n \n-## Run Mahjong Strategy AI on Windows \u2014 Without Docker\n+## Windows \u2014 Native Python, Without Docker\n \n **WINDOWS NATIVE \u2014 IMPLEMENTED / NOT YET VERIFIED.** Pengujian Windows asli belum\n dilakukan; tes PostgreSQL nyata pada Mac tidak menggantikan pengujian CMD/ACL Windows.\n \n-### First time only\n+### First-Time Setup\n \n Install Python **3.12 x64** (sertakan Python launcher `py`) dan PostgreSQL lokal.\n Pastikan service PostgreSQL berjalan. Install Microsoft C++ Build Tools beserta\n@@ -16,7 +16,6 @@\n \n ```bat\n setup-windows-native.cmd\n-fastapi dev main.py\n ```\n \n Setup membuat `.venv`, memasang dependency terpin, memverifikasi model asli, dan\n@@ -24,17 +23,53 @@\n username administrator PostgreSQL dan password tersembunyi satu kali. Default port\n 5432, administrator `postgres`. Tidak perlu SQL Shell, pgAdmin, Docker atau Node.\n \n-Setelah berhasil, `.venv` aktif di **CMD yang sama** dan `fastapi` berasal dari\n-project. Menjalankan `.cmd` dari PowerShell/double-click tidak mengaktifkan venv\n-pada terminal lain; gunakan dua perintah di atas dalam satu CMD.\n-\n-### Next time\n-\n-```bat\n-run-windows-native.cmd\n-```\n-\n-Buka **http://127.0.0.1:8000/game**. Ctrl+C menghentikan aplikasi.\n+Setup hanya diperlukan sekali. Untuk membuka website, gunakan langkah harian\n+di bawah. Aktivasi harus dilakukan dalam CMD yang sama dengan perintah FastAPI;\n+aktivasi dari PowerShell/double-click tidak berlaku pada terminal lain.\n+\n+### Every Time You Start the Website\n+\n+Buka CMD dari direktori root project, lalu jalankan **Option A**:\n+\n+```bat\n+.venv\\Scripts\\activate.bat\n+fastapi dev main.py\n+```\n+\n+Buka **http://127.0.0.1:8000/game**. Tidak perlu setup, install dependency,\n+provisioning database, atau retraining ulang. Tidak perlu PATH/global FastAPI.\n+\n+### Stop\n+\n+Tekan **Ctrl+C** pada CMD yang menjalankan FastAPI.\n+\n+### Restart Later\n+\n+Buka CMD baru dari root project dan ulangi:\n+\n+```bat\n+.venv\\Scripts\\activate.bat\n+fastapi dev main.py\n+```\n+\n+### Troubleshooting\n+\n+Jika `fastapi` tidak dikenali, pastikan `.venv` ada dan aktif pada CMD yang sama:\n+\n+```bat\n+where python\n+where fastapi\n+python --version\n+```\n+\n+Hasil pertama harus menunjuk `.venv\\Scripts\\python.exe` dan\n+`.venv\\Scripts\\fastapi.exe` milik project; Python harus 3.12 x64. Jika venv hilang/\n+tidak lengkap, periksa kegagalan first-time setup; jangan install FastAPI global.\n+\n+Jika koneksi database gagal, periksa service PostgreSQL existing. Jangan hapus\n+`.env`/database atau membuat credentials baru. Jika port 8000 terpakai, aplikasi\n+lain atau instance FastAPI sebelumnya mungkin masih berjalan; hentikan hanya\n+instance milik Anda melalui terminalnya, jangan kill proses sembarang.\n \n ### Important notes\n \n@@ -43,6 +78,8 @@\n credentials, session secret dan History. Role/database asing atau state ambigu\n ditolak; tidak ada reset otomatis. Active game hilang saat dev reload/restart,\n sedangkan History mengikuti identitas browser dan secret yang sama.\n+Launcher existing `run-windows-native.cmd` tetap tersedia untuk kompatibilitas;\n+alur utama di atas adalah aktivasi standar Option A.\n \n ## Phase4.3 \u2014 pilih jalur yang benar-benar tersedia\n \n@@ -128,7 +165,7 @@\n Windows CMD:\n \n ```bat\n-setup-windows-native.cmd\n+.venv\\Scripts\\activate.bat\n fastapi dev main.py\n ```\n \n@@ -136,7 +173,7 @@\n tanpa superuser/create-role/create-db dan database `mahjong_phase3_dev` miliknya.\n Password admin tidak disimpan. Config lokal valid yang sudah ada dipakai ulang\n tanpa meminta admin. Jalur lama `setup-windows.cmd --native` tetap tersedia,\n-tetapi gunakan launcher baru untuk aktivasi yang bertahan pada CMD yang sama.\n+tetapi petunjuk utama Windows adalah First-Time Setup dan Option A di atas.\n \n Native setup membuat venv, memasang runtime terpin, memverifikasi model, membuat\n `.env` privat jika belum ada, menginisialisasi tabel yang hilang secara eksplisit,\n"
+}

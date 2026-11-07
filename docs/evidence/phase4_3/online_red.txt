@@ -1,0 +1,119 @@
+FFFFFFF.F.F                                                              [100%]
+=================================== FAILURES ===================================
+___ test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[*] ___
+
+value = '*'
+
+    @pytest.mark.parametrize('value',['*','172.30.43.0/28','proxy.example','0.0.0.0','::','224.0.0.1'])
+    def test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust(value):
+>       with pytest.raises(ValidationError):config(trusted_proxy_ips=[value])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests/test_phase4_3_online.py:21: Failed
+_ test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[172.30.43.0/28] _
+
+value = '172.30.43.0/28'
+
+    @pytest.mark.parametrize('value',['*','172.30.43.0/28','proxy.example','0.0.0.0','::','224.0.0.1'])
+    def test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust(value):
+>       with pytest.raises(ValidationError):config(trusted_proxy_ips=[value])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests/test_phase4_3_online.py:21: Failed
+_ test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[proxy.example] _
+
+value = 'proxy.example'
+
+    @pytest.mark.parametrize('value',['*','172.30.43.0/28','proxy.example','0.0.0.0','::','224.0.0.1'])
+    def test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust(value):
+>       with pytest.raises(ValidationError):config(trusted_proxy_ips=[value])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests/test_phase4_3_online.py:21: Failed
+_ test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[0.0.0.0] _
+
+value = '0.0.0.0'
+
+    @pytest.mark.parametrize('value',['*','172.30.43.0/28','proxy.example','0.0.0.0','::','224.0.0.1'])
+    def test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust(value):
+>       with pytest.raises(ValidationError):config(trusted_proxy_ips=[value])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests/test_phase4_3_online.py:21: Failed
+__ test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[::] ___
+
+value = '::'
+
+    @pytest.mark.parametrize('value',['*','172.30.43.0/28','proxy.example','0.0.0.0','::','224.0.0.1'])
+    def test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust(value):
+>       with pytest.raises(ValidationError):config(trusted_proxy_ips=[value])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests/test_phase4_3_online.py:21: Failed
+_ test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[224.0.0.1] _
+
+value = '224.0.0.1'
+
+    @pytest.mark.parametrize('value',['*','172.30.43.0/28','proxy.example','0.0.0.0','::','224.0.0.1'])
+    def test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust(value):
+>       with pytest.raises(ValidationError):config(trusted_proxy_ips=[value])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests/test_phase4_3_online.py:21: Failed
+_ test_explicit_proxy_addresses_are_canonical_and_duplicates_do_not_expand_trust _
+
+    def test_explicit_proxy_addresses_are_canonical_and_duplicates_do_not_expand_trust():
+        settings=config(trusted_proxy_ips=['172.30.43.2','0:0:0:0:0:0:0:1','172.30.43.2'])
+>       assert getattr(settings,'trusted_proxy_ips',None)==['172.30.43.2','::1']
+E       AssertionError: assert None == ['172.30.43.2', '::1']
+E        +  where None = getattr(Settings(database_url=SecretStr('**********'), session_secret=SecretStr('**********'), environment='local', model_chec...', port=8000, allowed_hosts=['127.0.0.1', 'localhost', 'testserver'], max_body_bytes=16384, database_timeout_seconds=5), 'trusted_proxy_ips', None)
+
+tests/test_phase4_3_online.py:26: AssertionError
+_ test_runner_trusts_only_the_configured_proxy_and_preserves_direct_default[trusted1-True] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10c21b4a0>
+trusted = ['172.30.43.2'], enabled = True
+
+    @pytest.mark.parametrize('trusted,enabled',[([],False),(['172.30.43.2'],True)])
+    def test_runner_trusts_only_the_configured_proxy_and_preserves_direct_default(monkeypatch,trusted,enabled):
+        import scripts.run_backend as runner
+        calls=[];settings=config(trusted_proxy_ips=trusted)
+        monkeypatch.setattr(runner,'Settings',lambda:settings)
+        monkeypatch.setattr(runner.uvicorn,'run',lambda *a,**kw:calls.append(kw))
+        runner.main()
+>       assert calls[0]['proxy_headers'] is enabled
+E       assert False is True
+
+tests/test_phase4_3_online.py:36: AssertionError
+__________ test_runtime_only_export_does_not_rearchive_research_data ___________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-33/test_runtime_only_export_does_0')
+
+    def test_runtime_only_export_does_not_rearchive_research_data(tmp_path):
+        result=subprocess.run([str(ROOT/'.venv/bin/python'),'-m','scripts.build_lecturer_release',
+                               '--runtime-only','--output',str(tmp_path/'release')],cwd=ROOT,text=True,capture_output=True)
+>       assert result.returncode==0,result.stderr
+E       AssertionError: usage: build_lecturer_release.py [-h] --output OUTPUT
+E         build_lecturer_release.py: error: unrecognized arguments: --runtime-only
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/Users/jhonhazel/mahjong-strategy-ai/.venv/bin/python', '-m', 'scripts.build_lecturer_release'..._lecturer_release.py [-h] --output OUTPUT\nbuild_lecturer_release.py: error: unrecognized arguments: --runtime-only\n').returncode
+
+tests/test_phase4_3_online.py:48: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_online.py::test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[*]
+FAILED tests/test_phase4_3_online.py::test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[172.30.43.0/28]
+FAILED tests/test_phase4_3_online.py::test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[proxy.example]
+FAILED tests/test_phase4_3_online.py::test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[0.0.0.0]
+FAILED tests/test_phase4_3_online.py::test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[::]
+FAILED tests/test_phase4_3_online.py::test_forwarded_headers_never_accept_wildcard_network_or_nonhost_trust[224.0.0.1]
+FAILED tests/test_phase4_3_online.py::test_explicit_proxy_addresses_are_canonical_and_duplicates_do_not_expand_trust
+FAILED tests/test_phase4_3_online.py::test_runner_trusts_only_the_configured_proxy_and_preserves_direct_default[trusted1-True]
+FAILED tests/test_phase4_3_online.py::test_runtime_only_export_does_not_rearchive_research_data
+9 failed, 2 passed in 0.26s

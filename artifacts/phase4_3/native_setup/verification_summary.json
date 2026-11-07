@@ -1,0 +1,238 @@
+{
+  "changed_paths": [
+    "README_START_HERE.md",
+    "artifacts/phase4_3/native_setup/verification_summary.json",
+    "docs/evidence/phase4_3/native_setup/baseline.txt",
+    "docs/evidence/phase4_3/native_setup/baseline.xml",
+    "docs/evidence/phase4_3/native_setup/full_regression.txt",
+    "docs/evidence/phase4_3/native_setup/full_regression.xml",
+    "docs/evidence/phase4_3/native_setup/full_regression_final.txt",
+    "docs/evidence/phase4_3/native_setup/full_regression_final.xml",
+    "docs/evidence/phase4_3/native_setup/green_initial.txt",
+    "docs/evidence/phase4_3/native_setup/green_initial.xml",
+    "docs/evidence/phase4_3/native_setup/green_provisioning.txt",
+    "docs/evidence/phase4_3/native_setup/green_provisioning.xml",
+    "docs/evidence/phase4_3/native_setup/node_baseline.txt",
+    "docs/evidence/phase4_3/native_setup/node_final.txt",
+    "docs/evidence/phase4_3/native_setup/preflight.json",
+    "docs/evidence/phase4_3/native_setup/python_arch_red.txt",
+    "docs/evidence/phase4_3/native_setup/red.txt",
+    "docs/evidence/phase4_3/native_setup/red.xml",
+    "docs/evidence/phase4_3/native_setup/red_provisioning.txt",
+    "docs/evidence/phase4_3/native_setup/red_provisioning.xml",
+    "docs/evidence/phase4_3/native_setup/release_build.txt",
+    "docs/evidence/phase4_3/native_setup/review_green.txt",
+    "docs/evidence/phase4_3/native_setup/review_green.xml",
+    "docs/evidence/phase4_3/native_setup/review_red.txt",
+    "docs/evidence/phase4_3/native_setup/role_privileges_red.txt",
+    "docs/phase4_3_implementation_report.md",
+    "docs/superpowers/plans/2026-11-07-native-windows-setup.md",
+    "packaging/runtime_allowlist.json",
+    "run-windows-native.cmd",
+    "scripts/lecturer_setup.py",
+    "scripts/native_postgres.py",
+    "setup-windows-native.cmd",
+    "tests/test_native_windows_setup.py"
+  ],
+  "date": "2026-11-07",
+  "evidence_root": "docs/evidence/phase4_3/native_setup",
+  "existing_diffs": {
+    "README_START_HERE.md": "--- before/README_START_HERE.md\n+++ after/README_START_HERE.md\n@@ -1,4 +1,48 @@\n # Mahjong Strategy AI \u2014 Lecturer Edition\n+\n+## Run Mahjong Strategy AI on Windows \u2014 Without Docker\n+\n+**WINDOWS NATIVE \u2014 IMPLEMENTED / NOT YET VERIFIED.** Pengujian Windows asli belum\n+dilakukan; tes PostgreSQL nyata pada Mac tidak menggantikan pengujian CMD/ACL Windows.\n+\n+### First time only\n+\n+Install Python **3.12 x64** (sertakan Python launcher `py`) dan PostgreSQL lokal.\n+Pastikan service PostgreSQL berjalan. Install Microsoft C++ Build Tools beserta\n+Windows SDK **jika PyMahjongGB perlu dikompilasi**. Internet diperlukan untuk\n+dependency pada setup pertama.\n+\n+Extract All dari ZIP Lecturer lengkap, lalu buka **CMD** di folder hasil ekstraksi:\n+\n+```bat\n+setup-windows-native.cmd\n+fastapi dev main.py\n+```\n+\n+Setup membuat `.venv`, memasang dependency terpin, memverifikasi model asli, dan\n+membuat role, database serta tabel aplikasi dengan aman. Setup dapat meminta port,\n+username administrator PostgreSQL dan password tersembunyi satu kali. Default port\n+5432, administrator `postgres`. Tidak perlu SQL Shell, pgAdmin, Docker atau Node.\n+\n+Setelah berhasil, `.venv` aktif di **CMD yang sama** dan `fastapi` berasal dari\n+project. Menjalankan `.cmd` dari PowerShell/double-click tidak mengaktifkan venv\n+pada terminal lain; gunakan dua perintah di atas dalam satu CMD.\n+\n+### Next time\n+\n+```bat\n+run-windows-native.cmd\n+```\n+\n+Buka **http://127.0.0.1:8000/game**. Ctrl+C menghentikan aplikasi.\n+\n+### Important notes\n+\n+PostgreSQL harus tetap berjalan. Jangan bagikan `.env` atau folder `.local`, dan\n+jangan hapus file database/config untuk memperbaiki startup. Setup ulang menjaga\n+credentials, session secret dan History. Role/database asing atau state ambigu\n+ditolak; tidak ada reset otomatis. Active game hilang saat dev reload/restart,\n+sedangkan History mengikuti identitas browser dan secret yang sama.\n \n ## Phase4.3 \u2014 pilih jalur yang benar-benar tersedia\n \n@@ -84,17 +128,15 @@\n Windows CMD:\n \n ```bat\n-setup-windows.cmd --native\n-run-windows.cmd --native\n-```\n-\n-Sebelumnya, dengan pgAdmin di server lokal Anda, buat role LOGIN khusus\n-`mahjong_app` (bukan superuser, tanpa create-role/create-db), password privat,\n-dan database kosong `mahjong` yang dimiliki role tersebut. Jangan gunakan DB\n-aplikasi lain. Setup meminta URL lokal secara tersembunyi, dengan format\n-`postgresql+psycopg://USER:PASSWORD@127.0.0.1:5432/DATABASE` (percent-encode karakter\n-khusus password). Ini hanya format, bukan credential yang siap digunakan.\n-Setup tidak mengotomatisasi provisioning role/admin Windows atau Unix socket.\n+setup-windows-native.cmd\n+fastapi dev main.py\n+```\n+\n+Provisioning Windows dilakukan oleh setup eksplisit: default role `mahjong_app`\n+tanpa superuser/create-role/create-db dan database `mahjong_phase3_dev` miliknya.\n+Password admin tidak disimpan. Config lokal valid yang sudah ada dipakai ulang\n+tanpa meminta admin. Jalur lama `setup-windows.cmd --native` tetap tersedia,\n+tetapi gunakan launcher baru untuk aktivasi yang bertahan pada CMD yang sama.\n \n Native setup membuat venv, memasang runtime terpin, memverifikasi model, membuat\n `.env` privat jika belum ada, menginisialisasi tabel yang hilang secara eksplisit,\n@@ -116,8 +158,9 @@\n fastapi dev main.py\n ```\n \n-Dev reload dapat menghilangkan active games. Launcher normal memakai factory\n-existing tanpa reloader. Simpan secret yang sama untuk akses history sesudah restart.\n+Dev reload dapat menghilangkan active games. Launcher native Windows baru memakai\n+`fastapi dev main.py`; launcher legacy normal memakai factory existing tanpa\n+reloader. Simpan secret yang sama untuk akses History sesudah restart.\n \n ## Jika gagal\n \n",
+    "docs/phase4_3_implementation_report.md": "--- before/docs/phase4_3_implementation_report.md\n+++ after/docs/phase4_3_implementation_report.md\n@@ -273,3 +273,87 @@\n builder dan arsip delivery tidak diubah. Arsip ZIP historis belum memuat fix ini;\n gunakan source terbaru ketika membuat candidate berikutnya. Tidak ada Git mutation,\n commit, push, build Windows, publikasi model atau deployment.\n+\n+## Native Windows setup \u2014 7 November 2026\n+\n+**GO WITH CAVEATS. WINDOWS NATIVE \u2014 IMPLEMENTED / NOT YET VERIFIED.** Source\n+menyediakan `setup-windows-native.cmd`, lalu `fastapi dev main.py` pada CMD yang\n+sama; startup berikutnya `run-windows-native.cmd`. Prasyarat tetap CPython3.12x64,\n+service PostgreSQL lokal, internet saat install dependency, dan C++/SDK jika build\n+PyMahjongGB memerlukannya. Windows PowerShell bawaan dipakai untuk ACL; tidak ada\n+execution-policy bypass, Docker, pgAdmin atau SQL Shell dalam jalur native ini.\n+Belum ada host Windows untuk membuktikan aktivasi CMD/ACL/dependency native.\n+\n+Gap sebelumnya ada pada `native_finish()`: Windows meminta URL database yang sudah\n+diprovisikan. Kini `scripts/lecturer_setup.py` memakai satu helper baru,\n+`scripts/native_postgres.py`, hanya saat setup Windows eksplisit. Host default\n+127.0.0.1/5432; admin default postgres dengan password getpass tersembunyi. App role\n+mahjong_app memiliki LOGIN tanpa superuser/create-role/create-db/replication/bypassRLS\n+atau membership, database mahjong_phase3_dev dimiliki role itu. SQL memakai Psycopg\n+Identifier/Literal; role+comment transaksional, CREATE DATABASE autocommit dan setup\n+diserialisasi advisory lock. Schema memakai initialize_schema existing, lalu probe\n+lifespan aplikasi/model asli. Tidak ada provisioning pada startup FastAPI.\n+\n+Credentials aplikasi dan session secret disiapkan sekali pada record privat\n+`.local/native-postgres/pending.json` sebelum DDL; admin password tidak disimpan.\n+Ownership token pada role/database membuat retry terverifikasi. Existing `.env`\n+valid dipakai ulang tanpa admin, rewrite, rotasi secret atau reset data. Role/database\n+asing ditolak sebelum perubahan. Jika CREATE DATABASE berhasil tetapi comment\n+ownership gagal, state ambigu ditolak dan memerlukan inspeksi; credentials tetap\n+tersimpan, tidak ada DROP atau destructive rollback. `.env` diterbitkan dari file\n+privat lengkap melalui exclusive hardlink sesudah schema/probe lulus; path symlink/\n+junction/unknown state ditolak. Metadata root menghindari recovery sembarang folder.\n+\n+Keamanan Windows memakai DACL baru dengan hanya SID pengguna dan SYSTEM, inheritance\n+protected, lalu readback exact owner/principal/rights. Tidak hanya chmod atau grant\n+tambahan; acknowledgement yang tidak terverifikasi menyebabkan kegagalan sebelum\n+penulisan secret. PowerShell menerima path melalui JSON ASCII di stdin, program\n+statis encoded, tanpa shell interpolation. Eksekusi ACL nyata masih gate Windows.\n+Process overrides PGHOSTADDR/PGSERVICE/PGSERVICEFILE serta MAHJONG_DATABASE_URL/\n+MAHJONG_SESSION_SECRET ditolak agar config privat yang diuji tetap menjadi config\n+yang dipakai perintah FastAPI berikutnya. Script tidak mengubah environment itu.\n+\n+Setup CMD memakai call activate.bat tanpa setlocal; memeriksa executable FastAPI\n+project sebelum return. Run CMD mengaktifkan venv, melakukan --check tanpa DDL/\n+install/admin, lalu menjalankan entrypoint asli. Native setup memverifikasi bitness,\n+pip check, import extension dan CPU torch. Paket terpin tidak diubah: actual host\n+macOS arm64 CPython3.12.10, torch2.15.0 (CUDA None, CPU tensor/inference), PyMahjongGB1.4.0,\n+FastAPI0.162.0, psycopg3.3.8; pip check lulus. Instalasi Windows belum dijalankan.\n+\n+Evidence baru ada di `docs/evidence/phase4_3/native_setup/`. Fresh baseline489Python/\n+91Node. Proper RED17failed (sebelumnya fixture gagal karena Unix socket Mac terlalu\n+panjang; dikoreksi menjadi TCP-only, hasil awal tetap disimpan). Tes nyata memakai\n+cluster PostgreSQL14.19 disposable TCP/SCRAM, bukan DEV: provisioning, role/owner,\n+autentikasi salah, existing config/foreign resources, schema failure, disk/partial DDL,\n+retry, v3 prediction, History/read/detail dan restart. Fault tests/command dependency\n+spies dibedakan dari integrasi DB; tidak ada sertifikasi CMD dari unit tests.\n+\n+Satu review independen read-only menemukan2Important (libpq environment redirect dan\n+explicit ACL grants tersisa) serta1Minor (marker dependency lama pada venv yang dibuat\n+ulang). Ketiganya diperbaiki dengan8tes RED\u2192GREEN. Minor diregrade menjadi blocker\n+installer karena kontrak venv-baru harus memasang dependency. Tidak ada independent\n+re-review; reviewer tidak menjalankan suite atau menguji Windows. Scoped role-membership\n+dan32bit guards juga dibuktikan RED\u2192GREEN. Final focused101passed5.57s; full521Python\n+passed72.55s dan91Node passed125.249333ms, zero failures/errors/skips, satu warning\n+Starlette/httpx existing. Seluruh489/91identitas baseline direkonsiliasi.\n+\n+Paket baru runtime-only berada di `delivery/phase4_3-native-windows-2026-11-07/`;\n+dua launcher dan helper masuk allowlist nyata. Tidak merebuild audit besar atau\n+menimpa arsip lama. ZIP merupakan candidate source dengan prasyarat Python/PG,\n+bukan executable Windows standalone. Manifest, integritas source/model/DEV/history,\n+review dan daftar file tepat ada di `artifacts/phase4_3/native_setup/verification_summary.json`.\n+Quick-start diperbarui di README_START_HERE.md; source produksi hanya installer dan\n+helper baru. P43-IA01, app/schema/engine/ML/frontend/Caddy/Compose/requirements tetap.\n+Tidak ada stage, commit, push, publikasi, deployment, atau perubahan service PG existing.\n+\n+Gate tersisa: clean Windowsx64, same-CMD `where fastapi`, kedua command pertama,\n+fresh-CMD run launcher, real ACL/PowerShell/NTFS hardlink/junction, compiler/dependencies\n+dan browser full-flow. Tidak ada jaminan atomic filesystem terhadap penulis hostile\n+dengan privilege user identik. Server policy/logging tidak diubah. Candidate siap\n+untuk pengujian Windows terkontrol; belum merupakan distribusi Windows tersertifikasi.\n+\n+Referensi teknis primer:\n+https://www.postgresql.org/docs/14/sql-createdatabase.html\n+https://www.psycopg.org/psycopg3/docs/api/sql.html\n+https://www.postgresql.org/docs/current/libpq-envars.html\n+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/icacls\n",
+    "packaging/runtime_allowlist.json": "--- before/packaging/runtime_allowlist.json\n+++ after/packaging/runtime_allowlist.json\n@@ -68,14 +68,18 @@\n   \"requirements-runtime.txt\": \"requirements-runtime.txt\",\n   \"run-macos.sh\": \"run-macos.sh\",\n   \"run-windows.cmd\": \"run-windows.cmd\",\n+  \"run-windows-native.cmd\": \"run-windows-native.cmd\",\n   \"scripts/__init__.py\": \"scripts/__init__.py\",\n   \"scripts/init_db.py\": \"scripts/init_db.py\",\n   \"scripts/lecturer_assets.py\": \"scripts/lecturer_assets.py\",\n   \"scripts/lecturer_setup.py\": \"scripts/lecturer_setup.py\",\n+  \"scripts/native_postgres.py\": \"scripts/native_postgres.py\",\n+  \"scripts/windows_launcher.py\": \"scripts/windows_launcher.py\",\n   \"scripts/phase3_db.py\": \"scripts/phase3_db.py\",\n   \"scripts/run_backend.py\": \"scripts/run_backend.py\",\n   \"setup-macos.sh\": \"setup-macos.sh\",\n   \"setup-windows.cmd\": \"setup-windows.cmd\",\n+  \"setup-windows-native.cmd\": \"setup-windows-native.cmd\",\n   \"training/__init__.py\": \"training/__init__.py\",\n   \"training/dataset_loader.py\": \"training/dataset_loader.py\"\n }\n",
+    "scripts/lecturer_setup.py": "--- before/scripts/lecturer_setup.py\n+++ after/scripts/lecturer_setup.py\n@@ -25,7 +25,7 @@\n     path.chmod(mode)\n \n \n-def write_native_config(root,database_url):\n+def write_native_config(root,database_url,*,session_secret=None):\n     root=Path(root).resolve();path=safe_path(root,'.env')\n     if any(ord(c)<32 for c in database_url):raise ValueError('Database URL must be a single line')\n     parsed=urlsplit(database_url)\n@@ -41,8 +41,12 @@\n     if parsed.scheme not in ('postgresql','postgresql+psycopg') or not parsed.path.strip('/') or (parsed.hostname not in ('localhost','127.0.0.1','::1') and not local_socket):\n         raise ValueError('Use an explicitly provisioned local PostgreSQL database')\n     if path.exists():return path\n-    secret=secrets.token_urlsafe(48)\n-    private_write(path,'MAHJONG_DATABASE_URL='+json.dumps(database_url)+'\\nMAHJONG_SESSION_SECRET='+json.dumps(secret)+'\\nMAHJONG_ENVIRONMENT=local\\nMAHJONG_WORKERS=1\\n')\n+    secret=session_secret or secrets.token_urlsafe(48)\n+    text='MAHJONG_DATABASE_URL='+json.dumps(database_url)+'\\nMAHJONG_SESSION_SECRET='+json.dumps(secret)+'\\nMAHJONG_ENVIRONMENT=local\\nMAHJONG_WORKERS=1\\n'\n+    if platform.system()=='Windows':\n+        from scripts.native_postgres import publish_config\n+        publish_config(root,text)\n+    else:private_write(path,text)\n     return path\n \n \n@@ -69,20 +73,36 @@\n         if app.state.resources is None:raise RuntimeError('Application resources did not initialize')\n \n \n-def native_finish(run=False):\n+def native_finish(run=False,*,check_only=False):\n     from app.settings import Settings\n     from scripts.phase3_db import LocalPostgres\n-    pg=LocalPostgres()\n+    pending=None;windows=platform.system()=='Windows'\n+    pg=None if windows else LocalPostgres()\n+    if windows:\n+        from scripts import native_postgres\n+        native_postgres.ensure_local_environment()\n+        native_postgres.no_links(ROOT/'.env')\n+        if (run or check_only) and not (ROOT/'.env').is_file():\n+            raise native_postgres.NativeSetupError('Run setup-windows-native.cmd first; recurring startup never provisions PostgreSQL')\n     if not (ROOT/'.env').exists():\n         url=os.environ.get('MAHJONG_SETUP_DATABASE_URL')\n-        if not url and platform.system()=='Darwin':\n+        if windows:\n+            pending=({'database_url':url,'session_secret':secrets.token_urlsafe(48)} if url else native_postgres.prepare_database(ROOT))\n+        elif not url and platform.system()=='Darwin':\n             pg.initialize();pg.start();url=pg.database_url('dev')\n-        if not url:url=getpass.getpass('Local PostgreSQL URL (hidden; create an empty owned DB first): ')\n-        write_native_config(ROOT,url)\n-    config=Settings()\n-    write_native_config(ROOT,config.database_url.get_secret_value())\n-    if pg.marker.is_file() and config.database_url.get_secret_value()==pg.database_url('dev'):pg.start()\n+        if not windows:\n+            if not url:url=getpass.getpass('Local PostgreSQL URL (hidden; create an empty owned DB first): ')\n+            write_native_config(ROOT,url)\n+    config=Settings(_env_file=None,**pending) if pending else Settings(_env_file=ROOT/'.env')\n+    if windows:\n+        native_postgres.validate_database(config.database_url.get_secret_value())\n+        if not pending:native_postgres.protect_path(ROOT/'.env')\n+    else:\n+        write_native_config(ROOT,config.database_url.get_secret_value())\n+        if pg.marker.is_file() and config.database_url.get_secret_value()==pg.database_url('dev'):pg.start()\n     verify_assets(ROOT)\n+    if check_only:\n+        asyncio.run(application_probe(config));print('Native model/database readiness OK; no provisioning performed');return 0\n     if run:\n         return subprocess.call([sys.executable,'-m','scripts.run_backend'],cwd=ROOT)\n     from app.db import create_db_engine,initialize_schema\n@@ -90,24 +110,34 @@\n     try:initialize_schema(engine)\n     finally:engine.dispose()\n     asyncio.run(application_probe(config))\n+    if pending:write_native_config(ROOT,config.database_url.get_secret_value(),session_secret=config.session_secret.get_secret_value())\n     print('Setup native PASS: real PostgreSQL schema and v3 lifespan ready. Run the launcher; open http://127.0.0.1:8000/')\n     return 0\n \n \n def native_setup():\n-    if sys.version_info[:2]!=(3,12) or platform.machine().lower() not in ('arm64','aarch64','amd64','x86_64'):\n+    windows=platform.system()=='Windows'\n+    if (sys.implementation.name!='cpython' or sys.version_info[:2]!=(3,12) or sys.maxsize<=2**32\n+            or platform.machine().lower() not in (('amd64','x86_64') if windows else ('arm64','aarch64','amd64','x86_64'))):\n         raise ValueError('Use 64-bit CPython3.12; Windows native remains unverified')\n     verify_assets(ROOT)\n     directory=safe_path(ROOT,'.venv')\n-    if not directory.exists():venv.EnvBuilder(with_pip=True).create(directory)\n+    created=not directory.exists()\n+    if created:venv.EnvBuilder(with_pip=True).create(directory)\n     executable=directory/('Scripts/python.exe' if os.name=='nt' else 'bin/python')\n     requirements=ROOT/'requirements-runtime.txt'\n     fingerprint=hashlib.sha256(requirements.read_bytes()).hexdigest()\n     marker=ROOT/'.local/native-requirements.sha256';marker.parent.mkdir(exist_ok=True,mode=0o700)\n-    if not marker.exists() or marker.read_text()!=fingerprint:\n-        subprocess.run([str(executable),'-m','pip','install','-r',str(requirements)],check=True,cwd=ROOT)\n-        marker.write_text(fingerprint)\n+    install=created or not marker.exists() or marker.read_text()!=fingerprint\n+    if install:\n+        try:\n+            if windows:subprocess.run([str(executable),'-m','pip','install','torch==2.15.0','--index-url','https://download.pytorch.org/whl/cpu','--no-deps'],check=True,cwd=ROOT)\n+            subprocess.run([str(executable),'-m','pip','install','-r',str(requirements)],check=True,cwd=ROOT)\n+        except subprocess.CalledProcessError:\n+            raise RuntimeError('Runtime install failed. If PyMahjongGB compilation failed, install Microsoft C++ Build Tools with C++/Windows SDK and retry') from None\n     subprocess.run([str(executable),'-m','pip','check'],check=True,cwd=ROOT)\n+    subprocess.run([str(executable),'-c',\"import sys,struct,torch,MahjongGB,fastapi,psycopg; assert sys.version_info[:2]==(3,12) and struct.calcsize('P')==8; assert torch.__version__.split('+')[0]=='2.15.0'; assert sys.platform!='win32' or torch.version.cuda is None; torch.zeros(1,device='cpu')\"],check=True,cwd=ROOT)\n+    if install:marker.write_text(fingerprint)\n     return subprocess.call([str(executable),'-m','scripts.lecturer_setup','--finish'],cwd=ROOT)\n \n \n@@ -129,14 +159,16 @@\n     parser=argparse.ArgumentParser(description=__doc__)\n     parser.add_argument('--run',action='store_true');parser.add_argument('--finish',action='store_true',help=argparse.SUPPRESS)\n     parser.add_argument('--container',action='store_true');parser.add_argument('--compose-secrets',action='store_true')\n+    parser.add_argument('--check',action='store_true',help='Validate existing native config/model/database without provisioning')\n     args=parser.parse_args();started=time.monotonic()\n     try:\n         if args.compose_secrets:prepare_compose_secrets(Path('/state'));print('Private Compose secrets ready; existing values preserved');return 0\n         if args.container:container_start();return 0\n-        result=native_finish(run=args.run) if args.finish or args.run else native_setup()\n+        result=native_finish(run=args.run,check_only=args.check) if args.finish or args.run or args.check else native_setup()\n         if not args.run:print(f'Setup elapsed: {time.monotonic()-started:.2f}s')\n         return result\n-    except (ValueError,RuntimeError,FileNotFoundError,subprocess.CalledProcessError):\n+    except (ValueError,RuntimeError,OSError,subprocess.CalledProcessError) as error:\n+        if type(error).__name__=='NativeSetupError':print(str(error),file=sys.stderr)\n         print('Setup/start FAILED. Check README_START_HERE: Python3.12/compiler, local PostgreSQL URL/auth/schema, private config, exact v3 assets. No fallback used.',file=sys.stderr)\n         return 1\n \n"
+  },
+  "file_hashes": {
+    "README_START_HERE.md": "5e0768e98adaa8e918f38e5105780957479b6f31e18c3a292506b855063545c7",
+    "docs/evidence/phase4_3/native_setup/baseline.txt": "479971b0eefb728efe6222c5df72dd47c5a4e0860490bceb65700600617068b8",
+    "docs/evidence/phase4_3/native_setup/baseline.xml": "49eaeed7c4ca2d14159ae6e90adc1fea09ae011869d9058ea2a4b287c2ec7caf",
+    "docs/evidence/phase4_3/native_setup/full_regression.txt": "94cc62b3cf762398042e86b5a4e3d6821727f929f5df51138e95c4f42bea2c43",
+    "docs/evidence/phase4_3/native_setup/full_regression.xml": "2532165f7c8e3a8e755d7590b42f7e4634b583e6ee40fc155018f84bad411a2d",
+    "docs/evidence/phase4_3/native_setup/full_regression_final.txt": "59f03f45ec38302d841336c8e4ae66efd1d91fbb4efd569121f8ca682ae2e89b",
+    "docs/evidence/phase4_3/native_setup/full_regression_final.xml": "2efaa23a87eacda17dc56f8aa43880fee8f9ba4921d3ea44922fc58a43edbddf",
+    "docs/evidence/phase4_3/native_setup/green_initial.txt": "8268de9d9436b9ff5ba83f492e3caeef9ff59697d899f9ca9d881c9ffbb2c094",
+    "docs/evidence/phase4_3/native_setup/green_initial.xml": "9091d0d1b3b11c656459a9defb494afcc83591dbec0b77cc52f7a2136339c2bc",
+    "docs/evidence/phase4_3/native_setup/green_provisioning.txt": "4577365101be66455a411fedf13513b8cc324e13e49c1340f878f0c686dbeb84",
+    "docs/evidence/phase4_3/native_setup/green_provisioning.xml": "7bc7e3b605cb666d3a445be9a81bb11a000106372452c4f055c18cfb9896df01",
+    "docs/evidence/phase4_3/native_setup/node_baseline.txt": "10587cbec80371beead33d8471b6c2acd398a078144f7f4a969e58afa2e9ad44",
+    "docs/evidence/phase4_3/native_setup/node_final.txt": "43ff42aae1b88799aa8c66704ca51e1cb80f9ccccb5a8a67ad7234623d9fdcf8",
+    "docs/evidence/phase4_3/native_setup/preflight.json": "1d9931df1ab39ec13c764c5b1350b97b273a49f86f54182ff31293ec180ec3e0",
+    "docs/evidence/phase4_3/native_setup/python_arch_red.txt": "669b70a0666d5b530a6fdd10314ad18b7de5e3e739d68ae38dc63e103344790c",
+    "docs/evidence/phase4_3/native_setup/red.txt": "6b0365b1e3050754a6b154aac0bff42bb903acce0cb000e6e5a7ff41f11960c4",
+    "docs/evidence/phase4_3/native_setup/red.xml": "6e4e01d10041901741cbbfeae35190c08867426b863643c6f6480e403c1d6273",
+    "docs/evidence/phase4_3/native_setup/red_provisioning.txt": "7a1f56026ccec29c39ee9d65b946c35e9d7d72e82493aaae08368d1f3f2256bc",
+    "docs/evidence/phase4_3/native_setup/red_provisioning.xml": "fd687a2a247c6354686009ab481b118a0f5ba2246cfb59b73c29e91c71e9eb0d",
+    "docs/evidence/phase4_3/native_setup/release_build.txt": "01b696555371baf9ef863a13bef838f52857c6d779818a8f87b2c91a4858af13",
+    "docs/evidence/phase4_3/native_setup/review_green.txt": "ba7a40bd649272bb068969a038ac35ee0cfb273819bad4c256c2b31ea91e02e9",
+    "docs/evidence/phase4_3/native_setup/review_green.xml": "bc47357a27ffd1ae6b07db67e98c0a3901b1041cc099162d60b5243d1c6eb574",
+    "docs/evidence/phase4_3/native_setup/review_red.txt": "d9da781d83b039bb18e45c1ef7e5a9ab803c1cfc6ae4e3de7645daa8973bb1e9",
+    "docs/evidence/phase4_3/native_setup/role_privileges_red.txt": "f1c80d01f6a156d91e41d747f31cecfe83f786c6f841c7334d74b866fa3418be",
+    "docs/phase4_3_implementation_report.md": "3136dd3231a1b474467a968dd5c0fe999d05fa6f1c633350d071dfdf97b077d0",
+    "docs/superpowers/plans/2026-11-07-native-windows-setup.md": "b9bdf67acc37e0fed1c95e4273dc61a6c182326f1d227dbf7c2cdd0c63c84987",
+    "packaging/runtime_allowlist.json": "cd41442a5478ee575e5dc405168faaeaf499158615db440b3fa23b27b9feb26b",
+    "run-windows-native.cmd": "a1a51845a6d3b68f54a68ecbd66470413d8446ada48f160ed8e8816f32186134",
+    "scripts/lecturer_setup.py": "5bd06ff51d26bea345e915a8fd55dc84cc12fe06a37af659dea65bcf7ba3891c",
+    "scripts/native_postgres.py": "909852936b270aca1ef7046f6e5b6a1bc7ee0810f529daab9cd2332fadb7a291",
+    "setup-windows-native.cmd": "a6fbd3374d842b51f7c2d19e2ff470241bd349372fa71fac815085b5feec835a",
+    "tests/test_native_windows_setup.py": "5a8988d26e1c362649ed48f85c95f2c308111f3190716133c37e6c6e2fc953aa"
+  },
+  "final_junit": "docs/evidence/phase4_3/native_setup/full_regression_final.xml",
+  "focused": {
+    "failed": 0,
+    "passed": 101,
+    "seconds": 5.57,
+    "skipped": 0
+  },
+  "git": {
+    "branch": "main",
+    "commit": false,
+    "deployment": false,
+    "head": "28623736f6ce9d90eeb86dea98908b182631aad1",
+    "mutation": false,
+    "push": false,
+    "staged": 0,
+    "tracked_modified": 4,
+    "untracked": 204,
+    "working_tree_clean": false
+  },
+  "integrity": {
+    "all_other_snapshot_files_identical": true,
+    "changed_existing_paths": [
+      "README_START_HERE.md",
+      "docs/phase4_3_implementation_report.md",
+      "packaging/runtime_allowlist.json",
+      "scripts/lecturer_setup.py"
+    ],
+    "dev_row_count": 44,
+    "dev_row_fingerprints_identical": true,
+    "frozen_sha256": {
+      "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+      "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+      "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+    },
+    "historical_evidence_delivery_unchanged": true,
+    "p43_ia01_byte_identical": true,
+    "raw_dev_rows_exported": false,
+    "snapshot_files": 845
+  },
+  "new_python_cases": 32,
+  "node": {
+    "baseline_missing": 0,
+    "duration_ms": 125.249333,
+    "failed": 0,
+    "passed": 91,
+    "skipped": 0
+  },
+  "python": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "Jhonhazels-MacBook-Air.local",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "521",
+    "time": "72.537",
+    "timestamp": "2026-11-07T12:18:07.043557+07:00"
+  },
+  "python_baseline": 489,
+  "python_baseline_missing": 0,
+  "real_postgres": {
+    "actual_model_v3_prediction": true,
+    "all_test_clusters_stopped": true,
+    "disposable_cluster": true,
+    "history_after_app_restart_and_repeat_setup": true,
+    "mac_windows_branch_logic_only": true,
+    "native_acl_and_cmd_not_certified": true,
+    "partial_provisioning_retry_or_fail_closed": true,
+    "role_database_ownership_and_privileges": true,
+    "schema_existing_initialize_schema": true,
+    "transport": "127.0.0.1 TCP SCRAM",
+    "version": "14.19",
+    "wrong_password_and_foreign_resources": true
+  },
+  "release": {
+    "all_member_hashes_and_sources_verified": true,
+    "archive_members": 106,
+    "audit_rebuilt": false,
+    "expanded_bytes": 3715268,
+    "files": 105,
+    "native_launchers_helper_included": true,
+    "path": "delivery/phase4_3-native-windows-2026-11-07/mahjong-strategy-ai-lecturer-portable.zip",
+    "secret_data_venv_excluded": true,
+    "sha256": "79b63db2fb9f4bd91763f19074c7b5cffeb0a3b9e029041a425528de6f8a8207",
+    "source_bytes": 3695442,
+    "type": "Candidate source requiring CPython3.12x64 and running local PostgreSQL; not a standalone Windows executable",
+    "zip_bytes": 1931947
+  },
+  "remaining_gates": [
+    "Actual clean Windowsx64 first two commands in one CMD and where fastapi",
+    "Fresh CMD run launcher",
+    "Real Windows DACL/PowerShell/hardlinks/junctions/compiler/package install and full browser acceptance",
+    "Ambiguous database-without-ownership-comment needs operator inspection; never automatic takeover"
+  ],
+  "review": {
+    "all_actionable_fixed": true,
+    "critical": 0,
+    "declined_rulings": [
+      "Native Windows CMD/ACL/hardlink/junction/dependencies remain unverified",
+      "Server policy/logging untouched; no service/config/log inspection beyond disposable test server",
+      "Hostile same-user atomic filesystem replacement guarantees out of scope; do not claim them",
+      "Suite/artifact/model claims verified by implementer, not independently rerun"
+    ],
+    "deferred_minor": [],
+    "findings": [
+      "Inherited libpq process redirects",
+      "Unrelated explicit ACL grants retained",
+      "Matching external marker with a newly recreated venv"
+    ],
+    "important": 2,
+    "independent": true,
+    "independent_re_review_after_fixes": false,
+    "minor": 1,
+    "minor_regraded": "Installer blocker: newly created venv must install even with old external marker",
+    "read_only": true,
+    "reviewer_reran_suites": false
+  },
+  "runtime_versions": {
+    "PyMahjongGB": "1.4.0",
+    "fastapi": "0.162.0",
+    "psycopg": "3.3.8",
+    "torch": "2.15.0"
+  },
+  "security": {
+    "admin_credentials_persisted": false,
+    "admin_password_in_argv_or_env": false,
+    "loopback_and_effective_environment_guards": true,
+    "new_cmd_start_actually_executed": false,
+    "no_destructive_database_rollback": true,
+    "pending_credentials_immutable": true,
+    "role_db_tagged_before_reuse": true,
+    "same_cmd_activation_actually_executed": false,
+    "sql_identifiers_literals_composed": true,
+    "windows_acl_actually_executed": false,
+    "windows_dacl_exact_replacement_and_readback_implemented": true
+  },
+  "tdd": {
+    "final_green_passed": 101,
+    "initial_fixture_correction": "Unix socket path too long on Mac; use TCP-only disposable PG; initial output retained",
+    "initial_red_fixture_errors": 11,
+    "proper_red_failed": 17,
+    "python_bitness_red_failed": 1,
+    "review_red_failed": 8,
+    "role_privileges_red_failed": 1
+  },
+  "verdict": "GO WITH CAVEATS",
+  "windows_environment": {
+    "architecture": "arm64",
+    "host": "Darwin",
+    "native_windows_available": false,
+    "runningvms": {
+      "count": 0,
+      "exit_code": 0
+    },
+    "vms": {
+      "count": 0,
+      "exit_code": 0
+    }
+  },
+  "windows_native_status": "IMPLEMENTED / NOT YET VERIFIED"
+}

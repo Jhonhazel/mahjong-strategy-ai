@@ -1,0 +1,104 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_ test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[PGHOSTADDR] _
+tests/test_native_windows_setup.py:341: in test_native_environment_overrides_are_rejected_before_any_prompt_or_connection
+    with pytest.raises(pg.NativeSetupError,match='override|PGHOSTADDR|PGSERVICE|MAHJONG_'):pg.prepare_database(root)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:138: in prepare_database
+    data=_pending(root,port,role,database)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:97: in _pending
+    try:port=int(input('Local PostgreSQL port [5432]: ').strip() or '5432')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_native_windows_setup.py:337: in unexpected
+    def unexpected(*args,**kwargs):pytest.fail('Process override reached a prompt or connection')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Process override reached a prompt or connection
+_ test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[PGSERVICE] _
+tests/test_native_windows_setup.py:341: in test_native_environment_overrides_are_rejected_before_any_prompt_or_connection
+    with pytest.raises(pg.NativeSetupError,match='override|PGHOSTADDR|PGSERVICE|MAHJONG_'):pg.prepare_database(root)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:138: in prepare_database
+    data=_pending(root,port,role,database)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:97: in _pending
+    try:port=int(input('Local PostgreSQL port [5432]: ').strip() or '5432')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_native_windows_setup.py:337: in unexpected
+    def unexpected(*args,**kwargs):pytest.fail('Process override reached a prompt or connection')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Process override reached a prompt or connection
+_ test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[PGSERVICEFILE] _
+tests/test_native_windows_setup.py:341: in test_native_environment_overrides_are_rejected_before_any_prompt_or_connection
+    with pytest.raises(pg.NativeSetupError,match='override|PGHOSTADDR|PGSERVICE|MAHJONG_'):pg.prepare_database(root)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:138: in prepare_database
+    data=_pending(root,port,role,database)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:97: in _pending
+    try:port=int(input('Local PostgreSQL port [5432]: ').strip() or '5432')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_native_windows_setup.py:337: in unexpected
+    def unexpected(*args,**kwargs):pytest.fail('Process override reached a prompt or connection')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Process override reached a prompt or connection
+_ test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[MAHJONG_DATABASE_URL] _
+tests/test_native_windows_setup.py:341: in test_native_environment_overrides_are_rejected_before_any_prompt_or_connection
+    with pytest.raises(pg.NativeSetupError,match='override|PGHOSTADDR|PGSERVICE|MAHJONG_'):pg.prepare_database(root)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:138: in prepare_database
+    data=_pending(root,port,role,database)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:97: in _pending
+    try:port=int(input('Local PostgreSQL port [5432]: ').strip() or '5432')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_native_windows_setup.py:337: in unexpected
+    def unexpected(*args,**kwargs):pytest.fail('Process override reached a prompt or connection')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Process override reached a prompt or connection
+_ test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[MAHJONG_SESSION_SECRET] _
+tests/test_native_windows_setup.py:341: in test_native_environment_overrides_are_rejected_before_any_prompt_or_connection
+    with pytest.raises(pg.NativeSetupError,match='override|PGHOSTADDR|PGSERVICE|MAHJONG_'):pg.prepare_database(root)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:138: in prepare_database
+    data=_pending(root,port,role,database)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:97: in _pending
+    try:port=int(input('Local PostgreSQL port [5432]: ').strip() or '5432')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_native_windows_setup.py:337: in unexpected
+    def unexpected(*args,**kwargs):pytest.fail('Process override reached a prompt or connection')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Process override reached a prompt or connection
+______ test_existing_database_validation_refuses_inherited_libpq_redirect ______
+tests/test_native_windows_setup.py:349: in test_existing_database_validation_refuses_inherited_libpq_redirect
+    with pytest.raises(pg.NativeSetupError):pg.validate_database('postgresql+psycopg://synthetic:synthetic@127.0.0.1/owned')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/native_postgres.py:123: in validate_database
+    with _connect(host=url.host,port=url.port or 5432,user=url.username,password=url.password,
+scripts/native_postgres.py:108: in _connect
+    connection=psycopg.connect(**kwargs,autocommit=True,connect_timeout=5,
+tests/test_native_windows_setup.py:347: in unexpected
+    def unexpected(*args,**kwargs):pytest.fail('Inherited hostaddr reached libpq')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Inherited hostaddr reached libpq
+______ test_windows_acl_success_without_verified_private_dacl_is_refused _______
+tests/test_native_windows_setup.py:357: in test_windows_acl_success_without_verified_private_dacl_is_refused
+    with pytest.raises(pg.NativeSetupError,match='ACL|verification'):pg.protect_path(path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE <class 'scripts.native_postgres.NativeSetupError'>
+_ test_recreated_venv_installs_dependencies_even_with_matching_external_marker _
+tests/test_native_windows_setup.py:374: in test_recreated_venv_installs_dependencies_even_with_matching_external_marker
+    assert any(command[1:4]==['-m','pip','install'] for command in commands)
+E   assert False
+E    +  where False = any(<generator object test_recreated_venv_installs_dependencies_even_with_matching_external_marker.<locals>.<genexpr> at 0x10cccacf0>)
+=========================== short test summary info ============================
+FAILED tests/test_native_windows_setup.py::test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[PGHOSTADDR]
+FAILED tests/test_native_windows_setup.py::test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[PGSERVICE]
+FAILED tests/test_native_windows_setup.py::test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[PGSERVICEFILE]
+FAILED tests/test_native_windows_setup.py::test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[MAHJONG_DATABASE_URL]
+FAILED tests/test_native_windows_setup.py::test_native_environment_overrides_are_rejected_before_any_prompt_or_connection[MAHJONG_SESSION_SECRET]
+FAILED tests/test_native_windows_setup.py::test_existing_database_validation_refuses_inherited_libpq_redirect
+FAILED tests/test_native_windows_setup.py::test_windows_acl_success_without_verified_private_dacl_is_refused
+FAILED tests/test_native_windows_setup.py::test_recreated_venv_installs_dependencies_even_with_matching_external_marker
+8 failed, 24 deselected in 0.42s

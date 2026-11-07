@@ -1,0 +1,18 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_release_rejects_mapping_correct_host_model_to_wrong_package_destination _
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-21/test_release_reject...ifacts/models/mahjong_discard_mlp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'app/demo.py', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-21/test_release_rejects_mapping_c0')
+
+    def test_release_rejects_mapping_correct_host_model_to_wrong_package_destination(release_source,tmp_path):
+        root,runtime=release_source;model='artifacts/models/mahjong_discard_mlp_v3.pt'
+        runtime[model],runtime['app/demo.py']=runtime['app/demo.py'],runtime[model]
+>       with pytest.raises(ValueError):module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:93: Failed
+=========================== short test summary info ============================
+FAILED tests/test_phase4_2.py::test_release_rejects_mapping_correct_host_model_to_wrong_package_destination
+1 failed in 0.12s

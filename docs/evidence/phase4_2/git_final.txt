@@ -1,0 +1,38 @@
+git status --short
+ M .gitignore
+ M README.md
+?? .dockerignore
+?? Dockerfile
+?? README_AUDIT.md
+?? README_START_HERE.md
+?? artifacts/phase4_2/
+?? compose.yaml
+?? docs/evidence/phase4_2/
+?? docs/phase4_2_implementation_report.md
+?? docs/phase4_2_plan.md
+?? docs/phase4_2_test_matrix.md
+?? packaging/
+?? requirements-runtime.txt
+?? run-macos.sh
+?? run-windows.cmd
+?? scripts/build_lecturer_release.py
+?? scripts/lecturer_assets.py
+?? scripts/lecturer_setup.py
+?? setup-macos.sh
+?? setup-windows.cmd
+?? tests/test_phase4_2.py
+
+git diff --stat
+ .gitignore |  3 +++
+ README.md  | 20 +++++++++++++++++++-
+ 2 files changed, 22 insertions(+), 1 deletion(-)
+
+git diff --cached --stat
+
+git diff --check
+
+git branch --show-current
+main
+
+git rev-parse HEAD
+28623736f6ce9d90eeb86dea98908b182631aad1

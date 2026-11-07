@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "weights_before": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "weights_after": "c7d693c0ce3d1a6d1107941ba52e3bd6d416ac2783df173399ca8a82285a1b92",
+  "database": "Real PostgreSQL",
+  "transport": "FastAPI TestClient ASGI HTTP",
+  "policy": "Deterministic independent human-side test policy; model suggestions never auto-executed; no win-rate claim",
+  "rounds": [
+    {
+      "seed": 42,
+      "actions": 11,
+      "history_after_restart": 1,
+      "deleted_prediction_status": 404,
+      "game_after_restart_status": 404,
+      "final_status": "FINISHED",
+      "round_result": {
+        "ending": "ron",
+        "outcome_type": "HU",
+        "winner_seat": 2,
+        "discarder_seat": 0,
+        "qianggang": false,
+        "win_tile": "B7",
+        "total_fan": 9,
+        "fans": [
+          {
+            "fan_points": 6,
+            "count": 1,
+            "fan_name_zh": "\u4e94\u95e8\u9f50",
+            "fan_name_en": "All Types"
+          },
+          {
+            "fan_points": 2,
+            "count": 1,
+            "fan_name_zh": "\u7bad\u523b",
+            "fan_name_en": "Dragon Pung"
+          },
+          {
+            "fan_points": 1,
+            "count": 1,
+            "fan_name_zh": "\u72ec\u542c\u30fb\u5d4c\u5f20",
+            "fan_name_en": "Closed Wait"
+          }
+        ],
+        "score_deltas": [
+          -17,
+          -8,
+          33,
+          -8
+        ]
+      },
+      "prediction_count": 2,
+      "prediction_phases": [
+        "POST_MELD_DISCARD",
+        "SELF_TURN"
+      ]
+    },
+    {
+      "seed": 43,
+      "actions": 26,
+      "history_after_restart": 2,
+      "deleted_prediction_status": 404,
+      "game_after_restart_status": 404,
+      "final_status": "FINISHED",
+      "round_result": {
+        "ending": "draw",
+        "outcome_type": "HUANGZHUANG",
+        "winner_seat": null,
+        "discarder_seat": null,
+        "qianggang": false,
+        "win_tile": null,
+        "total_fan": 0,
+        "fans": [],
+        "score_deltas": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "prediction_count": 3,
+      "prediction_phases": [
+        "POST_MELD_DISCARD",
+        "SELF_TURN"
+      ]
+    }
+  ],
+  "source_test": "test_real_two_round_web_model_postgres_workflow_and_restart",
+  "junit": "docs/evidence/phase4_3/full_regression_review_final.xml",
+  "source_sha256": "a3659cf05c52c09c0d69334d2a57321939d8574cfbdcdabec6b66c959943690d"
+}

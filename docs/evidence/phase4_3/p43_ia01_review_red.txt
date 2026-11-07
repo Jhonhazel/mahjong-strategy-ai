@@ -1,0 +1,11 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__ test_first_run_rollback_rechecks_a_file_replaced_after_directory_snapshot ___
+tests/test_phase4_3_windows.py:340: in test_first_run_rollback_rechecks_a_file_replaced_after_directory_snapshot
+    assert (root/'state.json').is_file() and (root/'state.json').read_bytes()==b'OTHER WRITER'
+E   AssertionError: assert (False)
+E    +  where False = is_file()
+E    +    where is_file = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-50/test_first_run_rollback_rechec0/new') / 'state.json').is_file
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_windows.py::test_first_run_rollback_rechecks_a_file_replaced_after_directory_snapshot
+1 failed, 36 deselected in 0.09s

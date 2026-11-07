@@ -1,0 +1,83 @@
+ caddy Pulling 
+ 4f4fb700ef54 Pulling fs layer 
+ 44ebfda0e505 Pulling fs layer 
+ 5b34d3207db0 Pulling fs layer 
+ d741ee1608f3 Pulling fs layer 
+ 20c15ff4d113 Pulling fs layer 
+ 4f4fb700ef54 Already exists 
+ 20c15ff4d113 Downloading [===>                                               ]  1.049MB/14.52MB
+ 20c15ff4d113 Downloading [===>                                               ]  1.049MB/14.52MB
+ 20c15ff4d113 Downloading [=======>                                           ]  2.097MB/14.52MB
+ 20c15ff4d113 Downloading [==========>                                        ]  3.146MB/14.52MB
+ 20c15ff4d113 Downloading [==============>                                    ]  4.194MB/14.52MB
+ 20c15ff4d113 Downloading [==============>                                    ]  4.194MB/14.52MB
+ 20c15ff4d113 Downloading [==================>                                ]  5.243MB/14.52MB
+ 20c15ff4d113 Downloading [==================>                                ]  5.243MB/14.52MB
+ 20c15ff4d113 Downloading [=====================>                             ]  6.291MB/14.52MB
+ 20c15ff4d113 Downloading [=========================>                         ]   7.34MB/14.52MB
+ 44ebfda0e505 Downloading [==================>                                ]  1.049MB/2.773MB
+ 44ebfda0e505 Downloading [==================>                                ]  1.049MB/2.773MB
+ 20c15ff4d113 Downloading [============================>                      ]  8.389MB/14.52MB
+ 44ebfda0e505 Downloading [==================>                                ]  1.049MB/2.773MB
+ 20c15ff4d113 Downloading [============================>                      ]  8.389MB/14.52MB
+ 20c15ff4d113 Downloading [================================>                  ]  9.437MB/14.52MB
+ 44ebfda0e505 Downloading [==================>                                ]  1.049MB/2.773MB
+ 44ebfda0e505 Downloading [==================>                                ]  1.049MB/2.773MB
+ 20c15ff4d113 Downloading [================================>                  ]  9.437MB/14.52MB
+ 44ebfda0e505 Downloading [==================>                                ]  1.049MB/2.773MB
+ 20c15ff4d113 Downloading [====================================>              ]  10.49MB/14.52MB
+ 20c15ff4d113 Downloading [====================================>              ]  10.49MB/14.52MB
+ 44ebfda0e505 Downloading [==================>                                ]  1.049MB/2.773MB
+ 44ebfda0e505 Downloading [=====================================>             ]  2.097MB/2.773MB
+ 20c15ff4d113 Downloading [=======================================>           ]  11.53MB/14.52MB
+ 5b34d3207db0 Download complete 
+ 20c15ff4d113 Downloading [===========================================>       ]  12.58MB/14.52MB
+ 44ebfda0e505 Downloading [=====================================>             ]  2.097MB/2.773MB
+ 44ebfda0e505 Download complete 
+ d741ee1608f3 Downloading [============>                                      ]  1.049MB/4.14MB
+ 20c15ff4d113 Downloading [==============================================>    ]  13.63MB/14.52MB
+ d741ee1608f3 Downloading [============>                                      ]  1.049MB/4.14MB
+ 20c15ff4d113 Download complete 
+ d741ee1608f3 Downloading [============>                                      ]  1.049MB/4.14MB
+ d741ee1608f3 Downloading [=========================>                         ]  2.097MB/4.14MB
+ d741ee1608f3 Downloading [=========================>                         ]  2.097MB/4.14MB
+ d741ee1608f3 Downloading [=========================>                         ]  2.097MB/4.14MB
+ d741ee1608f3 Downloading [=========================>                         ]  2.097MB/4.14MB
+ d741ee1608f3 Downloading [=====================================>             ]  3.146MB/4.14MB
+ d741ee1608f3 Downloading [=====================================>             ]  3.146MB/4.14MB
+ d741ee1608f3 Downloading [=====================================>             ]  3.146MB/4.14MB
+ d741ee1608f3 Download complete 
+ d741ee1608f3 Pull complete 
+ 5b34d3207db0 Pull complete 
+ 44ebfda0e505 Pull complete 
+ 20c15ff4d113 Extracting 1 s
+ 20c15ff4d113 Extracting 1 s
+ 4f4fb700ef54 Pull complete 
+ 20c15ff4d113 Pull complete 
+ caddy Pulled 
+ Network mahjong_phase43_tls_front  Creating
+ Network mahjong_phase43_tls_front  Created
+ Network mahjong_phase43_tls_database  Creating
+ Network mahjong_phase43_tls_database  Created
+ Volume "mahjong_phase43_tls_pgdata"  Creating
+ Volume "mahjong_phase43_tls_pgdata"  Created
+ Volume "mahjong_phase43_tls_caddy_data"  Creating
+ Volume "mahjong_phase43_tls_caddy_data"  Created
+ Volume "mahjong_phase43_tls_caddy_config"  Creating
+ Volume "mahjong_phase43_tls_caddy_config"  Created
+ Container mahjong_phase43_tls-db-1  Creating
+ Container mahjong_phase43_tls-db-1  Created
+ Container mahjong_phase43_tls-web-1  Creating
+ Container mahjong_phase43_tls-web-1  Created
+ Container mahjong_phase43_tls-caddy-1  Creating
+ Container mahjong_phase43_tls-caddy-1  Created
+ Container mahjong_phase43_tls-db-1  Starting
+ Container mahjong_phase43_tls-db-1  Started
+ Container mahjong_phase43_tls-db-1  Waiting
+ Container mahjong_phase43_tls-db-1  Healthy
+ Container mahjong_phase43_tls-web-1  Starting
+ Container mahjong_phase43_tls-web-1  Started
+ Container mahjong_phase43_tls-web-1  Waiting
+ Container mahjong_phase43_tls-web-1  Healthy
+ Container mahjong_phase43_tls-caddy-1  Starting
+Error response from daemon: failed to set up container networking: Address already in use

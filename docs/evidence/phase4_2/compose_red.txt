@@ -1,0 +1,8 @@
+Actual fresh Compose project mahjong_phase42_acceptance, PostgreSQL14.19:
+database init exited126: host bind init script /bin/sh: bad interpreter: Permission denied.
+Dependency web did not start; no PASS claimed. Failed disposable volume retained.
+Narrow psql14 check against fresh native test DB: invalid command \getenv (exit1).
+Resolution: bake init into official PostgreSQL image, force644 so official entrypoint
+sources it independent of host executable bits; use psql14-compatible \set with
+private file capture. New clean project/volume used for GREEN; no existing database
+deleted or overwritten. Application engine/schema/security source unchanged.

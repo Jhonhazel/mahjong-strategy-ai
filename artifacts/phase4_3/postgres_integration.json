@@ -1,0 +1,251 @@
+{
+  "status": "PASS",
+  "actual_postgres": true,
+  "dedicated_test_database": "mahjong_phase3_test",
+  "dev_write": false,
+  "sql_export_restore_case_passed": true,
+  "cases": [
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_concurrent_http_predictions_reuse_one_committed_record",
+      "seconds": 0.321,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_prediction_action_serialization_does_not_block_another_game",
+      "seconds": 0.143,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_inflight_prediction_is_not_evicted_by_idle_expiry_or_other_game_sweep",
+      "seconds": 0.694,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_failed_prediction_invariants_never_insert_a_fake_history_row[illegal_result]",
+      "seconds": 0.092,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_failed_prediction_invariants_never_insert_a_fake_history_row[mutated_input]",
+      "seconds": 0.089,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_failed_prediction_invariants_never_insert_a_fake_history_row[empty_discard_mask]",
+      "seconds": 0.087,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_api_mutation_does_not_create_a_session_and_cross_site_bootstrap_is_rejected",
+      "seconds": 0.082,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_concurrency",
+      "name": "test_reentrant_lifespan_rejected_without_disrupting_the_running_app",
+      "seconds": 0.088,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_real_postgres_sql_export_restore_preserves_schema_and_records",
+      "seconds": 0.446,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_missing_schema_blocks_startup_and_partial_resources_are_closed",
+      "seconds": 0.057,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_incompatible_postgres_column_type_is_rejected_before_readiness",
+      "seconds": 0.052,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ALTER COLUMN created_at SET DEFAULT '2000-01-01T00:00:00Z'::timestamptz]",
+      "seconds": 0.061,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_turn; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_turn CHECK (true)]",
+      "seconds": 0.064,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_phase; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_phase CHECK (true)]",
+      "seconds": 0.065,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT ck_prediction_digests; ALTER TABLE prediction_results ADD CONSTRAINT ck_prediction_digests CHECK (true)]",
+      "seconds": 0.065,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results DROP CONSTRAINT uq_prediction_snapshot; ALTER TABLE prediction_results ADD CONSTRAINT uq_prediction_snapshot UNIQUE(owner_key,game_id,turn_number,model_version,state_digest) DEFERRABLE INITIALLY DEFERRED]",
+      "seconds": 0.062,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_semantically_drifted_schema_is_not_ready[ALTER TABLE prediction_results ADD COLUMN source TEXT NOT NULL]",
+      "seconds": 0.064,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_rejects_unverified_or_connection_changing_input_before_execution[\\\\connect mahjong_phase3_dev\\nSELECT 1;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_rejects_unverified_or_connection_changing_input_before_execution[CREATE DATABASE outside_project;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_rejects_unverified_or_connection_changing_input_before_execution[DROP DATABASE mahjong_phase3_dev;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_rejects_unverified_or_connection_changing_input_before_execution[ALTER DATABASE mahjong_phase3_dev RENAME TO outside_project;]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_rejects_tampered_project_export",
+      "seconds": 0.142,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_input_size_is_bounded_before_read_or_database_execution[0]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_input_size_is_bounded_before_read_or_database_execution[2049]",
+      "seconds": 0.001,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[KEEP existing file]",
+      "seconds": 0.087,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_export_attests_private_bytes_and_never_clobbers_a_racing_destination[SELECT 1 \\\\connect mahjong_phase3_dev]",
+      "seconds": 0.085,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\\\connect mahjong_phase3_dev]",
+      "seconds": 0.0,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\\\gexec]",
+      "seconds": 0.0,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_restore_boundary_rejects_midline_psql_commands[SELECT 1 \\\\! whoami]",
+      "seconds": 0.0,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_read_only_postgres_connection_is_not_ready",
+      "seconds": 0.068,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_database_tools",
+      "name": "test_postgres_role_requires_real_insert_delete_and_row_lock_privileges",
+      "seconds": 0.074,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_end_to_end",
+      "name": "test_real_two_round_web_model_postgres_workflow_and_restart",
+      "seconds": 0.56,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_real_postgres_schema_jsonb_timezone_and_constraints",
+      "seconds": 0.024,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_real_postgres_create_read_delete_owner_isolation_and_utc",
+      "seconds": 0.005,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_real_postgres_pagination_and_service_restart_preserve_records",
+      "seconds": 0.009,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_real_postgres_same_snapshot_is_idempotent_and_original_is_immutable",
+      "seconds": 0.004,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_real_postgres_duplicate_insert_race_has_one_identity",
+      "seconds": 0.006,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_real_postgres_failed_insert_rolls_back_and_next_transaction_works",
+      "seconds": 0.009,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_owner_filter_is_parameterized_and_missing_id_is_safe",
+      "seconds": 0.003,
+      "status": "PASS"
+    },
+    {
+      "classname": "tests.test_phase3_history",
+      "name": "test_reused_prediction_is_locked_until_save_commits",
+      "seconds": 0.316,
+      "status": "PASS"
+    }
+  ],
+  "case_count": 40,
+  "junit": "docs/evidence/phase4_3/full_regression_review_final.xml"
+}

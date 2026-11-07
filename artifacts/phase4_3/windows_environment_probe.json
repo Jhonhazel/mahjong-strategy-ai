@@ -1,0 +1,12 @@
+{
+  "VBoxManage list vms": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "VBoxManage list runningvms": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

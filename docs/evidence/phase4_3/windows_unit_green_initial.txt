@@ -1,0 +1,92 @@
+F..FF........F                                                           [100%]
+=================================== FAILURES ===================================
+____ test_first_run_uses_owned_unicode_path_and_preserves_secrets_and_ports ____
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-38/test_first_run_uses_owned_unic0')
+
+    def test_first_run_uses_owned_unicode_path_and_preserves_secrets_and_ports(tmp_path):
+        module=launcher();root=tmp_path/'Mahjong 學生 space'
+>       first=module.prepare_state(root);before=(root/'state.json').read_bytes()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-38/test_first_run_uses_owned_unic0/Mahjong 學生 space')
+
+    def prepare_state(root):
+        root=no_links(root)
+        marker=root/'owner.json';config=root/'state.json';expected={'application':APP_ID,'root':str(root.resolve())}
+        no_links(marker);no_links(config)
+        if root.exists() and any(root.iterdir()) and not marker.is_file():
+            raise LauncherError('Refusing to claim a nonempty directory without this application ownership marker')
+        root.mkdir(parents=True,exist_ok=True,mode=0o700)
+        if marker.exists():
+            if json.loads(marker.read_text(encoding='utf-8'))!=expected:raise LauncherError('Foreign state ownership marker')
+        else:write_private(marker,expected)
+        if not config.exists():
+            with socket.socket() as db,socket.socket() as web:
+>               db.bind(('127.0.0.1',0));web.bind(('127.0.0.1',0))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+E               PermissionError: [Errno 1] Operation not permitted
+
+scripts/windows_launcher.py:61: PermissionError
+____________ test_a_held_instance_lock_blocks_duplicate_controller _____________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-38/test_a_held_instance_lock_bloc0')
+
+    def test_a_held_instance_lock_blocks_duplicate_controller(tmp_path):
+>       module=launcher();root=tmp_path/'state';module.prepare_state(root)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase4_3_windows.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-38/test_a_held_instance_lock_bloc0/state')
+
+    def prepare_state(root):
+        root=no_links(root)
+        marker=root/'owner.json';config=root/'state.json';expected={'application':APP_ID,'root':str(root.resolve())}
+        no_links(marker);no_links(config)
+        if root.exists() and any(root.iterdir()) and not marker.is_file():
+            raise LauncherError('Refusing to claim a nonempty directory without this application ownership marker')
+        root.mkdir(parents=True,exist_ok=True,mode=0o700)
+        if marker.exists():
+            if json.loads(marker.read_text(encoding='utf-8'))!=expected:raise LauncherError('Foreign state ownership marker')
+        else:write_private(marker,expected)
+        if not config.exists():
+            with socket.socket() as db,socket.socket() as web:
+>               db.bind(('127.0.0.1',0));web.bind(('127.0.0.1',0))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+E               PermissionError: [Errno 1] Operation not permitted
+
+scripts/windows_launcher.py:61: PermissionError
+________ test_port_collision_does_not_modify_or_kill_the_other_listener ________
+
+    def test_port_collision_does_not_modify_or_kill_the_other_listener():
+        module=launcher()
+        with socket.socket() as held:
+>           held.bind(('127.0.0.1',0));held.listen()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 1] Operation not permitted
+
+tests/test_phase4_3_windows.py:54: PermissionError
+_ test_pg_provenance_requires_trusted_origin_hash_and_explicit_license_review __
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-38/test_pg_provenance_requires_tr0')
+
+    def test_pg_provenance_requires_trusted_origin_hash_and_explicit_license_review(tmp_path):
+>       assert importlib.util.find_spec('scripts.build_windows_package'),'Missing native Windows build workflow'
+E       AssertionError: Missing native Windows build workflow
+E       assert None
+E        +  where None = <function find_spec at 0x104398f40>('scripts.build_windows_package')
+E        +    where <function find_spec at 0x104398f40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_windows.py:126: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_windows.py::test_first_run_uses_owned_unicode_path_and_preserves_secrets_and_ports
+FAILED tests/test_phase4_3_windows.py::test_a_held_instance_lock_blocks_duplicate_controller
+FAILED tests/test_phase4_3_windows.py::test_port_collision_does_not_modify_or_kill_the_other_listener
+FAILED tests/test_phase4_3_windows.py::test_pg_provenance_requires_trusted_origin_hash_and_explicit_license_review
+4 failed, 10 passed in 0.09s

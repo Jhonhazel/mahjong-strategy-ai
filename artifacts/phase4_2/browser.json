@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "base": "http://127.0.0.1:8878",
+  "source": "Fresh second extraction; isolated real Compose Linuxarm64, CPU v3 and PostgreSQL",
+  "created_game": true,
+  "seed": 42,
+  "human_seat": 1,
+  "prediction_before": ["J1 82.04%", "J2 6.92%", "T1 2.72%"],
+  "real_discard": "W5",
+  "fast_control_selected_and_action_completed": true,
+  "real_claim": "Chi T2/T3/T4",
+  "post_meld_prediction": ["J1 60.13%", "T1 10.79%", "J2 9.38%"],
+  "normal_after_following_discard": {"busy": true, "highlighted": 1, "arriving": 1, "skip_enabled": true, "action_disabled": true},
+  "skip_clicked": true,
+  "history_cards": 2,
+  "history_detail_table": true,
+  "contact_members": 5,
+  "contact_roles_notice": "Unconfirmed; no invented roles",
+  "screenshot": "docs/evidence/phase4_2/compose-game.png",
+  "full_round": "Completed through separate real HTTP acceptance; browser smoke covered selected interactions only",
+  "limitations": ["No new full responsive/a11y matrix; source UI unchanged", "No actual Windows browser/host"]
+}

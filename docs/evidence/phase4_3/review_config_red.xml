@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.044" timestamp="2026-11-06T22:09:35.549735+07:00" hostname="Jhonhazels-MacBook-Air.local"><testcase classname="tests.test_phase4_3_windows" name="test_owned_profile_missing_private_config_refuses_without_rotating_or_touching_data" time="0.012"><failure message="Failed: DID NOT RAISE &lt;class 'scripts.windows_launcher.LauncherError'&gt;">tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-44/test_owned_profile_missing_pri0')
+
+    def test_owned_profile_missing_private_config_refuses_without_rotating_or_touching_data(tmp_path):
+        module=launcher();root=tmp_path/'owned';module.prepare_state(root)
+        data=root/'data';data.mkdir();(data/'PG_VERSION').write_text('14')
+        (data/'history-sentinel').write_bytes(b'KEEP EXISTING DATABASE')
+        (root/'state.json').unlink()
+        before={str(p.relative_to(root)):p.read_bytes() for p in root.rglob('*') if p.is_file()}
+&gt;       with pytest.raises(module.LauncherError,match='restore the original private config'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'scripts.windows_launcher.LauncherError'&gt;
+
+tests/test_phase4_3_windows.py:43: Failed</failure></testcase></testsuite></testsuites>

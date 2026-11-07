@@ -1,0 +1,188 @@
+{
+  "status": "PASS",
+  "verdict": "GO WITH CAVEATS",
+  "finding": "P43-IA01",
+  "finding_status": "CLOSED for deterministic source-level recovery; native Windows remains NOT VERIFIED",
+  "date": "2026-11-07",
+  "python": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "489",
+    "time": "68.706",
+    "timestamp": "2026-11-07T11:38:29.817111+07:00",
+    "hostname": "Jhonhazels-MacBook-Air.local"
+  },
+  "python_baseline": 471,
+  "python_baseline_missing": 0,
+  "new_python_cases": 18,
+  "node_cases": 91,
+  "node_baseline_missing": 0,
+  "node_failed": 0,
+  "node_skipped": 0,
+  "snapshot_files_checked": 818,
+  "changed_existing_paths": [
+    "docs/phase4_3_implementation_report.md",
+    "scripts/windows_launcher.py",
+    "tests/test_phase4_3_windows.py"
+  ],
+  "missing_files": [],
+  "frozen_asset_sha256": {
+    "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+  },
+  "dev_rows": 44,
+  "dev_row_fingerprints_unchanged": true,
+  "all_other_snapshot_files_unchanged": true,
+  "historical_evidence_and_delivery_unchanged": true,
+  "only_prepare_state_and_write_private_changed_in_launcher": true,
+  "existing_tests_and_report_append_only": true,
+  "changed_file_sha256": {
+    "docs/phase4_3_implementation_report.md": "4f89467ff6d0a38783bb2e37fafb78ca9adda5ecdbd783c15168ae7fef23b380",
+    "scripts/windows_launcher.py": "4a46da75a03fc3103e0cb273c06e4dbce2c02715ffa64ba120c51e586af74138",
+    "tests/test_phase4_3_windows.py": "b55f4bf15c30876ad43adc275ee47487b9cbd76ceb9fb57607a6c448e75c1c6b"
+  },
+  "head": "28623736f6ce9d90eeb86dea98908b182631aad1",
+  "branch": "main",
+  "staged": 0,
+  "unified_diffs": {
+    "docs/phase4_3_implementation_report.md": "--- before/docs/phase4_3_implementation_report.md\n+++ after/docs/phase4_3_implementation_report.md\n@@ -213,3 +213,63 @@\n lalu `sh run-macos.sh`; buka http://127.0.0.1:8000/. Preparednative dev tetap\n `fastapi dev main.py` setelah environment/projectPGexisting siap. StagingHTTPS:\n ikuti tigaComposecommands tepat pada deploy/README.md, tanpa bypassTLSwarning.\n+\n+## Addendum audit 7 November 2026 \u2014 P43-IA01\n+\n+**GO WITH CAVEATS \u2014 P43-IA01 CLOSED pada level source dan pengujian deterministik.**\n+Windows native tetap **NOT VERIFIED**; status online dan Windows Phase4.3 tidak\n+dinaikkan menjadi PASS karena perbaikan ini.\n+\n+Penyebab: first-run menulis `owner.json` sebelum proteksi ACL. Jika ACL gagal,\n+retry menemukan marker tanpa `state.json` dan terkena guard profil lama. Guard\n+tersebut benar untuk profil yang sudah dipakai, sehingga tidak boleh dihapus.\n+\n+Perubahan produksi hanya pada `scripts/windows_launcher.py`: `prepare_state()`\n+melakukan proteksi, pembuatan nilai konfigurasi, dan validasi sebelum persistensi.\n+`write_private()` menerima tracking identitas file opsional setelah exclusive-create\n+berhasil, agar partial write dapat dibedakan dari file milik penulis lain. Format\n+marker/config, APP_ID, KEYS, O_EXCL, no_links, port dan credential validation tetap.\n+\n+Rollback hanya untuk first-run saat seluruh isi direktori masih cocok dengan file\n+yang dibuat percobaan itu, berdasarkan device/inode yang tercatat. Identitas\n+diperiksa lagi tepat sebelum setiap unlink. File diganti, data tambahan, identitas\n+yang tidak dapat dibuktikan, atau kegagalan cleanup menyebabkan fail-closed dengan\n+instruksi inspeksi; tidak ada recursive deletion. Profil lama missing-config tetap\n+ditolak sebelum membuat secret baru. Database, History dan file pra-eksisting tidak\n+dihapus atau diregenerasi.\n+\n+Pengujian baru ditambahkan tanpa mengubah tes lama:\n+\n+- RED awal: **6 failed, 30 passed**, termasuk seluruh **19 tes launcher lama lulus**.\n+  ACL failure meninggalkan marker; retry ditolak; partial JSON write, entropy\n+  failure dan invalid generated config meninggalkan state. Bukti: `p43_ia01_red.*`.\n+- GREEN awal: **36 passed**. Fault injection membuktikan retry tanpa cleanup manual,\n+  partial-write recovery, credential persistence, dan penolakan state asing/ambigu.\n+- Review independen read-only menemukan satu Important: snapshot rollback dapat\n+  menjadi usang sebelum unlink. Reproduksi tambahan: **1 failed**. Fix minimal\n+  memeriksa identitas setiap file lagi sebelum unlink; tes launcher final:\n+  **37 passed, 0 failed/errors/skipped**, 0,09 detik. Reviewer tidak menjalankan suite\n+  dan tidak melakukan independent re-review setelah fix; verifikasi akhir oleh\n+  implementer. Tidak ada temuan Critical/Important yang diketahui masih terbuka.\n+- Full regression final: **489 Python passed, 0 failed/errors/skipped**, 68,71 detik;\n+  seluruh **471 identitas baseline tetap passing**, ditambah **18 kasus baru**.\n+  PostgreSQL TEST nyata digunakan, termasuk dua round, history/concurrency dan SQL\n+  export/restore. Satu warning Starlette/httpx yang sudah ada tetap dilaporkan.\n+- Node: **91 passed**, 0 failed/cancelled/skipped, 117,902583 ms; seluruh identitas\n+  baseline sama. Frontend tidak diubah.\n+\n+Evidence baru hanya memakai prefix `docs/evidence/phase4_3/p43_ia01_`; JUnit final:\n+`p43_ia01_full_regression_final.xml`. Ringkasan, review, diff, checksum, rekonsiliasi\n+kasus dan pemeriksaan DEV read-only:\n+`artifacts/phase4_3/p43_ia01_remediation.json`. Evidence historis tidak ditimpa.\n+\n+Tidak tersedia Windows x64 lokal: host macOS arm64, inventori VBox nol VM terdaftar\n+atau berjalan. Simulasi ACL/junction bukan bukti API Windows native. Crash/power loss\n+atau orphan marker dari versi lama tetap ambigu dan fail-closed; tidak ada pemulihan\n+credential otomatis. Perlindungan atomik terhadap penulis adversarial dengan\n+privilege user yang sama dan urutan instance-lock lama berada di luar perbaikan ini.\n+\n+Engine, referee, bot, encoder, model/aset beku, FastAPI/schema, frontend, deployment,\n+builder dan arsip delivery tidak diubah. Arsip ZIP historis belum memuat fix ini;\n+gunakan source terbaru ketika membuat candidate berikutnya. Tidak ada Git mutation,\n+commit, push, build Windows, publikasi model atau deployment.\n",
+    "scripts/windows_launcher.py": "--- before/scripts/windows_launcher.py\n+++ after/scripts/windows_launcher.py\n@@ -32,9 +32,11 @@\n     return path\n \n \n-def write_private(path,value):\n+def write_private(path,value,*,created=None):\n     no_links(path)\n     with os.fdopen(os.open(path,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600),'w',encoding='utf-8') as stream:\n+        if created is not None:\n+            identity=os.fstat(stream.fileno());created.append((path,(identity.st_dev,identity.st_ino)))\n         json.dump(value,stream,indent=2);stream.write('\\n')\n \n \n@@ -53,20 +55,20 @@\n     if root.exists() and any(root.iterdir()) and not marker.is_file():\n         raise LauncherError('Refusing to claim a nonempty directory without this application ownership marker')\n     root.mkdir(parents=True,exist_ok=True,mode=0o700)\n-    if marker.exists():\n+    new_profile=not marker.exists()\n+    if not new_profile:\n         if json.loads(marker.read_text(encoding='utf-8'))!=expected:raise LauncherError('Foreign state ownership marker')\n         if not config.is_file():\n             raise LauncherError('Owned state config is missing; restore the original private config before starting')\n-    else:write_private(marker,expected)\n     if protect:protect(root)\n-    if not config.exists():\n+    if new_profile:\n         with socket.socket() as db,socket.socket() as web:\n             db.bind(('127.0.0.1',0));web.bind(('127.0.0.1',0))\n             ports=(db.getsockname()[1],web.getsockname()[1])\n-        write_private(config,{'app_id':APP_ID,'pg_major':14,'db_port':ports[0],'web_port':ports[1],\n-                             'session_secret':secrets.token_urlsafe(48),'admin_password':secrets.token_urlsafe(48),\n-                             'app_password':secrets.token_urlsafe(48)})\n-    data=json.loads(config.read_text(encoding='utf-8'))\n+        data={'app_id':APP_ID,'pg_major':14,'db_port':ports[0],'web_port':ports[1],\n+              'session_secret':secrets.token_urlsafe(48),'admin_password':secrets.token_urlsafe(48),\n+              'app_password':secrets.token_urlsafe(48)}\n+    else:data=json.loads(config.read_text(encoding='utf-8'))\n     if set(data)!=KEYS or data['app_id']!=APP_ID or data['pg_major']!=14:\n         raise LauncherError('Incompatible owned state config; no data was replaced')\n     if any(type(data[p]) is not int or not 1024<=data[p]<=65535 for p in ('db_port','web_port')) or data['db_port']==data['web_port']:\n@@ -74,6 +76,27 @@\n     for name in ('session_secret','admin_password','app_password'):\n         if not isinstance(data[name],str) or len(data[name])<40 or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-' for c in data[name]):\n             raise LauncherError('Invalid stored secret; restore the original private config')\n+    if new_profile:\n+        created=[]\n+        try:\n+            write_private(marker,expected,created=created)\n+            write_private(config,data,created=created)\n+        except BaseException as error:\n+            # Roll back only this attempt's exact files, never an ambiguous profile.\n+            try:\n+                no_links(root);current={}\n+                for path in root.iterdir():\n+                    identity=path.lstat();current[path]=(identity.st_dev,identity.st_ino)\n+                if current!=dict(created) or any(not identity[1] for _,identity in created):\n+                    raise LauncherError('Incomplete first-run state changed; inspect existing files before recovery') from error\n+                for path,expected_identity in reversed(created):\n+                    no_links(path);identity=path.lstat()\n+                    if (identity.st_dev,identity.st_ino)!=expected_identity:\n+                        raise LauncherError('First-run file changed during cleanup; inspect existing private state before recovery') from error\n+                    path.unlink()\n+            except OSError as cleanup_error:\n+                raise LauncherError('Incomplete first-run cleanup; inspect existing private state before recovery') from cleanup_error\n+            raise\n     return data\n \n \n",
+    "tests/test_phase4_3_windows.py": "--- before/tests/test_phase4_3_windows.py\n+++ after/tests/test_phase4_3_windows.py\n@@ -185,3 +185,158 @@\n               'version':'14.19','sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'license_reviewed':True,'password':'synthetic_private'}\n     verified=builder.verify_pg_input(path,metadata)\n     assert 'password' not in verified\n+\n+\n+def test_first_run_acl_failure_leaves_no_marker_or_private_config(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'new profile'\n+    def unexpected_secret(*args):pytest.fail('Credentials generated before protection succeeded')\n+    def denied(path):raise PermissionError('Simulated ACL failure')\n+    monkeypatch.setattr(module.secrets,'token_urlsafe',unexpected_secret)\n+    with pytest.raises(PermissionError,match='ACL failure'):module.prepare_state(root,protect=denied)\n+    assert root.is_dir() and not list(root.iterdir())\n+\n+\n+def test_first_run_retry_after_acl_failure_succeeds_without_manual_cleanup(tmp_path):\n+    module=launcher();root=tmp_path/'retry \u5b78\u751f'\n+    def denied(path):raise PermissionError('Simulated ACL failure')\n+    with pytest.raises(PermissionError):module.prepare_state(root,protect=denied)\n+    def protect(path):assert not list(path.iterdir())\n+    config=module.prepare_state(root,protect=protect)\n+    assert json.loads((root/'owner.json').read_text())=={'application':module.APP_ID,'root':str(root.resolve())}\n+    assert json.loads((root/'state.json').read_text())==config\n+    assert config['db_port']!=config['web_port']\n+    assert all(len(config[name])>=40 for name in ('session_secret','admin_password','app_password'))\n+\n+\n+@pytest.mark.parametrize('filename',['owner.json','state.json'])\n+def test_partial_initial_json_write_is_rolled_back_and_can_retry(tmp_path,monkeypatch,filename):\n+    module=launcher();root=tmp_path/'new';dump=module.json.dump\n+    def partial(value,stream,**kwargs):\n+        selected='owner.json' if 'application' in value else 'state.json'\n+        if selected==filename:\n+            stream.write('{');raise OSError('Simulated partial JSON write')\n+        return dump(value,stream,**kwargs)\n+    with monkeypatch.context() as fault:\n+        fault.setattr(module.json,'dump',partial)\n+        with pytest.raises(OSError,match='partial JSON'):module.prepare_state(root)\n+    assert not list(root.iterdir())\n+    config=module.prepare_state(root)\n+    assert json.loads((root/'state.json').read_text())==config\n+\n+\n+def test_first_run_secret_generation_failure_leaves_retryable_empty_profile(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'new'\n+    def unavailable(*args):raise RuntimeError('Simulated entropy failure')\n+    with monkeypatch.context() as fault:\n+        fault.setattr(module.secrets,'token_urlsafe',unavailable)\n+        with pytest.raises(RuntimeError,match='entropy failure'):module.prepare_state(root)\n+    assert not list(root.iterdir())\n+    assert module.prepare_state(root)['app_id']==module.APP_ID\n+\n+\n+def test_first_run_generated_config_validation_failure_does_not_persist_state(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'new'\n+    with monkeypatch.context() as fault:\n+        fault.setattr(module.secrets,'token_urlsafe',lambda *_:'short')\n+        with pytest.raises(module.LauncherError,match='Invalid stored secret'):module.prepare_state(root)\n+    assert not list(root.iterdir())\n+    assert len(module.prepare_state(root)['session_secret'])>=40\n+\n+\n+def test_existing_valid_profile_reuses_bytes_without_writing_private_files(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'existing';original=module.prepare_state(root)\n+    before={p.name:(p.read_bytes(),p.stat().st_mtime_ns) for p in root.iterdir()}\n+    def unexpected(*args,**kwargs):pytest.fail('Existing private state must not be rewritten or rotated')\n+    monkeypatch.setattr(module,'write_private',unexpected)\n+    monkeypatch.setattr(module.secrets,'token_urlsafe',unexpected)\n+    assert module.prepare_state(root,protect=lambda _:None)==original\n+    assert {p.name:(p.read_bytes(),p.stat().st_mtime_ns) for p in root.iterdir()}==before\n+\n+\n+@pytest.mark.parametrize('damage',['foreign_owner','incompatible_keys','invalid_port','invalid_secret','malformed_json'])\n+def test_existing_foreign_or_invalid_private_state_is_never_recovered(tmp_path,monkeypatch,damage):\n+    module=launcher();root=tmp_path/'existing';module.prepare_state(root)\n+    path=root/('owner.json' if damage=='foreign_owner' else 'state.json')\n+    value=json.loads(path.read_text())\n+    if damage=='foreign_owner':value['application']='another-app'\n+    elif damage=='incompatible_keys':value['unknown_format']=1\n+    elif damage=='invalid_port':value['db_port']=0\n+    elif damage=='invalid_secret':value['app_password']='short'\n+    path.write_text('{' if damage=='malformed_json' else json.dumps(value))\n+    before={p.name:p.read_bytes() for p in root.iterdir()}\n+    def unexpected(*args,**kwargs):pytest.fail('Existing invalid state must fail closed')\n+    monkeypatch.setattr(module,'write_private',unexpected)\n+    monkeypatch.setattr(module.secrets,'token_urlsafe',unexpected)\n+    with pytest.raises((module.LauncherError,ValueError)):module.prepare_state(root)\n+    assert {p.name:p.read_bytes() for p in root.iterdir()}==before\n+\n+\n+def test_junction_profile_is_refused_without_claiming_its_contents(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'junction';root.mkdir();(root/'sentinel').write_bytes(b'KEEP')\n+    monkeypatch.setattr(Path,'is_junction',lambda path:path==root,raising=False)\n+    with pytest.raises(module.LauncherError,match='Symlink/junction'):module.prepare_state(root)\n+    assert list(root.iterdir())==[root/'sentinel'] and (root/'sentinel').read_bytes()==b'KEEP'\n+\n+\n+@pytest.mark.parametrize('filename',['owner.json','state.json'])\n+def test_first_run_exclusive_create_collision_never_deletes_the_other_file(tmp_path,monkeypatch,filename):\n+    module=launcher();root=tmp_path/'new';open_file=module.os.open\n+    def collision(path,flags,*args,**kwargs):\n+        if Path(path)==root/filename and flags&module.os.O_EXCL:\n+            Path(path).write_bytes(b'OTHER WRITER')\n+        return open_file(path,flags,*args,**kwargs)\n+    monkeypatch.setattr(module.os,'open',collision)\n+    with pytest.raises((OSError,module.LauncherError)):module.prepare_state(root)\n+    assert (root/filename).read_bytes()==b'OTHER WRITER'\n+\n+\n+def test_first_run_failure_with_unexpected_data_fails_closed_without_removing_any_files(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'new';dump=module.json.dump\n+    def partial(value,stream,**kwargs):\n+        if 'app_id' in value:\n+            (root/'data').mkdir();(root/'data/PG_VERSION').write_bytes(b'14\\n')\n+            stream.write('{');raise OSError('Simulated ambiguous first-run failure')\n+        return dump(value,stream,**kwargs)\n+    with monkeypatch.context() as fault:\n+        fault.setattr(module.json,'dump',partial)\n+        with pytest.raises((OSError,module.LauncherError)):module.prepare_state(root)\n+    before={str(p.relative_to(root)):p.read_bytes() for p in root.rglob('*') if p.is_file()}\n+    assert before['data/PG_VERSION']==b'14\\n' and 'owner.json' in before and 'state.json' in before\n+    with pytest.raises((module.LauncherError,ValueError)):module.prepare_state(root)\n+    assert {str(p.relative_to(root)):p.read_bytes() for p in root.rglob('*') if p.is_file()}==before\n+\n+\n+def test_first_run_rollback_preserves_a_replaced_private_file(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'new';write=module.write_private\n+    replacement=tmp_path/'replacement';replacement.write_bytes(b'OTHER WRITER')\n+    def replaced(path,value,**kwargs):\n+        write(path,value,**kwargs)\n+        if path.name=='state.json':\n+            replacement.replace(path);raise OSError('Simulated replaced state failure')\n+    with monkeypatch.context() as fault:\n+        fault.setattr(module,'write_private',replaced)\n+        with pytest.raises((OSError,module.LauncherError)):module.prepare_state(root)\n+    assert (root/'state.json').read_bytes()==b'OTHER WRITER' and (root/'owner.json').is_file()\n+    with pytest.raises((module.LauncherError,ValueError)):module.prepare_state(root)\n+\n+\n+def test_first_run_rollback_rechecks_a_file_replaced_after_directory_snapshot(tmp_path,monkeypatch):\n+    module=launcher();root=tmp_path/'new';dump=module.json.dump;no_links=module.no_links\n+    replacement=tmp_path/'replacement';replacement.write_bytes(b'OTHER WRITER')\n+    fault={'failed':False,'replaced':False}\n+    def partial(value,stream,**kwargs):\n+        if 'app_id' in value:\n+            stream.write('{');fault['failed']=True;raise OSError('Simulated partial state write')\n+        return dump(value,stream,**kwargs)\n+    def late_replacement(path):\n+        if fault['failed'] and path==root/'state.json' and not fault['replaced']:\n+            replacement.replace(path);fault['replaced']=True\n+        return no_links(path)\n+    with monkeypatch.context() as injected:\n+        injected.setattr(module.json,'dump',partial)\n+        injected.setattr(module,'no_links',late_replacement)\n+        with pytest.raises((OSError,module.LauncherError)):module.prepare_state(root)\n+    assert fault['replaced']\n+    assert (root/'state.json').is_file() and (root/'state.json').read_bytes()==b'OTHER WRITER'\n+    assert (root/'owner.json').is_file()\n+    with pytest.raises((module.LauncherError,ValueError)):module.prepare_state(root)\n"
+  },
+  "git_tracked_modified_count": 4,
+  "git_untracked_count": 175,
+  "windows": {
+    "host": "Darwin",
+    "architecture": "arm64",
+    "native_windows_available": false,
+    "vms": {
+      "exit_code": 0,
+      "registered_or_running_count": 0
+    },
+    "runningvms": {
+      "exit_code": 0,
+      "registered_or_running_count": 0
+    }
+  },
+  "tdd": {
+    "initial_red": {
+      "failed": 6,
+      "passed": 30,
+      "old_launcher_cases_passed": 19
+    },
+    "initial_green": {
+      "passed": 36,
+      "failed": 0
+    },
+    "review_red": {
+      "failed": 1,
+      "deselected": 36
+    },
+    "final_focused": {
+      "passed": 37,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.09
+    }
+  },
+  "node_duration_ms": 117.902583,
+  "production_scope": [
+    "prepare_state",
+    "write_private optional file-identity tracking in the same source file"
+  ],
+  "independent_review": {
+    "performed": true,
+    "read_only": true,
+    "reviewer": "p43_ia01_review",
+    "critical": 0,
+    "important": 1,
+    "minor": 0,
+    "finding": "Ownership snapshot can become stale before unlink; deterministic late replacement deleted another writer file.",
+    "resolution": "Recheck each candidate device/inode immediately before unlink; late-replacement RED then GREEN and full final regression.",
+    "known_unresolved_critical_or_important": 0,
+    "reviewer_ran_suite": false,
+    "independent_re_review_after_fix": false,
+    "checks_performed": [
+      "Diff against saved original source/tests",
+      "Numbered source inspection",
+      "Disposable synthetic late-replacement repro with stubbed sockets"
+    ],
+    "declined_to_judge": [
+      {
+        "behavior": "Atomic conditional unlink against an adversarial same-user writer",
+        "ruling": "Outside this minimum recovery fix; no new filesystem architecture introduced"
+      },
+      {
+        "behavior": "Existing initialization/instance lock sequence and port reservation",
+        "ruling": "Preexisting and explicitly outside this change"
+      },
+      {
+        "behavior": "Windows ACL inheritance, junction semantics and file identity reliability",
+        "ruling": "Native Windows release gate; not verified on macOS"
+      },
+      {
+        "behavior": "Hard termination during persistence or cleanup",
+        "ruling": "Only handled exceptions receive controlled recovery; ambiguous leftovers fail closed"
+      }
+    ]
+  },
+  "release_archives_rebuilt": false,
+  "historical_delivery_contains_this_fix": false,
+  "git_mutation": false,
+  "commit": false,
+  "push": false,
+  "deployment": false,
+  "caveats": [
+    "Native Windows ACL/runtime NOT VERIFIED",
+    "Existing ambiguous orphan profiles remain fail-closed; no automatic credential recovery",
+    "Historical delivery ZIPs remain unchanged and do not include this fix"
+  ],
+  "evidence": {
+    "preflight": "docs/evidence/phase4_3/p43_ia01_preflight.json",
+    "red": "docs/evidence/phase4_3/p43_ia01_red.txt",
+    "green": "docs/evidence/phase4_3/p43_ia01_green.txt",
+    "review_red": "docs/evidence/phase4_3/p43_ia01_review_red.txt",
+    "review_green": "docs/evidence/phase4_3/p43_ia01_review_green.txt",
+    "final_junit": "docs/evidence/phase4_3/p43_ia01_full_regression_final.xml",
+    "node": "docs/evidence/phase4_3/p43_ia01_node.txt"
+  },
+  "new_paths": [
+    "docs/evidence/phase4_3/p43_ia01_full_regression.txt",
+    "docs/evidence/phase4_3/p43_ia01_full_regression.xml",
+    "docs/evidence/phase4_3/p43_ia01_full_regression_final.txt",
+    "docs/evidence/phase4_3/p43_ia01_full_regression_final.xml",
+    "docs/evidence/phase4_3/p43_ia01_green.txt",
+    "docs/evidence/phase4_3/p43_ia01_green.xml",
+    "docs/evidence/phase4_3/p43_ia01_node.txt",
+    "docs/evidence/phase4_3/p43_ia01_preflight.json",
+    "docs/evidence/phase4_3/p43_ia01_red.txt",
+    "docs/evidence/phase4_3/p43_ia01_red.xml",
+    "docs/evidence/phase4_3/p43_ia01_review_green.txt",
+    "docs/evidence/phase4_3/p43_ia01_review_green.xml",
+    "docs/evidence/phase4_3/p43_ia01_review_red.txt",
+    "artifacts/phase4_3/p43_ia01_remediation.json"
+  ],
+  "all_task_changed_paths": [
+    "artifacts/phase4_3/p43_ia01_remediation.json",
+    "docs/evidence/phase4_3/p43_ia01_full_regression.txt",
+    "docs/evidence/phase4_3/p43_ia01_full_regression.xml",
+    "docs/evidence/phase4_3/p43_ia01_full_regression_final.txt",
+    "docs/evidence/phase4_3/p43_ia01_full_regression_final.xml",
+    "docs/evidence/phase4_3/p43_ia01_green.txt",
+    "docs/evidence/phase4_3/p43_ia01_green.xml",
+    "docs/evidence/phase4_3/p43_ia01_node.txt",
+    "docs/evidence/phase4_3/p43_ia01_preflight.json",
+    "docs/evidence/phase4_3/p43_ia01_red.txt",
+    "docs/evidence/phase4_3/p43_ia01_red.xml",
+    "docs/evidence/phase4_3/p43_ia01_review_green.txt",
+    "docs/evidence/phase4_3/p43_ia01_review_green.xml",
+    "docs/evidence/phase4_3/p43_ia01_review_red.txt",
+    "docs/phase4_3_implementation_report.md",
+    "scripts/windows_launcher.py",
+    "tests/test_phase4_3_windows.py"
+  ]
+}

@@ -1,0 +1,5 @@
+Actual local TLS staging: web healthy, Caddy failed "Address already in use".
+Docker allocated the web's dynamic front address172.30.43.2, colliding with the
+explicit trusted proxy address. Fix: assign web172.30.43.3 on that same isolated
+network; preserve Caddy172.30.43.2 and its exact app trust. No unrelated network
+or service modified. The next real Compose startup verifies the fix.

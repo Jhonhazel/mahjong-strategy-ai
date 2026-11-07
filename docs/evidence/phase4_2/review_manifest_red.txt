@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_runtime_mapping_cannot_overwrite_the_generated_manifest _________
+
+release_source = (PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-28/test_runtime_mappin...lp_v3.metadata.json', 'artifacts/models/mahjong_discard_mlp_v3.pt': 'artifacts/models/mahjong_discard_mlp_v3.pt', ...})
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-28/test_runtime_mapping_cannot_ov0')
+
+    def test_runtime_mapping_cannot_overwrite_the_generated_manifest(release_source,tmp_path):
+        root,runtime=release_source;(root/'note.md').write_text('preserve');runtime['note.md']='RELEASE_MANIFEST.json'
+>       with pytest.raises(ValueError):module('scripts.build_lecturer_release').build_release(root,tmp_path/'out',runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_phase4_2.py:204: Failed
+=============================== warnings summary ===============================
+tests/test_phase4_2.py::test_runtime_mapping_cannot_overwrite_the_generated_manifest
+  /opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/zipfile/__init__.py:1611: UserWarning: Duplicate name: 'mahjong-strategy-ai/RELEASE_MANIFEST.json'
+    return self._open_to_write(zinfo, force_zip64=force_zip64)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_phase4_2.py::test_runtime_mapping_cannot_overwrite_the_generated_manifest
+1 failed, 1 warning in 0.12s

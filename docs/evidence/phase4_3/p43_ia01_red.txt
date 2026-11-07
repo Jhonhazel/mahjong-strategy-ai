@@ -1,0 +1,55 @@
+...................FFFFFF...........                                     [100%]
+=================================== FAILURES ===================================
+________ test_first_run_acl_failure_leaves_no_marker_or_private_config _________
+tests/test_phase4_3_windows.py:196: in test_first_run_acl_failure_leaves_no_marker_or_private_config
+    assert root.is_dir() and not list(root.iterdir())
+E   AssertionError: assert (True and not [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_acl_failure_lea0/new profile/owner.json')])
+E    +  where True = is_dir()
+E    +    where is_dir = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_acl_failure_lea0/new profile').is_dir
+E    +  and   [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_acl_failure_lea0/new profile/owner.json')] = list(<generator object Path.iterdir at 0x1088ec5f0>)
+E    +    where <generator object Path.iterdir at 0x1088ec5f0> = iterdir()
+E    +      where iterdir = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_acl_failure_lea0/new profile').iterdir
+____ test_first_run_retry_after_acl_failure_succeeds_without_manual_cleanup ____
+tests/test_phase4_3_windows.py:204: in test_first_run_retry_after_acl_failure_succeeds_without_manual_cleanup
+    config=module.prepare_state(root,protect=protect)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/windows_launcher.py:59: in prepare_state
+    raise LauncherError('Owned state config is missing; restore the original private config before starting')
+E   scripts.windows_launcher.LauncherError: Owned state config is missing; restore the original private config before starting
+___ test_partial_initial_json_write_is_rolled_back_and_can_retry[owner.json] ___
+tests/test_phase4_3_windows.py:222: in test_partial_initial_json_write_is_rolled_back_and_can_retry
+    assert not list(root.iterdir())
+E   AssertionError: assert not [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initial_json_writ0/new/owner.json')]
+E    +  where [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initial_json_writ0/new/owner.json')] = list(<generator object Path.iterdir at 0x1088ee0c0>)
+E    +    where <generator object Path.iterdir at 0x1088ee0c0> = iterdir()
+E    +      where iterdir = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initial_json_writ0/new').iterdir
+___ test_partial_initial_json_write_is_rolled_back_and_can_retry[state.json] ___
+tests/test_phase4_3_windows.py:222: in test_partial_initial_json_write_is_rolled_back_and_can_retry
+    assert not list(root.iterdir())
+E   AssertionError: assert not [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initia...ers/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initial_json_writ1/new/owner.json')]
+E    +  where [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initia...ers/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initial_json_writ1/new/owner.json')] = list(<generator object Path.iterdir at 0x108afdf20>)
+E    +    where <generator object Path.iterdir at 0x108afdf20> = iterdir()
+E    +      where iterdir = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_partial_initial_json_writ1/new').iterdir
+___ test_first_run_secret_generation_failure_leaves_retryable_empty_profile ____
+tests/test_phase4_3_windows.py:233: in test_first_run_secret_generation_failure_leaves_retryable_empty_profile
+    assert not list(root.iterdir())
+E   AssertionError: assert not [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_secret_generati0/new/owner.json')]
+E    +  where [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_secret_generati0/new/owner.json')] = list(<generator object Path.iterdir at 0x1088ee4d0>)
+E    +    where <generator object Path.iterdir at 0x1088ee4d0> = iterdir()
+E    +      where iterdir = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_secret_generati0/new').iterdir
+__ test_first_run_generated_config_validation_failure_does_not_persist_state ___
+tests/test_phase4_3_windows.py:242: in test_first_run_generated_config_validation_failure_does_not_persist_state
+    assert not list(root.iterdir())
+E   AssertionError: assert not [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_gene...ers/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_generated_confi0/new/owner.json')]
+E    +  where [PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_gene...ers/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_generated_confi0/new/owner.json')] = list(<generator object Path.iterdir at 0x1090d4ad0>)
+E    +    where <generator object Path.iterdir at 0x1090d4ad0> = iterdir()
+E    +      where iterdir = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-47/test_first_run_generated_confi0/new').iterdir
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/phase4_3/p43_ia01_red.xml -
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_windows.py::test_first_run_acl_failure_leaves_no_marker_or_private_config
+FAILED tests/test_phase4_3_windows.py::test_first_run_retry_after_acl_failure_succeeds_without_manual_cleanup
+FAILED tests/test_phase4_3_windows.py::test_partial_initial_json_write_is_rolled_back_and_can_retry[owner.json]
+FAILED tests/test_phase4_3_windows.py::test_partial_initial_json_write_is_rolled_back_and_can_retry[state.json]
+FAILED tests/test_phase4_3_windows.py::test_first_run_secret_generation_failure_leaves_retryable_empty_profile
+FAILED tests/test_phase4_3_windows.py::test_first_run_generated_config_validation_failure_does_not_persist_state
+6 failed, 30 passed in 0.15s

@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "origin": "https://localhost:18443",
+  "tls_verified": true,
+  "secure_httponly_samesite_cookie": true,
+  "pages": {
+    "/": 200,
+    "/game": 200,
+    "/contact": 200,
+    "/history": 200,
+    "/docs": 200,
+    "/redoc": 200,
+    "/openapi.json": 200,
+    "/static/tiles.svg": 200,
+    "/static/phase4/playback.mjs": 200
+  },
+  "csrf_wrong_origin_missing_token_403": true,
+  "foreign_game_prediction_404": true,
+  "real_v3": true,
+  "prediction_readonly_and_reused": true,
+  "actions": 23,
+  "action_kinds": {
+    "Play": 20,
+    "Chi": 3
+  },
+  "round_result": {
+    "ending": "zimo",
+    "outcome_type": "HU",
+    "winner_seat": 0,
+    "discarder_seat": null,
+    "qianggang": false,
+    "win_tile": "W6",
+    "total_fan": 25,
+    "fans": [
+      {
+        "fan_points": 24,
+        "count": 1,
+        "fan_name_zh": "\u4e03\u5bf9",
+        "fan_name_en": "Seven Pairs"
+      },
+      {
+        "fan_points": 1,
+        "count": 1,
+        "fan_name_zh": "\u81ea\u6478",
+        "fan_name_en": "Self-Drawn"
+      }
+    ],
+    "score_deltas": [
+      99,
+      -33,
+      -33,
+      -33
+    ]
+  },
+  "saved_predictions": 2,
+  "history_detail_table": true,
+  "deletion_204_then_404": true,
+  "prediction_seconds": [
+    0.015317832992877811,
+    0.007666499994229525
+  ],
+  "remaining_prediction": "377c3d80-e514-4274-975a-bdc68b069592",
+  "proxy_client_spoof_ignored": true,
+  "direct_untrusted_proxy_rejected": {
+    "untrusted_forwarded": 403,
+    "wrong_host": 400
+  },
+  "same_cookie_history_after_restart": true,
+  "active_game_lost_on_restart_404": true,
+  "restart_to_ready_seconds": 2.572134250003728,
+  "metrics": {
+    "web": {
+      "memory_current_bytes": 219848704,
+      "memory_peak_bytes": 220663808
+    },
+    "db": {
+      "memory_current_bytes": 83783680,
+      "memory_peak_bytes": 88293376
+    },
+    "caddy": {
+      "memory_current_bytes": 17145856,
+      "memory_peak_bytes": 18464768
+    },
+    "round_wall_seconds": 0.28858900000341237,
+    "web_cpu_seconds": 0.152756,
+    "mean_web_cpu_percent_during_round": 52.93202443550994,
+    "postgres_storage_kib": 51304
+  }
+}

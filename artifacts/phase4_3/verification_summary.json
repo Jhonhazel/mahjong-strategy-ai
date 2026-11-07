@@ -1,0 +1,194 @@
+{
+  "authorization": {
+    "ci_or_model_upload": false,
+    "commit": false,
+    "dns_change": false,
+    "git_mutation": false,
+    "paid_cloud_provisioning": false,
+    "public_deployment": false,
+    "push": false
+  },
+  "browser": {
+    "evidence": "artifacts/phase4_3/browser.json",
+    "external_https_tested": false,
+    "protocol_scope": "Temporary loopback HTTP preview only; TLS separately verified by HTTPS client",
+    "status": "PASS"
+  },
+  "cleanup": {
+    "evidence": "artifacts/phase4_3/expiry_cleanup.json",
+    "owned_services_stopped": true,
+    "temporary_preview_port_removed": true,
+    "volumes_retained": true
+  },
+  "date": "2026-11-06",
+  "delivery": {
+    "all_assets_match_pins": true,
+    "all_member_hashes_match": true,
+    "all_sources_identical": true,
+    "archive_members": 103,
+    "audit_rearchived": false,
+    "channel": "source/deployment and Windows build inputs; NOT a Windows offline binary",
+    "duplicate_or_unsafe_members": false,
+    "extracted_bytes_including_manifest": 3684575,
+    "no_executable_or_secret_dataset_venv_inclusions": true,
+    "package": "delivery/phase4_3/mahjong-strategy-ai-lecturer-portable.zip",
+    "sha256": "84c78841ccacad63d657a86bb3f61cc5d1b407ca1af2e05ed0b76ebfcabea749",
+    "source_bytes": 3665316,
+    "source_files": 102,
+    "staged_runtime_matches_final_application_files": 63,
+    "status": "PASS",
+    "zip_bytes": 1919823
+  },
+  "external_publication": false,
+  "external_url": null,
+  "focused": {
+    "failed": 0,
+    "passed": 66,
+    "seconds": 1.68,
+    "skipped": 0
+  },
+  "historical_cases": {
+    "docs/evidence/phase2_2/full_suite.xml": {
+      "all_passed_in_final": true,
+      "cases": 279,
+      "missing": 0
+    },
+    "docs/evidence/phase4_2/full_regression_final.xml": {
+      "all_passed_in_final": true,
+      "cases": 437,
+      "missing": 0
+    },
+    "docs/evidence/phase4_3/baseline.xml": {
+      "all_passed_in_final": true,
+      "cases": 437,
+      "missing": 0
+    }
+  },
+  "independent_review": {
+    "actionable_findings_fixed": 2,
+    "critical": 0,
+    "evidence": "docs/evidence/phase4_3/independent_review.md",
+    "important": 1,
+    "independent_re_review_after_fixes": false,
+    "known_unresolved_critical_or_important": 0,
+    "minor": 1,
+    "performed": true,
+    "read_only": true,
+    "reviewer_ran_tests": false
+  },
+  "local_https_staging": {
+    "active_game_lost_after_restart": true,
+    "actual_postgresql": true,
+    "evidence": "artifacts/phase4_3/production_staging.json",
+    "expiry_verified": true,
+    "external": false,
+    "full_round_actions": 23,
+    "history_after_restart": true,
+    "origin": "https://localhost:18443",
+    "prediction_count": 2,
+    "real_cpu_v3": true,
+    "status": "PASS",
+    "tls_verified": true
+  },
+  "metrics": {
+    "caddy": {
+      "memory_current_bytes": 17145856,
+      "memory_peak_bytes": 18464768
+    },
+    "db": {
+      "memory_current_bytes": 83783680,
+      "memory_peak_bytes": 88293376
+    },
+    "mean_web_cpu_percent_during_round": 52.93202443550994,
+    "postgres_storage_kib": 51304,
+    "round_wall_seconds": 0.28858900000341237,
+    "web": {
+      "memory_current_bytes": 219848704,
+      "memory_peak_bytes": 220663808
+    },
+    "web_cpu_seconds": 0.152756
+  },
+  "model_initialization": {
+    "checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "device": "cpu",
+    "model_initialization_seconds": 0.09998745800112374,
+    "torch_import_seconds": 1.2139755839889403
+  },
+  "node": {
+    "baseline_passed": 91,
+    "cancelled": 0,
+    "duration_ms": 144.758125,
+    "evidence": "docs/evidence/phase4_3/node_final.txt",
+    "failed": 0,
+    "passed": 91,
+    "skipped": 0
+  },
+  "online_verdict": "ONLINE \u2014 DEPLOYMENT READY",
+  "overall_pass_claimed": false,
+  "phase": "4.3",
+  "preservation": {
+    "dev_rows_unchanged": 44,
+    "eligible_before": 2257,
+    "frozen_assets": {
+      "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+      "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+      "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+    },
+    "historical_delivery_files_unchanged": 4,
+    "intended_changed": [
+      "README.md",
+      "README_START_HERE.md",
+      "app/settings.py",
+      "scripts/build_lecturer_release.py",
+      "scripts/run_backend.py"
+    ],
+    "missing": 0,
+    "unchanged": 2252
+  },
+  "python": {
+    "baseline_passed": 437,
+    "errors": 0,
+    "failed": 0,
+    "junit": "docs/evidence/phase4_3/full_regression_review_final.xml",
+    "new_cases": 34,
+    "passed": 471,
+    "seconds": 69.026,
+    "skipped": 0,
+    "warnings": [
+      "Existing Starlette/httpx TestClient deprecation"
+    ]
+  },
+  "remaining_limitations": [
+    "Public host/account/domain/budget and publication authorization absent",
+    "Windows build/runtime acceptance NOT RUN",
+    "Single worker; active games in memory and expire, history tied to browser identity/stable secret",
+    "ARM64 staging does not certify AMD64 hosting",
+    "Windows vendor/dependency notices and unsigned-build behavior require native release gate",
+    "Contact role assignments unverified; UAS PDF/video/submission not completed by Phase4.3"
+  ],
+  "sql_dump_restore": {
+    "evidence": "artifacts/phase4_3/postgres_integration.json",
+    "isolated_project_test_namespaces_only": true,
+    "raw_sql_exported_to_delivery": false,
+    "status": "PASS"
+  },
+  "timezone": "Asia/Jakarta",
+  "two_rounds": {
+    "actual_v3_and_postgres": true,
+    "evidence": "artifacts/phase4_3/real_two_rounds.json",
+    "seeds": [
+      42,
+      43
+    ],
+    "status": "PASS"
+  },
+  "windows_binary_built": false,
+  "windows_blockers": [
+    "No Windows x64 builder/VM available",
+    "Official PostgreSQL archive, independently checked checksum and redistribution notice review required",
+    "Native DLL/ACL/signals/process/clean-machine offline acceptance required",
+    "Signing/SmartScreen status unverified"
+  ],
+  "windows_runtime_tested": false,
+  "windows_verdict": "WINDOWS OFFLINE \u2014 BUILD READY / NOT VERIFIED"
+}

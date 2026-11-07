@@ -1,0 +1,42 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_new_owned_postgres_is_stoppable_even_if_post_start_authentication_fails _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-41/test_new_owned_postgres_is_sto0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x108ca0e90>
+
+    def test_new_owned_postgres_is_stoppable_even_if_post_start_authentication_fails(tmp_path,monkeypatch):
+        module=launcher();root=tmp_path/'state';config=module.prepare_state(root)
+        (root/'data').mkdir();(root/'data/PG_VERSION').write_text('14\n')
+        pg=module.PostgresRuntime(tmp_path/'package',root,config);commands=[];running=[False]
+        def command(name,*args,**kwargs):
+            commands.append((name,args))
+            if name=='psql':raise module.LauncherError('Synthetic authentication failure')
+            if args[-1]=='status':return subprocess.CompletedProcess([],0 if running[0] else 3,stdout='',stderr='')
+            if args[-1]=='start':running[0]=True
+            if args[-1]=='stop':running[0]=False
+            return subprocess.CompletedProcess([],0,stdout='',stderr='')
+        monkeypatch.setattr(pg,'command',command)
+        with pytest.raises(module.LauncherError):pg.start()
+        pg.stop()
+>       assert not running[0]
+E       assert not True
+
+tests/test_phase4_3_windows.py:167: AssertionError
+_ test_pg_provenance_does_not_copy_unknown_private_metadata_into_build_report __
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-41/test_pg_provenance_does_not_co0')
+
+    def test_pg_provenance_does_not_copy_unknown_private_metadata_into_build_report(tmp_path):
+        builder=importlib.import_module('scripts.build_windows_package');path=tmp_path/'pg.zip';path.write_bytes(b'synthetic')
+        metadata={'download_url':'https://get.enterprisedb.com/postgresql/postgresql-14.19-1-windows-x64-binaries.zip',
+                  'version':'14.19','sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'license_reviewed':True,'password':'synthetic_private'}
+        verified=builder.verify_pg_input(path,metadata)
+>       assert 'password' not in verified
+E       AssertionError: assert 'password' not in {'download_url': 'https://get.enterprisedb.com/postgresql/postgresql-14.19-1-windows-x64-binaries.zip', 'license_revie...ue, 'password': 'synthetic_private', 'sha256': 'b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2', ...}
+
+tests/test_phase4_3_windows.py:175: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_windows.py::test_new_owned_postgres_is_stoppable_even_if_post_start_authentication_fails
+FAILED tests/test_phase4_3_windows.py::test_pg_provenance_does_not_copy_unknown_private_metadata_into_build_report
+2 failed in 0.05s

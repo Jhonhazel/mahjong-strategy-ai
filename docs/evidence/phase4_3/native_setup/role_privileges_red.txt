@@ -1,0 +1,14 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_pending_role_with_added_membership_is_rejected_before_database_creation _
+tests/test_native_windows_setup.py:282: in test_pending_role_with_added_membership_is_rejected_before_database_creation
+    with native_pg.connect() as c:assert c.execute('SELECT 1 FROM pg_database WHERE datname=%s',(options['database'],)).fetchone() is None
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: assert (1,) is None
+E    +  where (1,) = fetchone()
+E    +    where fetchone = <psycopg.Cursor [TUPLES_OK] [IDLE] (host=127.0.0.1 port=49219 user=native_admin database=postgres) at 0x10b0b3890>.fetchone
+E    +      where <psycopg.Cursor [TUPLES_OK] [IDLE] (host=127.0.0.1 port=49219 user=native_admin database=postgres) at 0x10b0b3890> = execute('SELECT 1 FROM pg_database WHERE datname=%s', ('native_4b4eafc1a06542',))
+E    +        where execute = <psycopg.Connection [IDLE] (host=127.0.0.1 port=49219 user=native_admin database=postgres) at 0x10b125220>.execute
+=========================== short test summary info ============================
+FAILED tests/test_native_windows_setup.py::test_pending_role_with_added_membership_is_rejected_before_database_creation
+1 failed, 22 deselected in 1.26s

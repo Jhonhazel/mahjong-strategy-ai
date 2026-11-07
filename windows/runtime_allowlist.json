@@ -1,0 +1,13 @@
+{
+  "packaging/runtime_allowlist.json": "packaging/runtime_allowlist.json",
+  "scripts/windows_launcher.py": "scripts/windows_launcher.py",
+  "scripts/build_windows_package.py": "scripts/build_windows_package.py",
+  "windows/entry.py": "windows/entry.py",
+  "windows/build.ps1": "windows/build.ps1",
+  "windows/requirements-build.txt": "windows/requirements-build.txt",
+  "windows/postgres-provenance.example.json": "windows/postgres-provenance.example.json",
+  "windows/Start Mahjong.bat": "windows/Start Mahjong.bat",
+  "windows/Stop Mahjong.bat": "windows/Stop Mahjong.bat",
+  "windows/README_START_HERE.txt": "windows/README_START_HERE.txt",
+  "windows/README_BUILD.md": "windows/README_BUILD.md"
+}

@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_owned_profile_missing_private_config_refuses_without_rotating_or_touching_data _
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-44/test_owned_profile_missing_pri0')
+
+    def test_owned_profile_missing_private_config_refuses_without_rotating_or_touching_data(tmp_path):
+        module=launcher();root=tmp_path/'owned';module.prepare_state(root)
+        data=root/'data';data.mkdir();(data/'PG_VERSION').write_text('14')
+        (data/'history-sentinel').write_bytes(b'KEEP EXISTING DATABASE')
+        (root/'state.json').unlink()
+        before={str(p.relative_to(root)):p.read_bytes() for p in root.rglob('*') if p.is_file()}
+>       with pytest.raises(module.LauncherError,match='restore the original private config'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'scripts.windows_launcher.LauncherError'>
+
+tests/test_phase4_3_windows.py:43: Failed
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/phase4_3/review_config_red.xml -
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_windows.py::test_owned_profile_missing_private_config_refuses_without_rotating_or_touching_data
+1 failed, 18 deselected in 0.04s

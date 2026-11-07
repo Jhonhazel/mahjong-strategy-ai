@@ -1,0 +1,213 @@
+FFFFFFFFFFFFFFFFF                                                        [100%]
+=================================== FAILURES ===================================
+__ test_real_first_setup_and_repeated_setup_preserve_model_prediction_history __
+tests/test_native_windows_setup.py:84: in test_real_first_setup_and_repeated_setup_preserve_model_prediction_history
+    root,options=target;setup=windows_finish(monkeypatch,root,options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_native_windows_setup.py:72: in windows_finish
+    setup=importlib.import_module('scripts.lecturer_setup');pg=helper();prepare=pg.prepare_database
+                                                               ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+___ test_repeated_provisioning_reuses_credentials_without_resetting_database ___
+tests/test_native_windows_setup.py:110: in test_repeated_provisioning_reuses_credentials_without_resetting_database
+    pg=helper();root,options=target
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+___________ test_foreign_catalog_resources_are_not_taken_over[role] ____________
+tests/test_native_windows_setup.py:125: in test_foreign_catalog_resources_are_not_taken_over
+    pg=helper();root,options=target
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_________ test_foreign_catalog_resources_are_not_taken_over[database] __________
+tests/test_native_windows_setup.py:125: in test_foreign_catalog_resources_are_not_taken_over
+    pg=helper();root,options=target
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_________ test_wrong_admin_password_is_redacted_and_does_not_provision _________
+tests/test_native_windows_setup.py:139: in test_wrong_admin_password_is_redacted_and_does_not_provision
+    pg=helper();root,options=target;options['admin_password']='incorrect-private-password'
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+____________ test_unavailable_local_postgres_fails_without_fallback ____________
+tests/test_native_windows_setup.py:147: in test_unavailable_local_postgres_fails_without_fallback
+    pg=helper();root,options=target
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+______ test_acl_failure_precedes_secret_persistence_and_retry_can_succeed ______
+tests/test_native_windows_setup.py:155: in test_acl_failure_precedes_secret_persistence_and_retry_can_succeed
+    pg=helper();root,options=target
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_____ test_failed_env_publication_preserves_staged_credentials_and_retries _____
+tests/test_native_windows_setup.py:166: in test_failed_env_publication_preserves_staged_credentials_and_retries
+    pg=helper();root,options=target;setup=windows_finish(monkeypatch,root,options)
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_________ test_schema_failure_keeps_staged_credentials_for_safe_retry __________
+tests/test_native_windows_setup.py:179: in test_schema_failure_keeps_staged_credentials_for_safe_retry
+    pg=helper();root,options=target;setup=windows_finish(monkeypatch,root,options)
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_ test_existing_effective_remote_target_is_refused_before_connect[postgresql+psycopg://u:p@remote.example/db] _
+tests/test_native_windows_setup.py:195: in test_existing_effective_remote_target_is_refused_before_connect
+    pg=helper()
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_ test_existing_effective_remote_target_is_refused_before_connect[postgresql+psycopg://u:p@127.0.0.1/db?host=remote.example] _
+tests/test_native_windows_setup.py:195: in test_existing_effective_remote_target_is_refused_before_connect
+    pg=helper()
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_ test_existing_effective_remote_target_is_refused_before_connect[postgresql+psycopg://u:p@127.0.0.1/db?service=other] _
+tests/test_native_windows_setup.py:195: in test_existing_effective_remote_target_is_refused_before_connect
+    pg=helper()
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+__________ test_private_pending_directory_never_claims_foreign_files ___________
+tests/test_native_windows_setup.py:202: in test_private_pending_directory_never_claims_foreign_files
+    pg=helper();root,options=target;state=root/'.local/native-postgres';state.mkdir(parents=True)
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+______ test_pending_directory_symlink_is_rejected_without_touching_target ______
+tests/test_native_windows_setup.py:209: in test_pending_directory_symlink_is_rejected_without_touching_target
+    pg=helper();root,options=target;(root/'.local').mkdir(parents=True)
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_____ test_atomic_config_publication_preserves_existing_user_configuration _____
+tests/test_native_windows_setup.py:216: in test_atomic_config_publication_preserves_existing_user_configuration
+    pg=helper();root=tmp_path/'root';root.mkdir();(root/'.env').write_bytes(b'EXISTING=KEEP\n')
+       ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_____ test_recurring_check_with_missing_config_never_requests_provisioning _____
+tests/test_native_windows_setup.py:222: in test_recurring_check_with_missing_config_never_requests_provisioning
+    setup=importlib.import_module('scripts.lecturer_setup');pg=helper()
+                                                               ^^^^^^^^
+tests/test_native_windows_setup.py:25: in helper
+    assert importlib.util.find_spec('scripts.native_postgres'),'Missing safe native PostgreSQL provisioning'
+E   AssertionError: Missing safe native PostgreSQL provisioning
+E   assert None
+E    +  where None = <function find_spec at 0x1044d0f40>('scripts.native_postgres')
+E    +    where <function find_spec at 0x1044d0f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+_ test_actual_runtime_export_contains_native_launchers_helper_and_pinned_assets _
+tests/test_native_windows_setup.py:238: in test_actual_runtime_export_contains_native_launchers_helper_and_pinned_assets
+    assert {prefix+n for n in ('setup-windows-native.cmd','run-windows-native.cmd','scripts/native_postgres.py')}.issubset(names)
+E   AssertionError: assert False
+E    +  where False = <built-in method issubset of set object at 0x11288b680>({'mahjong-strategy-ai/.dockerignore', 'mahjong-strategy-ai/.env.example', 'mahjong-strategy-ai/Dockerfile', 'mahjong-s.../README_START_HERE.md', 'mahjong-strategy-ai/RELEASE_MANIFEST.json', 'mahjong-strategy-ai/THIRD_PARTY_NOTICES.md', ...})
+E    +    where <built-in method issubset of set object at 0x11288b680> = {'mahjong-strategy-ai/run-windows-native.cmd', 'mahjong-strategy-ai/scripts/native_postgres.py', 'mahjong-strategy-ai/setup-windows-native.cmd'}.issubset
+=============================== warnings summary ===============================
+tests/test_native_windows_setup.py::test_real_first_setup_and_repeated_setup_preserve_model_prediction_history
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/phase4_3/native_setup/red_provisioning.xml -
+=========================== short test summary info ============================
+FAILED tests/test_native_windows_setup.py::test_real_first_setup_and_repeated_setup_preserve_model_prediction_history
+FAILED tests/test_native_windows_setup.py::test_repeated_provisioning_reuses_credentials_without_resetting_database
+FAILED tests/test_native_windows_setup.py::test_foreign_catalog_resources_are_not_taken_over[role]
+FAILED tests/test_native_windows_setup.py::test_foreign_catalog_resources_are_not_taken_over[database]
+FAILED tests/test_native_windows_setup.py::test_wrong_admin_password_is_redacted_and_does_not_provision
+FAILED tests/test_native_windows_setup.py::test_unavailable_local_postgres_fails_without_fallback
+FAILED tests/test_native_windows_setup.py::test_acl_failure_precedes_secret_persistence_and_retry_can_succeed
+FAILED tests/test_native_windows_setup.py::test_failed_env_publication_preserves_staged_credentials_and_retries
+FAILED tests/test_native_windows_setup.py::test_schema_failure_keeps_staged_credentials_for_safe_retry
+FAILED tests/test_native_windows_setup.py::test_existing_effective_remote_target_is_refused_before_connect[postgresql+psycopg://u:p@remote.example/db]
+FAILED tests/test_native_windows_setup.py::test_existing_effective_remote_target_is_refused_before_connect[postgresql+psycopg://u:p@127.0.0.1/db?host=remote.example]
+FAILED tests/test_native_windows_setup.py::test_existing_effective_remote_target_is_refused_before_connect[postgresql+psycopg://u:p@127.0.0.1/db?service=other]
+FAILED tests/test_native_windows_setup.py::test_private_pending_directory_never_claims_foreign_files
+FAILED tests/test_native_windows_setup.py::test_pending_directory_symlink_is_rejected_without_touching_target
+FAILED tests/test_native_windows_setup.py::test_atomic_config_publication_preserves_existing_user_configuration
+FAILED tests/test_native_windows_setup.py::test_recurring_check_with_missing_config_never_requests_provisioning
+FAILED tests/test_native_windows_setup.py::test_actual_runtime_export_contains_native_launchers_helper_and_pinned_assets
+17 failed, 1 warning in 2.40s

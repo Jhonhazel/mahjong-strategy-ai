@@ -1,0 +1,6 @@
+{
+    admin off
+}
+{$MAHJONG_PUBLIC_HOST} {
+    reverse_proxy web:8000
+}

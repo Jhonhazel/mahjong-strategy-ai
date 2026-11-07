@@ -42,3 +42,6 @@ artifacts/phase3/*.sql
 /app/templates.zip
 
 /app/web.zip
+
+# Owner-generated lecturer/audit archives and first-run local state stay private.
+/delivery/

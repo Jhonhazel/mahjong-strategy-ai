@@ -1,0 +1,17 @@
+{
+  "branch": "main",
+  "head": "28623736f6ce9d90eeb86dea98908b182631aad1",
+  "initial_tracked_modified_count": 2,
+  "initial_untracked_file_count": 80,
+  "no_git_mutation_performed": true,
+  "staged_count": 0,
+  "tracked_modified_count": 4,
+  "tracked_modified_paths": [
+    ".gitignore",
+    "README.md",
+    "app/settings.py",
+    "scripts/run_backend.py"
+  ],
+  "untracked_file_count": 161,
+  "working_tree_clean": false
+}

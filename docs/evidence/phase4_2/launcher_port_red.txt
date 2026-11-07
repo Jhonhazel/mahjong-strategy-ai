@@ -1,0 +1,22 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_macos_launcher_reports_the_selected_host_port ______________
+
+tmp_path = PosixPath('/private/var/folders/vj/nsnvf6_123jcbm5mk6hgld540000gn/T/pytest-of-jhonhazel/pytest-24/test_macos_launcher_reports_th0')
+
+    def test_macos_launcher_reports_the_selected_host_port(tmp_path):
+        # Docker is external; this tests the real launcher's config/message handling.
+        shutil.copyfile(ROOT/'setup-macos.sh',tmp_path/'setup-macos.sh')
+        bin_dir=tmp_path/'bin';bin_dir.mkdir();docker=bin_dir/'docker'
+        docker.write_text('#!/bin/sh\nexit 0\n');docker.chmod(0o755)
+        result=subprocess.run(['sh','setup-macos.sh'],cwd=tmp_path,text=True,capture_output=True,
+                              env=dict(os.environ,PATH=str(bin_dir)+os.pathsep+os.environ['PATH'],MAHJONG_WEB_PORT='8890'))
+        assert result.returncode==0
+>       assert 'http://127.0.0.1:8890/' in result.stdout
+E       AssertionError: assert 'http://127.0.0.1:8890/' in 'Setup OK. Open http://127.0.0.1:8000/ . Next time run ./run-macos.sh.\n'
+E        +  where 'Setup OK. Open http://127.0.0.1:8000/ . Next time run ./run-macos.sh.\n' = CompletedProcess(args=['sh', 'setup-macos.sh'], returncode=0, stdout='Setup OK. Open http://127.0.0.1:8000/ . Next time run ./run-macos.sh.\n', stderr='').stdout
+
+tests/test_phase4_2.py:174: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase4_2.py::test_macos_launcher_reports_the_selected_host_port
+1 failed in 0.34s

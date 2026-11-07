@@ -1,0 +1,205 @@
+{
+  "name": "mahjong-strategy-ai",
+  "networks": {
+    "database": {
+      "name": "mahjong-strategy-ai_database",
+      "ipam": {},
+      "internal": true
+    },
+    "front": {
+      "name": "mahjong-strategy-ai_front",
+      "ipam": {
+        "config": [
+          {
+            "subnet": "172.30.43.0/28"
+          }
+        ]
+      }
+    }
+  },
+  "secrets": {
+    "db_admin_password": {
+      "name": "mahjong-strategy-ai_db_admin_password",
+      "file": "/Users/jhonhazel/mahjong-strategy-ai/.local/compose-secrets/db_admin_password"
+    },
+    "db_password": {
+      "name": "mahjong-strategy-ai_db_password",
+      "file": "/Users/jhonhazel/mahjong-strategy-ai/.local/compose-secrets/db_password"
+    },
+    "session_secret": {
+      "name": "mahjong-strategy-ai_session_secret",
+      "file": "/Users/jhonhazel/mahjong-strategy-ai/.local/compose-secrets/session_secret"
+    }
+  },
+  "services": {
+    "caddy": {
+      "command": null,
+      "depends_on": {
+        "web": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "MAHJONG_PUBLIC_HOST": "localhost"
+      },
+      "image": "caddy:2.10.2-alpine",
+      "mem_limit": "100663296",
+      "networks": {
+        "front": {
+          "ipv4_address": "172.30.43.2"
+        }
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 80,
+          "published": "8080",
+          "protocol": "tcp"
+        },
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 443,
+          "published": "8443",
+          "protocol": "tcp"
+        }
+      ],
+      "restart": "unless-stopped",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/Users/jhonhazel/mahjong-strategy-ai/deploy/Caddyfile.local",
+          "target": "/etc/caddy/Caddyfile",
+          "read_only": true,
+          "bind": {
+            "create_host_path": true
+          }
+        },
+        {
+          "type": "volume",
+          "source": "caddy_data",
+          "target": "/data",
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "caddy_config",
+          "target": "/config",
+          "volume": {}
+        }
+      ]
+    },
+    "db": {
+      "build": {
+        "context": "/Users/jhonhazel/mahjong-strategy-ai",
+        "dockerfile": "packaging/Dockerfile.postgres"
+      },
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "POSTGRES_PASSWORD_FILE": "/run/secrets/db_admin_password"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "pg_isready -h 127.0.0.1 -U mahjong_app -d mahjong"
+        ],
+        "timeout": "3s",
+        "interval": "2s",
+        "retries": 30
+      },
+      "image": "mahjong-strategy-ai-postgres:4.2",
+      "mem_limit": "268435456",
+      "networks": {
+        "database": null
+      },
+      "restart": "unless-stopped",
+      "secrets": [
+        {
+          "source": "db_admin_password",
+          "target": "/run/secrets/db_admin_password"
+        },
+        {
+          "source": "db_password",
+          "target": "/run/secrets/db_password"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "pgdata",
+          "target": "/var/lib/postgresql/data",
+          "volume": {}
+        }
+      ]
+    },
+    "web": {
+      "build": {
+        "context": "/Users/jhonhazel/mahjong-strategy-ai",
+        "dockerfile": "Dockerfile"
+      },
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "db": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "MAHJONG_ALLOWED_HOSTS": "[\"localhost\"]",
+        "MAHJONG_COOKIE_SECURE": "true",
+        "MAHJONG_ENVIRONMENT": "production",
+        "MAHJONG_HOST": "0.0.0.0",
+        "MAHJONG_PORT": "8000",
+        "MAHJONG_TRUSTED_PROXY_IPS": "[\"172.30.43.2\"]",
+        "MAHJONG_WORKERS": "1"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "python",
+          "-c",
+          "import json,os,urllib.request; h=json.loads(os.environ['MAHJONG_ALLOWED_HOSTS'])[0]; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/health/ready',headers={'Host':h}),timeout=3)"
+        ],
+        "timeout": "5s",
+        "interval": "3s",
+        "retries": 20,
+        "start_period": "15s"
+      },
+      "image": "mahjong-strategy-ai-web:4.3",
+      "init": true,
+      "mem_limit": "805306368",
+      "networks": {
+        "database": null,
+        "front": null
+      },
+      "restart": "unless-stopped",
+      "secrets": [
+        {
+          "source": "db_password",
+          "target": "/run/secrets/db_password"
+        },
+        {
+          "source": "session_secret",
+          "target": "/run/secrets/session_secret"
+        }
+      ]
+    }
+  },
+  "volumes": {
+    "caddy_config": {
+      "name": "mahjong-strategy-ai_caddy_config"
+    },
+    "caddy_data": {
+      "name": "mahjong-strategy-ai_caddy_data"
+    },
+    "pgdata": {
+      "name": "mahjong-strategy-ai_pgdata"
+    }
+  }
+}

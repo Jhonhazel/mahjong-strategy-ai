@@ -1,0 +1,28 @@
+{
+  "runtime": {
+    "files": 78,
+    "source_bytes": 3589610,
+    "zip_bytes": 1878030,
+    "sha256": "6de455546f0b75886f3bdcee8226e49984d8ad5af319cc969cf7103a9218630b"
+  },
+  "audit": {
+    "files": 2125,
+    "source_bytes": 915596116,
+    "zip_bytes": 780990377,
+    "sha256": "ce2859ba527f0a2b6cf7f4d75770b750c7821880fcbee89878a3ec1cbe93f06c"
+  },
+  "excluded_directories": [
+    ".agents",
+    ".aws",
+    ".codex",
+    ".git",
+    ".local",
+    ".pytest_cache",
+    ".venv",
+    ".wheels_cache",
+    "__pycache__",
+    "delivery",
+    "node_modules"
+  ],
+  "policy": "Local owner-generated packages only; no upload; original checkout and Git history retained"
+}

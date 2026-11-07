@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "base": "http://127.0.0.1:8000",
+  "pages": {
+    "/": 200,
+    "/game": 200,
+    "/contact": 200,
+    "/history": 200,
+    "/docs": 200,
+    "/redoc": 200,
+    "/openapi.json": 200,
+    "/static/tiles.svg": 200,
+    "/static/phase4/playback.mjs": 200
+  },
+  "csrf_403": true,
+  "foreign_game_and_prediction_404": true,
+  "real_v3": true,
+  "prediction_does_not_mutate_view": true,
+  "idempotency": true,
+  "actions": 23,
+  "action_kinds": {
+    "Play": 20,
+    "Chi": 3
+  },
+  "saved_predictions": 2,
+  "history_detail_table": true,
+  "deletion_204_then_404": true,
+  "finished": {
+    "ending": "zimo",
+    "outcome_type": "HU",
+    "winner_seat": 0,
+    "discarder_seat": null,
+    "qianggang": false,
+    "win_tile": "W6",
+    "total_fan": 25,
+    "fans": [
+      {
+        "fan_points": 24,
+        "count": 1,
+        "fan_name_zh": "\u4e03\u5bf9",
+        "fan_name_en": "Seven Pairs"
+      },
+      {
+        "fan_points": 1,
+        "count": 1,
+        "fan_name_zh": "\u81ea\u6478",
+        "fan_name_en": "Self-Drawn"
+      }
+    ],
+    "score_deltas": [
+      99,
+      -33,
+      -33,
+      -33
+    ]
+  },
+  "remaining_prediction": "70da8d10-8246-474e-b807-70f1d41d52ce"
+}

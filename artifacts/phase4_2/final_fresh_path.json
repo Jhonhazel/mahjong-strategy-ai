@@ -1,0 +1,10 @@
+{
+  "root": "/private/tmp/mj42f-1ozo7prc/mahjong-strategy-ai",
+  "zip": "/private/tmp/mj42f-1ozo7prc/verified-runtime.zip",
+  "runtime": {
+    "files": 79,
+    "source_bytes": 3591024,
+    "zip_bytes": 1878971,
+    "sha256": "2d57ce03d6cc34d5c4103d3f75b95a8384f26e35aa96df25b43c3fa2d6da996b"
+  }
+}

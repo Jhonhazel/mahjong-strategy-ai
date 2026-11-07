@@ -1,0 +1,64 @@
+...........FFFF                                                          [100%]
+=================================== FAILURES ===================================
+_ test_online_smoke_never_sends_credentials_or_uses_plaintext[http://localhost:8000] _
+
+url = 'http://localhost:8000'
+
+    @pytest.mark.parametrize('url',['http://localhost:8000','https://synthetic:synthetic@example.test','https://example.test/path','https://example.test?token=synthetic'])
+    def test_online_smoke_never_sends_credentials_or_uses_plaintext(url):
+>       assert importlib.util.find_spec('scripts.smoke_online'), 'Missing HTTPS smoke test utility'
+E       AssertionError: Missing HTTPS smoke test utility
+E       assert None
+E        +  where None = <function find_spec at 0x1024fcf40>('scripts.smoke_online')
+E        +    where <function find_spec at 0x1024fcf40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_online.py:62: AssertionError
+_ test_online_smoke_never_sends_credentials_or_uses_plaintext[https://synthetic:synthetic@example.test] _
+
+url = 'https://synthetic:synthetic@example.test'
+
+    @pytest.mark.parametrize('url',['http://localhost:8000','https://synthetic:synthetic@example.test','https://example.test/path','https://example.test?token=synthetic'])
+    def test_online_smoke_never_sends_credentials_or_uses_plaintext(url):
+>       assert importlib.util.find_spec('scripts.smoke_online'), 'Missing HTTPS smoke test utility'
+E       AssertionError: Missing HTTPS smoke test utility
+E       assert None
+E        +  where None = <function find_spec at 0x1024fcf40>('scripts.smoke_online')
+E        +    where <function find_spec at 0x1024fcf40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_online.py:62: AssertionError
+_ test_online_smoke_never_sends_credentials_or_uses_plaintext[https://example.test/path] _
+
+url = 'https://example.test/path'
+
+    @pytest.mark.parametrize('url',['http://localhost:8000','https://synthetic:synthetic@example.test','https://example.test/path','https://example.test?token=synthetic'])
+    def test_online_smoke_never_sends_credentials_or_uses_plaintext(url):
+>       assert importlib.util.find_spec('scripts.smoke_online'), 'Missing HTTPS smoke test utility'
+E       AssertionError: Missing HTTPS smoke test utility
+E       assert None
+E        +  where None = <function find_spec at 0x1024fcf40>('scripts.smoke_online')
+E        +    where <function find_spec at 0x1024fcf40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_online.py:62: AssertionError
+_ test_online_smoke_never_sends_credentials_or_uses_plaintext[https://example.test?token=synthetic] _
+
+url = 'https://example.test?token=synthetic'
+
+    @pytest.mark.parametrize('url',['http://localhost:8000','https://synthetic:synthetic@example.test','https://example.test/path','https://example.test?token=synthetic'])
+    def test_online_smoke_never_sends_credentials_or_uses_plaintext(url):
+>       assert importlib.util.find_spec('scripts.smoke_online'), 'Missing HTTPS smoke test utility'
+E       AssertionError: Missing HTTPS smoke test utility
+E       assert None
+E        +  where None = <function find_spec at 0x1024fcf40>('scripts.smoke_online')
+E        +    where <function find_spec at 0x1024fcf40> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_phase4_3_online.py:62: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_phase4_3_online.py::test_online_smoke_never_sends_credentials_or_uses_plaintext[http://localhost:8000]
+FAILED tests/test_phase4_3_online.py::test_online_smoke_never_sends_credentials_or_uses_plaintext[https://synthetic:synthetic@example.test]
+FAILED tests/test_phase4_3_online.py::test_online_smoke_never_sends_credentials_or_uses_plaintext[https://example.test/path]
+FAILED tests/test_phase4_3_online.py::test_online_smoke_never_sends_credentials_or_uses_plaintext[https://example.test?token=synthetic]
+4 failed, 11 passed in 0.44s

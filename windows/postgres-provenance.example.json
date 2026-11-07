@@ -1,0 +1,7 @@
+{
+  "download_url": "https://get.enterprisedb.com/postgresql/REPLACE_WITH_OFFICIAL_14_WINDOWS_X64_ARCHIVE-windows-x64-binaries.zip",
+  "version": "14.REPLACE",
+  "sha256": "",
+  "license_reviewed": false,
+  "instructions": "Obtain the archive via the official PostgreSQL/EDB links; independently verify its checksum and all bundled redistribution notices. This template intentionally fails the build gate."
+}

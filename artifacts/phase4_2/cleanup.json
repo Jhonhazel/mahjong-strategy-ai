@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "owned_resources": [
+    {
+      "project": "mahjong_phase42_acceptance",
+      "stopped": true,
+      "volumes_deleted": false
+    },
+    {
+      "project": "mahjong_phase42_verified",
+      "stopped": true,
+      "volumes_deleted": false
+    },
+    {
+      "project": "mahjong_phase42_final",
+      "stopped": true,
+      "volumes_deleted": false
+    },
+    {
+      "native_cluster_root": "/private/tmp/mj42-nv4pc1hl/mahjong-strategy-ai",
+      "stopped": true,
+      "data_deleted": false
+    },
+    {
+      "native_cluster_root": "/private/tmp/mj42f-1ozo7prc/mahjong-strategy-ai",
+      "stopped": true,
+      "data_deleted": false
+    },
+    {
+      "native_cluster_root": "/private/tmp/mj42a-bvm0r6ea/a",
+      "stopped": true,
+      "data_deleted": false
+    }
+  ],
+  "remaining_running_container_names": [
+    "core-sgdr-medical-1",
+    "core-mongodb-1",
+    "seedr_nest_postgres"
+  ],
+  "original_developer_cluster": "Not stopped; separately verified running",
+  "original_cli_preview": "Graceful shutdown; reloader/server stopped",
+  "unrelated_services_stopped": false
+}

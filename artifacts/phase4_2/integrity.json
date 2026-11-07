@@ -1,0 +1,206 @@
+{
+  "original_files": 2177,
+  "unchanged": 2175,
+  "intentional_changes": [
+    "README.md",
+    ".gitignore"
+  ],
+  "unexpected_changes": [],
+  "assets": {
+    "status": "PASS",
+    "sha256": {
+      "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+      "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+      "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+    }
+  },
+  "dev_records_after": {
+    "count": 44,
+    "sha256": "c0e91bdd962286726de3bb7d4f05d93adb1a455486500de022db04d5f0cc4380",
+    "rows": {
+      "01e7dc80-cdee-4200-b6a3-7d2480112be9": "55cf4ee5f21bdd6e54fc96b1dc13f95ffd8aee1f17ca2113d90a59dbd2fe0a20",
+      "029a9fc6-22f4-459b-bdc1-06afd2cb6c2c": "47b707cd00dcdabeb2e2dafd83ccef1a224d3e5becfc7e8b7bbca3832682c6f4",
+      "0568e00e-d410-4e72-8f04-b6d29ab02f16": "899866b0d9285c756005dc71c71b18821ec778ad568b8b1ec010f4b8194abd16",
+      "0a770e6b-0d1e-4b78-ae58-4cb677b7be83": "6d292a42c1ca5f7bd9ba811d45d8ec88faccb5e0910646903bb2a0cbb9e6b78f",
+      "0b4c37d8-767b-4df2-bee2-1511bc16b492": "29bc448479aa3af9027e173dbf59bd51d334658ed3551bb7c93fb5d1574d2071",
+      "1490f07e-1cfa-401b-9610-de8b05f1f6ac": "f17cb7fc09cd54049fb9fe8ac107250273a01d37bce06cd6d32431c09f5678b8",
+      "182af4c8-1bdc-4c9a-b18c-b7392ca877f8": "6207898c273094e3e83b672a3fda035a4ce870f2d9cb97242f54146b280644dc",
+      "1b93673d-b4f2-4c95-b338-305589b3fecc": "8796526176b9caee1e6862b7963c6fcf00f5ca10f15a8f959d79831660045579",
+      "1ed91564-6386-4afd-9c4e-f975ffd3697b": "72bcb353552ed57bf50a87be6b7aa8377aece69347b29fc54053dab343959454",
+      "2219b987-01ba-4c17-83a3-f7357fdfa443": "0a7563440327ce8d20e04d9e5b77ef47d0cfead5f582408a4924e51b8df43f0a",
+      "25e8f7a6-a0d5-44e7-82ad-0abf439886fc": "ab7aa7ed010894049e47bd02c67dc50dfcff70f75cd6acd56091d413f9f9ef9d",
+      "3ca4009f-55c3-45d4-9bb0-dac519afc97b": "5dbcf5aa246069145f3ae0eda994d36a71440966056eec0934a0c6c8e958828f",
+      "3d3fdebd-0598-44dd-9020-9521a8ecb0fb": "eeb4b0dddcc128a7a51fae15eff27e8cf41312cebff4eaec2e62f58d97f43602",
+      "406378d8-15c4-491c-8e21-a47843d20837": "a93cf0f8eb2ae246e086784f7c60969e8c66b6a24312b57ccccc16cfb01a6f62",
+      "44013ab6-f546-4e78-9444-8dfd4b8ce786": "d31ad82c4ba5dec6880d28979d6543f8d84c35a20464b11bdc5b12f44d188069",
+      "48510ced-8545-4217-9dac-2ed99b14b814": "cc2520221d4b05717c329ae845df7ac30976649b075d732ae60739d01aaf2bdc",
+      "4f8a1f62-85be-483a-a8f0-f861eb614ec9": "f4945a2865e95896d94fa0fbd7e9a5df522ae2f29154a54428b2f69ff3841de2",
+      "5479dd40-eae9-4b32-83cf-59ca57a2dc66": "0cb705dc3171e3dc5256123ffb844fb319bc3289c343926fc37d56b0971b3996",
+      "56cda573-f224-4dba-98e0-c82fdb4abd39": "c609b99c00c74c4668888f971f4a0a14553500a9f51454bb2488bc586e5e67c0",
+      "67dffd4c-e2ce-453d-b673-56a4ae185298": "9381856217e413cd2e358891afe22bed82401af4da2596513de04465569e0c07",
+      "68511d43-12d9-4a81-a143-80b619ca0e01": "f6052e0307fcaa69c5d009657e81249a21872c7cf53d8a4c854ea83cd78ac9b0",
+      "6d373ce4-58f3-4691-8d64-e1af25794b58": "fefe288b4014a57a8bdfc494c786b86ef88bfaec76578ad24090ff4c997f030c",
+      "7be8b6e2-09b0-4097-bed3-893a64cdb5c7": "775b356240b387dc50e4722de43f12e6030f2f316f086c40ec37edb32369e0c1",
+      "7cad01a4-2fab-425c-a586-b548571a8c3f": "4d7e943397a0938d8e0d28f1660fed9f3b2ad00d7082873c1b2e8ae559360f04",
+      "7e88b7dd-7477-4dd2-a1c7-7ca713a1c9e0": "0eb86d21cc32215ca2e000a0afb34b373e32e9019c6d4cdef5eeba3560915506",
+      "8a07653f-77f9-45c6-a0db-69e713a3c642": "640db54fafa5d96641b829ad2cda2617f51ef9649a7a706e124ca6d61ed70ea5",
+      "95d7dfdd-65ca-4293-b3f2-86b8899312bf": "96bbe1ff979300bc62c7fde4c5b2005782bb3b0a44dd8e6bcc160270de659ad6",
+      "9adaceb9-501e-41cf-b823-aa0543106c33": "e5b089098ed8db7fb63c79e0ce9560e3354e4964aacc110e43d0f0003090345d",
+      "a20c9a74-0748-4eb2-ae36-8b8231ad4f4d": "7fdf35ac8df42be8578ba4b1f5d89c06341b7c48a807a20b87d385a43e1fdacf",
+      "a7a2149d-44ba-41be-bf15-ab4d1ef39616": "b8e49b89bf164e46bd324085e2ed3d546ffa8aafc5b115b453b64935f7d0a97a",
+      "a9815d56-0751-4b4c-9a58-b8cdb69f1b4d": "2e24e0ff9d312cb9aeef520ea0927b83e5d9aad41625cefed679a546d8e1d6d2",
+      "af7a30cc-5e82-4e7a-a13a-33eb5fcf5642": "b27a8d9db42cc8b4fcf0367045e2f084b9ddf5fcb6bc07bf0ea83e2e0cf9cb67",
+      "afcbe353-3c00-4eb3-9f59-5278082caeba": "4f304741c5957a3795096ee21040fa71d0968d1a4a0b38f6b4b3bd7a502e1f01",
+      "b0fb57b2-5f93-4731-8544-aa1a55d9b9c2": "035064b2a5cde5ad324d64018f808805a193973932f46b1b37457cadd3245ed3",
+      "b453d659-0035-4018-b074-739ceb591d5d": "71aaa277d1173795a13426f6c57b3cc04a0fe274187ea3e7802174b5497c1d23",
+      "c405d7e1-1051-492f-aa52-9d22416211f2": "022cfa3617d76f000364e645f1416a9d968311a6faba4de54d9794476c8e26bc",
+      "da5c63a1-5ed2-4fca-8023-5af1cba9d698": "4732a156a3a712e7fb32700cd620e9b26f6c49ac162c2d385cbd460c5fb5bb68",
+      "e096f835-964c-4ef6-b527-652dd9fbe902": "4ea5f87a538f0640c6d2e1497acd7cc4f3b5d66ad408faa12c58b9a1612f1da0",
+      "e3eae519-1fe5-44e5-ad00-6cd697562e6b": "9ba5124491edcb5c047358899b048e10c858b13eb669ceea2377398b47ce18be",
+      "e5e6e0cb-90a5-41fb-9073-2f1c494e00ab": "accca39cc2c58cb5f044e9eab6906e8057eaa131f05f32c9b815969c71dfa1cb",
+      "eee539a9-d87f-449a-b7a3-e6bd887686c3": "fde227dd0778606b85db1f480f979fc9966009c7386e3c22fcf8150684d8daf2",
+      "f386c4ac-e768-41d4-b7e1-91b28ea95cbc": "4547199ec408b5e31ef9d3eb3c83490e97cfb0b13301fd04a2f00c8c502c5ff8",
+      "f6a21697-9812-4d04-bf4c-09b1cad973e4": "65e6ba4cdc32910a4306e34ba41af4f415fecc15143a7dc65f62d3ebcc3a2966",
+      "ff8ef299-bc80-4a41-9363-f2a104926951": "dd162e7fa54ecc8719a0bdeab2c422689cf2f70527eb74d5334a3390bb3b2878"
+    }
+  },
+  "dev_records_unchanged": true,
+  "original_cluster_still_running": true,
+  "python_baseline": 405,
+  "python_final": 437,
+  "removed_python_identities": [],
+  "new_python_identities": [
+    [
+      "tests.test_phase4_2",
+      "test_release_is_deterministic_and_separates_audit_without_copying_secrets"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_unsafe_source_or_destination_paths[../outside.py]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_unsafe_source_or_destination_paths[/absolute.py]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_unsafe_source_or_destination_paths[C:/escape.py]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_unsafe_source_or_destination_paths[a\\\\escape.py]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_unsafe_source_or_destination_paths[.env]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_symlink_even_to_a_file_inside_the_root"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_missing_local_runtime_import"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_refuses_existing_output_without_modifying_it"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_detects_source_changes_between_manifest_and_archive_copy"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_refuses_tampered_required_model_before_output"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_release_rejects_mapping_correct_host_model_to_wrong_package_destination"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_asset_restore_verifies_all_members_and_preserves_identical_files"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_asset_restore_rejects_tampered_bundle_without_extracting"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_config_is_private_persistent_and_does_not_rotate_secret"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_config_rejects_nonlocal_or_unsafe_database_urls[sqlite:///local.db]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_config_rejects_nonlocal_or_unsafe_database_urls[postgresql://u:p@remote.example/db]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_config_rejects_nonlocal_or_unsafe_database_urls[postgresql://u:p@127.0.0.1/db\\nEVIL=x]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_config_never_follows_a_symlink"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_compose_secrets_are_generated_once_without_secret_output"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_macos_launcher_reports_the_selected_host_port"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[backup.dump]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[docs/backup.sql.gz]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[artifacts/credentials.json]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_audit_does_not_admit_backups_credentials_or_unknown_root_files[private-notes.txt]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_audit_rejects_credential_values_hidden_in_an_innocent_json_name"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_prior_release_manifest_is_preserved_without_duplicate_zip_names"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_runtime_mapping_cannot_overwrite_the_generated_manifest"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_setup_rejects_effective_connection_host_overrides[host=remote.example]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_setup_rejects_effective_connection_host_overrides[hostaddr=203.0.113.2]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_setup_rejects_effective_connection_host_overrides[service=remote]"
+    ],
+    [
+      "tests.test_phase4_2",
+      "test_native_setup_rejects_effective_connection_host_overrides[host=127.0.0.1&host=remote.example]"
+    ]
+  ],
+  "node_baseline": 91,
+  "node_final": 91,
+  "node_names_unchanged": true,
+  "head": "28623736f6ce9d90eeb86dea98908b182631aad1"
+}

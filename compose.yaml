@@ -1,0 +1,58 @@
+services:
+  web:
+    image: mahjong-strategy-ai-lecturer:4.2
+    build: .
+    ports:
+      - "127.0.0.1:${MAHJONG_WEB_PORT:-8000}:8000"
+    environment:
+      MAHJONG_ENVIRONMENT: local
+      MAHJONG_WORKERS: "1"
+      MAHJONG_HOST: 0.0.0.0
+      MAHJONG_PORT: "8000"
+    secrets:
+      - db_password
+      - session_secret
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready',timeout=3)"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+    init: true
+  db:
+    image: mahjong-strategy-ai-postgres:4.2
+    build:
+      context: .
+      dockerfile: packaging/Dockerfile.postgres
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_admin_password
+    secrets:
+      - db_admin_password
+      - db_password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U mahjong_app -d mahjong"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    # No host port: the DB is reachable only on this Compose network.
+  bootstrap:
+    image: mahjong-strategy-ai-lecturer:4.2
+    profiles: ["tools"]
+    user: "0:0"
+    command: ["python", "-m", "scripts.lecturer_setup", "--compose-secrets"]
+    volumes:
+      - ./.local/compose-secrets:/state
+secrets:
+  db_admin_password:
+    file: ./.local/compose-secrets/db_admin_password
+  db_password:
+    file: ./.local/compose-secrets/db_password
+  session_secret:
+    file: ./.local/compose-secrets/session_secret
+volumes:
+  pgdata:
