@@ -1,0 +1,334 @@
+.FFFFFFFFFEEEEEEFEEEFEEEEEEEEEEF.FFF.                                    [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_missing_or_damaged_summary_keeps_home_and_game_available[None] _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_missing_or_damaged_summary_keeps_home_and_game_available[{"class_counts":[]}] _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_missing_or_damaged_summary_keeps_home_and_game_available[{] _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_repeated_home_requests_do_not_reload_corpus_or_checkpoint _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_all_five_official_members_have_equal_authorized_scope _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_one_shared_group_footer_on_all_five_application_pages _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_foundation_pages_show_real_model_and_incomplete_contact _
+tests/test_phase3_http.py:19: in client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_history_pages_read_actual_postgres_and_protect_delete_form _
+tests/test_phase3_http.py:19: in client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_html_expired_or_forged_identity_cannot_delete_owned_history _
+tests/test_phase3_http.py:19: in client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_phase4_shared_navigation_accessibility_and_local_assets[/] _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_phase4_shared_navigation_accessibility_and_local_assets[/game] _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_phase4_shared_navigation_accessibility_and_local_assets[/history] _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_phase4_shared_navigation_accessibility_and_local_assets[/contact] _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_phase4_home_model_metrics_and_original_art_are_honest _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+__ ERROR at setup of test_phase4_game_settings_and_stable_accessible_controls __
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_phase4_history_tiles_confirmed_delete_and_folded_complete_snapshots _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+____ ERROR at setup of test_phase4_contact_keeps_unverified_group_explicit _____
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ ERROR at setup of test_phase4_game_labels_have_explicit_control_associations _
+tests/phase4_support.py:9: in phase4_client
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+=================================== FAILURES ===================================
+___ test_corrupt_summary_is_rejected_without_inventing_statistics[negative] ____
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+____ test_corrupt_summary_is_rejected_without_inventing_statistics[boolean] ____
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+___ test_corrupt_summary_is_rejected_without_inventing_statistics[duplicate] ___
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+____ test_corrupt_summary_is_rejected_without_inventing_statistics[missing] ____
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+__ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_total] __
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_contract] _
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_history] _
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+__ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_fold] ___
+tests/test_uas_feedback.py:48: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    from app.web import pages
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+___ test_charts_derive_families_and_controlled_percentages_from_same_counts ____
+tests/test_uas_feedback.py:62: in test_charts_derive_families_and_controlled_percentages_from_same_counts
+    from app.web.pages import research_context
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_____________ test_verified_but_partial_roles_keep_truthful_notice _____________
+tests/test_uas_feedback.py:135: in test_verified_but_partial_roles_keep_truthful_notice
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_ test_verified_contact_configuration_escapes_text_and_does_not_invent_fields __
+tests/test_phase3_pages.py:43: in test_verified_contact_configuration_escapes_text_and_does_not_invent_fields
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_______ test_lecturer_entry_reuses_factory_without_startup_side_effects ________
+tests/test_phase4_1.py:26: in test_lecturer_entry_reuses_factory_without_startup_side_effects
+    import app.main
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_________ test_official_roster_is_reproducible_exact_and_has_no_roles __________
+tests/test_phase4_1.py:64: in test_official_roster_is_reproducible_exact_and_has_no_roles
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+_____ test_explicit_missing_or_unverified_contact_still_has_fallback[True] _____
+tests/test_phase4_1.py:83: in test_explicit_missing_or_unverified_contact_still_has_fallback
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+____ test_explicit_missing_or_unverified_contact_still_has_fallback[False] _____
+tests/test_phase4_1.py:83: in test_explicit_missing_or_unverified_contact_still_has_fallback
+    from app.main import create_app
+app/main.py:26: in <module>
+    from app.web.pages import router as pages_router
+E     File "/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py", line 49
+E       require(data['training_cohort']=={'experiment':Path(development['history_reference']).parent.name,)
+E                                                                                                         ^
+E   SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/uas_feedback_2026_11_10/green_final.xml -
+=========================== short test summary info ============================
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[negative]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[boolean]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[duplicate]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[missing]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_total]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_contract]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_history]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_fold]
+FAILED tests/test_uas_feedback.py::test_charts_derive_families_and_controlled_percentages_from_same_counts
+FAILED tests/test_uas_feedback.py::test_verified_but_partial_roles_keep_truthful_notice
+FAILED tests/test_phase3_pages.py::test_verified_contact_configuration_escapes_text_and_does_not_invent_fields
+FAILED tests/test_phase4_1.py::test_lecturer_entry_reuses_factory_without_startup_side_effects
+FAILED tests/test_phase4_1.py::test_official_roster_is_reproducible_exact_and_has_no_roles
+FAILED tests/test_phase4_1.py::test_explicit_missing_or_unverified_contact_still_has_fallback[True]
+FAILED tests/test_phase4_1.py::test_explicit_missing_or_unverified_contact_still_has_fallback[False]
+ERROR tests/test_uas_feedback.py::test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity
+ERROR tests/test_uas_feedback.py::test_missing_or_damaged_summary_keeps_home_and_game_available[None]
+ERROR tests/test_uas_feedback.py::test_missing_or_damaged_summary_keeps_home_and_game_available[{"class_counts":[]}]
+ERROR tests/test_uas_feedback.py::test_missing_or_damaged_summary_keeps_home_and_game_available[{]
+ERROR tests/test_uas_feedback.py::test_repeated_home_requests_do_not_reload_corpus_or_checkpoint
+ERROR tests/test_uas_feedback.py::test_all_five_official_members_have_equal_authorized_scope
+ERROR tests/test_uas_feedback.py::test_one_shared_group_footer_on_all_five_application_pages
+ERROR tests/test_phase3_pages.py::test_foundation_pages_show_real_model_and_incomplete_contact
+ERROR tests/test_phase3_pages.py::test_history_pages_read_actual_postgres_and_protect_delete_form
+ERROR tests/test_phase3_pages.py::test_html_expired_or_forged_identity_cannot_delete_owned_history
+ERROR tests/test_phase4_pages.py::test_phase4_shared_navigation_accessibility_and_local_assets[/]
+ERROR tests/test_phase4_pages.py::test_phase4_shared_navigation_accessibility_and_local_assets[/game]
+ERROR tests/test_phase4_pages.py::test_phase4_shared_navigation_accessibility_and_local_assets[/history]
+ERROR tests/test_phase4_pages.py::test_phase4_shared_navigation_accessibility_and_local_assets[/contact]
+ERROR tests/test_phase4_pages.py::test_phase4_home_model_metrics_and_original_art_are_honest
+ERROR tests/test_phase4_pages.py::test_phase4_game_settings_and_stable_accessible_controls
+ERROR tests/test_phase4_pages.py::test_phase4_history_tiles_confirmed_delete_and_folded_complete_snapshots
+ERROR tests/test_phase4_pages.py::test_phase4_contact_keeps_unverified_group_explicit
+ERROR tests/test_phase4_pages.py::test_phase4_game_labels_have_explicit_control_associations
+15 failed, 3 passed, 1 warning, 19 errors in 2.12s

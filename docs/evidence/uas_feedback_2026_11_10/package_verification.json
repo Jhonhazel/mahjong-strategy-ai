@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "path": "delivery/2026-11-10-uas-feedback-v1/mahjong-strategy-ai-lecturer-portable.zip",
+  "sha256": "801453e6c36b953f34616e2be9688d497bc2c30f0fe8987ab26a047beb708eac",
+  "bytes": 1941024,
+  "runtime_files": 106,
+  "all_member_hashes_match_manifest_and_current_sources": true,
+  "packaged_home_context_and_three_frozen_assets_verified": true,
+  "excluded_tests_training_shards_env_venv": true,
+  "audit_archive_rebuilt": false,
+  "docker_image_build": "NOT RUN; COPY/context inclusion statically regression-tested"
+}

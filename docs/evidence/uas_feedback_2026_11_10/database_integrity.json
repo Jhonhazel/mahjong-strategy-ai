@@ -1,0 +1,9 @@
+{
+  "status": "MISMATCH",
+  "read_only_transaction": true,
+  "before_count": 44,
+  "after_count": 44,
+  "identical_rows": 0,
+  "canonicalization": "raw",
+  "all_original_ids_preserved": true
+}

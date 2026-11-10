@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir torch==2.15.0 --index-url https://download.pytorc
     && pip check
 COPY main.py .
 COPY app app
-COPY config/contact_members.public.json config/contact_members.public.json
+COPY config/contact_members.public.json config/home_research.public.json ./config/
 COPY scripts scripts
 COPY training training
 COPY docs/ml_artifact_bundle_manifest.json docs/ml_artifact_bundle_manifest.json

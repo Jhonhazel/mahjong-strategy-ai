@@ -5,6 +5,7 @@
 !app/**
 !config/
 !config/contact_members.public.json
+!config/home_research.public.json
 !scripts/
 !scripts/__init__.py
 !scripts/lecturer_setup.py

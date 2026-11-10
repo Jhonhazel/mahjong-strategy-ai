@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "read_only_transaction": true,
+  "before_count": 44,
+  "after_count": 44,
+  "identical_rows": 44,
+  "canonicalization": [
+    "dict",
+    true,
+    true,
+    null,
+    false
+  ],
+  "all_original_ids_preserved": true
+}

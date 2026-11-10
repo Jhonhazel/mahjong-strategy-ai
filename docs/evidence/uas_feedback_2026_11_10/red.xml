@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="20" skipped="0" tests="37" time="4.013" timestamp="2026-11-10T14:17:19.795629+07:00" hostname="Jhonhazels-MacBook-Air.local"><testcase classname="tests.test_uas_feedback" name="test_summary_is_reproducible_from_frozen_ground_truth_supports" time="0.001"><failure message="AssertionError: Missing offline summary reproduction&#10;assert None&#10; +  where None = &lt;function find_spec at 0x103000f40&gt;('scripts.build_home_research_summary')&#10; +    where &lt;function find_spec at 0x103000f40&gt; = &lt;module 'importlib.util' (frozen)&gt;.find_spec&#10; +      where &lt;module 'importlib.util' (frozen)&gt; = importlib.util">tests/test_uas_feedback.py:30: in test_summary_is_reproducible_from_frozen_ground_truth_supports
+    assert importlib.util.find_spec('scripts.build_home_research_summary'),'Missing offline summary reproduction'
+E   AssertionError: Missing offline summary reproduction
+E   assert None
+E    +  where None = &lt;function find_spec at 0x103000f40&gt;('scripts.build_home_research_summary')
+E    +    where &lt;function find_spec at 0x103000f40&gt; = &lt;module 'importlib.util' (frozen)&gt;.find_spec
+E    +      where &lt;module 'importlib.util' (frozen)&gt; = importlib.util</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[negative]" time="0.104"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[boolean]" time="0.000"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[duplicate]" time="0.000"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[missing]" time="0.000"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_total]" time="0.000"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_contract]" time="0.000"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_history]" time="0.000"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_fold]" time="0.000"><failure message="AssertionError: Missing validated offline research summary&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file">tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_charts_derive_families_and_controlled_percentages_from_same_counts" time="0.000"><failure message="ImportError: cannot import name 'research_context' from 'app.web.pages' (/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py)">tests/test_uas_feedback.py:62: in test_charts_derive_families_and_controlled_percentages_from_same_counts
+    from app.web.pages import research_context
+E   ImportError: cannot import name 'research_context' from 'app.web.pages' (/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py)</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity" time="0.278"><failure message="AssertionError: 0.622&#10;assert '0.622' in '&lt;!doctype html&gt;\n&lt;html lang=&quot;id&quot;&gt;\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-wi...mp; Learn&lt;/span&gt;&lt;span&gt;Hiburan &amp;amp; pembelajaran. Setiap langkah tetap pilihan Anda.&lt;/span&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;'">tests/test_uas_feedback.py:77: in test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity
+    assert value in text,value
+E   AssertionError: 0.622
+E   assert '0.622' in '&lt;!doctype html&gt;\n&lt;html lang="id"&gt;\n&lt;head&gt;\n  &lt;meta charset="utf-8"&gt;\n  &lt;meta name="viewport" content="width=device-wi...mp; Learn&lt;/span&gt;&lt;span&gt;Hiburan &amp;amp; pembelajaran. Setiap langkah tetap pilihan Anda.&lt;/span&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;'</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_missing_or_damaged_summary_keeps_home_and_game_available[None]" time="0.092"><failure message="AttributeError: module 'app.web.pages' has no attribute 'research_context'">tests/test_uas_feedback.py:97: in test_missing_or_damaged_summary_keeps_home_and_game_available
+    original=pages.research_context
+             ^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'research_context'</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_missing_or_damaged_summary_keeps_home_and_game_available[{&quot;class_counts&quot;:[]}]" time="0.092"><failure message="AttributeError: module 'app.web.pages' has no attribute 'research_context'">tests/test_uas_feedback.py:97: in test_missing_or_damaged_summary_keeps_home_and_game_available
+    original=pages.research_context
+             ^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'research_context'</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_missing_or_damaged_summary_keeps_home_and_game_available[{]" time="0.083"><failure message="AttributeError: module 'app.web.pages' has no attribute 'research_context'">tests/test_uas_feedback.py:97: in test_missing_or_damaged_summary_keeps_home_and_game_available
+    original=pages.research_context
+             ^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'research_context'</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_repeated_home_requests_do_not_reload_corpus_or_checkpoint" time="0.087"><failure message="AttributeError: module 'app.web.pages' has no attribute 'read_home_summary'">tests/test_uas_feedback.py:108: in test_repeated_home_requests_do_not_reload_corpus_or_checkpoint
+    pages.read_home_summary.cache_clear();original=Path.read_bytes;reads=[]
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'read_home_summary'</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_all_five_official_members_have_equal_authorized_scope" time="0.087"><failure message="assert (1 == 1 and None)&#10; +  where 1 = len({None})&#10; +    where {None} = set([None, None, None, None, None])">tests/test_uas_feedback.py:125: in test_all_five_official_members_have_equal_authorized_scope
+    assert len(set(roles))==1 and roles[0] and len(roles[0])&lt;=200
+E   assert (1 == 1 and None)
+E    +  where 1 = len({None})
+E    +    where {None} = set([None, None, None, None, None])</failure></testcase><testcase classname="tests.test_uas_feedback" name="test_verified_but_partial_roles_keep_truthful_notice" time="0.091" /><testcase classname="tests.test_uas_feedback" name="test_one_shared_group_footer_on_all_five_application_pages" time="0.113"><failure message="assert False&#10; +  where False = all(&lt;generator object test_one_shared_group_footer_on_all_five_application_pages.&lt;locals&gt;.&lt;genexpr&gt; at 0x11177a670&gt;)">tests/test_uas_feedback.py:151: in test_one_shared_group_footer_on_all_five_application_pages
+    assert all(value in footer for value in ('© 2026 Kelompok 1','Mahjong Strategy AI','Universitas Bunda Mulia'))
+E   assert False
+E    +  where False = all(&lt;generator object test_one_shared_group_footer_on_all_five_application_pages.&lt;locals&gt;.&lt;genexpr&gt; at 0x11177a670&gt;)</failure></testcase><testcase classname="tests.test_phase3_pages" name="test_foundation_pages_show_real_model_and_incomplete_contact" time="0.120"><failure message="assert ('Pembagian Tugas Kelompok 1' in '&lt;!doctype html&gt;\n&lt;html lang=&quot;id&quot;&gt;\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-wi...mp; Learn&lt;/span&gt;&lt;span&gt;Hiburan &amp;amp; pembelajaran. Setiap langkah tetap pilihan Anda.&lt;/span&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;')&#10; +  where '&lt;!doctype html&gt;\n&lt;html lang=&quot;id&quot;&gt;\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-wi...mp; Learn&lt;/span&gt;&lt;span&gt;Hiburan &amp;amp; pembelajaran. Setiap langkah tetap pilihan Anda.&lt;/span&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;' = &lt;Response [200 OK]&gt;.text">tests/test_phase3_pages.py:21: in test_foundation_pages_show_real_model_and_incomplete_contact
+    assert 'Pembagian Tugas Kelompok 1' in contact.text and 'belum dikonfirmasi' not in contact.text
+E   assert ('Pembagian Tugas Kelompok 1' in '&lt;!doctype html&gt;\n&lt;html lang="id"&gt;\n&lt;head&gt;\n  &lt;meta charset="utf-8"&gt;\n  &lt;meta name="viewport" content="width=device-wi...mp; Learn&lt;/span&gt;&lt;span&gt;Hiburan &amp;amp; pembelajaran. Setiap langkah tetap pilihan Anda.&lt;/span&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;')
+E    +  where '&lt;!doctype html&gt;\n&lt;html lang="id"&gt;\n&lt;head&gt;\n  &lt;meta charset="utf-8"&gt;\n  &lt;meta name="viewport" content="width=device-wi...mp; Learn&lt;/span&gt;&lt;span&gt;Hiburan &amp;amp; pembelajaran. Setiap langkah tetap pilihan Anda.&lt;/span&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;' = &lt;Response [200 OK]&gt;.text</failure></testcase><testcase classname="tests.test_phase3_pages" name="test_history_pages_read_actual_postgres_and_protect_delete_form" time="0.118" /><testcase classname="tests.test_phase3_pages" name="test_verified_contact_configuration_escapes_text_and_does_not_invent_fields" time="0.087" /><testcase classname="tests.test_phase3_pages" name="test_html_expired_or_forged_identity_cannot_delete_owned_history" time="0.154" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/]" time="0.117" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/game]" time="0.094" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/history]" time="0.097" /><testcase classname="tests.test_phase4_pages" name="test_phase4_shared_navigation_accessibility_and_local_assets[/contact]" time="0.093" /><testcase classname="tests.test_phase4_pages" name="test_phase4_home_model_metrics_and_original_art_are_honest" time="0.094" /><testcase classname="tests.test_phase4_pages" name="test_phase4_game_settings_and_stable_accessible_controls" time="0.091" /><testcase classname="tests.test_phase4_pages" name="test_phase4_history_tiles_confirmed_delete_and_folded_complete_snapshots" time="0.102" /><testcase classname="tests.test_phase4_pages" name="test_phase4_contact_keeps_unverified_group_explicit" time="0.087"><failure message="assert ('contact-incomplete' not in '&lt;!doctype h...dy&gt;\n&lt;/html&gt;'&#10;  &#10;  'contact-incomplete' is contained here:&#10;    dy&gt;&#10;    &lt;/html&gt; and 'belum dikonfirmasi' not in '&lt;!doctype h...dy&gt;\n&lt;/html&gt;'&#10;  &#10;  'belum dikonfirmasi' is contained here:&#10;    ontribusi belum dikonfirmasi.&lt;/p&gt;&#10;      &lt;div class=&quot;member-grid&quot;&gt;&lt;article class=&quot;member-card&quot;&gt;&lt;span class=&quot;member-number&quot; aria-hidden=&quot;true&quot;&gt;01&lt;/span&gt;&lt;h2&gt;Mishael Julindra Putra&lt;/h2&gt;&lt;dl&gt;&lt;dt&gt;NIM&lt;/dt&gt;&lt;dd&gt;32240013&lt;/dd&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;s32240013@student.ubm.ac.id&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;&lt;article class=&quot;member-card&quot;&gt;&lt;span class=&quot;member-number&quot; aria-hidden=&quot;true&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Efraim Emanuelle Josrin&lt;/h2&gt;&lt;dl&gt;&lt;dt&gt;NIM&lt;/dt&gt;&lt;dd&gt;32240015&lt;/dd&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;s32240015@student.ubm.ac.id&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;&lt;article class=&quot;member-card&quot;&gt;&lt;span class=&quot;member-num...&#10;  &#10;  ...Full output truncated (8 lines hidden), use '-vv' to show)">tests/test_phase4_pages.py:89: in test_phase4_contact_keeps_unverified_group_explicit
+    assert 'contact-incomplete' not in response.text and 'belum dikonfirmasi' not in response.text
+E   assert ('contact-incomplete' not in '&lt;!doctype h...dy&gt;\n&lt;/html&gt;'
+E     
+E     'contact-incomplete' is contained here:
+E       dy&gt;
+E       &lt;/html&gt; and 'belum dikonfirmasi' not in '&lt;!doctype h...dy&gt;\n&lt;/html&gt;'
+E     
+E     'belum dikonfirmasi' is contained here:
+E       ontribusi belum dikonfirmasi.&lt;/p&gt;
+E         &lt;div class="member-grid"&gt;&lt;article class="member-card"&gt;&lt;span class="member-number" aria-hidden="true"&gt;01&lt;/span&gt;&lt;h2&gt;Mishael Julindra Putra&lt;/h2&gt;&lt;dl&gt;&lt;dt&gt;NIM&lt;/dt&gt;&lt;dd&gt;32240013&lt;/dd&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;s32240013@student.ubm.ac.id&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;&lt;article class="member-card"&gt;&lt;span class="member-number" aria-hidden="true"&gt;02&lt;/span&gt;&lt;h2&gt;Efraim Emanuelle Josrin&lt;/h2&gt;&lt;dl&gt;&lt;dt&gt;NIM&lt;/dt&gt;&lt;dd&gt;32240015&lt;/dd&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;s32240015@student.ubm.ac.id&lt;/dd&gt;&lt;/dl&gt;&lt;/article&gt;&lt;article class="member-card"&gt;&lt;span class="member-num...
+E     
+E     ...Full output truncated (8 lines hidden), use '-vv' to show)</failure></testcase><testcase classname="tests.test_phase4_pages" name="test_phase4_game_labels_have_explicit_control_associations" time="0.090" /><testcase classname="tests.test_phase4_1" name="test_lecturer_entry_reuses_factory_without_startup_side_effects" time="0.001" /><testcase classname="tests.test_phase4_1" name="test_legacy_runner_still_uses_factory" time="0.015" /><testcase classname="tests.test_phase4_1" name="test_official_roster_is_reproducible_exact_and_has_no_roles" time="0.033"><failure message="assert (False)&#10; +  where False = all(&lt;generator object test_official_roster_is_reproducible_exact_and_has_no_roles.&lt;locals&gt;.&lt;genexpr&gt; at 0x112102200&gt;)">tests/test_phase4_1.py:70: in test_official_roster_is_reproducible_exact_and_has_no_roles
+    assert all(m.role for m in roster.members) and len({m.role for m in roster.members})==1
+E   assert (False)
+E    +  where False = all(&lt;generator object test_official_roster_is_reproducible_exact_and_has_no_roles.&lt;locals&gt;.&lt;genexpr&gt; at 0x112102200&gt;)</failure></testcase><testcase classname="tests.test_phase4_1" name="test_explicit_missing_or_unverified_contact_still_has_fallback[True]" time="0.094" /><testcase classname="tests.test_phase4_1" name="test_explicit_missing_or_unverified_contact_still_has_fallback[False]" time="0.090" /><testcase classname="tests.test_phase4_1" name="test_phase4_1_animation_node_contracts" time="0.088" /></testsuite></testsuites>

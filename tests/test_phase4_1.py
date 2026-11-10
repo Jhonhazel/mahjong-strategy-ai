@@ -60,21 +60,22 @@ def test_legacy_runner_still_uses_factory(monkeypatch, web_settings):
 
 
 def test_official_roster_is_reproducible_exact_and_has_no_roles(web_settings, postgres_engine):
+    # Preserve the historical testcase identity; the owner now authorizes equal roles.
     from app.main import create_app
     from app.web.contact import ContactRoster
     assert web_settings.contact_members_path.name == 'contact_members.public.json'
     roster = ContactRoster.from_path(web_settings.contact_members_path)
     assert roster.verified and len(roster.members) == 5
     assert [(m.name, m.student_id, m.email) for m in roster.members] == MEMBERS
-    assert all(m.role is None for m in roster.members)
+    assert all(m.role for m in roster.members) and len({m.role for m in roster.members})==1
     with TestClient(create_app(web_settings)) as client:
         page = client.get('/contact')
         assert page.status_code == 200 and page.text.count('class="member-card"') == 5
         for member in MEMBERS:
             assert all(value in page.text for value in member)
-        assert 'belum dikonfirmasi' in page.text
+        assert 'belum dikonfirmasi' not in page.text and 'Pembagian Tugas Kelompok 1' in page.text
         assert 'kelompok dan pembagian tugas belum diverifikasi' not in page.text
-        assert '<dt>Peran</dt>' not in page.text
+        assert page.text.count('<dt>Peran</dt>')==5
 
 
 @pytest.mark.parametrize('missing', [True, False])

@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "home": [
+    {
+      "viewport": 1440,
+      "document": 1440,
+      "bars": 34
+    },
+    {
+      "viewport": 768,
+      "document": 768,
+      "bars": 34
+    },
+    {
+      "viewport": 390,
+      "document": 390,
+      "bars": 34,
+      "chartPanel": 308,
+      "chartContent": 760
+    }
+  ],
+  "pages": [
+    {
+      "document": 768,
+      "footer": "static",
+      "members": 5,
+      "page": "contact",
+      "viewport": 768
+    },
+    {
+      "document": 390,
+      "footer": "static",
+      "members": 5,
+      "page": "contact",
+      "viewport": 390
+    },
+    {
+      "document": 1440,
+      "footer": "static",
+      "members": 5,
+      "page": "contact",
+      "viewport": 1440
+    },
+    {
+      "document": 1440,
+      "footer": "static",
+      "page": "game",
+      "viewport": 1440
+    },
+    {
+      "document": 768,
+      "footer": "static",
+      "page": "game",
+      "viewport": 768
+    },
+    {
+      "document": 390,
+      "footer": "static",
+      "page": "game",
+      "viewport": 390
+    },
+    {
+      "document": 390,
+      "footer": "static",
+      "page": "history_detail",
+      "viewport": 390
+    },
+    {
+      "document": 768,
+      "footer": "static",
+      "page": "history_detail",
+      "viewport": 768
+    },
+    {
+      "document": 1440,
+      "footer": "static",
+      "page": "history_detail",
+      "viewport": 1440
+    },
+    {
+      "document": 1440,
+      "footer": "static",
+      "footerBottom": 1000,
+      "height": 1000,
+      "page": "history",
+      "viewport": 1440
+    },
+    {
+      "document": 768,
+      "footer": "static",
+      "footerBottom": 1010,
+      "height": 1000,
+      "page": "history",
+      "viewport": 768
+    },
+    {
+      "document": 390,
+      "footer": "static",
+      "footerBottom": 1165,
+      "height": 1000,
+      "page": "history",
+      "viewport": 390
+    }
+  ],
+  "actualBrowserPrediction": {
+    "predictionId": "29e8bce9-1a93-4b84-a23f-90a1c453c56a",
+    "top3": [
+      "F2",
+      "B1",
+      "W2"
+    ],
+    "savedHistoryDetail": true,
+    "returnedHome": true
+  },
+  "warningErrorLogs": [],
+  "nativeWindows": "NOT VERIFIED"
+}

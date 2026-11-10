@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "preflight_files_checked": 883,
+  "existing_files_changed": [
+    ".dockerignore",
+    "Dockerfile",
+    "app/static/phase3.css",
+    "app/templates/base.html",
+    "app/templates/contact.html",
+    "app/templates/home.html",
+    "app/web/pages.py",
+    "config/contact_members.public.json",
+    "packaging/runtime_allowlist.json",
+    "scripts/smoke_online.py",
+    "tests/test_phase3_pages.py",
+    "tests/test_phase4_1.py",
+    "tests/test_phase4_pages.py"
+  ],
+  "missing_files": [],
+  "unrelated_existing_changes": [],
+  "unchanged_existing_files": 870,
+  "frozen_sha256": {
+    "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+    "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+    "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+  },
+  "roster_identity_fields_unchanged": true,
+  "hero_how_it_works_and_cta_exactly_preserved": true,
+  "engine_referee_bots_encoder_schema_game_js_native_windows_p43_ia01_unchanged": true,
+  "historical_evidence_and_delivery_unchanged": true
+}

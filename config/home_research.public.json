@@ -1,0 +1,234 @@
+{
+  "class_counts": [
+    {
+      "class_index": 0,
+      "count": 47256,
+      "tile": "W1"
+    },
+    {
+      "class_index": 1,
+      "count": 40244,
+      "tile": "W2"
+    },
+    {
+      "class_index": 2,
+      "count": 32755,
+      "tile": "W3"
+    },
+    {
+      "class_index": 3,
+      "count": 32386,
+      "tile": "W4"
+    },
+    {
+      "class_index": 4,
+      "count": 31828,
+      "tile": "W5"
+    },
+    {
+      "class_index": 5,
+      "count": 31210,
+      "tile": "W6"
+    },
+    {
+      "class_index": 6,
+      "count": 31675,
+      "tile": "W7"
+    },
+    {
+      "class_index": 7,
+      "count": 40226,
+      "tile": "W8"
+    },
+    {
+      "class_index": 8,
+      "count": 47159,
+      "tile": "W9"
+    },
+    {
+      "class_index": 9,
+      "count": 47990,
+      "tile": "T1"
+    },
+    {
+      "class_index": 10,
+      "count": 39844,
+      "tile": "T2"
+    },
+    {
+      "class_index": 11,
+      "count": 33746,
+      "tile": "T3"
+    },
+    {
+      "class_index": 12,
+      "count": 31679,
+      "tile": "T4"
+    },
+    {
+      "class_index": 13,
+      "count": 31631,
+      "tile": "T5"
+    },
+    {
+      "class_index": 14,
+      "count": 32879,
+      "tile": "T6"
+    },
+    {
+      "class_index": 15,
+      "count": 32256,
+      "tile": "T7"
+    },
+    {
+      "class_index": 16,
+      "count": 39885,
+      "tile": "T8"
+    },
+    {
+      "class_index": 17,
+      "count": 49008,
+      "tile": "T9"
+    },
+    {
+      "class_index": 18,
+      "count": 46942,
+      "tile": "B1"
+    },
+    {
+      "class_index": 19,
+      "count": 38663,
+      "tile": "B2"
+    },
+    {
+      "class_index": 20,
+      "count": 31050,
+      "tile": "B3"
+    },
+    {
+      "class_index": 21,
+      "count": 30991,
+      "tile": "B4"
+    },
+    {
+      "class_index": 22,
+      "count": 32212,
+      "tile": "B5"
+    },
+    {
+      "class_index": 23,
+      "count": 30374,
+      "tile": "B6"
+    },
+    {
+      "class_index": 24,
+      "count": 31205,
+      "tile": "B7"
+    },
+    {
+      "class_index": 25,
+      "count": 38963,
+      "tile": "B8"
+    },
+    {
+      "class_index": 26,
+      "count": 47060,
+      "tile": "B9"
+    },
+    {
+      "class_index": 27,
+      "count": 57506,
+      "tile": "F1"
+    },
+    {
+      "class_index": 28,
+      "count": 58213,
+      "tile": "F2"
+    },
+    {
+      "class_index": 29,
+      "count": 57451,
+      "tile": "F3"
+    },
+    {
+      "class_index": 30,
+      "count": 59187,
+      "tile": "F4"
+    },
+    {
+      "class_index": 31,
+      "count": 55370,
+      "tile": "J1"
+    },
+    {
+      "class_index": 32,
+      "count": 54960,
+      "tile": "J2"
+    },
+    {
+      "class_index": 33,
+      "count": 56745,
+      "tile": "J3"
+    }
+  ],
+  "contract_sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc",
+  "corpus": {
+    "json_games": 44420,
+    "matches": 38250,
+    "player_uids": 581,
+    "samples": 1946122
+  },
+  "dataset_id": "Dannibal/ijcai-mahjong-round2",
+  "dataset_revision": "c8435106623c106b9e03b980691bea24ba4ac240",
+  "dataset_version": "expanded_strict_v2",
+  "method": "Ground-truth selected_train_metrics.per_class.support; checked against confusion matrix row sums and promoted training cohort. No shard scan or training.",
+  "model_checkpoint_sha256": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+  "partitions": [
+    {
+      "id": "train",
+      "matches": 30589,
+      "samples": 1555412
+    },
+    {
+      "id": "validation",
+      "matches": 3840,
+      "samples": 196054
+    },
+    {
+      "id": "test",
+      "matches": 3816,
+      "samples": 194388
+    },
+    {
+      "id": "historical_test",
+      "matches": 5,
+      "samples": 268
+    }
+  ],
+  "provenance": [
+    {
+      "path": "artifacts/models/mahjong_discard_mlp_v3.metadata.json",
+      "sha256": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e"
+    },
+    {
+      "path": "datasets/expanded_strict_v2/data_contract.json",
+      "sha256": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc"
+    },
+    {
+      "path": "datasets/expanded_strict_v2/data_quality_report.json",
+      "sha256": "4f0c364e72fefa479c95e5ec725d452ea7b43addf4df5970b9757435a33cfe94"
+    },
+    {
+      "path": "artifacts/phase2_2/training_history.json",
+      "sha256": "bacdb2dbc813c500d6bd36351652342a293966d4dc4a319837cc8bf7aaf9ea9d"
+    }
+  ],
+  "schema_version": 1,
+  "training_cohort": {
+    "experiment": "E3_f0_s2026",
+    "fold": 0,
+    "matches": 27515,
+    "samples": 1400549
+  },
+  "training_history_sha256": "bacdb2dbc813c500d6bd36351652342a293966d4dc4a319837cc8bf7aaf9ea9d"
+}

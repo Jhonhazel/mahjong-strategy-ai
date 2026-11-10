@@ -1,10 +1,35 @@
 {
   "verified": true,
   "members": [
-    {"name": "Mishael Julindra Putra", "student_id": "32240013", "email": "s32240013@student.ubm.ac.id"},
-    {"name": "Efraim Emanuelle Josrin", "student_id": "32240015", "email": "s32240015@student.ubm.ac.id"},
-    {"name": "Jhonhazel Lionel Tjokahn", "student_id": "32240016", "email": "s32240016@student.ubm.ac.id"},
-    {"name": "Roberto Ariyadhamma", "student_id": "32240027", "email": "s32240027@student.ubm.ac.id"},
-    {"name": "Michael Kurniawan", "student_id": "32240033", "email": "s32240033@student.ubm.ac.id"}
+    {
+      "name": "Mishael Julindra Putra",
+      "student_id": "32240013",
+      "email": "s32240013@student.ubm.ac.id",
+      "role": "Pengembangan bersama: dataset Mahjong, preprocessing & encoding, training/evaluasi AI, game & web FastAPI, testing, debugging, dokumentasi & presentasi UAS."
+    },
+    {
+      "name": "Efraim Emanuelle Josrin",
+      "student_id": "32240015",
+      "email": "s32240015@student.ubm.ac.id",
+      "role": "Pengembangan bersama: dataset Mahjong, preprocessing & encoding, training/evaluasi AI, game & web FastAPI, testing, debugging, dokumentasi & presentasi UAS."
+    },
+    {
+      "name": "Jhonhazel Lionel Tjokahn",
+      "student_id": "32240016",
+      "email": "s32240016@student.ubm.ac.id",
+      "role": "Pengembangan bersama: dataset Mahjong, preprocessing & encoding, training/evaluasi AI, game & web FastAPI, testing, debugging, dokumentasi & presentasi UAS."
+    },
+    {
+      "name": "Roberto Ariyadhamma",
+      "student_id": "32240027",
+      "email": "s32240027@student.ubm.ac.id",
+      "role": "Pengembangan bersama: dataset Mahjong, preprocessing & encoding, training/evaluasi AI, game & web FastAPI, testing, debugging, dokumentasi & presentasi UAS."
+    },
+    {
+      "name": "Michael Kurniawan",
+      "student_id": "32240033",
+      "email": "s32240033@student.ubm.ac.id",
+      "role": "Pengembangan bersama: dataset Mahjong, preprocessing & encoding, training/evaluasi AI, game & web FastAPI, testing, debugging, dokumentasi & presentasi UAS."
+    }
   ]
 }

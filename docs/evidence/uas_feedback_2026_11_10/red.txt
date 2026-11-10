@@ -1,0 +1,183 @@
+FFFFFFFFFFFFFFFF.FF..........F...F...                                    [100%]
+=================================== FAILURES ===================================
+________ test_summary_is_reproducible_from_frozen_ground_truth_supports ________
+tests/test_uas_feedback.py:30: in test_summary_is_reproducible_from_frozen_ground_truth_supports
+    assert importlib.util.find_spec('scripts.build_home_research_summary'),'Missing offline summary reproduction'
+E   AssertionError: Missing offline summary reproduction
+E   assert None
+E    +  where None = <function find_spec at 0x103000f40>('scripts.build_home_research_summary')
+E    +    where <function find_spec at 0x103000f40> = <module 'importlib.util' (frozen)>.find_spec
+E    +      where <module 'importlib.util' (frozen)> = importlib.util
+___ test_corrupt_summary_is_rejected_without_inventing_statistics[negative] ____
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+____ test_corrupt_summary_is_rejected_without_inventing_statistics[boolean] ____
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+___ test_corrupt_summary_is_rejected_without_inventing_statistics[duplicate] ___
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+____ test_corrupt_summary_is_rejected_without_inventing_statistics[missing] ____
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+__ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_total] __
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+_ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_contract] _
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+_ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_history] _
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+__ test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_fold] ___
+tests/test_uas_feedback.py:49: in test_corrupt_summary_is_rejected_without_inventing_statistics
+    data=copy.deepcopy(summary())
+                       ^^^^^^^^^
+tests/test_uas_feedback.py:22: in summary
+    assert path.is_file(),'Missing validated offline research summary'
+E   AssertionError: Missing validated offline research summary
+E   assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/Users/jhonhazel/mahjong-strategy-ai/config/home_research.public.json').is_file
+___ test_charts_derive_families_and_controlled_percentages_from_same_counts ____
+tests/test_uas_feedback.py:62: in test_charts_derive_families_and_controlled_percentages_from_same_counts
+    from app.web.pages import research_context
+E   ImportError: cannot import name 'research_context' from 'app.web.pages' (/Users/jhonhazel/mahjong-strategy-ai/app/web/pages.py)
+_ test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity _
+tests/test_uas_feedback.py:77: in test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity
+    assert value in text,value
+E   AssertionError: 0.622
+E   assert '0.622' in '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...mp; Learn</span><span>Hiburan &amp; pembelajaran. Setiap langkah tetap pilihan Anda.</span></footer>\n</body>\n</html>'
+_____ test_missing_or_damaged_summary_keeps_home_and_game_available[None] ______
+tests/test_uas_feedback.py:97: in test_missing_or_damaged_summary_keeps_home_and_game_available
+    original=pages.research_context
+             ^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'research_context'
+_ test_missing_or_damaged_summary_keeps_home_and_game_available[{"class_counts":[]}] _
+tests/test_uas_feedback.py:97: in test_missing_or_damaged_summary_keeps_home_and_game_available
+    original=pages.research_context
+             ^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'research_context'
+_______ test_missing_or_damaged_summary_keeps_home_and_game_available[{] _______
+tests/test_uas_feedback.py:97: in test_missing_or_damaged_summary_keeps_home_and_game_available
+    original=pages.research_context
+             ^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'research_context'
+________ test_repeated_home_requests_do_not_reload_corpus_or_checkpoint ________
+tests/test_uas_feedback.py:108: in test_repeated_home_requests_do_not_reload_corpus_or_checkpoint
+    pages.read_home_summary.cache_clear();original=Path.read_bytes;reads=[]
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'app.web.pages' has no attribute 'read_home_summary'
+__________ test_all_five_official_members_have_equal_authorized_scope __________
+tests/test_uas_feedback.py:125: in test_all_five_official_members_have_equal_authorized_scope
+    assert len(set(roles))==1 and roles[0] and len(roles[0])<=200
+E   assert (1 == 1 and None)
+E    +  where 1 = len({None})
+E    +    where {None} = set([None, None, None, None, None])
+__________ test_one_shared_group_footer_on_all_five_application_pages __________
+tests/test_uas_feedback.py:151: in test_one_shared_group_footer_on_all_five_application_pages
+    assert all(value in footer for value in ('© 2026 Kelompok 1','Mahjong Strategy AI','Universitas Bunda Mulia'))
+E   assert False
+E    +  where False = all(<generator object test_one_shared_group_footer_on_all_five_application_pages.<locals>.<genexpr> at 0x11177a670>)
+_________ test_foundation_pages_show_real_model_and_incomplete_contact _________
+tests/test_phase3_pages.py:21: in test_foundation_pages_show_real_model_and_incomplete_contact
+    assert 'Pembagian Tugas Kelompok 1' in contact.text and 'belum dikonfirmasi' not in contact.text
+E   assert ('Pembagian Tugas Kelompok 1' in '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...mp; Learn</span><span>Hiburan &amp; pembelajaran. Setiap langkah tetap pilihan Anda.</span></footer>\n</body>\n</html>')
+E    +  where '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...mp; Learn</span><span>Hiburan &amp; pembelajaran. Setiap langkah tetap pilihan Anda.</span></footer>\n</body>\n</html>' = <Response [200 OK]>.text
+_____________ test_phase4_contact_keeps_unverified_group_explicit ______________
+tests/test_phase4_pages.py:89: in test_phase4_contact_keeps_unverified_group_explicit
+    assert 'contact-incomplete' not in response.text and 'belum dikonfirmasi' not in response.text
+E   assert ('contact-incomplete' not in '<!doctype h...dy>\n</html>'
+E     
+E     'contact-incomplete' is contained here:
+E       dy>
+E       </html> and 'belum dikonfirmasi' not in '<!doctype h...dy>\n</html>'
+E     
+E     'belum dikonfirmasi' is contained here:
+E       ontribusi belum dikonfirmasi.</p>
+E         <div class="member-grid"><article class="member-card"><span class="member-number" aria-hidden="true">01</span><h2>Mishael Julindra Putra</h2><dl><dt>NIM</dt><dd>32240013</dd><dt>Email</dt><dd>s32240013@student.ubm.ac.id</dd></dl></article><article class="member-card"><span class="member-number" aria-hidden="true">02</span><h2>Efraim Emanuelle Josrin</h2><dl><dt>NIM</dt><dd>32240015</dd><dt>Email</dt><dd>s32240015@student.ubm.ac.id</dd></dl></article><article class="member-card"><span class="member-num...
+E     
+E     ...Full output truncated (8 lines hidden), use '-vv' to show)
+_________ test_official_roster_is_reproducible_exact_and_has_no_roles __________
+tests/test_phase4_1.py:70: in test_official_roster_is_reproducible_exact_and_has_no_roles
+    assert all(m.role for m in roster.members) and len({m.role for m in roster.members})==1
+E   assert (False)
+E    +  where False = all(<generator object test_official_roster_is_reproducible_exact_and_has_no_roles.<locals>.<genexpr> at 0x112102200>)
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/uas_feedback_2026_11_10/red.xml -
+=========================== short test summary info ============================
+FAILED tests/test_uas_feedback.py::test_summary_is_reproducible_from_frozen_ground_truth_supports
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[negative]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[boolean]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[duplicate]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[missing]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_total]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_contract]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_history]
+FAILED tests/test_uas_feedback.py::test_corrupt_summary_is_rejected_without_inventing_statistics[wrong_fold]
+FAILED tests/test_uas_feedback.py::test_charts_derive_families_and_controlled_percentages_from_same_counts
+FAILED tests/test_uas_feedback.py::test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity
+FAILED tests/test_uas_feedback.py::test_missing_or_damaged_summary_keeps_home_and_game_available[None]
+FAILED tests/test_uas_feedback.py::test_missing_or_damaged_summary_keeps_home_and_game_available[{"class_counts":[]}]
+FAILED tests/test_uas_feedback.py::test_missing_or_damaged_summary_keeps_home_and_game_available[{]
+FAILED tests/test_uas_feedback.py::test_repeated_home_requests_do_not_reload_corpus_or_checkpoint
+FAILED tests/test_uas_feedback.py::test_all_five_official_members_have_equal_authorized_scope
+FAILED tests/test_uas_feedback.py::test_one_shared_group_footer_on_all_five_application_pages
+FAILED tests/test_phase3_pages.py::test_foundation_pages_show_real_model_and_incomplete_contact
+FAILED tests/test_phase4_pages.py::test_phase4_contact_keeps_unverified_group_explicit
+FAILED tests/test_phase4_1.py::test_official_roster_is_reproducible_exact_and_has_no_roles
+20 failed, 17 passed, 1 warning in 4.02s

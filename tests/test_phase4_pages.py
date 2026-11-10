@@ -86,7 +86,8 @@ def test_phase4_contact_keeps_unverified_group_explicit(phase4_client):
     response = phase4_client.get('/contact')
     assert response.text.count('class="member-card"')==5
     assert 's32240016@student.ubm.ac.id' in response.text
-    assert 'contact-incomplete' not in response.text and 'belum dikonfirmasi' in response.text
+    assert 'contact-incomplete' not in response.text and 'belum dikonfirmasi' not in response.text
+    assert 'Pembagian Tugas Kelompok 1' in response.text and response.text.count('<dt>Peran</dt>')==5
 
 
 def test_phase4_game_labels_have_explicit_control_associations(phase4_client):

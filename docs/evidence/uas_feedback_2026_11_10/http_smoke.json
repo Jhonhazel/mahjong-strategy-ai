@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "database": "isolated mahjong_phase3_test",
+  "ready": {
+    "status": "ready",
+    "model": "ready",
+    "database": "ready"
+  },
+  "ready_after_real_process_restart": {
+    "status": "ready",
+    "model": "ready",
+    "database": "ready"
+  },
+  "pages": {
+    "/": 200,
+    "/contact": 200,
+    "/game": 200,
+    "/history": 200
+  },
+  "csrf_missing_and_wrong_origin_403": true,
+  "real_v3": "discard_mlp_flexible_v1:ad05a5b2ce37",
+  "legal_top3": [
+    "F2",
+    "B1",
+    "W2"
+  ],
+  "prediction_state_unchanged": true,
+  "idempotent_reuse": true,
+  "foreign_prediction_404": true,
+  "saved_prediction_id": "be2b4197-87ca-41c9-9353-25557ad67b3b",
+  "history_unchanged_after_real_process_restart": true,
+  "active_game_expired_on_restart": true,
+  "home_html_bytes": 32091,
+  "home_request_ms": [
+    1.8443750159349293,
+    1.2708329886663705,
+    1.1491250188555568,
+    1.1607079941313714,
+    1.137999992351979,
+    1.1203750036656857,
+    1.0814580018632114,
+    1.1010830057784915,
+    1.1321670026518404,
+    1.197624980704859
+  ],
+  "home_median_ms": 1.1491250188555568,
+  "task_processes_stopped": true,
+  "runner_sha256": "dec9f2d33393e7627963416a7f8300f378af3ffc1dd1c4dbb3649f23494b0b7d"
+}

@@ -60,6 +60,7 @@
   "artifacts/models/mahjong_discard_mlp_v3.pt": "artifacts/models/mahjong_discard_mlp_v3.pt",
   "compose.yaml": "compose.yaml",
   "config/contact_members.public.json": "config/contact_members.public.json",
+  "config/home_research.public.json": "config/home_research.public.json",
   "datasets/expanded_strict_v2/data_contract.json": "datasets/expanded_strict_v2/data_contract.json",
   "docs/ml_artifact_bundle_manifest.json": "docs/ml_artifact_bundle_manifest.json",
   "main.py": "main.py",
