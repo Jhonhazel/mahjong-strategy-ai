@@ -1,0 +1,150 @@
+✔ duplicate hand tiles select one actual server action and submit current turn (11.874459ms)
+✔ only supplied action ids can be selected, including all claim and Kong types (0.314209ms)
+✔ busy mutation guard prevents duplicate submissions and optimistic hand removal (0.226042ms)
+✔ old GET responses cannot overwrite newer authoritative state (0.202291ms)
+✔ an old GET completion cannot clear the busy guard of a newer pending GET (0.163083ms)
+✔ 409 refreshes state and requires new selection without retrying action (0.281333ms)
+✔ uncertain action outcome reconciles GET and never blindly resubmits (0.267083ms)
+✔ prediction is explicit, uses current turn, preserves Top3 order and never executes action (0.458ms)
+✖ another tab advancing before prediction verification leaves a saved historical notice only (0.67425ms)
+✔ committed prediction followed by failed GET is never falsely labelled unsaved or highlighted (0.232375ms)
+✔ failed prediction saving503 never produces a saved-success notice (0.125417ms)
+✔ changing turn clears old prediction and selection; changing game clears saved context (0.200167ms)
+✔ 404 and401 clear active controls without fabricating a replacement identity (0.166583ms)
+✔ reused predictions preserve saved identity and server reused flag (0.131833ms)
+✔ prediction409 reconciles current server turn and never retries prediction (0.110792ms)
+✔ manual refresh clears current advice immediately and keeps saved identity on503 (2.278333ms)
+✔ repeat prediction does not leave rendered old advice during delayed state confirmation (1.208042ms)
+✔ malformed prediction success empty cannot claim saved identity or display advice (0.169833ms)
+✔ malformed prediction success missing identity cannot claim saved identity or display advice (0.086ms)
+✔ malformed prediction success unsafe identity cannot claim saved identity or display advice (0.137167ms)
+✔ malformed prediction success wrong game cannot claim saved identity or display advice (0.066291ms)
+✔ malformed prediction success wrong turn cannot claim saved identity or display advice (0.070167ms)
+✔ malformed prediction success wrong seat cannot claim saved identity or display advice (0.06275ms)
+✔ malformed prediction success missing model cannot claim saved identity or display advice (0.06475ms)
+✔ malformed prediction success missing phase cannot claim saved identity or display advice (0.062292ms)
+✔ malformed prediction success illegal recommended action cannot claim saved identity or display advice (0.064375ms)
+✔ malformed prediction success empty Top3 cannot claim saved identity or display advice (0.081ms)
+✔ malformed prediction success invalid score cannot claim saved identity or display advice (6.111416ms)
+✔ malformed prediction success mismatched Top3 cannot claim saved identity or display advice (0.140916ms)
+✔ malformed prediction success missing scores cannot claim saved identity or display advice (0.073583ms)
+✔ P4-A01 rejects cross-game action success and reconciles only the original game (0.320375ms)
+✔ P4-A01 rejects regressed turn action success and reconciles only the original game (0.176292ms)
+✔ P4-A01 rejects missing object action success and reconciles only the original game (0.168791ms)
+✔ P4-A01 rejects noninteger turn action success and reconciles only the original game (0.192667ms)
+✔ P4-A01 rejects invalid structure action success and reconciles only the original game (0.200083ms)
+✔ P4-A01 failed reconciliation keeps the original action outcome uncertain and blocks another mutation (0.176958ms)
+✔ P4-A01 accepts valid advancing response without action retry or reconciliation GET (0.167209ms)
+✔ P4-A01 accepts valid same turn response without action retry or reconciliation GET (0.157958ms)
+✔ P4-A01 accepts valid finished response without action retry or reconciliation GET (0.527125ms)
+✔ P4-A01 accepts valid claim transition response without action retry or reconciliation GET (0.644542ms)
+✔ P4-A02 rejects ascending Top3 without sorting, trusting a save, or playing (0.415417ms)
+✔ P4-A02 rejects incorrect action/class mapping without sorting, trusting a save, or playing (0.186959ms)
+✔ P4-A02 accepts valid descending Top3 unchanged (0.162833ms)
+✖ P4-A02 accepts equal adjacent scores unchanged (0.306917ms)
+✔ confirmed history deletion waits for server success and ignores double submission (1.646583ms)
+✔ history deletion failure 0 never reports or navigates as success (0.594875ms)
+✔ history deletion failure 401 never reports or navigates as success (0.073083ms)
+✔ history deletion failure 403 never reports or navigates as success (0.054917ms)
+✔ history deletion failure 404 never reports or navigates as success (0.129333ms)
+✔ history deletion failure 503 never reports or navigates as success (0.06925ms)
+✔ mutations send JSON, current CSRF and same-origin cookies with exact turn (63.647917ms)
+✔ session bootstrap updates in-memory token and no mutation executes without it (0.763625ms)
+✔ all required HTTP errors become safe Indonesian messages without backend details (0.703959ms)
+✔ delete accepts a confirmed204 without JSON and preserves request safety (0.142459ms)
+✔ network and malformed-success responses fail safely without leaking payload (0.199542ms)
+✔ delete success 200 is not a confirmed204 and must fail safely (0.131584ms)
+✔ delete success 201 is not a confirmed204 and must fail safely (0.098125ms)
+✔ delete success 202 is not a confirmed204 and must fail safely (0.087417ms)
+✔ human seat 0 stays bottom with right/top/left relative opponents (5.6165ms)
+✔ human seat 1 stays bottom with right/top/left relative opponents (0.156ms)
+✔ human seat 2 stays bottom with right/top/left relative opponents (0.116625ms)
+✔ human seat 3 stays bottom with right/top/left relative opponents (0.085333ms)
+✔ projection shows only human faces and public rivers/melds, hiding opponent AnGang (0.486833ms)
+✔ meld projection follows public middle tile and preserves unknown concealment (0.124958ms)
+✔ discard selection uses a supplied Play option rather than a hand index (0.794792ms)
+✔ settings accept exact safe seed boundary and null random seed (0.279125ms)
+✔ settings reject out of range seats and nonboolean flower options (0.11725ms)
+✔ round presentation handles draws, seat zero and actual score deltas without scoring (0.268542ms)
+✔ unchanged, missing, or different-game snapshots have no invented playback (1.818584ms)
+✔ public discard and meld deltas are grouped by relative seat with no chronology claim (4.375458ms)
+✔ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (4.232292ms)
+✔ normal playback is bounded, cancellable, and resolves skip (1.054834ms)
+✔ fast playback is bounded, cancellable, and resolves skip (0.369416ms)
+✔ reduced motion or hidden page bypasses all waits (0.380708ms)
+✔ normal completion clears presentation and old scheduled work cannot update a new playback (0.460125ms)
+✔ accepted authoritative state stays current while playback blocks duplicate/stale decisions (1.925334ms)
+✔ playback cancels safely for create (0.216667ms)
+✔ playback cancels safely for refresh (0.210833ms)
+✔ playback cancels safely for expired (0.175875ms)
+✔ renderer works without removed action dropdown or identity panels and exposes every claim (8.775334ms)
+✔ advice keeps exact ranking and history link while hiding all internal identities (0.270542ms)
+✔ page entry has no stale listeners or focus for removed controls and keeps cancellation (0.289791ms)
+✔ three filtered result succeeds with exactly 3 cards and highlights (6.524834ms)
+✔ two filtered result succeeds with exactly 2 cards and highlights (3.020291ms)
+✔ one filtered result succeeds with exactly 1 cards and highlights (1.47075ms)
+✔ empty filtered result succeeds with exactly 0 cards and highlights (10.938667ms)
+✔ malformed filtered response below is an error instead of empty success (0.256792ms)
+✔ malformed filtered response missing is an error instead of empty success (0.10375ms)
+✔ malformed filtered response illegal is an error instead of empty success (0.084083ms)
+✔ malformed filtered response nan is an error instead of empty success (0.078708ms)
+✔ malformed filtered response renormalized is an error instead of empty success (0.09675ms)
+✔ malformed filtered response wrong_status is an error instead of empty success (0.131542ms)
+✔ malformed filtered response fake_empty is an error instead of empty success (0.087875ms)
+✔ malformed filtered response wrong_policy is an error instead of empty success (0.075125ms)
+✔ malformed filtered response omitted_field is an error instead of empty success (0.086416ms)
+✔ empty analysis failure cannot claim a committed save (0.131292ms)
+✔ all 42 canonical tiles have the verified symbol and accessible label (1.352583ms)
+✔ invalid tile codes use a fixed harmless unknown symbol (0.29625ms)
+✔ selectable tiles use real buttons with stable index and exact server action id (0.188417ms)
+✔ concealed backs do not carry a hidden face or action (0.104ms)
+✔ noninteractive and pending tiles cannot submit an action (0.087875ms)
+✔ seat renderer gives opponents only backs and human exact legal buttons with duplicate indices (1.62675ms)
+✔ advisor preserves exact Top3 order and uses score preference explanation with no automatic action (0.310209ms)
+✔ historical saved prediction shows identity without displaying stale Top3 tile advice (0.097125ms)
+✔ round renderer shows real seat zero, exact score deltas and null draw result safely (0.228417ms)
+✔ expired finished view clears round result, game identity and public summary (2.913833ms)
+✔ meld label never misrepresents Chi offer position as a source seat (0.279875ms)
+✔ advisor exposes exact saved prediction identity and model provenance as text (0.121ms)
+ℹ tests 108
+ℹ suites 0
+ℹ pass 106
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 150.749541
+
+✖ failing tests:
+
+test at tests/frontend/controller.test.mjs:75:1
+✖ another tab advancing before prediction verification leaves a saved historical notice only (0.67425ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /tersimpan/. Input:
+  
+  'Hasil analisis disimpan untuk giliran sebelumnya. Lihat detailnya di History.'
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:79:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Hasil analisis disimpan untuk giliran sebelumnya. Lihat detailnya di History.',
+    expected: /tersimpan/,
+    operator: 'match'
+  }
+
+test at tests/frontend/controller.test.mjs:227:32
+✖ P4-A02 accepts equal adjacent scores unchanged (0.306917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/controller.test.mjs:231:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual'
+  }

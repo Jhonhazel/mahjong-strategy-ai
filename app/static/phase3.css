@@ -541,3 +541,19 @@ main { flex: 1; min-width: 0; }
 .team-scope ul { padding-left: 22px; }
 @media (max-width: 1000px) { .research-grid { grid-template-columns: 1fr; } .research-stats { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .research-panel { padding: 18px; } .research-section { padding-block: 30px; } .research-stats { gap: 10px; } .research-stats > div { padding: 14px; } .research-stats dd { font-size: 1.5rem; } .donut-layout { flex-direction: column; align-items: flex-start; } .family-panel .research-table { font-size: 11px; } }
+/* Player pages reuse the existing jade, ivory, typography and tile assets. */
+.model-page { padding-bottom: 48px; }
+.model-page .research-section > h2 { max-width: 900px; margin: 12px 0 24px; }
+.model-page .research-section > p { max-width: 980px; }
+.model-page .research-panel, .model-page .model-card { margin-top: 24px; }
+.model-steps { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 20px 0; border-block: 1px solid var(--line); }
+.model-steps a { display: inline-flex; min-height: 44px; align-items: center; font-size: 13px; }
+.chart-legend { list-style: none; padding: 0; margin: 0; min-width: 200px; }
+.chart-legend li { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.chart-legend strong { margin-left: auto; font-variant-numeric: tabular-nums; }
+.model-sources .button { margin-top: 24px; }
+.game-guide { margin: 0 0 24px; padding: 16px 24px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+.game-guide ol { margin: 0; padding-left: 22px; display: grid; gap: 10px; font-size: 14px; }
+.detail-layout--simple { grid-template-columns: 1fr; max-width: 960px; }
+.detail-delete { margin-top: 24px; }
+@media (max-width: 600px) { .model-steps { gap: 4px 16px; } .game-guide { padding: 12px 18px; } .chart-legend { width: 100%; min-width: 0; } }

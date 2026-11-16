@@ -237,7 +237,9 @@ Browser (app/static, app/templates)
 `training/dataset_loader.py` dipertahankan hanya karena helper hash diimpor saat
 runtime; tidak ada dataset latihan atau pipeline training yang ikut dijalankan.
 Saran AI tidak memainkan aksi otomatis dan bobotnya bukan peluang menang.
-Contact memiliki lima identitas resmi; pembagian tugas/kontribusi belum dikonfirmasi.
+Navigasi: Home → Game → History → Contact Us → Model. Panduan tersedia di awal Game;
+Model menjelaskan proses dan hasil AI. Contact menampilkan lima identitas resmi,
+sedangkan pembagian tugas disimpan dalam konfigurasi dan laporan revisi.
 
 ## Developer/audit (opsional, terpisah)
 

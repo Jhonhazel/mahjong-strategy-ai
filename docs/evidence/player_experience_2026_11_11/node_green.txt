@@ -1,0 +1,11 @@
+✔ renderer works without removed action dropdown or identity panels and exposes every claim (6.179125ms)
+✔ advice keeps exact ranking and history link while hiding all internal identities (0.412041ms)
+✔ page entry has no stale listeners or focus for removed controls and keeps cancellation (0.251ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 49.061042

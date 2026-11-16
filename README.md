@@ -73,25 +73,26 @@ export MAHJONG_WORKERS=1
 .venv/bin/python -m scripts.run_backend
 ```
 
-Open [Home](http://127.0.0.1:8000/), [Game](http://127.0.0.1:8000/game), [History](http://127.0.0.1:8000/history), [Contact](http://127.0.0.1:8000/contact), [Swagger](http://127.0.0.1:8000/docs) or [ReDoc](http://127.0.0.1:8000/redoc). Documentation UI assets use jsDelivr; the game, pages and JSON API use local assets. The database runs on its private Unix socket in `.local/phase3-postgres`; the helper does not modify global PostgreSQL services. Explicit schema initialization creates the missing table and validates it; startup never migrates or drops existing data.
+Open [Home](http://127.0.0.1:8000/), [Game](http://127.0.0.1:8000/game), [History](http://127.0.0.1:8000/history), [Contact](http://127.0.0.1:8000/contact), [Model](http://127.0.0.1:8000/model), [Swagger](http://127.0.0.1:8000/docs) or [ReDoc](http://127.0.0.1:8000/redoc). Documentation UI assets use jsDelivr; the game, pages and JSON API use local assets. The database runs on its private Unix socket in `.local/phase3-postgres`; the helper does not modify global PostgreSQL services. Explicit schema initialization creates the missing table and validates it; startup never migrates or drops existing data.
 
 Keep the same signing secret privately across restarts to retain access with the same signed cookie. Environment variables override a local ignored `.env`; `.env.example` lists names with invalid placeholders. Generate your own secret. Production mode requires HTTPS Secure cookies. Active games are in memory and disappear on restart; PostgreSQL history persists. Run **one worker**. Active games expire after one hour idle by default; finished games retain the existing 30-second cleanup policy.
 
 Contact defaults to the five approved identities in `config/contact_members.public.json`.
-Their task roles and contributions remain unconfirmed and are explicitly labeled
-as such. To override the roster, set `MAHJONG_CONTACT_MEMBERS_PATH` to an approved
+Their assigned shared scope remains in configuration and the revision report;
+the public Contact page displays identities and contact details only. To override the roster, set `MAHJONG_CONTACT_MEMBERS_PATH` to an approved
 file following `config/contact_members.example.json`; missing/unverified data
-still shows the incomplete-content fallback. The final UAS PDF, video, verified
-group roles and submission packaging remain final-submission work.
+still shows the incomplete-content fallback. See
+[the player-experience revision report](docs/player_experience_revision_report.md)
+for the current UI and verification scope.
 
 ## Phase 4 interface and verification
 
-At `/game`, choose seat, round wind, an optional integer seed (0–9007199254740991), and flowers. The human stays at the bottom. Select a legal tile or claim and confirm with **Jalankan pilihan**; the advisor never executes a move. **Minta prediksi & simpan** saves the actual v3 result, verifies the current turn, and displays the server's Top 3. Scores describe discard preference, not winning probability. Open **Identitas prediksi** for its actual saved ID/model/encoder. History supports paging, Top 3 summaries, a semantic result table, complete folded JSON and explicit delete confirmation.
+At `/game`, read the guide, choose seat, round wind and flowers, then start a randomly shuffled round. Select a tile or available claim and confirm with **Jalankan pilihan**; the advisor never executes a move. Animation uses normal speed with skip and reduced-motion support. **Minta prediksi & simpan** saves the real model result. History shows saved tile suggestions, scores and explicit delete confirmation, without developer IDs or JSON panels. Home introduces Mahjong; `/model` explains the six development stages, percentage-only distributions and retrospective Top-3 evaluation. Internal API metadata and stored snapshots remain intact.
 
 The browser uses local SVG, CSS and ES modules with no build step, external font, UI dependency or browser model download. The existing `phase3.js`/`phase3.css` filenames remain compatibility entry points. Use keyboard Tab/Enter/Space; the mobile hand scrolls within its own region. Unknown/expired games and uncertain requests require a fresh server view; actions are never retried automatically. Keep the same private signing secret across normal app restarts to retain history access.
 
 Phase 4.1 highlights factual public snapshot changes after a successful action:
-600 ms per seat group in Normal, 180 ms in Cepat, at most four groups (2.4 s).
+600 ms per seat group at the fixed normal speed, at most four groups (2.4 s).
 Skip ends presentation immediately. Reduced motion and a hidden page bypass it;
 new game, refresh, expiry and page lifecycle changes cancel stale playback.
 These highlights do not reconstruct the bots' original action order. The final
@@ -118,6 +119,19 @@ See the [Phase 4 report](docs/phase4_implementation_report.md), [design](docs/ph
 Initialize with `GET /api/session`, retaining the HttpOnly `mahjong_visitor` cookie and returned `csrf_token`. Send `X-CSRF-Token` on every JSON mutation and use the same origin. Swagger exposes both inputs: initialize the session, then copy its token into the mutation header field. Create a game with `{"human_seat":1,"seed":42}`. Read its current legal actions and turn from `GET /api/games/{game_id}`. Submit `{"action_id":33,"expected_turn_number":4}` to its `/actions` path only if those values match that game.
 
 `POST /api/games/{game_id}/predict` accepts only `{"expected_turn_number":4}` and saves the server's observed input plus actual v3 output. It never executes an action. New committed records return 201; the same snapshot returns 200 with the same ID and `reused: true`. List owned history at `GET /api/predictions?limit=20&offset=0`, read `GET /api/predictions/{prediction_id}`, and delete on the detail path with `DELETE` (204, then 404). HTML history uses a CSRF-protected delete form.
+
+Prediction and History responses add `recommendations`: `suggestions` (0–3),
+`minimum_score` (currently 0.10), `maximum_suggestions` (3), and `status`
+(`available` or `no_suggestions`). Candidates use their original normalized legal
+scores, with an inclusive cutoff before rounding and no rescaling. Use this list
+for cards/highlights; the legacy `top3`, `recommended_tile` and `scores` fields
+remain raw audit/compatibility data. An empty list is a successfully saved
+analysis (201 new, 200 reused), not a model or storage failure. History applies
+current policy to the saved raw snapshot without reinference or rewriting rows.
+The displayed86.55% model metric predates filtering; see
+[the threshold report](docs/recommendation_threshold_revision_report.md) for
+separate internal-validation coverage and target-inclusion measurements.
+
 
 Missing identity is 401, CSRF 403, unknown/cross-owner/expired resources 404, stale turns or unavailable discard decisions 409, illegal actions 400, invalid input 422, oversized bodies 413, capacity 429, and required DB/inference failures 503. Scores imitate observed discard behavior; they are not winning probabilities.
 

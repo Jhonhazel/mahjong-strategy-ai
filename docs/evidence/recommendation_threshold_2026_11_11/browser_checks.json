@@ -1,0 +1,230 @@
+{
+  "status": "PASS",
+  "fixture_mode": "Controlled valid normalized scores in disposable TEST-only harness; original checkpoint files/weights unchanged",
+  "game": [
+    {
+      "cards": 0,
+      "document": 1440,
+      "highlights": 0,
+      "liveRegion": "polite",
+      "message": "Belum ada saran yang memenuhi batas minimal 10% pada giliran ini. Anda tetap dapat memilih tile yang ingin dibuang.",
+      "mode": "fixture-empty",
+      "viewport": 1440
+    },
+    {
+      "cards": 0,
+      "document": 768,
+      "highlights": 0,
+      "liveRegion": "polite",
+      "message": "Belum ada saran yang memenuhi batas minimal 10% pada giliran ini. Anda tetap dapat memilih tile yang ingin dibuang.",
+      "mode": "fixture-empty",
+      "viewport": 768
+    },
+    {
+      "cards": 0,
+      "document": 390,
+      "highlights": 0,
+      "liveRegion": "polite",
+      "message": "Belum ada saran yang memenuhi batas minimal 10% pada giliran ini. Anda tetap dapat memilih tile yang ingin dibuang.",
+      "mode": "fixture-empty",
+      "viewport": 390
+    },
+    {
+      "cards": 1,
+      "document": 1440,
+      "highlights": 1,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "96.00% bobot"
+      ],
+      "viewport": 1440,
+      "mode": "fixture-one"
+    },
+    {
+      "cards": 1,
+      "document": 390,
+      "highlights": 1,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "96.00% bobot"
+      ],
+      "viewport": 390,
+      "mode": "fixture-one"
+    },
+    {
+      "cards": 2,
+      "document": 1440,
+      "highlights": 2,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "62.00% bobot",
+        "25.00% bobot"
+      ],
+      "viewport": 1440,
+      "mode": "fixture-two"
+    },
+    {
+      "cards": 2,
+      "document": 390,
+      "highlights": 2,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "62.00% bobot",
+        "25.00% bobot"
+      ],
+      "viewport": 390,
+      "mode": "fixture-two"
+    },
+    {
+      "cards": 3,
+      "document": 1440,
+      "highlights": 3,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "60.00% bobot",
+        "25.00% bobot",
+        "15.00% bobot"
+      ],
+      "viewport": 1440,
+      "mode": "fixture-three"
+    },
+    {
+      "cards": 3,
+      "document": 390,
+      "highlights": 3,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "60.00% bobot",
+        "25.00% bobot",
+        "15.00% bobot"
+      ],
+      "viewport": 390,
+      "mode": "fixture-three"
+    },
+    {
+      "cards": 3,
+      "document": 1440,
+      "highlights": 3,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "60.96% bobot",
+        "16.10% bobot",
+        "12.67% bobot"
+      ],
+      "viewport": 1440,
+      "mode": "real-checkpoint"
+    },
+    {
+      "cards": 3,
+      "document": 390,
+      "highlights": 3,
+      "message": "Saran tersimpan. Pilih langkah Anda.",
+      "scores": [
+        "60.96% bobot",
+        "16.10% bobot",
+        "12.67% bobot"
+      ],
+      "viewport": 390,
+      "mode": "real-checkpoint"
+    }
+  ],
+  "history": [
+    {
+      "case": 0,
+      "empty": true,
+      "rows": 0,
+      "tiles": 0,
+      "leadingSuggestionLabel": false
+    },
+    {
+      "case": 1,
+      "empty": false,
+      "rows": 1,
+      "tiles": 2,
+      "leadingSuggestionLabel": true
+    },
+    {
+      "case": 2,
+      "empty": false,
+      "rows": 2,
+      "tiles": 3,
+      "leadingSuggestionLabel": true
+    },
+    {
+      "case": 3,
+      "empty": false,
+      "rows": 3,
+      "tiles": 4,
+      "leadingSuggestionLabel": true
+    },
+    {
+      "case": 4,
+      "empty": false,
+      "rows": 3,
+      "tiles": 4,
+      "leadingSuggestionLabel": true
+    }
+  ],
+  "details": [
+    {
+      "document": 390,
+      "empty": true,
+      "policyNotice": true,
+      "rows": 0,
+      "viewport": 390,
+      "case": 0
+    },
+    {
+      "document": 390,
+      "empty": false,
+      "policyNotice": true,
+      "rows": 1,
+      "viewport": 390,
+      "case": 1
+    },
+    {
+      "document": 390,
+      "empty": false,
+      "policyNotice": true,
+      "rows": 2,
+      "viewport": 390,
+      "case": 2
+    },
+    {
+      "document": 390,
+      "empty": false,
+      "policyNotice": true,
+      "rows": 3,
+      "viewport": 390,
+      "case": 3
+    },
+    {
+      "document": 390,
+      "empty": false,
+      "policyNotice": true,
+      "rows": 3,
+      "viewport": 390,
+      "case": 4
+    }
+  ],
+  "emptyRepeatReusedSameSavedLink": true,
+  "emptyGameContinuedWithKeyboard": {
+    "cards": 0,
+    "highlights": 0,
+    "turn": "Turn 16"
+  },
+  "realCheckpointSeparate": true,
+  "realCheckpointScores": [
+    "60.96%",
+    "16.10%",
+    "12.67%"
+  ],
+  "evaluationBeforeFilteringLabel": true,
+  "consoleWarningsErrors": [],
+  "viewports": [
+    1440,
+    768,
+    390
+  ],
+  "productionTestFlagsAdded": false
+}

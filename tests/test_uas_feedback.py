@@ -78,24 +78,20 @@ def test_charts_derive_families_and_controlled_percentages_from_same_counts():
 
 
 def test_home_exposes_correct_cohorts_pipeline_charts_and_preserves_game_identity(phase4_client):
-    response=phase4_client.get('/');assert response.status_code==200
-    text=response.text
-    for value in ('64.35%','86.55%','0.622','1.086','100%','194,388','1,946,122','1,400,549','350,917',
-                  'MLP v3','387,746','ReLU','AdamW','expanded_strict_v2','Dannibal/ijcai-mahjong-round2',
-                  '1368','235','34','retrospektif','bukan probabilitas menang','preprocessing'):
-        assert value in text,value
-    assert 'Play, Predict' in text and 'how-it-works' in text and 'Ambil tempat Anda' in text
-    assert '/static/tiles.svg#tile-W5' in text
-    tags=Markup(text).tags
-    charts={a.get('id'):a for t,a in tags if t=='figure'}
-    assert {'partition-distribution','class-distribution','family-distribution'}<=charts.keys()
+    # The research presentation moved to Model; preserve the original hero on Home.
+    home=phase4_client.get('/');response=phase4_client.get('/model');assert response.status_code==200
+    assert 'Play, Predict' in home.text and 'Ambil tempat Anda' in home.text and '/static/tiles.svg#tile-W5' in home.text
+    assert '86,55%' in response.text and '0,622' in response.text and 'ReLU' in response.text and 'AdamW' in response.text
+    tags=Markup(response.text).tags
+    charts={a.get('id') for t,a in tags if t=='figure'}
+    assert {'partition-distribution','class-distribution','family-distribution'}<=charts
     bars=[a for t,a in tags if t=='rect' and a.get('class')=='class-bar']
-    assert [(int(a['data-class-index']),a['data-tile'],int(a['data-count'])) for a in bars]==[(r['class_index'],r['tile'],r['count']) for r in summary()['class_counts']]
+    assert [a['data-tile'] for a in bars]==[r['tile'] for r in summary()['class_counts']]
+    assert all('data-count' not in a for a in bars)
     assert all(a.get('aria-labelledby') for t,a in tags if t=='svg' and a.get('role')=='img')
     assert not any(key.lower().startswith('on') or key=='style' for _,attrs in tags for key in attrs)
     config=phase4_client.app.state.settings
-    assert config.session_secret.get_secret_value() not in text
-    assert config.database_url.get_secret_value() not in text
+    assert config.session_secret.get_secret_value() not in response.text and config.database_url.get_secret_value() not in response.text
 
 
 @pytest.mark.parametrize('contents',[None,'{"class_counts":[]}', '{'])
@@ -105,8 +101,8 @@ def test_missing_or_damaged_summary_keeps_home_and_game_available(phase4_client,
     if contents is not None:path.write_text(contents)
     original=pages.research_context
     monkeypatch.setattr(pages,'research_context',lambda meta:original(meta,path=path))
-    response=phase4_client.get('/');assert response.status_code==200
-    assert 'Statistik distribusi belum tersedia' in response.text and '64.35%' in response.text
+    response=phase4_client.get('/model');assert response.status_code==200
+    assert 'Statistik distribusi belum tersedia' in response.text and '86,55%' in response.text
     assert 'class-bar' not in response.text
     assert phase4_client.get('/game').status_code==200
 
@@ -122,7 +118,8 @@ def test_repeated_home_requests_do_not_reload_corpus_or_checkpoint(phase4_client
     def forbidden(*args,**kwargs):pytest.fail('Homepage attempted another model initialization')
     monkeypatch.setattr(Path,'read_bytes',checked)
     monkeypatch.setattr(app.web.runtime,'load_runtime_model',forbidden)
-    assert phase4_client.get('/').status_code==200 and phase4_client.get('/').status_code==200
+    assert phase4_client.get('/').status_code==200 and phase4_client.get('/model').status_code==200
+    assert phase4_client.get('/model').status_code==200
     assert len(reads)==1
 
 
@@ -135,9 +132,9 @@ def test_all_five_official_members_have_equal_authorized_scope(phase4_client):
     for keyword in ('dataset','preprocessing','AI','game','web','testing','dokumentasi','presentasi'):
         assert keyword in roles[0]
     response=phase4_client.get('/contact');assert response.status_code==200
-    assert response.text.count('class="member-card"')==5 and response.text.count(roles[0].replace('&','&amp;'))==5
-    assert 'Pembagian Tugas Kelompok 1' in response.text
-    assert 'belum dikonfirmasi' not in response.text and 'persentase kontribusi' in response.text
+    assert response.text.count('class="member-card"')==5 and roles[0].replace('&','&amp;') not in response.text
+    assert 'Pembagian Tugas Kelompok 1' not in response.text
+    assert 'belum dikonfirmasi' not in response.text and 'persentase kontribusi' not in response.text
 
 
 def test_verified_but_partial_roles_keep_truthful_notice(web_settings,postgres_engine,tmp_path):
@@ -145,7 +142,7 @@ def test_verified_but_partial_roles_keep_truthful_notice(web_settings,postgres_e
     path=tmp_path/'partial.json';path.write_text(json.dumps({'verified':True,'members':[{'name':'TEST ONLY','role':None}]}))
     with TestClient(create_app(web_settings.model_copy(update={'contact_members_path':path}))) as client:
         response=client.get('/contact');assert response.status_code==200
-        assert 'belum dikonfirmasi' in response.text
+        assert 'belum dikonfirmasi' not in response.text
         assert 'Pembagian Tugas Kelompok 1' not in response.text
 
 
@@ -158,14 +155,14 @@ def test_alternate_roster_does_not_inherit_official_shared_scope(web_settings,po
         response=client.get('/contact');assert response.status_code==200
         assert response.text.count('class="member-card"')==len(roles)
         assert 'Pembagian Tugas Kelompok 1' not in response.text
-        assert 'belum dikonfirmasi' in response.text
+        assert 'belum dikonfirmasi' not in response.text
 
 
 def test_one_shared_group_footer_on_all_five_application_pages(phase4_client):
     headers=csrf(phase4_client);view=game(phase4_client,headers)
     prediction=phase4_client.post('/api/games/'+view['game_id']+'/predict',json={'expected_turn_number':view['turn_number']},headers=headers)
     assert prediction.status_code==201
-    for path in ('/','/game','/history','/contact','/history/'+prediction.json()['prediction_id']):
+    for path in ('/','/model','/game','/history','/contact','/history/'+prediction.json()['prediction_id']):
         response=phase4_client.get(path);assert response.status_code==200
         assert response.text.count('<footer')==1
         footer=re.search(r'<footer\b[^>]*>(.*?)</footer>',response.text,re.S).group(1)

@@ -15,7 +15,7 @@
   <header class="site-header">
     <a href="/" class="brand" aria-label="Mahjong Strategy AI · Home"><span class="brand-mark" aria-hidden="true">中</span><span>Mahjong<span class="brand-subtitle">STRATEGY AI</span></span></a>
     <nav class="main-nav" aria-label="Navigasi utama">
-      {% for path, label in [('/', 'Home'), ('/game', 'Game with AI'), ('/history', 'History'), ('/contact', 'Contact Us')] %}
+      {% for path, label in [('/', 'Home'), ('/game', 'Game'), ('/history', 'History'), ('/contact', 'Contact Us'), ('/model', 'Model')] %}
       <a href="{{ path }}"{% if request.url.path == path or (path == '/history' and request.url.path.startswith('/history/')) %} aria-current="page"{% endif %}>{{ label }}</a>
       {% endfor %}
     </nav>

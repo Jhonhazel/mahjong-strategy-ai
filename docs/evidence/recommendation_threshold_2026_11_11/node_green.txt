@@ -1,0 +1,22 @@
+✔ three filtered result succeeds with exactly 3 cards and highlights (4.402417ms)
+✔ two filtered result succeeds with exactly 2 cards and highlights (3.999584ms)
+✔ one filtered result succeeds with exactly 1 cards and highlights (1.237542ms)
+✔ empty filtered result succeeds with exactly 0 cards and highlights (39.551875ms)
+✔ malformed filtered response below is an error instead of empty success (0.288666ms)
+✔ malformed filtered response missing is an error instead of empty success (0.093917ms)
+✔ malformed filtered response illegal is an error instead of empty success (0.077292ms)
+✔ malformed filtered response nan is an error instead of empty success (0.070917ms)
+✔ malformed filtered response renormalized is an error instead of empty success (0.091292ms)
+✔ malformed filtered response wrong_status is an error instead of empty success (0.125292ms)
+✔ malformed filtered response fake_empty is an error instead of empty success (0.11975ms)
+✔ malformed filtered response wrong_policy is an error instead of empty success (0.10275ms)
+✔ malformed filtered response omitted_field is an error instead of empty success (0.1345ms)
+✔ empty analysis failure cannot claim a committed save (0.186458ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.040458

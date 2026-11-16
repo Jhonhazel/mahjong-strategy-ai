@@ -1,0 +1,74 @@
+..........................................F.....F..F                     [100%]
+=================================== FAILURES ===================================
+___________ test_phase4_game_settings_and_stable_accessible_controls ___________
+tests/test_phase4_pages.py:58: in test_phase4_game_settings_and_stable_accessible_controls
+    assert 'Jalankan' in response.text and 'otomatis' in response.text
+E   assert ('Jalankan' in '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...>Mahjong Strategy AI — Play, Predict &amp; Learn</span><span>Universitas Bunda Mulia</span></footer>\n</body>\n</html>' and 'otomatis' in '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...>Mahjong Strategy AI — Play, Predict &amp; Learn</span><span>Universitas Bunda Mulia</span></footer>\n</body>\n</html>')
+E    +  where '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...>Mahjong Strategy AI — Play, Predict &amp; Learn</span><span>Universitas Bunda Mulia</span></footer>\n</body>\n</html>' = <Response [200 OK]>.text
+E    +  and   '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...>Mahjong Strategy AI — Play, Predict &amp; Learn</span><span>Universitas Bunda Mulia</span></footer>\n</body>\n</html>' = <Response [200 OK]>.text
+_________ test_official_roster_is_reproducible_exact_and_has_no_roles __________
+tests/test_phase4_1.py:78: in test_official_roster_is_reproducible_exact_and_has_no_roles
+    assert page.text.count('<dt>Peran</dt>')==5
+E   assert 0 == 5
+E    +  where 0 = <built-in method count of str object at 0xaacd81c00>('<dt>Peran</dt>')
+E    +    where <built-in method count of str object at 0xaacd81c00> = '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...>Mahjong Strategy AI — Play, Predict &amp; Learn</span><span>Universitas Bunda Mulia</span></footer>\n</body>\n</html>'.count
+E    +      where '<!doctype html>\n<html lang="id">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-wi...>Mahjong Strategy AI — Play, Predict &amp; Learn</span><span>Universitas Bunda Mulia</span></footer>\n</body>\n</html>' = <Response [200 OK]>.text
+____________________ test_phase4_1_animation_node_contracts ____________________
+tests/test_phase4_1.py:97: in test_phase4_1_animation_node_contracts
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: ✔ unchanged, missing, or different-game snapshots have no invented playback (0.796959ms)
+E     ✖ public discard and meld deltas are grouped by relative seat with no chronology claim (3.815416ms)
+E     ✔ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (0.130167ms)
+E     ✔ normal playback is bounded, cancellable, and resolves skip (0.184ms)
+E     ✔ fast playback is bounded, cancellable, and resolves skip (0.083125ms)
+E     ✔ reduced motion or hidden page bypasses all waits (0.113833ms)
+E     ✔ normal completion clears presentation and old scheduled work cannot update a new playback (0.14375ms)
+E     ✔ accepted authoritative state stays current while playback blocks duplicate/stale decisions (0.584708ms)
+E     ✔ playback cancels safely for create (0.170084ms)
+E     ✔ playback cancels safely for refresh (0.179667ms)
+E     ✔ playback cancels safely for expired (0.241791ms)
+E     ℹ tests 11
+E     ℹ suites 0
+E     ℹ pass 10
+E     ℹ fail 1
+E     ℹ cancelled 0
+E     ℹ skipped 0
+E     ℹ todo 0
+E     ℹ duration_ms 51.226291
+E     
+E     ✖ failing tests:
+E     
+E     test at tests/frontend/playback.test.mjs:20:1
+E     ✖ public discard and meld deltas are grouped by relative seat with no chronology claim (3.815416ms)
+E       AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+E       
+E         assert.ok(frames.every(f=>/perubahan publik/.test(f.message)))
+E       
+E           at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:27:10)
+E           at Test.runInAsyncScope (node:async_hooks:214:14)
+E           at Test.run (node:internal/test_runner/test:1062:25)
+E           at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E           at Test.postRun (node:internal/test_runner/test:1191:19)
+E           at Test.run (node:internal/test_runner/test:1119:12)
+E           at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+E         generatedMessage: true,
+E         code: 'ERR_ASSERTION',
+E         actual: false,
+E         expected: true,
+E         operator: '=='
+E       }
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['/Users/jhonhazel/.nvm/versions/node/v24.4.1/bin/node', '--test', 'tests/frontend/playback.test...age: true,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '=='\n  }\n", stderr='').returncode
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/player_experience_2026_11_11/focused.xml -
+=========================== short test summary info ============================
+FAILED tests/test_phase4_pages.py::test_phase4_game_settings_and_stable_accessible_controls
+FAILED tests/test_phase4_1.py::test_official_roster_is_reproducible_exact_and_has_no_roles
+FAILED tests/test_phase4_1.py::test_phase4_1_animation_node_contracts - Asser...
+3 failed, 49 passed, 1 warning in 6.01s

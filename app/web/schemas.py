@@ -3,6 +3,7 @@ from typing import Annotated, Literal
 import uuid
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
+from app.services.recommendation_policy import RECOMMENDATION_POLICY
 
 
 class StrictModel(BaseModel):
@@ -102,11 +103,20 @@ class PredictionData(StrictModel):
     score_meaning: str
 
 
+class RecommendationsOut(StrictModel):
+    suggestions: Annotated[list[SuggestionOut],Field(max_length=RECOMMENDATION_POLICY.maximum_suggestions,
+        description='Current-policy legal candidates; may be empty. Original probabilities, never renormalized.')]
+    minimum_score: Annotated[float,Field(gt=0,le=1,description='Inclusive cutoff on original normalized legal-discard scores')]
+    maximum_suggestions: Annotated[int,Field(ge=1,le=34)]
+    status: Literal['available','no_suggestions']
+
+
 class SavedPredictionOut(PredictionData):
     prediction_id: uuid.UUID
     game_id: uuid.UUID
     turn_phase: Literal['SELF_TURN','POST_MELD_DISCARD']
     reused: bool
+    recommendations: RecommendationsOut
 
 
 class HistorySummaryOut(StrictModel):
@@ -119,6 +129,7 @@ class HistorySummaryOut(StrictModel):
     encoder_version: str
     recommended_tile: str
     top3: list[SuggestionOut]
+    recommendations: RecommendationsOut
 
 
 class HistoryDetailOut(HistorySummaryOut):

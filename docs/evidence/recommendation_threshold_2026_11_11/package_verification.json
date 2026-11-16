@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "path": "delivery/2026-11-11-recommendation-threshold-v1/mahjong-strategy-ai-lecturer-portable.zip",
+  "bytes": 1943192,
+  "sha256": "5a339742b7085dae12078f53d6a4a94a87097e8483dceb7d2480b96785a16eff",
+  "runtime_files": 108,
+  "all_members_match_manifest_and_current_sources": true,
+  "extracted_policy_empty_case_model_template_and_frozen_assets_verified": true,
+  "runtime_excludes_test_fixtures_validation_evaluator_shards_env_venv": true,
+  "historical_archives_overwritten": false,
+  "audit_rebuilt": false,
+  "native_windows": "NOT VERIFIED",
+  "docker_build_run": "NOT RUN"
+}

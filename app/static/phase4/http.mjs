@@ -1,16 +1,16 @@
 const MESSAGES = Object.freeze({
-  0: 'Koneksi atau respons belum dapat dipastikan. Periksa state terbaru sebelum melanjutkan.',
-  400: 'Aksi ini tidak legal pada state sekarang. Pilih aksi dari meja terbaru.',
+  0: 'Koneksi atau respons belum dapat dipastikan. Periksa meja terbaru sebelum melanjutkan.',
+  400: 'Aksi ini tidak legal pada giliran sekarang. Pilih aksi dari meja terbaru.',
   401: 'Sesi browser tidak tersedia atau kedaluwarsa. Muat ulang untuk memulai sesi baru.',
-  403: 'Token keamanan sesi tidak sesuai. Muat ulang halaman sebelum mencoba lagi.',
+  403: 'Sesi perlu diperbarui. Muat ulang halaman sebelum mencoba lagi.',
   404: 'Round atau prediksi tidak tersedia. Round dapat kedaluwarsa atau hilang setelah server dimulai ulang.',
-  409: 'Giliran sudah berubah. State terbaru dimuat; pilih keputusan Anda kembali.',
-  413: 'Request melebihi batas ukuran. Muat ulang halaman dan coba kembali.',
-  422: 'Data request tidak valid. Periksa pengaturan dan pilihan Anda.',
+  409: 'Giliran sudah berubah. Meja terbaru dimuat; pilih keputusan Anda kembali.',
+  413: 'Permintaan terlalu besar. Muat ulang halaman dan coba kembali.',
+  422: 'Pilihan belum dapat diproses. Periksa pengaturan dan pilihan Anda.',
   429: 'Seluruh slot round sedang terpakai. Tunggu sebentar sebelum membuat round baru.',
   503: 'Layanan atau penyimpanan belum tersedia. Simpan belum dapat dikonfirmasi; periksa History atau coba prediksi pada giliran yang sama.',
 });
-export function messageFor(error) { return MESSAGES[error?.status ?? 0] ?? 'Terjadi masalah pada server. Periksa state terbaru sebelum melanjutkan.'; }
+export function messageFor(error) { return MESSAGES[error?.status ?? 0] ?? 'Terjadi masalah pada server. Periksa meja terbaru sebelum melanjutkan.'; }
 export class HttpError extends Error {
   constructor(status) { super(messageFor({ status })); this.name = 'HttpError'; this.status = status; }
 }
