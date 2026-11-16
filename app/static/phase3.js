@@ -22,7 +22,8 @@ if (get('game-state')) {
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const presentation = new PublicPlayback({ reducedMotion: () => motion.matches, hidden: () => document.hidden });
   const renderGame = createGameRenderer(document);
-  const controller = new GameController({ api, presentation, render: state => {
+  const recommendationPolicy = { minimum_score: Number(get('game-state').dataset.minimumScore), maximum_suggestions: Number(get('game-state').dataset.maximumSuggestions) };
+  const controller = new GameController({ api, presentation, recommendationPolicy, render: state => {
     renderGame(state);
     get('skip-animation').disabled = state.busy !== 'PRESENTING';
     get('refresh-button').disabled = Boolean(state.busy && state.busy !== 'PRESENTING') || !state.view;
@@ -37,8 +38,8 @@ if (get('game-state')) {
   get('new-game').addEventListener('submit', async event => {
     event.preventDefault();
     let settings;
-    try { settings = parseSettings({ humanSeat: get('human-seat').value, wind: get('prevalent-wind').value, seed: get('game-seed').value, flowers: get('include-flowers').checked }); }
-    catch (error) { get('game-message').textContent = error.message; get('game-message').className = 'game-message message--error'; get('game-seed').focus(); return; }
+    try { settings = parseSettings({ humanSeat: get('human-seat').value, wind: get('prevalent-wind').value, flowers: get('include-flowers').checked }); }
+    catch (error) { get('game-message').textContent = error.message; get('game-message').className = 'game-message message--error'; get('human-seat').focus(); return; }
     if (await controller.create(settings)) { get('game-setup').open = false; focusHand(); }
   });
   get('human-hand').addEventListener('click', event => {
@@ -49,14 +50,9 @@ if (get('game-state')) {
     const action = event.target.closest('button[data-claim-id]');
     if (action && get('claim-actions').contains(action)) controller.selectAction(Number(action.dataset.claimId));
   });
-  get('legal-action').addEventListener('change', event => {
-    if (event.target.value !== '') controller.selectAction(Number(event.target.value));
-    else { controller.clearSelection(); controller.emit(); }
-  });
   get('action-form').addEventListener('submit', async event => { event.preventDefault(); if (await controller.submit()) focusHand(); });
   get('predict-button').addEventListener('click', () => { void controller.predict(); });
   get('refresh-button').addEventListener('click', () => { void controller.refresh(); });
-  get('playback-speed').addEventListener('change', event => { presentation.speed = event.target.value === 'fast' ? 'fast' : 'normal'; });
   get('skip-animation').addEventListener('click', () => controller.skipAnimation());
   document.addEventListener('visibilitychange', () => { if (document.hidden) controller.skipAnimation(); });
   window.addEventListener('pagehide', () => controller.skipAnimation());

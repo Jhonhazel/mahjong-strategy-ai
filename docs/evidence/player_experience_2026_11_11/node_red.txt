@@ -1,0 +1,78 @@
+✖ renderer works without removed action dropdown or identity panels and exposes every claim (1.25ms)
+✖ advice keeps exact ranking and history link while hiding all internal identities (8.460625ms)
+✖ page entry has no stale listeners or focus for removed controls and keeps cancellation (0.640291ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 54.902334
+
+✖ failing tests:
+
+test at tests/frontend/player_experience.test.mjs:8:1
+✖ renderer works without removed action dropdown or identity panels and exposes every claim (1.25ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "Cannot set properties of undefined (setting 'disabled')"
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/player_experience.test.mjs:15:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.start (node:internal/test_runner/test:959:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: Cannot set properties of undefined (setting 'disabled')
+        at file:///Users/jhonhazel/mahjong-strategy-ai/app/static/phase4/view.mjs:138:22
+        at file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/player_experience.test.mjs:15:27
+        at getActual (node:assert:530:5)
+        at strict.doesNotThrow (node:assert:696:32)
+        at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/player_experience.test.mjs:15:10)
+        at Test.runInAsyncScope (node:async_hooks:214:14)
+        at Test.run (node:internal/test_runner/test:1062:25)
+        at Test.start (node:internal/test_runner/test:959:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17),
+    expected: undefined,
+    operator: 'doesNotThrow'
+  }
+
+test at tests/frontend/player_experience.test.mjs:20:1
+✖ advice keeps exact ranking and history link while hiding all internal identities (8.460625ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!node.textContent.includes(value))
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/player_experience.test.mjs:23:132)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }
+
+test at tests/frontend/player_experience.test.mjs:27:1
+✖ page entry has no stale listeners or focus for removed controls and keeps cancellation (0.640291ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!code.includes("get('"+id+"')"))
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/player_experience.test.mjs:29:72)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  }

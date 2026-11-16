@@ -1,0 +1,179 @@
+{
+  "status": "PASS",
+  "pages": [
+    {
+      "active": [
+        "Home"
+      ],
+      "document": 1440,
+      "forbidden": false,
+      "page": "/",
+      "viewport": 1440
+    },
+    {
+      "active": [
+        "Home"
+      ],
+      "document": 768,
+      "forbidden": false,
+      "page": "/",
+      "viewport": 768
+    },
+    {
+      "active": [
+        "Home"
+      ],
+      "document": 390,
+      "forbidden": false,
+      "page": "/",
+      "viewport": 390
+    },
+    {
+      "bars": 34,
+      "document": 390,
+      "forbidden": false,
+      "page": "/model",
+      "rawCountAttributes": 0,
+      "viewport": 390
+    },
+    {
+      "bars": 34,
+      "document": 768,
+      "forbidden": false,
+      "page": "/model",
+      "rawCountAttributes": 0,
+      "viewport": 768
+    },
+    {
+      "bars": 34,
+      "document": 1440,
+      "forbidden": false,
+      "page": "/model",
+      "rawCountAttributes": 0,
+      "viewport": 1440
+    },
+    {
+      "document": 1440,
+      "members": 5,
+      "page": "/contact",
+      "roleText": false,
+      "viewport": 1440
+    },
+    {
+      "document": 768,
+      "members": 5,
+      "page": "/contact",
+      "roleText": false,
+      "viewport": 768
+    },
+    {
+      "document": 390,
+      "members": 5,
+      "page": "/contact",
+      "roleText": false,
+      "viewport": 390
+    },
+    {
+      "document": 390,
+      "forbidden": false,
+      "page": "/game",
+      "removedControls": 0,
+      "viewport": 390
+    },
+    {
+      "document": 768,
+      "forbidden": false,
+      "page": "/game",
+      "removedControls": 0,
+      "viewport": 768
+    },
+    {
+      "document": 1440,
+      "forbidden": false,
+      "page": "/game",
+      "removedControls": 0,
+      "viewport": 1440
+    },
+    {
+      "document": 1440,
+      "forbidden": false,
+      "page": "/history/detail",
+      "rows": 3,
+      "viewport": 1440
+    },
+    {
+      "document": 768,
+      "forbidden": false,
+      "page": "/history/detail",
+      "rows": 3,
+      "viewport": 768
+    },
+    {
+      "document": 390,
+      "forbidden": false,
+      "page": "/history/detail",
+      "rows": 3,
+      "viewport": 390
+    },
+    {
+      "document": 390,
+      "forbidden": false,
+      "page": "/history",
+      "viewport": 390
+    },
+    {
+      "document": 768,
+      "forbidden": false,
+      "page": "/history",
+      "viewport": 768
+    },
+    {
+      "document": 1440,
+      "forbidden": false,
+      "page": "/history",
+      "viewport": 1440
+    }
+  ],
+  "missingHistory": [
+    {
+      "document": 1440,
+      "hasNavigation": 5,
+      "message": "Saran tidak tersedia.",
+      "page": "unavailable_history",
+      "viewport": 1440
+    },
+    {
+      "document": 768,
+      "hasNavigation": 5,
+      "message": "Saran tidak tersedia.",
+      "page": "unavailable_history",
+      "viewport": 768
+    },
+    {
+      "document": 390,
+      "hasNavigation": 5,
+      "message": "Saran tidak tersedia.",
+      "page": "unavailable_history",
+      "viewport": 390
+    }
+  ],
+  "randomRoundWithoutSeed": true,
+  "keyboardTileAndConfirmation": true,
+  "guideOpenDuringPlayWithoutReset": true,
+  "realClaim": "Chi",
+  "normalAnimationObserved": true,
+  "skipAnimationReturnedToReady": true,
+  "realCheckpointInference": true,
+  "top3": [
+    "F4",
+    "F1",
+    "B1"
+  ],
+  "savedHistoryOpened": true,
+  "confirmedDeletionOnlyTestRecord": true,
+  "emptyStateVerified": true,
+  "unavailableHistoryFriendlyHtml": true,
+  "warningErrorLogs": [],
+  "reducedMotionNative": false,
+  "reducedMotionNote": "Browser preference false; deterministic reduced-motion/cancel tests executed in Node, browser emulation unavailable."
+}

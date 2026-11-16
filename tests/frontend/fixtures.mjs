@@ -1,9 +1,10 @@
 // Public captured API data for unit contracts; fake timelines are not gameplay evidence.
 import { readFileSync } from 'node:fs';
 const actual = JSON.parse(readFileSync(new URL('../../artifacts/phase3/api_examples.json', import.meta.url), 'utf8'));
+export const recommendationContracts=JSON.parse(readFileSync(new URL('./recommendation_contracts.json',import.meta.url),'utf8'));
 export function view(changes = {}) { return { ...structuredClone(actual.game_response), ...changes }; }
 export function prediction(changes = {}) {
-  return { ...structuredClone(actual.prediction_response), ...changes };
+  return { ...structuredClone(actual.prediction_response), recommendations:structuredClone(recommendationContracts.captured), ...changes };
 }
 export function deferred() {
   let resolve, reject;

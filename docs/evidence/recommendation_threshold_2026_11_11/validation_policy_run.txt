@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "cohort": {
+    "source": "v3 metadata.development.validation_match_ids",
+    "fold_id": 0,
+    "matches": 6914,
+    "samples": 350917,
+    "match_ids_sha256": "66f908b742b8907e0e0486d57aae2de8a760509f1833449d5061e23da92d2797",
+    "match_counts_sha256": "2997301fd2fcc5b831c03bd8717b7fe8a0a7baa817f0528c0b374b002e3d496e",
+    "training_overlap_matches": 0,
+    "test_or_historical_test_rows_inferred": 0
+  },
+  "metrics": {
+    "samples": 350917,
+    "coverage": {
+      "numerator": 350555,
+      "denominator": 350917,
+      "rate": 0.9989684170330876
+    },
+    "suggestion_count_distribution": {
+      "0": {
+        "count": 362,
+        "denominator": 350917,
+        "rate": 0.0010315829669124037
+      },
+      "1": {
+        "count": 135132,
+        "denominator": 350917,
+        "rate": 0.38508251238896946
+      },
+      "2": {
+        "count": 99617,
+        "denominator": 350917,
+        "rate": 0.28387624424009095
+      },
+      "3": {
+        "count": 115806,
+        "denominator": 350917,
+        "rate": 0.3300096604040272
+      }
+    },
+    "target_inclusion_all_decisions": {
+      "numerator": 289312,
+      "denominator": 350917,
+      "rate": 0.8244456666391198
+    },
+    "target_inclusion_covered_decisions": {
+      "numerator": 289312,
+      "denominator": 350555,
+      "rate": 0.8252970289968764
+    }
+  },
+  "execution": {
+    "device": "cpu",
+    "batch_size": 512,
+    "cpu_threads": 1,
+    "batches": 860,
+    "seconds": 9.523144958016928,
+    "torch_version": "2.15.0",
+    "numpy_version": "2.5.4",
+    "maximum_shard_rows": 7657
+  }
+}

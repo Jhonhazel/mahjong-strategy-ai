@@ -1,5 +1,6 @@
 """Explicit public allowlists; no referee objects or __dict__ serialization."""
 from app.web.schemas import GameViewOut, HistorySummaryOut, HistoryDetailOut, SavedPredictionOut
+from app.services.recommendation_policy import filter_recommendations
 
 
 def safe_player_view(view):
@@ -24,7 +25,11 @@ def history_summary(record):
     return HistorySummaryOut(prediction_id=record.id,game_id=record.game_id,turn_number=record.turn_number,
         turn_phase=record.turn_phase,created_at=record.created_at,model_version=record.model_version,
         encoder_version=record.encoder_version,recommended_tile=record.output_snapshot['recommended_tile'],
-        top3=record.output_snapshot['top3'])
+        top3=record.output_snapshot['top3'],recommendations=record_recommendations(record))
+
+
+def record_recommendations(record):
+    return filter_recommendations(record.output_snapshot['scores'],record.input_snapshot['legal_discard_mask'])
 
 
 def history_detail(record):
@@ -35,4 +40,4 @@ def history_detail(record):
 
 def saved_prediction(record,reused):
     return SavedPredictionOut(**record.output_snapshot,prediction_id=record.id,game_id=record.game_id,
-                              turn_phase=record.turn_phase,reused=reused)
+                              turn_phase=record.turn_phase,reused=reused,recommendations=record_recommendations(record))

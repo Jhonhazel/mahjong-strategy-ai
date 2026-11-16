@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "path": "delivery/2026-11-11-player-experience-v1/mahjong-strategy-ai-lecturer-portable.zip",
+  "runtime_files": 107,
+  "bytes": 1940155,
+  "sha256": "0cc76b5081292a832079861ba4fc15d644d186c30012cdadff058efbc5687e0e",
+  "all_members_match_manifest_and_source": true,
+  "model_template_import_and_statistics_from_extracted_package": true,
+  "three_frozen_assets_verified": true,
+  "docker_copy_app_includes_model": true,
+  "old_archives_not_overwritten": true,
+  "audit_rebuilt": false,
+  "docker_image_build": "NOT RUN",
+  "native_windows": "NOT VERIFIED"
+}

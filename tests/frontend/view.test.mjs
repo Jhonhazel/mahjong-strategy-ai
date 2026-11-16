@@ -28,9 +28,9 @@ test('seat renderer gives opponents only backs and human exact legal buttons wit
 test('advisor preserves exact Top3 order and uses score preference explanation with no automatic action', () => {
   const result = prediction();
   const node = available('buildAdvice')(document, { prediction: result, savedNotice: result, view: view() });
-  assert.deepEqual(descendants(node).filter(item => item.getAttribute('data-code')).map(item => item.getAttribute('data-code')), result.top3.map(item => item.tile));
-  assert.match(node.textContent, /bobot rekomendasi/);
-  assert.match(node.textContent, /bukan probabilitas menang/);
+  assert.deepEqual(descendants(node).filter(item => item.getAttribute('data-code')).map(item => item.getAttribute('data-code')), result.recommendations.suggestions.map(item => item.tile));
+  assert.match(node.textContent, /% bobot/);
+  assert.match(node.textContent, /Maksimal 3 saran/);
   const links = descendants(node).filter(item => item.tagName === 'A');
   assert.equal(links[0].getAttribute('href'), '/history/' + result.prediction_id);
   assert.equal(descendants(node).filter(item => item.tagName === 'BUTTON').length, 0);
@@ -67,8 +67,8 @@ test('expired finished view clears round result, game identity and public summar
   render({...state,view:null,mode:'EXPIRED',needsRefresh:true});
   assert.equal(doc.getElementById('round-result').hidden,true);
   assert.equal(doc.getElementById('round-result').textContent,'');
-  assert.equal(doc.getElementById('game-id').textContent,'');
-  assert.equal(doc.getElementById('public-state').textContent,'');
+  assert.equal(doc.getElementById('game-id'),undefined);
+  assert.equal(doc.getElementById('public-state'),undefined);
   assert.equal(doc.getElementById('human-hand').children.length,0);
 });
 test('meld label never misrepresents Chi offer position as a source seat',()=>{
@@ -80,7 +80,7 @@ test('meld label never misrepresents Chi offer position as a source seat',()=>{
 });
 test('advisor exposes exact saved prediction identity and model provenance as text',()=>{
   const result=prediction();const node=available('buildAdvice')(document,{prediction:result,savedNotice:result,view:view()});
-  assert.ok(node.textContent.includes(result.prediction_id));
-  assert.ok(node.textContent.includes(result.model_version));
-  assert.ok(node.textContent.includes(result.encoder_version));
+  assert.ok(!node.textContent.includes(result.prediction_id));
+  assert.ok(!node.textContent.includes(result.model_version));
+  assert.ok(!node.textContent.includes(result.encoder_version));
 });

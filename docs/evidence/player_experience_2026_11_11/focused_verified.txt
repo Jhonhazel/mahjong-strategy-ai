@@ -1,0 +1,59 @@
+...................................................F                     [100%]
+=================================== FAILURES ===================================
+____________________ test_phase4_1_animation_node_contracts ____________________
+tests/test_phase4_1.py:97: in test_phase4_1_animation_node_contracts
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: ✔ unchanged, missing, or different-game snapshots have no invented playback (0.888333ms)
+E     ✖ public discard and meld deltas are grouped by relative seat with no chronology claim (3.728833ms)
+E     ✔ claimed/changed rivers do not invent an append sequence or expose hidden AnGang (0.125375ms)
+E     ✔ normal playback is bounded, cancellable, and resolves skip (0.181917ms)
+E     ✔ fast playback is bounded, cancellable, and resolves skip (0.085958ms)
+E     ✔ reduced motion or hidden page bypasses all waits (0.111208ms)
+E     ✔ normal completion clears presentation and old scheduled work cannot update a new playback (0.14375ms)
+E     ✔ accepted authoritative state stays current while playback blocks duplicate/stale decisions (0.571083ms)
+E     ✔ playback cancels safely for create (0.165792ms)
+E     ✔ playback cancels safely for refresh (0.176833ms)
+E     ✔ playback cancels safely for expired (0.163333ms)
+E     ℹ tests 11
+E     ℹ suites 0
+E     ℹ pass 10
+E     ℹ fail 1
+E     ℹ cancelled 0
+E     ℹ skipped 0
+E     ℹ todo 0
+E     ℹ duration_ms 42.452375
+E     
+E     ✖ failing tests:
+E     
+E     test at tests/frontend/playback.test.mjs:20:1
+E     ✖ public discard and meld deltas are grouped by relative seat with no chronology claim (3.728833ms)
+E       AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+E       
+E         assert.ok(frames.every(f=>/perubahan publik/.test(f.message)))
+E       
+E           at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/playback.test.mjs:27:10)
+E           at Test.runInAsyncScope (node:async_hooks:214:14)
+E           at Test.run (node:internal/test_runner/test:1062:25)
+E           at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+E           at Test.postRun (node:internal/test_runner/test:1191:19)
+E           at Test.run (node:internal/test_runner/test:1119:12)
+E           at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {
+E         generatedMessage: true,
+E         code: 'ERR_ASSERTION',
+E         actual: false,
+E         expected: true,
+E         operator: '=='
+E       }
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['/Users/jhonhazel/.nvm/versions/node/v24.4.1/bin/node', '--test', 'tests/frontend/playback.test...age: true,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '=='\n  }\n", stderr='').returncode
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/jhonhazel/mahjong-strategy-ai/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /Users/jhonhazel/mahjong-strategy-ai/docs/evidence/player_experience_2026_11_11/focused_verified.xml -
+=========================== short test summary info ============================
+FAILED tests/test_phase4_1.py::test_phase4_1_animation_node_contracts - Asser...
+1 failed, 51 passed, 1 warning in 5.41s

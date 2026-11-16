@@ -11,6 +11,7 @@ from app.domain.exceptions import InvalidTurnStateError
 from app.domain.predictions import PredictionSnapshot, PredictionInvariantError
 from app.domain.tiles import index_to_tile
 from app.services.ai_prediction_service import PredictionUnavailableError
+from app.services.recommendation_policy import filter_recommendations
 
 
 class WebPredictionService:
@@ -37,6 +38,7 @@ class WebPredictionService:
                     not all(np.array_equal(a,b) for a,b in zip(before,(state.obs,state.legal_mask,state.legal_discard_mask)))):
                 raise PredictionInvariantError('The prediction state changed unexpectedly')
             self._verify(prediction,state,view)
+            filter_recommendations(prediction.scores,before[2].tolist())
             snapshot = PredictionSnapshot(uuid.UUID(game_id),state.turn_number,entry.turn_phase,input_snapshot,
                                           asdict(prediction),prediction.model_version,prediction.encoder_version,
                                           self.runtime.checkpoint_sha256,digest)

@@ -1,0 +1,28 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_policy_aggregation_reports_coverage_distribution_and_explicit_denominators _
+
+    def test_policy_aggregation_reports_coverage_distribution_and_explicit_denominators():
+>       from scripts.evaluate_recommendation_policy import PolicyMetrics
+E       ModuleNotFoundError: No module named 'scripts.evaluate_recommendation_policy'
+
+tests/test_recommendation_evaluation.py:6: ModuleNotFoundError
+_______ test_policy_aggregation_rejects_empty_cohort_and_illegal_targets _______
+
+    def test_policy_aggregation_rejects_empty_cohort_and_illegal_targets():
+>       from scripts.evaluate_recommendation_policy import PolicyMetrics
+E       ModuleNotFoundError: No module named 'scripts.evaluate_recommendation_policy'
+
+tests/test_recommendation_evaluation.py:38: ModuleNotFoundError
+_ test_policy_aggregation_has_defined_conditional_rate_when_no_decision_is_covered _
+
+    def test_policy_aggregation_has_defined_conditional_rate_when_no_decision_is_covered():
+>       from scripts.evaluate_recommendation_policy import PolicyMetrics
+E       ModuleNotFoundError: No module named 'scripts.evaluate_recommendation_policy'
+
+tests/test_recommendation_evaluation.py:49: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_recommendation_evaluation.py::test_policy_aggregation_reports_coverage_distribution_and_explicit_denominators
+FAILED tests/test_recommendation_evaluation.py::test_policy_aggregation_rejects_empty_cohort_and_illegal_targets
+FAILED tests/test_recommendation_evaluation.py::test_policy_aggregation_has_defined_conditional_rate_when_no_decision_is_covered
+3 failed in 0.08s

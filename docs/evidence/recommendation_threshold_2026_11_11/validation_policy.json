@@ -1,0 +1,1847 @@
+{
+  "status": "PASS",
+  "evaluated_at_utc": "2026-11-11T05:38:53.029889+00:00",
+  "evaluation_kind": "retrospective_internal_validation",
+  "new_independent_blind_test": false,
+  "policy": {
+    "minimum_score": 0.1,
+    "maximum_suggestions": 3,
+    "score_transform": "none; original masked model probabilities",
+    "selection": "fixed before evaluation; no threshold comparison or optimization"
+  },
+  "cohort": {
+    "source": "v3 metadata.development.validation_match_ids",
+    "fold_id": 0,
+    "matches": 6914,
+    "samples": 350917,
+    "match_ids_sha256": "66f908b742b8907e0e0486d57aae2de8a760509f1833449d5061e23da92d2797",
+    "match_counts_sha256": "2997301fd2fcc5b831c03bd8717b7fe8a0a7baa817f0528c0b374b002e3d496e",
+    "training_overlap_matches": 0,
+    "test_or_historical_test_rows_inferred": 0
+  },
+  "metrics": {
+    "samples": 350917,
+    "coverage": {
+      "numerator": 350555,
+      "denominator": 350917,
+      "rate": 0.9989684170330876
+    },
+    "suggestion_count_distribution": {
+      "0": {
+        "count": 362,
+        "denominator": 350917,
+        "rate": 0.0010315829669124037
+      },
+      "1": {
+        "count": 135132,
+        "denominator": 350917,
+        "rate": 0.38508251238896946
+      },
+      "2": {
+        "count": 99617,
+        "denominator": 350917,
+        "rate": 0.28387624424009095
+      },
+      "3": {
+        "count": 115806,
+        "denominator": 350917,
+        "rate": 0.3300096604040272
+      }
+    },
+    "target_inclusion_all_decisions": {
+      "numerator": 289312,
+      "denominator": 350917,
+      "rate": 0.8244456666391198
+    },
+    "target_inclusion_covered_decisions": {
+      "numerator": 289312,
+      "denominator": 350555,
+      "rate": 0.8252970289968764
+    }
+  },
+  "execution": {
+    "device": "cpu",
+    "batch_size": 512,
+    "cpu_threads": 1,
+    "batches": 860,
+    "seconds": 9.523144958016928,
+    "torch_version": "2.15.0",
+    "numpy_version": "2.5.4",
+    "maximum_shard_rows": 7657
+  },
+  "provenance": {
+    "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+    "inputs_unchanged_after_evaluation": true,
+    "input_sha256": {
+      "artifacts/models/mahjong_discard_mlp_v3.pt": "ad05a5b2ce37ad45f93dc18628db9eb8ea5627a2f1d9d5f87b8a117c7f8a6720",
+      "artifacts/models/mahjong_discard_mlp_v3.metadata.json": "84423c71f8826a367b59b868aad1360fdbcc2c9a5cef6ce9bb3219b2bbd4488e",
+      "datasets/expanded_strict_v2/data_contract.json": "95f21b15be55dbbe4b9cf001edbc8b52462e4461b9bbaf39431a0a482e73adbc",
+      "artifacts/phase2_2/candidate_freeze.json": "8f362152ef1bde8afcb7033c43906cc71e997d54633183b52069c90f77d15bb2",
+      "artifacts/phase2_2/evaluation_lineage.json": "487030e84c74c64b98b2d874609a91453f708b381b61547a6bba34d7779a4f4b",
+      "artifacts/phase2_2/protocol.json": "86dee0edf45c99f58c6ade1d0870ae219b477ccad12baccbe370fac913bfd5d1",
+      "artifacts/phase2_2/experiments/E3_f0_s2026/history.json": "bacdb2dbc813c500d6bd36351652342a293966d4dc4a319837cc8bf7aaf9ea9d",
+      "scripts/evaluate_recommendation_policy.py": "917a66250abc1e7acb8f52f46de89bd3b37443f44c507165311f6ed31ae6b764",
+      "app/services/recommendation_policy.py": "edfbc29a89858ba0adcd3809c93962e7646fb3337dac259916c7f43b04de0c4e",
+      "app/mlp.py": "47c4227952a7cf89c22563706d9676512870e41a2d3588cdd5449661940bd470",
+      "app/model_checkpoint.py": "2f08fe7f2e8572cf2ba07f75b685f546f34b070bc75e11c2b5fd776fc106bf14",
+      "training/expanded_training.py": "f20d73c578a38e1b2ea98034399d52f79749eacfee8641be3a972c26eb466a11",
+      "training/optimization_data.py": "19f957f322c7a3d84c671ebc6fca8e69098a1993d8292092dd88613d9c6d5f2d",
+      "training/expanded_dataset.py": "dfac81af67a2456f2ccb30bbe272169781f8179ce3113a8f8e54621b6d67cf66"
+    },
+    "verified_npz_shards": 349,
+    "relevant_shard_sha256": [
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000000/samples.npz",
+        "sha256": "2cd56a825be44a4fbb744cf358a93ce43999cf5d508f58a159fcef7dc0df4710",
+        "validation_samples": 1271
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000128/samples.npz",
+        "sha256": "e9ba0895f4295461059e859593849f6b89dfe956ce34d895f0ded34fd1a0e7d8",
+        "validation_samples": 810
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000256/samples.npz",
+        "sha256": "2d1a75ebc1ee49813a7579ce6154eba5805aa9f3c22c354585376af334a76381",
+        "validation_samples": 890
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000384/samples.npz",
+        "sha256": "f9ca21404f0a3c7a53720c243d8e5c5c6b31ed1b6abdd80bf3e6f00959973ea3",
+        "validation_samples": 983
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000512/samples.npz",
+        "sha256": "8b39ef351728e809e65c16bc73c64b6ad4451ec2d1c8b6048b5944dd9f765e8e",
+        "validation_samples": 664
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000600/samples.npz",
+        "sha256": "f986ed48ca21b7079b20dae648d51f6ac4bc6ec6439392f7ed9e68659ab49d7c",
+        "validation_samples": 1080
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000728/samples.npz",
+        "sha256": "1bc3cbf6d9fd701fa33c6ce0efc7310cb51884e849822ebef604aad31ffb90ac",
+        "validation_samples": 1327
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000856/samples.npz",
+        "sha256": "016445a643ae388f27a4c66c16235e711e8de73247c04cd986a0dd23ae00420f",
+        "validation_samples": 716
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00000984/samples.npz",
+        "sha256": "6438cce0031c478396c17a01eed32e455fe4fdc13408843724bced3a626d4037",
+        "validation_samples": 1124
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00001112/samples.npz",
+        "sha256": "08bc96405fc7a4a61ea28fb4ebbde2e1acce36518d756ce3cc80779660e91f34",
+        "validation_samples": 1080
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00001240/samples.npz",
+        "sha256": "ce883c2116950ebef5971fd3dabd630d3268f47e302561eec954e62aec3e265e",
+        "validation_samples": 1110
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00001368/samples.npz",
+        "sha256": "24c1c0be5c970bc756eb5a275867900546cd413fcf1ba3333a2f8cc2e8a40709",
+        "validation_samples": 1657
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00001496/samples.npz",
+        "sha256": "295706ae2efb16a496f027c3007e6171e5e3c04d87c3639a218b31cb9d037999",
+        "validation_samples": 972
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00001624/samples.npz",
+        "sha256": "791511135ed5502c78b1bc8c38c08cedd8bed44eb618773d5a0ab845403c069f",
+        "validation_samples": 1455
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00001752/samples.npz",
+        "sha256": "7b7eba16ec5ca1bd6e29079e82a17029889c66bdcd881a87380bba6bd20330b6",
+        "validation_samples": 1434
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00001880/samples.npz",
+        "sha256": "df1e42ba799e716c0c954550c76d6274f0ea05e926878550d62d40360e1b148a",
+        "validation_samples": 1031
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002008/samples.npz",
+        "sha256": "18567e259efd6ce1efb943a9704ee7b38ebb428009a437aef4f7185b8c50309d",
+        "validation_samples": 1278
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002136/samples.npz",
+        "sha256": "0e82230c2e6a5cc4b18a066866332da15eae86caa9c20458f64904c11111d96a",
+        "validation_samples": 923
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002264/samples.npz",
+        "sha256": "86a7508fdda019adff86c705f20017d5de53e8c2fc82fadacdacaecda6d14505",
+        "validation_samples": 1267
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002392/samples.npz",
+        "sha256": "95c1bf58047ab8f68b81cc8645fa2909853a0b4fab33acaef5e2264bba5075e6",
+        "validation_samples": 1650
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002520/samples.npz",
+        "sha256": "fadc48504efc7b776b12161b67e860da6968ece29187152eb6cdfe2b75f11c9a",
+        "validation_samples": 1302
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002648/samples.npz",
+        "sha256": "4c75d54ba0fe34bd57c5dc0f764b624c2b0d10e6334862694814eabd8e86156a",
+        "validation_samples": 1519
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002776/samples.npz",
+        "sha256": "527d382165af0a33f151ae286f58accc88dab397d2666aeead4307070c55cf4c",
+        "validation_samples": 1276
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00002904/samples.npz",
+        "sha256": "8d648a29562a0a3e42b50b6f22d48859f0708c1ca6c52194d45995504b420ffb",
+        "validation_samples": 1051
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003032/samples.npz",
+        "sha256": "8fe9503c5ea6a6b87a30b28f717f77277cd06a52d2eccf5d385d1b07017f4297",
+        "validation_samples": 945
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003160/samples.npz",
+        "sha256": "67f29dd06751e778b4400ad6e08b9fcf323b264c3265e8bdf5b1cab5e74a2834",
+        "validation_samples": 849
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003288/samples.npz",
+        "sha256": "0ce3d2db80fef01d0711914017854ec51fad68a7966ba78f947c20cb29d426d0",
+        "validation_samples": 1063
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003416/samples.npz",
+        "sha256": "d2040c2e8164e46dcf2dfd9d67160a264c0d42fa9fb705235ef15a8ed1713877",
+        "validation_samples": 978
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003544/samples.npz",
+        "sha256": "71f11281f231b3ecb7af0db83b2118066b8bfd66efba42c311d34928d97c7381",
+        "validation_samples": 779
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003672/samples.npz",
+        "sha256": "3240022ac67cdf8f3b4f9a2c1624cb490b7a02cc2174f930fb04fd12c852e3f0",
+        "validation_samples": 1048
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003800/samples.npz",
+        "sha256": "051410e82ea660723cb06514cb80cbcf31d951a067e83045e447a78839294936",
+        "validation_samples": 1743
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00003928/samples.npz",
+        "sha256": "c916ac8722e8c18c3542d4d95f537f142e5a8b3dea5ec9c524dd7dd491655b53",
+        "validation_samples": 859
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004056/samples.npz",
+        "sha256": "fda2454229c62d4e5f9093305632520c763d1d7060876464d57b9a869f45ecb2",
+        "validation_samples": 1396
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004184/samples.npz",
+        "sha256": "68601bc7329460d455b005fafb5e9302aa0894267e1b0bd2cc3a5909aaf70fb6",
+        "validation_samples": 771
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004312/samples.npz",
+        "sha256": "57a6dd49b420b95596b452ed5c814e86dfcd7ec3a7285c6b0d84eefafe6bd0d0",
+        "validation_samples": 1015
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004440/samples.npz",
+        "sha256": "1c2a7f2d278945860adea1fce6959b5eca6ba0d0d3ace74fc482bdd75003d130",
+        "validation_samples": 1136
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004568/samples.npz",
+        "sha256": "e323441a3e52323bd0d3207edc6c35b9fa361059136cf97da815a9403fe20e11",
+        "validation_samples": 1216
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004696/samples.npz",
+        "sha256": "a704a9879f852ec9a96d85fcffcbdf43fb7f5b94d5c640de6eb2eb09d89a38f9",
+        "validation_samples": 861
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004824/samples.npz",
+        "sha256": "70194e5709838da5b5a6a47c77a98e4769589ac59f26932a23e87a95350bbfc2",
+        "validation_samples": 1376
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00004952/samples.npz",
+        "sha256": "cdf4c39ca2ae1a2bf70147d39ef120075be2d2470e15bdcfeafd9822ce0af208",
+        "validation_samples": 429
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005000/samples.npz",
+        "sha256": "24f16d51d3b199e2f891f9b57ab5b2ee101a00b6734815999aaf7008ba49cb7d",
+        "validation_samples": 834
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005128/samples.npz",
+        "sha256": "831c1abe02c6f3a4b74d42bfea2f545f3ce6abbc5eb1a250fd1ce82f9c02b423",
+        "validation_samples": 1249
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005256/samples.npz",
+        "sha256": "d59f864c22ed45c8bb8d04e7217325c609ad52cc41471be8ea5e09828d1f15d5",
+        "validation_samples": 1255
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005384/samples.npz",
+        "sha256": "d47e60d83b8e1a2aa4d16fa8835d9a459d1d2500a735625c075af632643e3e25",
+        "validation_samples": 907
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005512/samples.npz",
+        "sha256": "c4fa554ff936c9e0b9d71fa3db07c116bcdf57de1a3ee160df1beec4a4bb5e34",
+        "validation_samples": 1333
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005640/samples.npz",
+        "sha256": "5628f3341da2885703e2cf7adba927cd7f68684962e3f3f5398e6c36a184aa92",
+        "validation_samples": 701
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005768/samples.npz",
+        "sha256": "671b7ff741051bd511b39dc44371ba1d13d4cfcb0b96d8659769e07ece815643",
+        "validation_samples": 1106
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00005896/samples.npz",
+        "sha256": "4a821895c7a619ba9c5c6fc3ac6fc94d60b08c0a2949d8d46c771e97f3e9cbd1",
+        "validation_samples": 901
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006024/samples.npz",
+        "sha256": "53dcc018ba19a9cc1717915e10586300afc3fe0436e9569a7b6e32574015daa5",
+        "validation_samples": 1016
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006152/samples.npz",
+        "sha256": "f4e2d945a6cd8e7d75d8f6c59c8c5cf1ef2aad9a9eccfcc4df1db09c58c7dd7d",
+        "validation_samples": 1460
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006280/samples.npz",
+        "sha256": "b1803e80fcba9aea6fcacfed3e9c33d160f7fed3666092e17d907b7be372c5db",
+        "validation_samples": 709
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006408/samples.npz",
+        "sha256": "20eebb4239c89d604c043757e80250677d7e656490db14910768374c035b168c",
+        "validation_samples": 883
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006536/samples.npz",
+        "sha256": "07796977f24d092f6aaceca7ff102fb8daa035a5178f8cd8ddd5dfad9b53dc32",
+        "validation_samples": 618
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006664/samples.npz",
+        "sha256": "85795b3b0939a53c25e81e9c0ea7bb76ae6fdace6fe95fee6a25a0e70f571c5f",
+        "validation_samples": 852
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006792/samples.npz",
+        "sha256": "4c15e18e2cb0540909ffae8e10b06a2a9d5c03c866c8493b8f684d1e0340f85d",
+        "validation_samples": 1052
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00006920/samples.npz",
+        "sha256": "ff6c82cd86a3b8fda79c6ede3087badd6d4af975742ad46c971f21928d7c97b2",
+        "validation_samples": 1177
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007048/samples.npz",
+        "sha256": "91d2bc7546d4960597a9c158594f3c151da1370fbda4e4accf197b8033b50f13",
+        "validation_samples": 855
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007176/samples.npz",
+        "sha256": "f7849c00f637edbec31907be7d59784f61f6cbf919262761468908e85ef9e358",
+        "validation_samples": 1182
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007304/samples.npz",
+        "sha256": "ab9f77e7e735886fe275ed18f628ed3d4284c8cf4102319274f082d5ac269dfd",
+        "validation_samples": 1025
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007432/samples.npz",
+        "sha256": "69a4d14a8d306ac10f05d5f98f80a52a1ec2cb6ae75d7c957244066278bece31",
+        "validation_samples": 640
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007560/samples.npz",
+        "sha256": "8f479354b9d25f49d2160271d2377709345e31e60dfbfc82bbb1eb0737470fc3",
+        "validation_samples": 1094
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007688/samples.npz",
+        "sha256": "24d68ef94550f54cd3a73f2772dae49e5402736d8fb2714619b1d64d8862e0cb",
+        "validation_samples": 1145
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007816/samples.npz",
+        "sha256": "a7c303db19ccfcf78af80e1354743f14f647f6c95ac1f10ec1408d6dec0606ce",
+        "validation_samples": 1213
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00007944/samples.npz",
+        "sha256": "93d69ad4eefc96f6093bddb7da31bf6f51eb9018aef20493a1f1c0a5ace25395",
+        "validation_samples": 1571
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008072/samples.npz",
+        "sha256": "dd25001dab79e73ff68bee76f9b27d41c65335a94672fd3f742a79678a257c77",
+        "validation_samples": 1333
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008200/samples.npz",
+        "sha256": "4af96238c9a157edf4e54ee7786a13796d54ed6c3f915d7234e1a8020da38126",
+        "validation_samples": 1236
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008328/samples.npz",
+        "sha256": "ac4110620feca685e4eb2d03e5d8e063b0de4439115f7ad1de9d6ea94adb09d7",
+        "validation_samples": 1050
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008456/samples.npz",
+        "sha256": "17d821220f2bc79e7a9469c2a65a91348ea8bfef44a1755d0bbf2dd3a2f7272e",
+        "validation_samples": 1553
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008584/samples.npz",
+        "sha256": "4ef3322e9fd2a835123b803a6e80f5049ac5d518bb14177d6c9704e8e77f55e6",
+        "validation_samples": 922
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008712/samples.npz",
+        "sha256": "193fc90c581020fdb3df8bb6a68c1363f1cc8f16bdb59bd53810cdfcdc0696f6",
+        "validation_samples": 1343
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008840/samples.npz",
+        "sha256": "36cfb5f1110c7480fbfb3beed5039d64da161e545bd9dae765fb233d1b5bcf39",
+        "validation_samples": 1227
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00008968/samples.npz",
+        "sha256": "028f7d4155e19e20dd76891daa68ac850abfb0f8832e17d3215df6a23e7709dd",
+        "validation_samples": 730
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009096/samples.npz",
+        "sha256": "c9f9769f72e2b698d1252d6a22e934091ea89a081174c4014f108941b90f64f4",
+        "validation_samples": 1047
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009224/samples.npz",
+        "sha256": "bd12d8abe2f599df70d9208dd9df3df097906d47190380fcc2bf51609047d920",
+        "validation_samples": 731
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009352/samples.npz",
+        "sha256": "748ff328e32037896ff06b276d52795fa7ebe978271cea60fd93803098a4ea21",
+        "validation_samples": 829
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009480/samples.npz",
+        "sha256": "f7e8d6c1d282af9f0c40f5d856f97d1aad353b96bde9cdd2bf9a8d9626f9d2ec",
+        "validation_samples": 793
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009608/samples.npz",
+        "sha256": "99695379b1cc34efa0748fef4b4fdc9308e65da524c7a76d74ce90bda2cad261",
+        "validation_samples": 445
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009736/samples.npz",
+        "sha256": "6e6c0ed7e75c9bb24b2b7f53d8c7c72bd405485924d0ba0a224f5532263f16a5",
+        "validation_samples": 457
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009864/samples.npz",
+        "sha256": "47aeff46a8820a36b6a06145bfa79ff9712bfb792f4aea04a74f4780e40b873b",
+        "validation_samples": 885
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00009992/samples.npz",
+        "sha256": "c591a197cabc3c115e702dea852567c31a8a266ba3f9fa55a2b2935cfd8011c9",
+        "validation_samples": 887
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00010120/samples.npz",
+        "sha256": "2d541ceccc8ed1881b47de6e6db938d4b897fe676665b14f9094dcf85491fe11",
+        "validation_samples": 724
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00010248/samples.npz",
+        "sha256": "b3fdba9339312c509de28bb788ca7bbb68fe91f6e857991d12ab7096cc0bcdfe",
+        "validation_samples": 1212
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00010376/samples.npz",
+        "sha256": "6100bb52a5b677d0ec0007f7c2fe735b0b9e2e2cb86765a78225bd66d5f1d46d",
+        "validation_samples": 585
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00010504/samples.npz",
+        "sha256": "0ebbf2941ff54a9282b8538cd061c53dbcae1ffa535827c91ece9d17ccf66a11",
+        "validation_samples": 592
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00010632/samples.npz",
+        "sha256": "971a81b3073fb4c5d9aadd894fd408655132eb4e00383d69b39089409a8bcf97",
+        "validation_samples": 583
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00010760/samples.npz",
+        "sha256": "ae85a7a4f3d8a877860d4c5220bb68c8ee26885835f2ce4882582d59b9c8e3c1",
+        "validation_samples": 836
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00010888/samples.npz",
+        "sha256": "b8298c8251da2fbf4da3a0f21821d5b194e7edeeb5c74757fc6761f9ceb6255b",
+        "validation_samples": 1152
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011016/samples.npz",
+        "sha256": "dd228af0c78e00671a5ab5e9b6143d2cdf7618521435e39276b2f919c2867894",
+        "validation_samples": 1001
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011144/samples.npz",
+        "sha256": "fa1480e4198b5e1bc680ad27d1e12df45b9c4558838456781fc23e424f563bf7",
+        "validation_samples": 1273
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011272/samples.npz",
+        "sha256": "c79a8c56f7ab3b42261f9bc1c6f0bcd4ee5b46dc4f8f095ca5f452920c2b0263",
+        "validation_samples": 1232
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011400/samples.npz",
+        "sha256": "600ffe6953f43891e839e5872219a44c1877ac9ef3fcf1b8d7bbbb7e57fbb9dd",
+        "validation_samples": 701
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011528/samples.npz",
+        "sha256": "0a024c08fdc317926a2a2dd7e1e767c82e9a799c787eec415638d6dc5b2b161b",
+        "validation_samples": 693
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011656/samples.npz",
+        "sha256": "7fe4c2ab53794a56520bdae48301d0ba6f753ef59214ecac34266a7475891a2b",
+        "validation_samples": 705
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011784/samples.npz",
+        "sha256": "1ef49ecdb46a582c1737376bdb512da639c95be36be4f5ee3d7d928f5e4bbb89",
+        "validation_samples": 937
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00011912/samples.npz",
+        "sha256": "bb95f3d38db19e839420d31d090f7e9783fab5a9c0c93bf4692d055863fe82e3",
+        "validation_samples": 777
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012040/samples.npz",
+        "sha256": "b8a216e044af0cdef17c5f716613f3b5947266c7ed87465176784e9793ba30d5",
+        "validation_samples": 732
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012168/samples.npz",
+        "sha256": "e6cfb2561832f17e065a03045206a453fea0aed2e9fdf37ad22a8a2155402fea",
+        "validation_samples": 512
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012296/samples.npz",
+        "sha256": "56fc074f6f3b8784f7828c1bbfbb87e5cba5f8fc0c2b41c24bddd969ea4df511",
+        "validation_samples": 771
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012424/samples.npz",
+        "sha256": "9bd0cfd940e896d89db29dd36b30cb8b209a74b9888a7263f4631cea2380bdab",
+        "validation_samples": 919
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012552/samples.npz",
+        "sha256": "99be334c91e71a3638b2e9153057e7bf7e47d29d6283139ae68c00ddc16caa1b",
+        "validation_samples": 1211
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012680/samples.npz",
+        "sha256": "39a05ad94e71e75c78ce15b9e86f124e92af6ffea13fa0f1319b9cc4a7021176",
+        "validation_samples": 1315
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012808/samples.npz",
+        "sha256": "f1a36f1a7c441c5331b04e945435595dc9eb51bf418823e0fe26b33f2c94fac4",
+        "validation_samples": 1166
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00012936/samples.npz",
+        "sha256": "33d58fa5efe45f568322bb08f89d6620bfe65b4bf53ef31a0e42976e9dd6797c",
+        "validation_samples": 1022
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013064/samples.npz",
+        "sha256": "c77e010b277fef3e89e3c3c617a456e5a0b8c5f0085ee02e6b454d2e105888bd",
+        "validation_samples": 898
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013192/samples.npz",
+        "sha256": "e467d9d262bb64e54c4fd57e2cc1842f1283fc485cc9c7e99a3beed652b561e9",
+        "validation_samples": 1170
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013320/samples.npz",
+        "sha256": "2513fc5ec9b5c3b58507123e9bac3112690de8b23194475a6444fed93fdace01",
+        "validation_samples": 711
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013448/samples.npz",
+        "sha256": "ce3fb16ff4152867de3a08c0030565638dd6d4c006fd3f82559af63830b23b8e",
+        "validation_samples": 573
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013576/samples.npz",
+        "sha256": "04d010466b683dbf1cb49f39afcc52c47a86aede30b763f57a9b4bc735444f3c",
+        "validation_samples": 652
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013704/samples.npz",
+        "sha256": "79e9f19e20f0866309ffcd1fef5d538876fa636db5b2079c207581323dee23a0",
+        "validation_samples": 732
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013832/samples.npz",
+        "sha256": "2322ca54dda49959bb2183e6e52856be6c536ffaf1ac9a16fb375225d322c827",
+        "validation_samples": 850
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00013960/samples.npz",
+        "sha256": "65e52f942f79ca94c9a8f2cca9c39bb1bbad873dd8897389b6473cb800b91d27",
+        "validation_samples": 1167
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014088/samples.npz",
+        "sha256": "264e6d78496acf770504158632f9126123c46a4ecb209eb4a3954addcea424ad",
+        "validation_samples": 879
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014216/samples.npz",
+        "sha256": "68ce6d8727b3be5be9b772d91fec60f59dbfbf708d07029a8e10559bd622df07",
+        "validation_samples": 842
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014344/samples.npz",
+        "sha256": "87dc23c1074e02c311c075fcc932849a3d55e029464751bde43656432ac102be",
+        "validation_samples": 939
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014472/samples.npz",
+        "sha256": "08126a0c7b7ac1a7f5954557787fac0dd514a9b27966e6e1a424595f3caf0676",
+        "validation_samples": 1157
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014600/samples.npz",
+        "sha256": "2cadbf2ef2bdb6ebf0ea98a1ee1753875697e850325ff90a125bdf00cf5ceaa4",
+        "validation_samples": 1136
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014728/samples.npz",
+        "sha256": "f447a347ded18d5c3bbcec78023d0e79b071e95efa40a768d1ba3eb3798a232a",
+        "validation_samples": 881
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014856/samples.npz",
+        "sha256": "7d512e1344d8de9843f7b63ed4cb7f409947f2d586e487c5b858a5b12add0410",
+        "validation_samples": 773
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00014984/samples.npz",
+        "sha256": "cc8b2cb8590b37dff977be797f3e0a6617e31943821c6bf0a77492e84b5cc650",
+        "validation_samples": 258
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015000/samples.npz",
+        "sha256": "f4e31c5c8fa33c9ebc518402e559ec8a82b37b9c9d00517113ba06baf2e4fd33",
+        "validation_samples": 992
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015128/samples.npz",
+        "sha256": "d96939f658ca2ae13147212bed4afc05ec4b13a8cbe7c74253abcf1f386b9be7",
+        "validation_samples": 935
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015256/samples.npz",
+        "sha256": "4c9699a7c4071add8b53167a419b225289a3834c2de5e465c32aaf7989030eef",
+        "validation_samples": 861
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015384/samples.npz",
+        "sha256": "540ee83ff568649cccefbce49d087f403363c45c20fbdbde38728d920b26bf85",
+        "validation_samples": 574
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015512/samples.npz",
+        "sha256": "46055a729a15533e1a69ffb0d01d54f39c12b40422c3556a37b2f0ed5dc29f9d",
+        "validation_samples": 462
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015640/samples.npz",
+        "sha256": "7bb7e537a0cdb8fefaf2b9e50cfa58c0906b80354c9e705d7f0867e391108d03",
+        "validation_samples": 924
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015768/samples.npz",
+        "sha256": "2d797d3e9b49a3298d9d92057f710be5582d813ff48586fbf422cc459bbfad1f",
+        "validation_samples": 851
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00015896/samples.npz",
+        "sha256": "cfdff4c96f6aa5a171a79a492cfb1d3e92ecb091d1d1ff83a2bfb6022b165804",
+        "validation_samples": 1410
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016024/samples.npz",
+        "sha256": "9df55edc63181e428a8e5a3226df560c271c9b41aefa8ffb858f970e365e4e0a",
+        "validation_samples": 1004
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016152/samples.npz",
+        "sha256": "30ff01ffb7e83a6613c941223ec243fb9218b60b2fc9381a635e0ab58a3ec239",
+        "validation_samples": 1259
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016280/samples.npz",
+        "sha256": "259c44cf73876de5659a83e7249a26820b299f9c2322bcfba9f188e0c5d11360",
+        "validation_samples": 659
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016408/samples.npz",
+        "sha256": "2609567a3931811a253aaecf1ce48326b981c7aa15131c76cbe1ee1abb929bf4",
+        "validation_samples": 939
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016536/samples.npz",
+        "sha256": "d44354e8bef4da265308805a4cd761e29724ead00e5fadf1330cacab0d70503f",
+        "validation_samples": 864
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016664/samples.npz",
+        "sha256": "21f67f7d648be18a1881257bc915a2250dead84f93ba74ec71f94739b8b630e5",
+        "validation_samples": 1141
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016792/samples.npz",
+        "sha256": "c5392904dc774d2f90e4fda6ab9a28c8b1ab4709a3c655b68d6826bdfd4107ba",
+        "validation_samples": 759
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00016920/samples.npz",
+        "sha256": "c6e35d891c001732b048a0370bdf1e74f67d1878bb3453dd34b66a24097d96e6",
+        "validation_samples": 880
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017048/samples.npz",
+        "sha256": "ed95dd2ea14b56fe6bde3f0ed3ca88c7ba2e8ba81a5fa9e9bd8b05c4dc7e5705",
+        "validation_samples": 774
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017176/samples.npz",
+        "sha256": "b066cd4f09e8eec6cd3085cd9a4b1d2aff37baa6b5e6f3e8928bda0d0c417453",
+        "validation_samples": 1091
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017304/samples.npz",
+        "sha256": "af2b69ccebea53f547d82de4dd8210db467931c619078581a54230dcbb3aa25a",
+        "validation_samples": 1037
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017432/samples.npz",
+        "sha256": "9c32660aa8265edd0432f47f31c50fe6214c2d2d2011a76551b88eeb630b350f",
+        "validation_samples": 1131
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017560/samples.npz",
+        "sha256": "e777c6ce0e20f4dc88a6751b75bcf04ffd02935b1edc5a73d00ee4f274d1b593",
+        "validation_samples": 1181
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017688/samples.npz",
+        "sha256": "e09bf042c6db6b3c5e3c34c92c19dff8b187d61055511deee565267c40c3ddd4",
+        "validation_samples": 738
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017816/samples.npz",
+        "sha256": "f4d4fd36cad43cb36bc13f9b88712645f97c63ce8add1285c98d4ded4bfd8e6b",
+        "validation_samples": 949
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00017944/samples.npz",
+        "sha256": "f874f756ced6cc5790664616cb90905c309def999fcd88ea11f361a98104fd27",
+        "validation_samples": 908
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018072/samples.npz",
+        "sha256": "d0924605acbf9d6cfeeae23a58d0536b9b8192a08bee2784c94aa6c1668a6168",
+        "validation_samples": 779
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018200/samples.npz",
+        "sha256": "308ea8ec931b820a9912c14ccc87b8590d3be173c4e43692adaf84a72f4f4fff",
+        "validation_samples": 1026
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018328/samples.npz",
+        "sha256": "9a193a8dc6eeabe95a2ce8d225e2c169b485877839084dd8e3fba18a9ee0c20d",
+        "validation_samples": 1112
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018456/samples.npz",
+        "sha256": "c78cde39b6c3ca7be98250a24691c8595e9ea1dcf23d5cfd6368c033edf7b6ad",
+        "validation_samples": 691
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018584/samples.npz",
+        "sha256": "1b104bcf09dedf03ec41a2c4c6740e06d6c16b47a865b6e43922233f96b24188",
+        "validation_samples": 925
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018712/samples.npz",
+        "sha256": "c0c21a05b1c2c2982742255cc4ffc71572bcfcb357c5991d656f7024ce3589c3",
+        "validation_samples": 990
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018840/samples.npz",
+        "sha256": "9769651d408af614816a627c610f19c6fd3e8dc8c3cf43afb9311d0f5c0b0b60",
+        "validation_samples": 1151
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00018968/samples.npz",
+        "sha256": "60951837724222884cf8fdecddf62bc72c2ba1b2b514d3f29dab4f3e0019f7b2",
+        "validation_samples": 770
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019096/samples.npz",
+        "sha256": "23aea475245e3c0c302f74bdf2e8e361ad5c74f53ecb3daf7f2e7d5a7ea974ff",
+        "validation_samples": 1187
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019224/samples.npz",
+        "sha256": "871bfd0926963baef4c2bb05243403f65e8d473d7124b068443233de04383f63",
+        "validation_samples": 286
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019352/samples.npz",
+        "sha256": "ba5e836386b7b3334e66eb2fbe65c8d9abbbbe69f05074829b9aeece787a0b19",
+        "validation_samples": 1098
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019480/samples.npz",
+        "sha256": "64f2ed842c90b1750e5b6df3423387c66a936ab7374ab6faac9f7c8607a271b3",
+        "validation_samples": 583
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019608/samples.npz",
+        "sha256": "4e45935934b751f9236fbbf9cde32f3606e36217c8832703eb68cf64fe73d3a0",
+        "validation_samples": 710
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019736/samples.npz",
+        "sha256": "10f0ce4dd6d49c3f03d541ddb83026df299db7d16162e671ed8f18a0e2f12f78",
+        "validation_samples": 827
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019864/samples.npz",
+        "sha256": "7c4736f57c00b24a4114c2edb4e854b78246434b1c7515170608c14697c77b3f",
+        "validation_samples": 615
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00019992/samples.npz",
+        "sha256": "fdcd8bef0347f43e662e504bddc9e7d9bf341207d666446e467f3ccc7272de66",
+        "validation_samples": 621
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00020120/samples.npz",
+        "sha256": "e5fdce301af40407e2f6973b5b948effde1f1dafd2045b2bf0e35c8298129dc4",
+        "validation_samples": 1274
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00020248/samples.npz",
+        "sha256": "f4e70bb145e55c5aff0e39ac42d97b43c4ac4cc6fbf76e02247f1665bee70599",
+        "validation_samples": 438
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00020376/samples.npz",
+        "sha256": "04404fc2330a69a7ab0ac1238af1dc0db689519f87f4415e7bc0aa85bdc9f723",
+        "validation_samples": 691
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00020504/samples.npz",
+        "sha256": "a91ade1e1f91bde4ac758ddda89129427abd17a64f80fe03c4903592ee29e2ce",
+        "validation_samples": 745
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00020632/samples.npz",
+        "sha256": "a4bb08a46a013ffa5342f76141d9d6893721918daf96ccd7c635a3a2894da400",
+        "validation_samples": 1111
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00020760/samples.npz",
+        "sha256": "99e1084a27df69a0fea40cc86def87f3320997b3d880b6bfbc8e0ecfc6565add",
+        "validation_samples": 1034
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00020888/samples.npz",
+        "sha256": "cf2b7ef02fa9e87a568e21f7a0ac4beec2a8efa9c7b3a5b23c1267696022df4d",
+        "validation_samples": 1019
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021016/samples.npz",
+        "sha256": "120f506def6f3efa2dd7931a1ec9eabbc7d2fb13bbf3447cedab45b135f95ab9",
+        "validation_samples": 952
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021144/samples.npz",
+        "sha256": "b9d1ce6904deb88705ea23445d68ad5b42f3a23ea73d3f1135738135af943951",
+        "validation_samples": 661
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021272/samples.npz",
+        "sha256": "cbe052be5e28114ed8a008da65c6ea72456e96ae908ddcfdbc239fa25bed1ee3",
+        "validation_samples": 919
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021400/samples.npz",
+        "sha256": "d2cf17a76361d806ec13519dce1f6ecc8356b9bf4ed8b2301293d557f927fb89",
+        "validation_samples": 826
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021528/samples.npz",
+        "sha256": "2a9c10a8bfe7146f4bc8a6c317c3772d9bb0c1edae0c44526d4e7ecc5ace3d5b",
+        "validation_samples": 518
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021656/samples.npz",
+        "sha256": "142c64d43fe72da19c5c359f33c142609823c7b4a2ecabe88077694d98f211fc",
+        "validation_samples": 792
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021784/samples.npz",
+        "sha256": "88250675647b18299d0f60fa7062c4eb6d5e6a27e68bb9a0f03af434205937dd",
+        "validation_samples": 757
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00021912/samples.npz",
+        "sha256": "aa495e689a3df476653e62beaa1b37a87bf636db3619080031a66ab9213562e3",
+        "validation_samples": 372
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022040/samples.npz",
+        "sha256": "49effeb1cb620e1798a43a11c384d95a2dbe7c8829d1325ec99498b6c06a2783",
+        "validation_samples": 1104
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022168/samples.npz",
+        "sha256": "c92ebd70c7f3ea36dd68c744994a00bd8f698badcee96bf410b9e340f6b280fe",
+        "validation_samples": 631
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022296/samples.npz",
+        "sha256": "2de16d78fa1ebc691eaf1e7df6af69a477c875262ea587150310318cc7651294",
+        "validation_samples": 978
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022424/samples.npz",
+        "sha256": "f9bac5771dfc279e17e693c2a16fad73beb04f2ce9657aaf361c44b3c61acc60",
+        "validation_samples": 901
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022552/samples.npz",
+        "sha256": "e0b9179035a2d9a79b5b39c71fab86aaaad1f1e1caffc0cc60bd1d1c214d7529",
+        "validation_samples": 1011
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022680/samples.npz",
+        "sha256": "354e4d5a7356b04c083c3316531328041ecd639f672585013236c198fe6a222e",
+        "validation_samples": 654
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022808/samples.npz",
+        "sha256": "61368318d3ce401f3ee6e6013d2062b2df186e15a0d0d2d6e35fe137ab88e0f1",
+        "validation_samples": 1092
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00022936/samples.npz",
+        "sha256": "69a871ae202500fc0b6a23d8e7341d0c0d1e919f7fcd3da45663a4796b03118b",
+        "validation_samples": 655
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023064/samples.npz",
+        "sha256": "73e9f74200da1734bac5af08429f4904580a3bdc24e049e8d42233ea0b3b5881",
+        "validation_samples": 869
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023192/samples.npz",
+        "sha256": "4e02b34d719569c55f48ed09bc207184148874ec47d4cb6aa9bae999254c424e",
+        "validation_samples": 1008
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023320/samples.npz",
+        "sha256": "3ad0c987961b5a8a6596a38524ebfaff11f35e02cfaca65b0b2618b6eac009a3",
+        "validation_samples": 885
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023448/samples.npz",
+        "sha256": "b96806a9a8848b236862ea4ef4b8e4b24fc1183e775208e1c708324aab316a2b",
+        "validation_samples": 714
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023576/samples.npz",
+        "sha256": "78f43f53711ba9cd9949cea1f089fd59e628774cdd1ad419cf81f1adbbd0105a",
+        "validation_samples": 678
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023704/samples.npz",
+        "sha256": "e6492d2538211b66c9bfc300dcaced3566731d09ae2976df30767db49673ae3b",
+        "validation_samples": 1349
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023832/samples.npz",
+        "sha256": "c354be401a8bd6845500c960878407d44ad76eea11b325f0b8d9473cab3d4fe3",
+        "validation_samples": 1512
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00023960/samples.npz",
+        "sha256": "41d6ba07c42ce0b272a15cc7ecdcb69f742256486354a376a7f38f25648e8b22",
+        "validation_samples": 1043
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024088/samples.npz",
+        "sha256": "2ca8ffce8dc3bd373f8b38e922c5ba462c18d7af5c563890b6e1446365ebb758",
+        "validation_samples": 777
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024216/samples.npz",
+        "sha256": "55d598c9625f48d68f38f810baf41d043be6ca084936c2fca39fbaea89fdab2f",
+        "validation_samples": 1616
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024344/samples.npz",
+        "sha256": "e951b38186e4e8cd5badcdf1731d088a0f676da65edcde7bf649fa48376f8ec8",
+        "validation_samples": 1571
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024472/samples.npz",
+        "sha256": "cd8d8f5d89fddd8ff492055ccfb72f6153ca0f5c7fbcf723f3616147cd09ec5e",
+        "validation_samples": 1285
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024600/samples.npz",
+        "sha256": "6038bb4f3eeb42468913454170dc0534ba54d43f5df20a43b2a3f3efa4547681",
+        "validation_samples": 1279
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024728/samples.npz",
+        "sha256": "a0a9128af7da0c1a747732b0459c6eee8e7ef70cbd088abeff04f6c1562de227",
+        "validation_samples": 663
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024856/samples.npz",
+        "sha256": "4bead28d37de7ffc2ff4b6ad930211ec89f62cc6ddd4ef9ad500d9fcef614d00",
+        "validation_samples": 867
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00024984/samples.npz",
+        "sha256": "d0e1389ffb6be2ff95639fe7dd4de795f11469986b8ef5832632f8ea32de192c",
+        "validation_samples": 1409
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00025112/samples.npz",
+        "sha256": "5167a5e1f764e7e17f64ab0154a8b16789effea4d6740196c6095765830ee452",
+        "validation_samples": 1092
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00025240/samples.npz",
+        "sha256": "646d29602ba43743c6b183d3c3dfa3560c1e4b3397af403b1abef58022c864fe",
+        "validation_samples": 847
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00025368/samples.npz",
+        "sha256": "02507cd8bd7f1291d0a5d751ff2a0ce3b12094b93aa1d01594b36cb698c4b168",
+        "validation_samples": 1039
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00025496/samples.npz",
+        "sha256": "f7d1a24ce6b9fc5256385a98fc521dd77167fdfc20f0d05fad3eb04c98a31949",
+        "validation_samples": 1106
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00025624/samples.npz",
+        "sha256": "1e4cd36b06e0983167f046a0f3ee7bd6f34ceadab13ab4ca4106f85ad7bd29da",
+        "validation_samples": 1027
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00025752/samples.npz",
+        "sha256": "a23240fc583a829bb6a98569cf7d58a6d93fcbbaf45e3544d076023d0c290940",
+        "validation_samples": 1049
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00025880/samples.npz",
+        "sha256": "9d4da81614ca267c43b72e02d6a4fbc2e6bb30c0160d6a639a63534c2e3d502b",
+        "validation_samples": 1350
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026008/samples.npz",
+        "sha256": "01a41bbb049b9becb0830e47bbdbc8a5901a02a3167a8964339f373caad3348f",
+        "validation_samples": 1094
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026136/samples.npz",
+        "sha256": "6181f2815495467faa7771050d90bcb3fbe701c99ce7216b036d994c5b932332",
+        "validation_samples": 1213
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026264/samples.npz",
+        "sha256": "a3654b7f71a19b95c7401dce160628c363ac463925e457ed06def02ac656d939",
+        "validation_samples": 1264
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026392/samples.npz",
+        "sha256": "b0ab98eafe0d73d28ba90f6e2b60c5b8bfa2911bfc345b92ca064acb927c2a2c",
+        "validation_samples": 1219
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026520/samples.npz",
+        "sha256": "b1e126547e3dcc0e4a179f22ed756f686e769acc065b8dc5d5e7991fadf8e071",
+        "validation_samples": 749
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026648/samples.npz",
+        "sha256": "e8e6b6d5c7633d49685ebe4cd281e5e407dddc29176c14c748190bae9cdff9f1",
+        "validation_samples": 1161
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026776/samples.npz",
+        "sha256": "bcc50d5cb365c4586120451890c0ac140473bf8496dd4f68a9fa04ad6cd334bd",
+        "validation_samples": 978
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00026904/samples.npz",
+        "sha256": "776fe508f2d103cb3602ce7207c5c3cf4507c91651bd64f2a7a5cb7203eb1d63",
+        "validation_samples": 1382
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027032/samples.npz",
+        "sha256": "d920a74ae910721d8cf0100ec6f8beec2abf3d53d4303ab04e15064fafa26d1b",
+        "validation_samples": 594
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027160/samples.npz",
+        "sha256": "ff3c6761ba78ba9d67c90e5004006d7ace522400691dbb07d4d0dc86a1e1aa45",
+        "validation_samples": 845
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027288/samples.npz",
+        "sha256": "eab0eb2f55002c3f0fde6186ca4fe2ff5acfc0433e362d645b560ba1ea46cfad",
+        "validation_samples": 948
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027416/samples.npz",
+        "sha256": "97f75413bfcaf1d08a4db9fb782fcaf3e7f617524edea63a8513960db9157cc1",
+        "validation_samples": 830
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027544/samples.npz",
+        "sha256": "52debc3ea958281dfda8bb2e2d44349e25f46fcce2ab52afd984fceee4c75fdb",
+        "validation_samples": 1149
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027672/samples.npz",
+        "sha256": "8472aff8cf6d843357b3f0550a684349d9d91a26be7070b06397401f622f1e1c",
+        "validation_samples": 1081
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027800/samples.npz",
+        "sha256": "2fb59558e04c06f1101bbf8bc8934800a42082fe71102c099cff4073345a0970",
+        "validation_samples": 756
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00027928/samples.npz",
+        "sha256": "fd9f49fb0af4fdb10ac21cc4ec5b8438cf10973768a001dee4dfad1d1b944f8e",
+        "validation_samples": 1008
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028056/samples.npz",
+        "sha256": "2504f460dba8460dae57eebd5ff3dde88d67189ce0fa6e906c574b0011610b26",
+        "validation_samples": 782
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028184/samples.npz",
+        "sha256": "a43e6016ba678f0397563a6c6588a29901ef041e0ff0dabbd9984f441fc601d1",
+        "validation_samples": 1098
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028312/samples.npz",
+        "sha256": "d87cc5842e43961fc9d72f4b604186ffc0ef6ba466e8d4441c8f8ceb09461281",
+        "validation_samples": 643
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028440/samples.npz",
+        "sha256": "30963d15e53adc7757994e6966d829b7b3c6d60f4ee1bfed6babe91991f2f896",
+        "validation_samples": 1320
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028568/samples.npz",
+        "sha256": "35c15e6abdc5a35e47081a86d67d712bf8cb5457d8fe1317d5dacfeb710e08a7",
+        "validation_samples": 1207
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028696/samples.npz",
+        "sha256": "21ab7e5f9e1706798e93613d28b353988946107eb524faaf44f6c9c2f3e32ce2",
+        "validation_samples": 891
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028824/samples.npz",
+        "sha256": "67d686bfa037669c8342094836b72d8ffe1e2f0795c10835876b962a448de2fe",
+        "validation_samples": 849
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00028952/samples.npz",
+        "sha256": "c9673c569fcabd2e7b22d28e8ce78c4aec30b7f2bad226ce0a1db2cc37651606",
+        "validation_samples": 1271
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029080/samples.npz",
+        "sha256": "f4e3f9512bf2f6c0783bd610c594b4ab03038cbf7255f9b83b5f932e289784d3",
+        "validation_samples": 884
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029208/samples.npz",
+        "sha256": "27de4d2104608e5b640839b092c585a82f9d82e39bf3c76ce45034ea3f9c702d",
+        "validation_samples": 881
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029336/samples.npz",
+        "sha256": "0460e51c941c1fbd3d1534b967b1d5512a3b06dc31711616675f2a52ae4bc559",
+        "validation_samples": 1001
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029464/samples.npz",
+        "sha256": "ceddc8d9f2c57653dff637e66724011c6efa1f5902610c6d1977c9ed6dd2cadd",
+        "validation_samples": 840
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029592/samples.npz",
+        "sha256": "083d4437b2cd76f4dfc48460fcdb36bf5cfbf8f1a6e9abedc91abb1a4c76d15b",
+        "validation_samples": 749
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029720/samples.npz",
+        "sha256": "416798dba9a1693266d20d0030a3d92fd795114c5d437b68bf9bb98e5baf7cb4",
+        "validation_samples": 855
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029848/samples.npz",
+        "sha256": "37cf17ad681bff7eb35f00a152c84ef6ae1131210b4842129c17cc322e7434f2",
+        "validation_samples": 1001
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00029976/samples.npz",
+        "sha256": "ac8207b8355aed23a18f08995189a5ed7025f3d8c091c8bf716bb4f383788aea",
+        "validation_samples": 434
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00030104/samples.npz",
+        "sha256": "0674d2ff044407e03dada8e0f6077a67f35c9f3463da706398dfd79908baedcc",
+        "validation_samples": 1279
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00030232/samples.npz",
+        "sha256": "fd30bca28160d80c0244ae17bd5973a6b69ff908b104cb536d8051f8cf878b09",
+        "validation_samples": 1096
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00030360/samples.npz",
+        "sha256": "b0b81fd8bfa5c029799f654392400bdd178b58a83df9cd7f1c4ef9b42f15f012",
+        "validation_samples": 1082
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00030488/samples.npz",
+        "sha256": "9ec0af063fc79a15a359d2bbc58acb9bd1564f9e88fa141fd3d9d381c49a7379",
+        "validation_samples": 1008
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00030616/samples.npz",
+        "sha256": "0ced502f64b27083dbd139fa790207ee4404ce06d83c7c73b184358bac87e57a",
+        "validation_samples": 878
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00030744/samples.npz",
+        "sha256": "519e70fc9c46cce71722da944b26d516116999d84e9929f97cefc2059199e1cb",
+        "validation_samples": 1264
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00030872/samples.npz",
+        "sha256": "4e8a906769d97c740b7220a8e2f553d84c04871a2c7d78fd352b2079adb4ea06",
+        "validation_samples": 982
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031000/samples.npz",
+        "sha256": "7e159a59e3d5b23e52c07ad993d6f8c44b7e1d79e6308c789a1dc8901fd2ad84",
+        "validation_samples": 786
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031128/samples.npz",
+        "sha256": "693fe910f707b6c44705b6fc62ef624c26209feab81649ba6c34f46f2484b454",
+        "validation_samples": 894
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031256/samples.npz",
+        "sha256": "867a230fe75c2fe37002f809ce65678074886e2feccb8786238e1f07905a2d46",
+        "validation_samples": 1632
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031384/samples.npz",
+        "sha256": "88bba786bbf72743c7553140816f78bb473ced243f5c504f0d598d1f1894a8b4",
+        "validation_samples": 984
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031512/samples.npz",
+        "sha256": "6e423ba7261c3617070b6302050b4228d2e11b5b3c4b95370f02c8ac5e272413",
+        "validation_samples": 1594
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031640/samples.npz",
+        "sha256": "af5f03df2957c05457c94e075923f671ac7f042a8877c45ebe0325944554654d",
+        "validation_samples": 1716
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031768/samples.npz",
+        "sha256": "83fbc0a5a141ff6d0ba2b41c1192dfe80d6b53c19db7c50e0b7d0a4d130ef501",
+        "validation_samples": 1035
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00031896/samples.npz",
+        "sha256": "420f821ceff2e4673efeb9853c044982d6c13a49c8d926fa22555ef80e64b0f5",
+        "validation_samples": 718
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032024/samples.npz",
+        "sha256": "096be4dc6afaf31edf69771444bd707b56b8b9ea4f5e2fc81e99ed1e9113764b",
+        "validation_samples": 1313
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032152/samples.npz",
+        "sha256": "d60ebbe2958a973ff9f5075ba1e2e6243545e3d7e04c9e920a765b252c66c68d",
+        "validation_samples": 716
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032280/samples.npz",
+        "sha256": "b8b01769635d9e3d461bcf1f342f08fd402f5b8ae2130bfeb647f7c348112f7c",
+        "validation_samples": 1308
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032408/samples.npz",
+        "sha256": "e96f984a8ef20e554a880887bacffc55c8bf028276595784467500bab0a138fd",
+        "validation_samples": 1278
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032536/samples.npz",
+        "sha256": "c97b21bb41c8a3fd1d3387e31ee111f7473accc4366cc075e38fe79c4cc72c69",
+        "validation_samples": 2079
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032664/samples.npz",
+        "sha256": "412e9e1a55c4c125d0832bfe2ffe8741a5f540ba398cc068a62a843d25005b29",
+        "validation_samples": 1117
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032792/samples.npz",
+        "sha256": "df3770552aa8600c53df40a296e017dd46c2b8b6c3aedcea1a7bf18c06c967f6",
+        "validation_samples": 1245
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00032920/samples.npz",
+        "sha256": "cd31753b1b8b65e20ad7ea82d326112073a2ce4ef0d7d6bd8f78b0d99916b21d",
+        "validation_samples": 758
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033048/samples.npz",
+        "sha256": "865b1c62eaafd32dd23a752be94a8c5b1190a405737e00b431b1304de6dd4db5",
+        "validation_samples": 1008
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033176/samples.npz",
+        "sha256": "a114edb1a52191acc351b787cd7b2c88e719dd4914ab75db7a8961717364fe9a",
+        "validation_samples": 906
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033304/samples.npz",
+        "sha256": "ef2dd4bb5b58a0f1a2b0ec35578915ea40b4f3cfc230b5f4bd5fed4285bf7582",
+        "validation_samples": 950
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033432/samples.npz",
+        "sha256": "61e63f187258cb334645c2efcfc3f68663b4f50ed3f1938a0deb153204859ff7",
+        "validation_samples": 1423
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033560/samples.npz",
+        "sha256": "80621fb86f8693a2ce36724373405382c5c4446d9aedbf95d6aa6e99c0f9252f",
+        "validation_samples": 1528
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033688/samples.npz",
+        "sha256": "e81f2cdf6df2210b0adcdceee7bd79dcc227c73ffc7602ff05ec0280864759b9",
+        "validation_samples": 970
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033816/samples.npz",
+        "sha256": "2caca039482087a6f65c68cc54486b7e0918dfe2a189476220b7b73e9e1161bf",
+        "validation_samples": 1089
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00033944/samples.npz",
+        "sha256": "5534e66ec6d423b753893b7c43cddddc80e30dc0b4b1597e2ca76c95ce557145",
+        "validation_samples": 1097
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034072/samples.npz",
+        "sha256": "d15916f5b019061f27a2f8d6a6b200de732593932e759a9b66c1e8c902d835bc",
+        "validation_samples": 926
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034200/samples.npz",
+        "sha256": "64d13c80188dba4eda618e48f09da3cf0a73bda4b725dfc4aa832b9fa5078749",
+        "validation_samples": 1217
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034328/samples.npz",
+        "sha256": "812dede77e701392b25a73d766270ee3941d7821b88039fe36aaa443bead8059",
+        "validation_samples": 926
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034456/samples.npz",
+        "sha256": "f3e36d60b16134858581211f28914c63890f1a61c73a9ea1a4cff3bf84b48ad9",
+        "validation_samples": 755
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034584/samples.npz",
+        "sha256": "0b487c70d2173ad28758877ca96dff67505c9b49b0b8618d346e0dfb523c43de",
+        "validation_samples": 1149
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034712/samples.npz",
+        "sha256": "a1b4fb41b3400d0a1d2cd24d9150f74c535b7bf056d7c60e07ae1c3fd7c283cd",
+        "validation_samples": 542
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034840/samples.npz",
+        "sha256": "5d3fd5bb898516ccaaae5963f800bdb3bcdf9116e493473e7f3a54535e629b82",
+        "validation_samples": 1073
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00034968/samples.npz",
+        "sha256": "018b708e4aadb0426da58ce2a61e4f5c86b44754991db240d7a3a62f9e9d75fe",
+        "validation_samples": 824
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035096/samples.npz",
+        "sha256": "cf9e33562b9f16b05bfa4e3410a19f367c1d5f3c5ee549a004225e0f1731308d",
+        "validation_samples": 920
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035224/samples.npz",
+        "sha256": "c1eaa8aea916b356e337828b5e1c49671e162d3661068d23e5116cba3b32a57f",
+        "validation_samples": 1111
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035352/samples.npz",
+        "sha256": "f4b6b9cf97dd7892fff8c3288a2bac553ce86bcf4193a2bd1ac428aa6f57e2a7",
+        "validation_samples": 940
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035480/samples.npz",
+        "sha256": "83a7661d83a154b9b9e00feddcdd7856e4d61b4bda9919b01c4677ae7e98e3a8",
+        "validation_samples": 1066
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035608/samples.npz",
+        "sha256": "160e28e2c7012b18d58d2ab6039b0b95f5eb40264ee787cce31a8521c97d1153",
+        "validation_samples": 1494
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035736/samples.npz",
+        "sha256": "2f19b9187e63513f9c119a9378e609cd6cf385dfeb691515481476487333a113",
+        "validation_samples": 667
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035864/samples.npz",
+        "sha256": "f55c6d83408a3ef741d07dd6ba1bafae81baa1fdcc71fbf1faa86df9bf33d7a7",
+        "validation_samples": 1237
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00035992/samples.npz",
+        "sha256": "d7c5b5b38c9a1985badf095faa45df681a936478704eb8ba1969387fe36f1ec6",
+        "validation_samples": 950
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00036120/samples.npz",
+        "sha256": "9850bd0696004a36b92d2e4ab8621c691a0ea96118d16b8c652000b25d284e9b",
+        "validation_samples": 1395
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00036248/samples.npz",
+        "sha256": "d904d039d2ebe022b7b6a90d9924fc81289e3df75677404f3fdcdc6826dd39e9",
+        "validation_samples": 1155
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00036376/samples.npz",
+        "sha256": "cde2d860bd6a7e081a4acc896563b8ac044563ed3f4d5ab8280dd9cfdb00dcbc",
+        "validation_samples": 1256
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00036504/samples.npz",
+        "sha256": "1a51417a8971f3af3278fb7f2ebbfd3335ff7d0bd94433c08bb09cde5fdcc52d",
+        "validation_samples": 975
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00036632/samples.npz",
+        "sha256": "16d22afd2163fb2d7bcd1420cf009ee0d9c02fa5ba9a548fd22cc89d7150376a",
+        "validation_samples": 1182
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00036760/samples.npz",
+        "sha256": "f96d65dc894f42eb00fd2ed26d3450ab4a4712e7ed6fcfd87536b6e66bdedc59",
+        "validation_samples": 809
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00036888/samples.npz",
+        "sha256": "c9dcb681a3d54a90404d66e51cacbd0621b5f24e0d4b49bdb1a1537c599ae276",
+        "validation_samples": 871
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037016/samples.npz",
+        "sha256": "48f2a67d21b9a00c6669e8b23532c12e80861db9da9e483536459a1e68e5d588",
+        "validation_samples": 1019
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037144/samples.npz",
+        "sha256": "97d58bc1ede8399822e71e845fc0cabb7b418cef2c91675cc0e30d5876880aa4",
+        "validation_samples": 960
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037272/samples.npz",
+        "sha256": "5f23655c966fd5e9415eee2179adb2ac08a64d5480a70e9c807702690e24444c",
+        "validation_samples": 1124
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037400/samples.npz",
+        "sha256": "685de9525005c79a645fd6c78cee0fa02a4cf704a95986854b3e3249d33aa053",
+        "validation_samples": 1196
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037528/samples.npz",
+        "sha256": "47db952ac0e4cc8b8cc5c6e26587785aa9e28e9ceb0b48c70d771f7e6ba8a55b",
+        "validation_samples": 1263
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037656/samples.npz",
+        "sha256": "ae760789c57889cf013229a4ae9d8ea2d1bd912ed26c33cdaa38d16bf5aa002e",
+        "validation_samples": 1248
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037784/samples.npz",
+        "sha256": "d4d0d23fc2516684854147cc2e778cc9b9bc422a1b711464ee01b9003352c40f",
+        "validation_samples": 1205
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00037912/samples.npz",
+        "sha256": "01fd7065c073770c318b20741d38ca4e10add8c44564c69afada34d993aef8c2",
+        "validation_samples": 1629
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038040/samples.npz",
+        "sha256": "f93b0e5146daffa9c306b791de089af197d3ed5c78f7d9055eb100c19b832173",
+        "validation_samples": 1186
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038168/samples.npz",
+        "sha256": "c7c350e2e5e2caff9cab34858a8d5f948d1faae7313bbaacf028a867410e933c",
+        "validation_samples": 925
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038296/samples.npz",
+        "sha256": "0d9d8451983c7645bd2073c353b68ee32351877268a998021f473e133435a2b9",
+        "validation_samples": 893
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038424/samples.npz",
+        "sha256": "5dc706e5ce0d661ab5e15790402e8e1f4fca047fea366d880611b0d2db9391b7",
+        "validation_samples": 1111
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038552/samples.npz",
+        "sha256": "70353a81723ceea76dd33fcc8ee2e319c91b9b77084bd64ba163720c2798bec4",
+        "validation_samples": 838
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038680/samples.npz",
+        "sha256": "2071457925d2367c5f7d053c7ca34328d63a35e1ae3911feac8db96737246194",
+        "validation_samples": 1154
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038808/samples.npz",
+        "sha256": "8b37c2b20725ae9e88f223271faa2767e878ab0aad18b2ed518a23355920225b",
+        "validation_samples": 1062
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00038936/samples.npz",
+        "sha256": "c1e0d21482c33c02c7c0bc60009fc8dce6d2a563a4992fcc5c428f7b2a852069",
+        "validation_samples": 1373
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039064/samples.npz",
+        "sha256": "035c4ee015a46b66a5e6551d194c864b6cd71a0911f32cb14e3b6f77de59d1da",
+        "validation_samples": 756
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039192/samples.npz",
+        "sha256": "508dcd1e22867ac6708a8d691e11adea98d11722fca872d382a41e829972730d",
+        "validation_samples": 1451
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039320/samples.npz",
+        "sha256": "14273165352a03f2d6416b8e79128b565300cd2177df75c003b91cb95968bc2b",
+        "validation_samples": 735
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039448/samples.npz",
+        "sha256": "188eccaf746ab18441546a294bfc89d46c2de614a5594902ed8d2d06e9d9fde0",
+        "validation_samples": 840
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039576/samples.npz",
+        "sha256": "8ba3a095fadbbf71289fac7eb3724c48aacd93edecc8a139b423814cf5b971c2",
+        "validation_samples": 914
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039704/samples.npz",
+        "sha256": "6519d14be3ac6d74ebfd1a5bc5a098b59545ed8ade951ef57f98b43f6df021e8",
+        "validation_samples": 872
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039832/samples.npz",
+        "sha256": "4c0ec766fd33685fd9a6b07a3cf217a1b15e54da2ce612cdbc365e68ed0a40fc",
+        "validation_samples": 1400
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00039960/samples.npz",
+        "sha256": "e48a5e8a701c3177d397585e14bdb9c2643d273745610a21922852f9f7ed2b42",
+        "validation_samples": 956
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040088/samples.npz",
+        "sha256": "f33094ad491dc18e3e943e9934aa81d2d386b0ab8cb6d709944f1ff0b49f24b4",
+        "validation_samples": 1420
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040216/samples.npz",
+        "sha256": "f686c14e78013bed26dc7bcb7661e3707caf00bf4643d9ed34cb9e6c45fe48ff",
+        "validation_samples": 1109
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040344/samples.npz",
+        "sha256": "afe19cb4c99257909ae10ce2711576d7f3ddb5fa7300161e6536d2bb1064b035",
+        "validation_samples": 895
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040472/samples.npz",
+        "sha256": "f8d20a9ac019d2ce30e30f8e03d1274cbc39394761307853e5f5b29a3f962fa3",
+        "validation_samples": 888
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040600/samples.npz",
+        "sha256": "a269fc461538fc8a91f59dce47117f4d320ba90bdfbcca3f9316c2b9fadfd5c5",
+        "validation_samples": 1145
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040728/samples.npz",
+        "sha256": "796bf3d96e3aaabbbc63bc1f17b3f434273ac5b03817f705cd1a8c3946a3958c",
+        "validation_samples": 854
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040856/samples.npz",
+        "sha256": "da813f4051a672331680b417ba9441247f1433b12fd2365b25d3cab53573ff9a",
+        "validation_samples": 872
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00040984/samples.npz",
+        "sha256": "36c85358cbd9a6671ae3db77ab79951903638e4d296e3c4d7030cb3fbd96dfe6",
+        "validation_samples": 1329
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00041112/samples.npz",
+        "sha256": "73cd50f24284823241d31e25fdd68b185175ddaf0a0c9563def37ba8256b0fd2",
+        "validation_samples": 803
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00041240/samples.npz",
+        "sha256": "7c9edef69a7012f40276006285448643e803f3ef921b7f6db4f070619befcc22",
+        "validation_samples": 1268
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00041368/samples.npz",
+        "sha256": "8f44289a6f1fea28b05de9a2c0320bdfd1a7a3ae51d242476e630c4cb837d00b",
+        "validation_samples": 761
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00041496/samples.npz",
+        "sha256": "9dce60f99c4b756b7bfc9ce4b011642a06bd3018cfcf1d4452ac27553c1b500b",
+        "validation_samples": 1416
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00041624/samples.npz",
+        "sha256": "83fa9bcb75a7ccae69c7a3760e6cc07bbafec91547b6387cc4aeeb4e9a55ad34",
+        "validation_samples": 624
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00041752/samples.npz",
+        "sha256": "bc0e8b64de4eaede618e9f9854ab3d0e771307b71a8c7979ece220bf3d31f9c2",
+        "validation_samples": 1333
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00041880/samples.npz",
+        "sha256": "32f93bc7f6f28f462f136471b91d427412b2bd1744fc5e8f60281eacb48efabb",
+        "validation_samples": 966
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042008/samples.npz",
+        "sha256": "dbd81e1947e82e5458955ab938de5606abef446b4c41d177e5a1a94a4f268d66",
+        "validation_samples": 1205
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042136/samples.npz",
+        "sha256": "35eb786be0c5ef9367adf661c7ab86e428f082aed308592d21d658703009f716",
+        "validation_samples": 858
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042264/samples.npz",
+        "sha256": "1e2f24479ee1e46cfcf9ca030b1e2e6cc351e3c9bbd1ee10c0d318c09a884c13",
+        "validation_samples": 1217
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042392/samples.npz",
+        "sha256": "ac31b35bd92688de4ba645003fdfefda32d1962f5470d77b38d9a1eb82263b26",
+        "validation_samples": 1027
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042520/samples.npz",
+        "sha256": "dec063df7c30ce6f85c94242fc0e0ba9555e89e392fab1db370e3917e73ede45",
+        "validation_samples": 1127
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042648/samples.npz",
+        "sha256": "c96c8b0c1732d74089a29f64b634b8dac6cceae71534dbf2183199e6c72e20dc",
+        "validation_samples": 1189
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042776/samples.npz",
+        "sha256": "86d4e893b6cacb2653698d9e95534e9b57f7def6697ed939c6976e065941ce97",
+        "validation_samples": 1285
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00042904/samples.npz",
+        "sha256": "1101c7966845c4a7de1263259c5b1f41cb0e35a95892ffb6d4891fb131354264",
+        "validation_samples": 880
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043032/samples.npz",
+        "sha256": "bf42575d4e2a6c1a4601c9fce7e07e051fd8b41f036c36319d7f160d589439a3",
+        "validation_samples": 1253
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043160/samples.npz",
+        "sha256": "2e91dba1404f44fefcf8bd2f310aecf2b9718d201f5b5ab6ac8d34d30d6b89a1",
+        "validation_samples": 1362
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043288/samples.npz",
+        "sha256": "6b1cd0c1bdc5b34b13c34cc5077d102cfabac690df6f25f87d2d3b3e82253755",
+        "validation_samples": 858
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043416/samples.npz",
+        "sha256": "ad4288ea568532802f702fd5e0549f3502aa4b6d74a4bb02f6c0048e1653f0e3",
+        "validation_samples": 832
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043544/samples.npz",
+        "sha256": "5600980c42c82ae41c4392d16986244153adaff448ab22d352bdf91667e56a3d",
+        "validation_samples": 976
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043672/samples.npz",
+        "sha256": "16ff84fe2d461f3c4297c4a1784c72c0ee88d29fb306b52857fba51265c89254",
+        "validation_samples": 1165
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043800/samples.npz",
+        "sha256": "a26e64516d81639497c7fe0f1f3bdce421fec4b845eaceb84097b6f58bc9aa28",
+        "validation_samples": 1210
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00043928/samples.npz",
+        "sha256": "32109b545e631e2cc0d1a31559765d9554ea0954a0e232c08e4d6d92152ad87d",
+        "validation_samples": 1041
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00044056/samples.npz",
+        "sha256": "5da106ff64caabf6a0207fcd3c24073dd9b987350690d342e4ba2ab778b39344",
+        "validation_samples": 1329
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00044184/samples.npz",
+        "sha256": "19466a92523300f95ce16032bd44b82b09579b8ad989af78e04d6a7b81056b6f",
+        "validation_samples": 548
+      },
+      {
+        "path": "datasets/expanded_strict_v2/shards/00044312/samples.npz",
+        "sha256": "15861be6495da14bdccca95b86904aee5c154423f12a4a2f75a2508021a9ddbf",
+        "validation_samples": 899
+      }
+    ],
+    "verification": "Frozen checkpoint/metadata/contract and all compressed NPZ hashes; exact actual train/validation memberships and per-match sample counts; existing development_splits and ShardSplit loader; no full replay audit"
+  },
+  "limitations": [
+    "This validation fold was already used for checkpoint/model selection; it is not a new independent blind test.",
+    "Target inclusion measures observed discard agreement, not optimal play or win probability.",
+    "Rates are weighted by decisions; known-player and repeated-state dependence remains.",
+    "Test and historical_test rows were excluded from inference; no training, calibration, downloads, threshold search, or artifact/database writes were performed."
+  ]
+}

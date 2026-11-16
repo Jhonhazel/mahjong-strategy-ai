@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="20" skipped="0" tests="21" time="1.858" timestamp="2026-11-11T12:32:37.533592+07:00" hostname="Jhonhazels-MacBook-Air.local"><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values0-expected0]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values1-expected1]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values2-expected2]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values3-expected3]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values4-expected4]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values5-expected5]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values6-expected6]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_complete_valid_distributions_use_exact_threshold_without_padding[values7-expected7]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:20: in test_complete_valid_distributions_use_exact_threshold_without_padding
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[nan]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[inf]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[negative]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[boolean]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[wrong_length]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[not_normalized]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[no_legal]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[illegal_positive]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_invalid_scores_or_masks_are_errors_not_empty_results[bad_mask]" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:40: in test_invalid_scores_or_masks_are_errors_not_empty_results
+    with pytest.raises(ValueError):policy().filter_recommendations(scores,legal)
+                                   ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_policy" name="test_illegal_zero_classes_never_enter_suggestions_and_ties_use_class_order" time="0.000"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_policy.py:45: in test_illegal_zero_classes_never_enter_suggestions_and_ties_use_class_order
+    result=policy().filter_recommendations(scores,legal)
+           ^^^^^^^^
+tests/test_recommendation_policy.py:7: in policy
+    def policy():return importlib.import_module('app.services.recommendation_policy')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase><testcase classname="tests.test_recommendation_http" name="test_empty_analysis_commits_reuses_and_projects_old_snapshot_without_writes" time="0.357"><failure message="KeyError: 'recommendations'">tests/test_recommendation_http.py:29: in test_empty_analysis_commits_reuses_and_projects_old_snapshot_without_writes
+    assert saved['recommendations']=={'suggestions':[],'minimum_score':.1,'maximum_suggestions':3,'status':'no_suggestions'}
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'recommendations'</failure></testcase><testcase classname="tests.test_recommendation_http" name="test_empty_analysis_storage_error_is_not_a_success" time="0.301" /><testcase classname="tests.test_recommendation_http" name="test_real_checkpoint_response_and_history_use_same_server_projection" time="0.103"><failure message="ModuleNotFoundError: No module named 'app.services.recommendation_policy'">tests/test_recommendation_http.py:65: in test_real_checkpoint_response_and_history_use_same_server_projection
+    from app.services.recommendation_policy import filter_recommendations
+E   ModuleNotFoundError: No module named 'app.services.recommendation_policy'</failure></testcase></testsuite></testsuites>

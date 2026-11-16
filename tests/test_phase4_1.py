@@ -73,9 +73,9 @@ def test_official_roster_is_reproducible_exact_and_has_no_roles(web_settings, po
         assert page.status_code == 200 and page.text.count('class="member-card"') == 5
         for member in MEMBERS:
             assert all(value in page.text for value in member)
-        assert 'belum dikonfirmasi' not in page.text and 'Pembagian Tugas Kelompok 1' in page.text
+        assert 'belum dikonfirmasi' not in page.text and 'Pembagian Tugas Kelompok 1' not in page.text
         assert 'kelompok dan pembagian tugas belum diverifikasi' not in page.text
-        assert page.text.count('<dt>Peran</dt>')==5
+        assert '<dt>Peran</dt>' not in page.text
 
 
 @pytest.mark.parametrize('missing', [True, False])

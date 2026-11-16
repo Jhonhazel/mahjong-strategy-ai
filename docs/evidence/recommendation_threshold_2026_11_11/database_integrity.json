@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "before_count": 98,
+  "after_count": 98,
+  "all_original_row_hashes_and_ids_identical": true,
+  "read_only": true,
+  "canonicalization": "sorted compact JSON UTC",
+  "no_development_writes": true,
+  "real_legacy_snapshots_projected_without_inference": 98,
+  "legacy_display_count_distribution": {
+    "1": 42,
+    "2": 23,
+    "3": 33
+  }
+}

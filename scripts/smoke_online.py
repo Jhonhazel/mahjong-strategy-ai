@@ -48,10 +48,10 @@ class Client:
 
 def acceptance(base,ca=None):
     client=Client(base,ca);client.session();pages={}
-    for path in ('/','/game','/contact','/history','/docs','/redoc','/openapi.json','/static/tiles.svg','/static/phase4/playback.mjs'):
+    for path in ('/','/model','/game','/contact','/history','/docs','/redoc','/openapi.json','/static/tiles.svg','/static/phase4/playback.mjs'):
         status,body,headers=client.request(path);assert status==200,(path,status);pages[path]=status
         assert headers.get('Content-Security-Policy') and headers.get('X-Content-Type-Options')=='nosniff'
-        if path=='/contact':assert body.count('class="member-card"')==5 and 'Pembagian Tugas Kelompok 1' in body and 'belum dikonfirmasi' not in body
+        if path=='/contact':assert body.count('class="member-card"')==5 and 'Pembagian Tugas Kelompok 1' not in body and 'belum dikonfirmasi' not in body
     assert client.request('/health/ready')[1]=={'status':'ready','model':'ready','database':'ready'}
     assert client.request('/api/games',{},'POST',csrf=False)[0]==403
     assert client.request('/api/games',{},'POST',origin='https://other.invalid')[0]==403

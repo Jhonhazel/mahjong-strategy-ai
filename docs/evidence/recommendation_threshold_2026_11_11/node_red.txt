@@ -1,0 +1,216 @@
+✔ three filtered result succeeds with exactly 3 cards and highlights (6.607292ms)
+✖ two filtered result succeeds with exactly 2 cards and highlights (0.915791ms)
+✖ one filtered result succeeds with exactly 1 cards and highlights (0.234417ms)
+✖ empty filtered result succeeds with exactly 0 cards and highlights (0.184625ms)
+✖ malformed filtered response below is an error instead of empty success (0.203541ms)
+✖ malformed filtered response missing is an error instead of empty success (0.114083ms)
+✖ malformed filtered response illegal is an error instead of empty success (0.103333ms)
+✖ malformed filtered response nan is an error instead of empty success (0.175334ms)
+✖ malformed filtered response renormalized is an error instead of empty success (0.138334ms)
+✖ malformed filtered response wrong_status is an error instead of empty success (0.171916ms)
+✖ malformed filtered response fake_empty is an error instead of empty success (0.127291ms)
+✖ malformed filtered response wrong_policy is an error instead of empty success (0.431ms)
+✖ malformed filtered response omitted_field is an error instead of empty success (0.151041ms)
+✔ empty analysis failure cannot claim a committed save (0.20675ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 2
+ℹ fail 12
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.591083
+
+✖ failing tests:
+
+test at tests/frontend/recommendation_threshold.test.mjs:10:73
+✖ two filtered result succeeds with exactly 2 cards and highlights (0.915791ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 2
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:14:58)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 2,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:10:73
+✖ one filtered result succeeds with exactly 1 cards and highlights (0.234417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 1
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:14:58)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 1,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:10:73
+✖ empty filtered result succeeds with exactly 0 cards and highlights (0.184625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:14:58)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 0,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response below is an error instead of empty success (0.203541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response missing is an error instead of empty success (0.114083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response illegal is an error instead of empty success (0.103333ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response nan is an error instead of empty success (0.175334ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response renormalized is an error instead of empty success (0.138334ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response wrong_status is an error instead of empty success (0.171916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response fake_empty is an error instead of empty success (0.127291ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response wrong_policy is an error instead of empty success (0.431ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }
+
+test at tests/frontend/recommendation_threshold.test.mjs:21:131
+✖ malformed filtered response omitted_field is an error instead of empty success (0.151041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/jhonhazel/mahjong-strategy-ai/tests/frontend/recommendation_threshold.test.mjs:33:10)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual'
+  }

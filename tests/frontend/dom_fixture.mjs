@@ -37,7 +37,7 @@ export function descendants(node) { return [node, ...node.children.flatMap(desce
 export function rendererDocument() {
   const root = new Element('main');
   const ids = ['game-message','game-state','empty-table','new-game','refresh-button','predict-button','submit-action',
-    'legal-action','human-hand','claim-actions','game-id','public-state','round-result','hand-hint','table-center',
+    'human-hand','claim-actions','round-result','hand-hint','table-center',
     'seat-top','seat-left','seat-right','seat-bottom','advisor-availability','prediction'];
   for (const id of ids) { const node = new Element(id === 'new-game' ? 'form' : 'div'); node.setAttribute('id',id); root.append(node); }
   const doc = { ...documentFixture, getElementById: id => descendants(root).find(node => node.getAttribute('id') === id) };

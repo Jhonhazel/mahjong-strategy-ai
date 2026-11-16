@@ -8,7 +8,7 @@ const idleMode = view => !view ? 'NO_GAME' : ({
 
 // Validate the response used to claim a committed save. This checks protocol
 // shape and supplied server membership; it computes no Mahjong legality/ranking.
-function verifiedPrediction(result, view) {
+function verifiedPrediction(result, view, policy) {
   const uuid = value => typeof value === 'string' && /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(value);
   const text = value => typeof value === 'string' && value.length > 0 && value.length <= 500;
   const score = value => typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 1;
@@ -31,13 +31,29 @@ function verifiedPrediction(result, view) {
       || result.top3[0].tile !== result.recommended_tile
       || result.top3[0].action_id !== result.recommended_action_id
       || result.top3[0].class_index !== result.recommended_class_index) throw new HttpError(0);
+  const recommendations = result.recommendations;
+  const allowed = new Set(view.legal_actions.filter(action => action.action_type === 'Play').map(action => action.action_id - 2));
+  if (Math.abs(result.scores.reduce((sum,value) => sum + value,0) - 1) > 1e-5
+      || result.scores.some((value,index) => !allowed.has(index) && value !== 0)
+      || !recommendations || !score(recommendations.minimum_score) || recommendations.minimum_score === 0
+      || !Number.isInteger(recommendations.maximum_suggestions) || recommendations.maximum_suggestions < 1 || recommendations.maximum_suggestions > 34
+      || (policy && (recommendations.minimum_score !== policy.minimum_score || recommendations.maximum_suggestions !== policy.maximum_suggestions))
+      || !Array.isArray(recommendations.suggestions) || !recommendations.suggestions.every(legal)
+      || !recommendations.suggestions.every(item => item.score === result.scores[item.class_index])) throw new HttpError(0);
+  // Integrity check only: the server supplies the list. Never repair or fill it here.
+  const expected = [...allowed].filter(index => result.scores[index] >= recommendations.minimum_score)
+    .sort((a,b) => result.scores[b] - result.scores[a] || a - b).slice(0,recommendations.maximum_suggestions);
+  if (recommendations.status !== (expected.length ? 'available' : 'no_suggestions')
+      || recommendations.suggestions.length !== expected.length
+      || !recommendations.suggestions.every((item,index) => item.class_index === expected[index])) throw new HttpError(0);
   return result;
 }
 
 export class GameController {
-  constructor({ api, render = () => {}, onGame = () => {}, presentation = null }) {
+  constructor({ api, render = () => {}, onGame = () => {}, presentation = null, recommendationPolicy = null }) {
     this.api = api; this.render = render; this.onGame = onGame;
     this.presentation = presentation;
+    this.recommendationPolicy = recommendationPolicy;
     this.gameId = null; this.readSequence = 0; this.operationSequence = 0; this.activeOperation = 0; this.urlGame = null;
     this.state = { view: null, selectedId: null, selectedIndex: null, prediction: null, savedNotice: null,
       busy: null, presentation: null, mode: 'NO_GAME', message: 'Pilih pengaturan, lalu mulai round Anda.', tone: 'info', needsRefresh: false };
@@ -113,7 +129,7 @@ export class GameController {
     this.gameId = id;
     try {
       const accepted = await this.read(id);
-      if (accepted) { this.state.message = 'State meja sudah diperbarui.'; this.state.tone = 'info'; }
+      if (accepted) { this.state.message = 'Meja sudah diperbarui.'; this.state.tone = 'info'; }
       return accepted;
     } catch (error) {
       if (token === this.activeOperation) this.fail(error);
@@ -173,7 +189,7 @@ export class GameController {
         if (token !== this.activeOperation) return false;
         this.state.presentation = null;
       }
-      this.state.message = 'Langkah diterima. State meja sudah diperbarui.'; this.state.tone = 'success'; return true;
+      this.state.message = 'Langkah diterima. Meja sudah diperbarui.'; this.state.tone = 'success'; return true;
     } catch (error) {
       if (!error?.status || error.status >= 500 || [400, 409].includes(error.status)) await this.reconcileAction(view.game_id, error);
       else { this.clearSelection(); this.fail(error); }
@@ -186,22 +202,23 @@ export class GameController {
     const token = this.begin('PREDICTING'); if (token === null) return false;
     ++this.readSequence;
     try {
-      const result = verifiedPrediction(await this.api.predict(view.game_id, { expected_turn_number: view.turn_number }), view);
+      const result = verifiedPrediction(await this.api.predict(view.game_id, { expected_turn_number: view.turn_number }), view, this.recommendationPolicy);
       this.state.savedNotice = result; this.state.prediction = null;
       this.emit();
       try {
         const verified = await this.read(view.game_id);
         if (verified && key(result) === key(this.state.view) && this.state.view.can_request_ai_prediction) {
           this.state.prediction = result;
-          this.state.message = result.reused ? 'Prediksi tersimpan sebelumnya dipakai ulang.' : 'Prediksi tersimpan. Keputusan langkah tetap milik Anda.';
+          this.state.message = result.recommendations.status === 'no_suggestions'
+            ? 'Hasil analisis disimpan.' : result.reused ? 'Prediksi tersimpan sebelumnya dipakai ulang.' : 'Saran tersimpan. Pilih langkah Anda.';
           this.state.tone = 'success';
         } else {
-          this.state.message = 'Prediksi tersimpan untuk giliran sebelumnya. Lihat detailnya di History.';
+          this.state.message = 'Hasil analisis disimpan untuk giliran sebelumnya. Lihat detailnya di History.';
           this.state.tone = 'warning';
         }
       } catch (readError) {
         this.fail(readError); this.state.needsRefresh = true;
-        this.state.message = 'Prediksi tersimpan. State terkini belum dapat diverifikasi. ' + messageFor(readError);
+        this.state.message = 'Prediksi tersimpan. Meja belum dapat diperbarui. ' + messageFor(readError);
         this.state.tone = 'warning';
       }
       return true;

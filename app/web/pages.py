@@ -15,14 +15,13 @@ from app.web.errors import WebError
 from app.web.security import COOKIE_NAME
 from app.web.views import history_summary, history_detail
 from app.web.tile_catalog import TILE_CATALOG, WIND_NAMES
+from app.services.recommendation_policy import RECOMMENDATION_POLICY
 
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory=ROOT/'app/templates')
-templates.env.globals.update(tile_catalog=TILE_CATALOG, wind_names=WIND_NAMES)
+templates.env.globals.update(tile_catalog=TILE_CATALOG, wind_names=WIND_NAMES,recommendation_policy=RECOMMENDATION_POLICY)
 
 HOME_SUMMARY_SHA256='d84063a958f54f49548dd996955e69ebe8ce1b90585d96a0f3e0b4786d375a46'
-# The shared five-area description applies only to this explicitly assigned scope.
-GROUP_SCOPE_ROLE='Pengembangan bersama: dataset Mahjong, preprocessing & encoding, training/evaluasi AI, game & web FastAPI, testing, debugging, dokumentasi & presentasi UAS.'
 
 
 @lru_cache(maxsize=1)
@@ -106,31 +105,39 @@ def page_visitor(request):
         return sessions.create(),True
 
 
-def render(request,name,visitor,new_cookie,**context):
-    response=templates.TemplateResponse(request=request,name=name,context={'csrf_token':visitor.csrf_token,**context})
+def render(request,name,visitor,new_cookie,status_code=200,**context):
+    response=templates.TemplateResponse(request=request,name=name,status_code=status_code,context={'csrf_token':visitor.csrf_token,**context})
     if new_cookie:resources(request).visitors.set_cookie(response,visitor)
     return response
 
 
 @router.get('/')
 def home(request: Request):
+    visitor,new_cookie=page_visitor(request)
+    return render(request,'home.html',visitor,new_cookie)
+
+
+@router.get('/model')
+def model_page(request: Request):
     visitor,new_cookie=page_visitor(request);runtime=resources(request).runtime
     metadata=runtime.metadata;architecture=metadata['architecture']
     dimensions=[architecture['input_dim'],*architecture['hidden_dims'],architecture['output_dim']]
     metrics=metadata['test_evaluation']['metrics']
-    return render(request,'home.html',visitor,new_cookie,model_version=runtime.ai.model_version,
+    research=research_context(metadata)
+    # The public initial split excludes the tiny legacy holdout, then renormalizes.
+    partitions=None if research is None else chart_percentages([
+        {'label':label,'count':row['count']} for label,row in zip(('Latihan','Validasi','Pengujian'),research['partitions'][:3])])
+    return render(request,'model.html',visitor,new_cookie,
                   architecture=' → '.join(map(str,dimensions)),dataset_id=metadata['dataset']['id'],
-                  samples=f"{metadata['dataset']['accepted_samples']:,}",
-                  top1=f"{metrics['top1']*100:.2f}%",top3=f"{metrics['top3']*100:.2f}%",
-                  macro_f1=f"{metrics['macro_f1_34']:.3f}",nll=f"{metrics['nll']:.3f}",
-                  legal_rate=f"{metrics['legal_rate']*100:.0f}%",metadata=metadata,research=research_context(metadata))
+                  top3=f"{metrics['top3']*100:.2f}%".replace('.',','),
+                  macro_f1=f"{metrics['macro_f1_34']:.3f}".replace('.',','),
+                  metadata=metadata,research=research,partitions=partitions)
 
 
 @router.get('/contact')
 def contact(request: Request):
     visitor,new_cookie=page_visitor(request);roster=resources(request).contacts
-    return render(request,'contact.html',visitor,new_cookie,verified=roster.verified,members=roster.members if roster.verified else [],
-                  roles_complete=roster.verified and len(roster.members)==5 and all(member.role==GROUP_SCOPE_ROLE for member in roster.members))
+    return render(request,'contact.html',visitor,new_cookie,verified=roster.verified,members=roster.members if roster.verified else [])
 
 
 @router.get('/game')
@@ -148,12 +155,13 @@ def history_page(request: Request,limit: int=Query(20,ge=1,le=100),offset: int=Q
 
 
 @router.get('/history/{prediction_id}')
-def history_detail_page(prediction_id: uuid.UUID,request: Request):
+def history_detail_page(prediction_id: str,request: Request):
     visitor,new_cookie=page_visitor(request)
-    record=resources(request).history.get(visitor.owner_key,prediction_id)
-    if record is None:raise WebError(404,'not_found','Prediction not found')
-    return render(request,'history_detail.html',visitor,new_cookie,record=history_detail(record),
-                  snapshot=record.input_snapshot,output=record.output_snapshot)
+    try:identifier=uuid.UUID(prediction_id)
+    except ValueError:return render(request,'history_detail.html',visitor,new_cookie,status_code=422,record=None)
+    record=resources(request).history.get(visitor.owner_key,identifier)
+    if record is None:return render(request,'history_detail.html',visitor,new_cookie,status_code=404,record=None)
+    return render(request,'history_detail.html',visitor,new_cookie,record=history_detail(record))
 
 
 @router.post('/history/{prediction_id}/delete')

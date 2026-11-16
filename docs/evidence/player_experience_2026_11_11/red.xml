@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="11" skipped="0" tests="11" time="2.174" timestamp="2026-11-11T10:13:24.092239+07:00" hostname="Jhonhazels-MacBook-Air.local"><testcase classname="tests.test_player_experience" name="test_five_player_routes_have_consistent_order_and_active_page[/]" time="0.362"><failure message="AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']&#10;  &#10;  Right contains one more item: '/model'&#10;  Use -v to get more diff">tests/test_player_experience.py:22: in test_five_player_routes_have_consistent_order_and_active_page
+    assert [a['href'] for a in links]==['/','/game','/history','/contact','/model']
+E   AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']
+E     
+E     Right contains one more item: '/model'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.test_player_experience" name="test_five_player_routes_have_consistent_order_and_active_page[/model]" time="0.095"><failure message="assert 404 == 200&#10; +  where 404 = &lt;Response [404 Not Found]&gt;.status_code">tests/test_player_experience.py:19: in test_five_player_routes_have_consistent_order_and_active_page
+    response=phase4_client.get(path);assert response.status_code==200
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 404 == 200
+E    +  where 404 = &lt;Response [404 Not Found]&gt;.status_code</failure></testcase><testcase classname="tests.test_player_experience" name="test_five_player_routes_have_consistent_order_and_active_page[/game]" time="0.090"><failure message="AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']&#10;  &#10;  Right contains one more item: '/model'&#10;  Use -v to get more diff">tests/test_player_experience.py:22: in test_five_player_routes_have_consistent_order_and_active_page
+    assert [a['href'] for a in links]==['/','/game','/history','/contact','/model']
+E   AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']
+E     
+E     Right contains one more item: '/model'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.test_player_experience" name="test_five_player_routes_have_consistent_order_and_active_page[/history]" time="0.142"><failure message="AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']&#10;  &#10;  Right contains one more item: '/model'&#10;  Use -v to get more diff">tests/test_player_experience.py:22: in test_five_player_routes_have_consistent_order_and_active_page
+    assert [a['href'] for a in links]==['/','/game','/history','/contact','/model']
+E   AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']
+E     
+E     Right contains one more item: '/model'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.test_player_experience" name="test_five_player_routes_have_consistent_order_and_active_page[/contact]" time="0.090"><failure message="AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']&#10;  &#10;  Right contains one more item: '/model'&#10;  Use -v to get more diff">tests/test_player_experience.py:22: in test_five_player_routes_have_consistent_order_and_active_page
+    assert [a['href'] for a in links]==['/','/game','/history','/contact','/model']
+E   AssertionError: assert ['/', '/game'...', '/contact'] == ['/', '/game'...ct', '/model']
+E     
+E     Right contains one more item: '/model'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.test_player_experience" name="test_home_introduces_mahjong_with_a_sourced_history_and_no_research_dashboard" time="0.104"><failure message="AssertionError: assert ('abad ke-19' in '\n \n \n   \n   \n   \n   \n   \n   Mahjong Strategy AI \n   \n   \n \n \n   Lewati ke konten \n   \n     中 Mahjong S...titas browser ini. \n \n   © 2026 Kelompok 1 Mahjong Strategy AI — Play, Predict &amp; Learn Universitas Bunda Mulia \n \n')">tests/test_player_experience.py:28: in test_home_introduces_mahjong_with_a_sourced_history_and_no_research_dashboard
+    assert 'abad ke-19' in public and 'https://ukmahjong.co.uk/index.php/what-is-mahjong/' in html
+E   AssertionError: assert ('abad ke-19' in '\n \n \n   \n   \n   \n   \n   \n   Mahjong Strategy AI \n   \n   \n \n \n   Lewati ke konten \n   \n     中 Mahjong S...titas browser ini. \n \n   © 2026 Kelompok 1 Mahjong Strategy AI — Play, Predict &amp; Learn Universitas Bunda Mulia \n \n')</failure></testcase><testcase classname="tests.test_player_experience" name="test_model_explains_six_steps_and_percentage_only_statistics" time="0.086"><failure message="AssertionError: assert {'model-build...'model-train'} &lt;= set()&#10;  &#10;  Extra items in the left set:&#10;  'model-evaluate'&#10;  'model-state'&#10;  'model-build'&#10;  'model-prepare'&#10;  'model-train'&#10;  'model-source'">tests/test_player_experience.py:38: in test_model_explains_six_steps_and_percentage_only_statistics
+    assert {'model-source','model-prepare','model-state','model-build','model-train','model-evaluate'}&lt;=ids
+E   AssertionError: assert {'model-build...'model-train'} &lt;= set()
+E     
+E     Extra items in the left set:
+E     'model-evaluate'
+E     'model-state'
+E     'model-build'
+E     'model-prepare'
+E     'model-train'
+E     'model-source'</failure></testcase><testcase classname="tests.test_player_experience" name="test_game_guide_precedes_setup_and_removed_controls_have_no_placeholders" time="0.090"><failure message="ValueError: substring not found">tests/test_player_experience.py:59: in test_game_guide_precedes_setup_and_removed_controls_have_no_placeholders
+    assert html.index('id="game-guide"')&lt;html.index('id="game-setup"')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: substring not found</failure></testcase><testcase classname="tests.test_player_experience" name="test_history_hides_debug_text_but_preserves_saved_record_and_protected_delete" time="0.111"><failure message="AssertionError: 416abfb2-f27d-45dc-a515-4c54609bd6e0&#10;assert '416abfb2-f2...4c54609bd6e0' not in '\n \n \n   ... Mulia \n \n'&#10;  &#10;  '416abfb2-f27d-45dc-a515-4c54609bd6e0' is contained here:&#10;     prediksi 416abfb2-f27d-45dc-a515-4c54609bd6e0 416abfb2-f27d-45dc-a515-4c54609bd6e0 &#10;           Top 3 · bobot rekomendasi 01 60.96% 02 16.10% 03 12.67% &#10;           &#10;       Hapus prediksi &#10;       ...&#10;  &#10;  ...Full output truncated (13 lines hidden), use '-vv' to show">tests/test_player_experience.py:73: in test_history_hides_debug_text_but_preserves_saved_record_and_protected_delete
+    assert hidden not in public,hidden
+E   AssertionError: 416abfb2-f27d-45dc-a515-4c54609bd6e0
+E   assert '416abfb2-f2...4c54609bd6e0' not in '\n \n \n   ... Mulia \n \n'
+E     
+E     '416abfb2-f27d-45dc-a515-4c54609bd6e0' is contained here:
+E        prediksi 416abfb2-f27d-45dc-a515-4c54609bd6e0 416abfb2-f27d-45dc-a515-4c54609bd6e0 
+E              Top 3 · bobot rekomendasi 01 60.96% 02 16.10% 03 12.67% 
+E              
+E          Hapus prediksi 
+E          ...
+E     
+E     ...Full output truncated (13 lines hidden), use '-vv' to show</failure></testcase><testcase classname="tests.test_player_experience" name="test_contact_hides_roles_without_inventing_incomplete_identity" time="0.098"><failure message="AssertionError: assert 'Pengembanga...sentasi UAS.' not in '\n \n \n   ... Mulia \n \n'&#10;  &#10;  'Pengembangan bersa...i &amp; presentasi UAS.' is contained here:&#10;    013 Peran Pengembangan bersama: dataset Mahjong, preprocessing &amp; encoding, training/evaluasi AI, game &amp; web FastAPI, testing, debugging, dokumentasi &amp; presentasi UAS. Email s32240013@student.ubm.ac.id 02 Efraim Emanuelle Josrin NIM 32240015 Peran Pengembangan bersama: dataset Mahjong, preprocessing &amp; encoding, training/evaluasi AI, game &amp; web FastAPI, testing, debugging, dokumentasi &amp; presentasi UAS. Email s32240015@student.ubm.ac.id 03 Jhonhazel Lionel Tjokahn NIM 32240016 Peran Pengembangan bersama: datase...&#10;  &#10;  ...Full output truncated (8 lines hidden), use '-vv' to show">tests/test_player_experience.py:86: in test_contact_hides_roles_without_inventing_incomplete_identity
+    assert member['role'] not in text(html)
+E   AssertionError: assert 'Pengembanga...sentasi UAS.' not in '\n \n \n   ... Mulia \n \n'
+E     
+E     'Pengembangan bersa...i &amp; presentasi UAS.' is contained here:
+E       013 Peran Pengembangan bersama: dataset Mahjong, preprocessing &amp; encoding, training/evaluasi AI, game &amp; web FastAPI, testing, debugging, dokumentasi &amp; presentasi UAS. Email s32240013@student.ubm.ac.id 02 Efraim Emanuelle Josrin NIM 32240015 Peran Pengembangan bersama: dataset Mahjong, preprocessing &amp; encoding, training/evaluasi AI, game &amp; web FastAPI, testing, debugging, dokumentasi &amp; presentasi UAS. Email s32240015@student.ubm.ac.id 03 Jhonhazel Lionel Tjokahn NIM 32240016 Peran Pengembangan bersama: datase...
+E     
+E     ...Full output truncated (8 lines hidden), use '-vv' to show</failure></testcase><testcase classname="tests.test_player_experience" name="test_model_template_is_in_runtime_allowlist" time="0.001"><failure message="AssertionError: assert None == 'app/templates/model.html'&#10; +  where None = &lt;built-in method get of dict object at 0x110104d80&gt;('app/templates/model.html')&#10; +    where &lt;built-in method get of dict object at 0x110104d80&gt; = {'.dockerignore': '.dockerignore', '.env.example': '.env.example', 'Dockerfile': 'Dockerfile', 'README_START_HERE.md': 'README_START_HERE.md', ...}.get">tests/test_player_experience.py:95: in test_model_template_is_in_runtime_allowlist
+    assert allow.get(path)==path
+E   AssertionError: assert None == 'app/templates/model.html'
+E    +  where None = &lt;built-in method get of dict object at 0x110104d80&gt;('app/templates/model.html')
+E    +    where &lt;built-in method get of dict object at 0x110104d80&gt; = {'.dockerignore': '.dockerignore', '.env.example': '.env.example', 'Dockerfile': 'Dockerfile', 'README_START_HERE.md': 'README_START_HERE.md', ...}.get</failure></testcase></testsuite></testsuites>

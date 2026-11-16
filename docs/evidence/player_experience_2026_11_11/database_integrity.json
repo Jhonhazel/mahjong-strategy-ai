@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "before_count": 98,
+  "after_count": 98,
+  "all_row_hashes_and_ids_identical": true,
+  "read_only_transaction": true,
+  "timezone": "UTC",
+  "tests_and_browser_use": "mahjong_phase3_test only"
+}

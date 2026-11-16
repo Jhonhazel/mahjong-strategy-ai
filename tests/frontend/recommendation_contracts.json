@@ -1,0 +1,629 @@
+{
+  "policy": {
+    "minimum_score": 0.1,
+    "maximum_suggestions": 3
+  },
+  "captured": {
+    "minimum_score": 0.1,
+    "maximum_suggestions": 3,
+    "suggestions": [
+      {
+        "tile": "J1",
+        "class_index": 31,
+        "action_id": 33,
+        "score": 0.8203998804092407
+      }
+    ],
+    "status": "available"
+  },
+  "cases": {
+    "three": {
+      "prediction": {
+        "recommended_tile": "W1",
+        "recommended_class_index": 0,
+        "recommended_action_id": 2,
+        "top3": [
+          {
+            "tile": "W1",
+            "class_index": 0,
+            "action_id": 2,
+            "score": 0.6
+          },
+          {
+            "tile": "W2",
+            "class_index": 1,
+            "action_id": 3,
+            "score": 0.25
+          },
+          {
+            "tile": "W3",
+            "class_index": 2,
+            "action_id": 4,
+            "score": 0.15
+          }
+        ],
+        "scores": [
+          0.6,
+          0.25,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+        "encoder_version": "ijcai2026_mcr_v1_strict",
+        "seat": 1,
+        "turn_number": 4,
+        "score_meaning": "Masked model scores for observed discard behavior; uncalibrated, not winning chances",
+        "prediction_id": "abef5b55-830c-42a8-8b3f-9f1bfecdee9d",
+        "game_id": "c7a448a0-6ade-4c7d-ae12-8e604bd72abe",
+        "turn_phase": "SELF_TURN",
+        "reused": false,
+        "recommendations": {
+          "minimum_score": 0.1,
+          "maximum_suggestions": 3,
+          "suggestions": [
+            {
+              "tile": "W1",
+              "class_index": 0,
+              "action_id": 2,
+              "score": 0.6
+            },
+            {
+              "tile": "W2",
+              "class_index": 1,
+              "action_id": 3,
+              "score": 0.25
+            },
+            {
+              "tile": "W3",
+              "class_index": 2,
+              "action_id": 4,
+              "score": 0.15
+            }
+          ],
+          "status": "available"
+        }
+      },
+      "legal_actions": [
+        {
+          "action_id": 2,
+          "action_type": "Play",
+          "tile": "W1",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 3,
+          "action_type": "Play",
+          "tile": "W2",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 4,
+          "action_type": "Play",
+          "tile": "W3",
+          "meld_tiles": null,
+          "label": "Buang"
+        }
+      ]
+    },
+    "two": {
+      "prediction": {
+        "recommended_tile": "W1",
+        "recommended_class_index": 0,
+        "recommended_action_id": 2,
+        "top3": [
+          {
+            "tile": "W1",
+            "class_index": 0,
+            "action_id": 2,
+            "score": 0.62
+          },
+          {
+            "tile": "W2",
+            "class_index": 1,
+            "action_id": 3,
+            "score": 0.25
+          },
+          {
+            "tile": "W3",
+            "class_index": 2,
+            "action_id": 4,
+            "score": 0.08
+          }
+        ],
+        "scores": [
+          0.62,
+          0.25,
+          0.08,
+          0.05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+        "encoder_version": "ijcai2026_mcr_v1_strict",
+        "seat": 1,
+        "turn_number": 4,
+        "score_meaning": "Masked model scores for observed discard behavior; uncalibrated, not winning chances",
+        "prediction_id": "abef5b55-830c-42a8-8b3f-9f1bfecdee9d",
+        "game_id": "c7a448a0-6ade-4c7d-ae12-8e604bd72abe",
+        "turn_phase": "SELF_TURN",
+        "reused": false,
+        "recommendations": {
+          "minimum_score": 0.1,
+          "maximum_suggestions": 3,
+          "suggestions": [
+            {
+              "tile": "W1",
+              "class_index": 0,
+              "action_id": 2,
+              "score": 0.62
+            },
+            {
+              "tile": "W2",
+              "class_index": 1,
+              "action_id": 3,
+              "score": 0.25
+            }
+          ],
+          "status": "available"
+        }
+      },
+      "legal_actions": [
+        {
+          "action_id": 2,
+          "action_type": "Play",
+          "tile": "W1",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 3,
+          "action_type": "Play",
+          "tile": "W2",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 4,
+          "action_type": "Play",
+          "tile": "W3",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 5,
+          "action_type": "Play",
+          "tile": "W4",
+          "meld_tiles": null,
+          "label": "Buang"
+        }
+      ]
+    },
+    "one": {
+      "prediction": {
+        "recommended_tile": "W1",
+        "recommended_class_index": 0,
+        "recommended_action_id": 2,
+        "top3": [
+          {
+            "tile": "W1",
+            "class_index": 0,
+            "action_id": 2,
+            "score": 0.96
+          },
+          {
+            "tile": "W2",
+            "class_index": 1,
+            "action_id": 3,
+            "score": 0.03
+          },
+          {
+            "tile": "W3",
+            "class_index": 2,
+            "action_id": 4,
+            "score": 0.01
+          }
+        ],
+        "scores": [
+          0.96,
+          0.03,
+          0.01,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+        "encoder_version": "ijcai2026_mcr_v1_strict",
+        "seat": 1,
+        "turn_number": 4,
+        "score_meaning": "Masked model scores for observed discard behavior; uncalibrated, not winning chances",
+        "prediction_id": "abef5b55-830c-42a8-8b3f-9f1bfecdee9d",
+        "game_id": "c7a448a0-6ade-4c7d-ae12-8e604bd72abe",
+        "turn_phase": "SELF_TURN",
+        "reused": false,
+        "recommendations": {
+          "minimum_score": 0.1,
+          "maximum_suggestions": 3,
+          "suggestions": [
+            {
+              "tile": "W1",
+              "class_index": 0,
+              "action_id": 2,
+              "score": 0.96
+            }
+          ],
+          "status": "available"
+        }
+      },
+      "legal_actions": [
+        {
+          "action_id": 2,
+          "action_type": "Play",
+          "tile": "W1",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 3,
+          "action_type": "Play",
+          "tile": "W2",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 4,
+          "action_type": "Play",
+          "tile": "W3",
+          "meld_tiles": null,
+          "label": "Buang"
+        }
+      ]
+    },
+    "empty": {
+      "prediction": {
+        "recommended_tile": "W1",
+        "recommended_class_index": 0,
+        "recommended_action_id": 2,
+        "top3": [
+          {
+            "tile": "W1",
+            "class_index": 0,
+            "action_id": 2,
+            "score": 0.08333333333333333
+          },
+          {
+            "tile": "W2",
+            "class_index": 1,
+            "action_id": 3,
+            "score": 0.08333333333333333
+          },
+          {
+            "tile": "W3",
+            "class_index": 2,
+            "action_id": 4,
+            "score": 0.08333333333333333
+          }
+        ],
+        "scores": [
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.08333333333333333,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+        "encoder_version": "ijcai2026_mcr_v1_strict",
+        "seat": 1,
+        "turn_number": 4,
+        "score_meaning": "Masked model scores for observed discard behavior; uncalibrated, not winning chances",
+        "prediction_id": "abef5b55-830c-42a8-8b3f-9f1bfecdee9d",
+        "game_id": "c7a448a0-6ade-4c7d-ae12-8e604bd72abe",
+        "turn_phase": "SELF_TURN",
+        "reused": false,
+        "recommendations": {
+          "minimum_score": 0.1,
+          "maximum_suggestions": 3,
+          "suggestions": [],
+          "status": "no_suggestions"
+        }
+      },
+      "legal_actions": [
+        {
+          "action_id": 2,
+          "action_type": "Play",
+          "tile": "W1",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 3,
+          "action_type": "Play",
+          "tile": "W2",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 4,
+          "action_type": "Play",
+          "tile": "W3",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 5,
+          "action_type": "Play",
+          "tile": "W4",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 6,
+          "action_type": "Play",
+          "tile": "W5",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 7,
+          "action_type": "Play",
+          "tile": "W6",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 8,
+          "action_type": "Play",
+          "tile": "W7",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 9,
+          "action_type": "Play",
+          "tile": "W8",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 10,
+          "action_type": "Play",
+          "tile": "W9",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 11,
+          "action_type": "Play",
+          "tile": "T1",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 12,
+          "action_type": "Play",
+          "tile": "T2",
+          "meld_tiles": null,
+          "label": "Buang"
+        },
+        {
+          "action_id": 13,
+          "action_type": "Play",
+          "tile": "T3",
+          "meld_tiles": null,
+          "label": "Buang"
+        }
+      ]
+    }
+  },
+  "tie_captured": {
+    "recommended_tile": "W5",
+    "recommended_class_index": 4,
+    "recommended_action_id": 6,
+    "top3": [
+      {
+        "tile": "W5",
+        "class_index": 4,
+        "action_id": 6,
+        "score": 0.4
+      },
+      {
+        "tile": "T1",
+        "class_index": 9,
+        "action_id": 11,
+        "score": 0.4
+      },
+      {
+        "tile": "T2",
+        "class_index": 10,
+        "action_id": 12,
+        "score": 0.2
+      }
+    ],
+    "scores": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.4,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.4,
+      0.2,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "model_version": "discard_mlp_flexible_v1:ad05a5b2ce37",
+    "encoder_version": "ijcai2026_mcr_v1_strict",
+    "seat": 1,
+    "turn_number": 4,
+    "score_meaning": "Masked model scores for observed discard behavior; uncalibrated, not winning chances",
+    "prediction_id": "abef5b55-830c-42a8-8b3f-9f1bfecdee9d",
+    "game_id": "c7a448a0-6ade-4c7d-ae12-8e604bd72abe",
+    "turn_phase": "SELF_TURN",
+    "reused": false,
+    "recommendations": {
+      "suggestions": [
+        {
+          "tile": "W5",
+          "class_index": 4,
+          "action_id": 6,
+          "score": 0.4
+        },
+        {
+          "tile": "T1",
+          "class_index": 9,
+          "action_id": 11,
+          "score": 0.4
+        },
+        {
+          "tile": "T2",
+          "class_index": 10,
+          "action_id": 12,
+          "score": 0.2
+        }
+      ],
+      "minimum_score": 0.1,
+      "maximum_suggestions": 3,
+      "status": "available"
+    }
+  }
+}

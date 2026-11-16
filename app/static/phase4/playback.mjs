@@ -19,12 +19,12 @@ export function publicUpdates(before, after) {
     frames.push({ seat: seat.seat, position: seat.position,
       newDiscards: prefix ? seat.discards.map((_, index) => index).slice(old.discards.length) : [],
       newMelds: seat.melds.map((_, index) => index).slice(old.melds.length),
-      message: seat.name + ': perubahan publik pada ' + changes.join(', ') + '.',
+      message: seat.name + ': meja diperbarui.',
     });
   }
   if (!frames.length && (before.wall_tiles_remaining !== after.wall_tiles_remaining
       || before.status !== after.status || !equal(before.round_result, after.round_result))) {
-    frames.push({ seat: null, position: null, newDiscards: [], newMelds: [], message: 'Informasi meja: perubahan publik telah dikonfirmasi.' });
+    frames.push({ seat: null, position: null, newDiscards: [], newMelds: [], message: 'Meja diperbarui.' });
   }
   return frames.slice(0, 4);
 }

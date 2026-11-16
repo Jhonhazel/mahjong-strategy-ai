@@ -24,7 +24,7 @@ test('public discard and meld deltas are grouped by relative seat with no chrono
   assert.equal(frames.find(f=>f.seat===2).position,'right');
   assert.deepEqual(frames.find(f=>f.seat===2).newDiscards,[0]);
   assert.deepEqual(frames.find(f=>f.seat===0).newMelds,[0]);
-  assert.ok(frames.every(f=>/perubahan publik/.test(f.message)));
+  assert.ok(frames.every(f=>/meja diperbarui/.test(f.message)));
 });
 test('claimed/changed rivers do not invent an append sequence or expose hidden AnGang',()=>{
   const before=view(),after=view({turn_number:20});before.seat_public_states[0].discards=['W1','W2'];after.seat_public_states[0].discards=['W2'];
